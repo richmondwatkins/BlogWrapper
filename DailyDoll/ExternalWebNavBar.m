@@ -8,7 +8,6 @@
 
 #import "ExternalWebNavBar.h"
 #import "ProjectSettings.h"
-#import "UIColor+UIColor_Expanded.h"
 
 @implementation ExternalWebNavBar
 
@@ -17,7 +16,7 @@
     if (self = [super init]) {
         self.frame = CGRectMake(0, 15, width, 50);
 
-        self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] navBar:@"BackgroundColor"]];
+        self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] navBar:kBackgroundColor]];
     }
 
     return self;

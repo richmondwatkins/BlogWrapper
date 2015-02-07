@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "UIColor+UIColor_Expanded.h"
+#import "ProjectSettingsKeys.h"
 
 @interface ProjectSettings : NSObject
 
@@ -30,5 +32,9 @@
 
 -(NSString *)activityIndicator:(NSString *)property;
 
+// ======== Share View ====
+
+- (NSString *)shareView:(NSString *)property;
+- (NSString *)shareTableView:(NSString *)property;
 
 @end

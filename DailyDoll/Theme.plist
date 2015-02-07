@@ -4,6 +4,16 @@
 <dict>
 	<key>Theme</key>
 	<dict>
+		<key>ShareTableView</key>
+		<dict>
+			<key>BackgroundColor</key>
+			<string>ffffff</string>
+		</dict>
+		<key>ShareView</key>
+		<dict>
+			<key>BackgroundColor</key>
+			<string>ffffff</string>
+		</dict>
 		<key>ActivityIndicator</key>
 		<dict>
 			<key>TintColor</key>

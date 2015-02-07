@@ -15,6 +15,7 @@
 #import "BlurActivityOverlay.h"
 #import "CenterVCActivityIndicator.h"
 #import "CenterVCTitleLabel.h"
+#import "ShareViewController.h"
 
 @interface CenterViewController () <UIWebViewDelegate, SideMenuProtocol>
 @property UIWebView *webView;
@@ -46,6 +47,8 @@
 
     self.navigationItem.leftBarButtonItem = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(showSideMenu)];
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(presentShareVC:)];
 }
 
 - (void)setUpWebView {
@@ -93,14 +96,6 @@
                                       initWithStyleAndTitle:[webView stringByEvaluatingJavaScriptFromString:@"document.title"]];
     self.navigationItem.titleView = titleLabel;
 
-    if (![titleLabel.text isEqualToString:@"The Daily Doll – Beauty | Wellness | Life"]) {
-        NSString *postFile = [[NSBundle mainBundle] pathForResource:@"post"
-                                                           ofType:@"js"];
-
-        NSString *postJS = [NSString stringWithContentsOfFile:postFile encoding:NSUTF8StringEncoding error:NULL];
-
-        [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@", postJS]];
-    }
 
     [self.blurOverlay animateAndRemove];
 }
@@ -108,7 +103,11 @@
 - (void)showSideMenu {
 
     [self.drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+}
 
+- (void)presentShareVC:(id)sender {
+
+    [self.drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
 }
 
 - (void)selectedSideMenuItem:(NSDictionary *)navigationObject {

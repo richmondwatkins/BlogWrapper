@@ -35,6 +35,11 @@
 		5DDA3DB51A85F4F700FD085A /* BlurActivityOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DB41A85F4F700FD085A /* BlurActivityOverlay.m */; };
 		5DDA3DB81A85FDFE00FD085A /* CenterVCTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DB71A85FDFE00FD085A /* CenterVCTitleLabel.m */; };
 		5DDA3DBC1A86053200FD085A /* post.js in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA3DBB1A86053200FD085A /* post.js */; };
+		5DDA3DC31A86714400FD085A /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DC21A86714400FD085A /* ShareViewController.m */; };
+		5DDA3DC61A86777800FD085A /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DC51A86777800FD085A /* ShareView.m */; };
+		5DDA3DC91A867F7E00FD085A /* ShareTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DC81A867F7E00FD085A /* ShareTableView.m */; };
+		5DDA3DCC1A8681EF00FD085A /* ProjectSettingsKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DCB1A8681EF00FD085A /* ProjectSettingsKeys.m */; };
+		5DDA3DCF1A8685A200FD085A /* ShareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DCE1A8685A200FD085A /* ShareTableViewCell.m */; };
 		BDF89CC8C066F8FFE29F7BC1 /* libPods-DailyDoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 579988490B7E0E905A16D25A /* libPods-DailyDoll.a */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +104,16 @@
 		5DDA3DB61A85FDFE00FD085A /* CenterVCTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterVCTitleLabel.h; sourceTree = "<group>"; };
 		5DDA3DB71A85FDFE00FD085A /* CenterVCTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterVCTitleLabel.m; sourceTree = "<group>"; };
 		5DDA3DBB1A86053200FD085A /* post.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = post.js; sourceTree = "<group>"; };
+		5DDA3DC11A86714400FD085A /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		5DDA3DC21A86714400FD085A /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		5DDA3DC41A86777800FD085A /* ShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareView.h; sourceTree = "<group>"; };
+		5DDA3DC51A86777800FD085A /* ShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareView.m; sourceTree = "<group>"; };
+		5DDA3DC71A867F7E00FD085A /* ShareTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareTableView.h; sourceTree = "<group>"; };
+		5DDA3DC81A867F7E00FD085A /* ShareTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareTableView.m; sourceTree = "<group>"; };
+		5DDA3DCA1A8681EF00FD085A /* ProjectSettingsKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectSettingsKeys.h; sourceTree = "<group>"; };
+		5DDA3DCB1A8681EF00FD085A /* ProjectSettingsKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectSettingsKeys.m; sourceTree = "<group>"; };
+		5DDA3DCD1A8685A200FD085A /* ShareTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareTableViewCell.h; sourceTree = "<group>"; };
+		5DDA3DCE1A8685A200FD085A /* ShareTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareTableViewCell.m; sourceTree = "<group>"; };
 		680B8C91B0508131C24B223C /* Pods-DailyDoll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDoll.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DailyDoll/Pods-DailyDoll.debug.xcconfig"; sourceTree = "<group>"; };
 		AA7FAADA7B793178F851DF47 /* Pods-DailyDoll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDoll.release.xcconfig"; path = "Pods/Target Support Files/Pods-DailyDoll/Pods-DailyDoll.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,20 +200,18 @@
 		5DDA1B1B1A7F383C00914761 /* DailyDoll */ = {
 			isa = PBXGroup;
 			children = (
-				5DDA3DA31A85D39500FD085A /* ProjectSettings.h */,
-				5DDA3DA41A85D39500FD085A /* ProjectSettings.m */,
-				5DDA3DA71A85E34400FD085A /* ExternalWebView */,
+				5DDA3DBF1A8670F700FD085A /* AppDelegate */,
 				5DC2F5581A85BB9600ED1969 /* Categories */,
-				5DC2F5571A85BB7D00ED1969 /* SideMenu */,
+				5DDA3DBD1A8670AE00FD085A /* ParentViewControllerClass */,
+				5DDA3DBE1A8670C400FD085A /* ProjectSettings */,
+				5DDA3DA71A85E34400FD085A /* ExternalWebView */,
 				5DDA3DB21A85F4A800FD085A /* MainVC */,
-				5DC2F5521A85AECD00ED1969 /* DDViewController.h */,
-				5DC2F5531A85AECD00ED1969 /* DDViewController.m */,
-				5DDA1B201A7F383C00914761 /* AppDelegate.h */,
-				5DDA1B211A7F383C00914761 /* AppDelegate.m */,
-				5DDA1B291A7F383C00914761 /* Images.xcassets */,
-				5DDA1B2B1A7F383C00914761 /* LaunchScreen.xib */,
+				5DC2F5571A85BB7D00ED1969 /* SideMenu */,
+				5DDA3DC01A86711A00FD085A /* ShareVC */,
 				5DDA1B1C1A7F383C00914761 /* Supporting Files */,
+				5DDA1B291A7F383C00914761 /* Images.xcassets */,
 				5D2D40741A83282D000A84B1 /* Main.storyboard */,
+				5DDA1B2B1A7F383C00914761 /* LaunchScreen.xib */,
 				5DA64CD41A847A7A004F08A8 /* HeaderView.xib */,
 			);
 			path = DailyDoll;
@@ -288,16 +301,68 @@
 		5DDA3DB21A85F4A800FD085A /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
-				5DDA3DAD1A85EE4900FD085A /* CenterVCActivityIndicator.h */,
-				5DDA3DAE1A85EE4900FD085A /* CenterVCActivityIndicator.m */,
 				5DDA1B231A7F383C00914761 /* CenterViewController.h */,
 				5DDA1B241A7F383C00914761 /* CenterViewController.m */,
+				5DDA3DAD1A85EE4900FD085A /* CenterVCActivityIndicator.h */,
+				5DDA3DAE1A85EE4900FD085A /* CenterVCActivityIndicator.m */,
 				5DDA3DB31A85F4F700FD085A /* BlurActivityOverlay.h */,
 				5DDA3DB41A85F4F700FD085A /* BlurActivityOverlay.m */,
 				5DDA3DB61A85FDFE00FD085A /* CenterVCTitleLabel.h */,
 				5DDA3DB71A85FDFE00FD085A /* CenterVCTitleLabel.m */,
 			);
 			name = MainVC;
+			sourceTree = "<group>";
+		};
+		5DDA3DBD1A8670AE00FD085A /* ParentViewControllerClass */ = {
+			isa = PBXGroup;
+			children = (
+				5DC2F5521A85AECD00ED1969 /* DDViewController.h */,
+				5DC2F5531A85AECD00ED1969 /* DDViewController.m */,
+			);
+			name = ParentViewControllerClass;
+			sourceTree = "<group>";
+		};
+		5DDA3DBE1A8670C400FD085A /* ProjectSettings */ = {
+			isa = PBXGroup;
+			children = (
+				5DDA3DA31A85D39500FD085A /* ProjectSettings.h */,
+				5DDA3DA41A85D39500FD085A /* ProjectSettings.m */,
+				5DDA3DCA1A8681EF00FD085A /* ProjectSettingsKeys.h */,
+				5DDA3DCB1A8681EF00FD085A /* ProjectSettingsKeys.m */,
+			);
+			name = ProjectSettings;
+			sourceTree = "<group>";
+		};
+		5DDA3DBF1A8670F700FD085A /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				5DDA1B201A7F383C00914761 /* AppDelegate.h */,
+				5DDA1B211A7F383C00914761 /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		5DDA3DC01A86711A00FD085A /* ShareVC */ = {
+			isa = PBXGroup;
+			children = (
+				5DDA3DD01A8685AC00FD085A /* TableView */,
+				5DDA3DC11A86714400FD085A /* ShareViewController.h */,
+				5DDA3DC21A86714400FD085A /* ShareViewController.m */,
+				5DDA3DC41A86777800FD085A /* ShareView.h */,
+				5DDA3DC51A86777800FD085A /* ShareView.m */,
+			);
+			name = ShareVC;
+			sourceTree = "<group>";
+		};
+		5DDA3DD01A8685AC00FD085A /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				5DDA3DC71A867F7E00FD085A /* ShareTableView.h */,
+				5DDA3DC81A867F7E00FD085A /* ShareTableView.m */,
+				5DDA3DCD1A8685A200FD085A /* ShareTableViewCell.h */,
+				5DDA3DCE1A8685A200FD085A /* ShareTableViewCell.m */,
+			);
+			name = TableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,12 +516,17 @@
 				5D8052801A8331FD0076A6E8 /* SideMenuTableViewCell.m in Sources */,
 				5DC2F55B1A85BBEF00ED1969 /* SideMenuTableHeaderView.m in Sources */,
 				5DDA3DAF1A85EE4900FD085A /* CenterVCActivityIndicator.m in Sources */,
+				5DDA3DC31A86714400FD085A /* ShareViewController.m in Sources */,
 				5DDA3DAA1A85E37700FD085A /* ExternalWebNavBar.m in Sources */,
+				5DDA3DC61A86777800FD085A /* ShareView.m in Sources */,
 				5DDA1B251A7F383C00914761 /* CenterViewController.m in Sources */,
 				5DDA1B221A7F383C00914761 /* AppDelegate.m in Sources */,
 				5DDA1B1F1A7F383C00914761 /* main.m in Sources */,
+				5DDA3DCF1A8685A200FD085A /* ShareTableViewCell.m in Sources */,
 				5DDA3DB51A85F4F700FD085A /* BlurActivityOverlay.m in Sources */,
 				5DC2F5541A85AECD00ED1969 /* DDViewController.m in Sources */,
+				5DDA3DCC1A8681EF00FD085A /* ProjectSettingsKeys.m in Sources */,
+				5DDA3DC91A867F7E00FD085A /* ShareTableView.m in Sources */,
 				5DC2F5511A85A91A00ED1969 /* SideMenuTableView.m in Sources */,
 				5DDA3DB81A85FDFE00FD085A /* CenterVCTitleLabel.m in Sources */,
 			);

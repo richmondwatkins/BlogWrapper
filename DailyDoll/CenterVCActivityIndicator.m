@@ -8,7 +8,6 @@
 
 #import "CenterVCActivityIndicator.h"
 #import "ProjectSettings.h"
-#import "UIColor+UIColor_Expanded.h"
 
 @implementation CenterVCActivityIndicator
 

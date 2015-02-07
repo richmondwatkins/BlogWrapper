@@ -7,7 +7,6 @@
 //
 
 #import "DDViewController.h"
-#import "UIColor+UIColor_Expanded.h"
 #import "ProjectSettings.h"
 
 @interface DDViewController ()
@@ -20,14 +19,14 @@
     [super viewDidLoad];
 
     UIView *statusBarBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
-    statusBarBackground.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] statusBarColor:@"BackgroundColor"]];
+    statusBarBackground.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] statusBarColor:kBackgroundColor]];
     [self.view addSubview:statusBarBackground];
 
     [[[UIApplication sharedApplication] keyWindow] addSubview:statusBarBackground];
 
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithHexString:@"e2c675"];
 
-    self.view.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] navBar:@"BackgroundColor"]];
+    self.view.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] navBar:kBackgroundColor]];
 
 }
 

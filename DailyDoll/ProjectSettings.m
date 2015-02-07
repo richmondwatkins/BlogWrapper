@@ -59,32 +59,32 @@ static ProjectSettings *sharedThemeManager = nil;
 
 //========= Side Menu ========
 
--(NSString *)navBar:(NSString *)property {
+- (NSString *)navBar:(NSString *)property {
 
     return self.themeElements[@"NavBar"][property];
 }
 
--(NSString *)statusBarColor:(NSString *)property {
+- (NSString *)statusBarColor:(NSString *)property {
 
     return self.themeElements[@"StatusBarColor"][property];
 }
 
--(NSString *)sideMenuHeader:(NSString *)property {
+- (NSString *)sideMenuHeader:(NSString *)property {
 
     return self.themeElements[@"SideMenuHeader"][property];
 }
 
--(NSString *)sideMenuTableView:(NSString *)property {
+- (NSString *)sideMenuTableView:(NSString *)property {
 
     return self.themeElements[@"SideMenuTableView"][property];
 }
 
--(NSString *)sideMenuCell:(NSString *)property {
+- (NSString *)sideMenuCell:(NSString *)property {
 
     return self.themeElements[@"SideMenuCell"][property];
 }
 
--(NSString *)sideMenuSectionHeader:(NSString *)property {
+- (NSString *)sideMenuSectionHeader:(NSString *)property {
 
     return self.themeElements[@"SideMenuSectionHeader"][property];
 }
@@ -93,17 +93,31 @@ static ProjectSettings *sharedThemeManager = nil;
 // ======== Project Variabels ====
 
 
--(NSString *)homeVariables:(NSString *)property {
+- (NSString *)homeVariables:(NSString *)property {
 
     return self.projectVariables[@"Home"][property];
 }
 
 // ======= Main View ====
 
--(NSString *)activityIndicator:(NSString *)property {
+- (NSString *)activityIndicator:(NSString *)property {
 
     return self.themeElements[@"ActivityIndicator"][property];
 }
+
+
+// ======== Share View ====
+
+- (NSString *)shareView:(NSString *)property {
+
+    return self.themeElements[@"ShareView"][property];
+}
+
+- (NSString *)shareTableView:(NSString *)property {
+
+    return self.themeElements[@"ShareTableView"][property];
+}
+
 
 
 @end

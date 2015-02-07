@@ -191,7 +191,7 @@
 
 - (int)returnWidthForMenuViewController {
 
-    return [[UIScreen mainScreen] bounds].size.width - self.view.frame.size.width * 0.2;
+    return [[UIScreen mainScreen] bounds].size.width - [[UIScreen mainScreen] bounds].size.width * 0.2;
 }
 
 @end

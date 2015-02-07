@@ -7,7 +7,6 @@
 //
 
 #import "SideMenuTableView.h"
-#import "UIColor+UIColor_Expanded.h"
 #import "ProjectSettings.h"
 
 @implementation SideMenuTableView
@@ -23,7 +22,7 @@
         [self setLayoutMargins:UIEdgeInsetsZero];
     }
 
-    self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] sideMenuTableView:@"BackgroundColor"]];
+    self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] sideMenuTableView:kBackgroundColor]];
     self.showsVerticalScrollIndicator = NO;
 
     CGFloat bottomInset = 40;

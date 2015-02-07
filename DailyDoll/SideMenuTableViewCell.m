@@ -7,7 +7,6 @@
 //
 
 #import "SideMenuTableViewCell.h"
-#import "UIColor+UIColor_Expanded.h"
 #import "ProjectSettings.h"
 
 @implementation SideMenuTableViewCell
@@ -24,7 +23,7 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
 
 
-        self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] sideMenuCell:@"BackgroundColor"]];
+        self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] sideMenuCell:kBackgroundColor]];
 
         if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
             [self setSeparatorInset:UIEdgeInsetsZero];

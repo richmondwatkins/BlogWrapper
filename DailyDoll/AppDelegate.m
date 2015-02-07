@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "SideMenuViewController.h"
 #import "CenterViewController.h"
+#import "ShareViewController.h"
 
 @interface AppDelegate ()
 @end
@@ -18,11 +19,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     SideMenuViewController * leftDrawer = [[SideMenuViewController alloc] init];
+    ShareViewController *rightDrawer = [[ShareViewController alloc] init];
     CenterViewController *mainVC = [[CenterViewController alloc] init];
     UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:mainVC];
 
-    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:navigationController leftDrawerViewController:leftDrawer];
+    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:navigationController leftDrawerViewController:leftDrawer rightDrawerViewController:rightDrawer];
     self.drawerController.maximumLeftDrawerWidth = [leftDrawer returnWidthForMenuViewController];
+    self.drawerController.maximumRightDrawerWidth = [rightDrawer returnWidthForShareVC];
     self.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
     self.drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
     self.drawerController.shouldStretchDrawer = NO;
