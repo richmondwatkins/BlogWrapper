@@ -20,14 +20,19 @@
     // Configure the view for the selected state
 }
 
--(void)addShareButton {
+-(void)addShareButtonAndAdjustFrame:(CGRect)parentFrame withCellObject:(NSDictionary *)object {
 
-    UIImageView *cellImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo"]];
+    self.frame = CGRectMake(0, 0, parentFrame.size.width, self.frame.size.height);
+
+    UIImageView *cellImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:object[@"Image"]]];
+
+    cellImageView.frame = CGRectMake(0, 0, self.frame.size.width * 0.9, self.frame.size.height * 0.9);
 
     [self addSubview:cellImageView];
 
     [cellImageView setCenter:CGPointMake(self.frame.size.width / 2,
                                          self.frame.size.height / 2)];
+
 }
 
 @end

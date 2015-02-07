@@ -9,24 +9,37 @@
 #import "ShareViewController.h"
 #import "ShareView.h"
 #import "ShareTableView.h"
+#import "ShareTableViewCell.h"
+#import "ProjectSettings.h"
 
 @interface ShareViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property ShareTableView *tableView;
+@property NSArray *dataSource;
+
 @end
 
-@implementation ShareViewController
+@implementation ShareViewController {
+    SocialShare theSocialShareOption;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    ShareView *shareView = [[ShareView alloc] initWithStyleAndFrame:CGRectMake(0, 0, [self returnWidthForShareVC], self.view.frame.size.height)];
+    ShareView *shareView = [[ShareView alloc] initWithStyleAndFrame:CGRectMake(0, 20, [self returnWidthForShareVC], self.view.frame.size.height)];
+
+    self.tableView = [[ShareTableView alloc] initWithStyleAndFrame:shareView.frame];
+
+    [shareView addSubview:self.tableView];
+
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
 
     self.view = shareView;
 
-    self.tableView = [[ShareTableView alloc] initWithStyleAndFrame:self.view.frame];
+    self.dataSource = [[ProjectSettings sharedManager] shareItems];
 
-    [self.view addSubview:self.tableView];
+    [self.tableView reloadData];
 }
 
 
@@ -34,21 +47,81 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return self.tableView.customDataSource.count;
+//    return self.tableView.customDataSource.count;
+
+    return 4;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"shareCell"];
+    ShareTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"shareCell"];
 
     if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"shareCell"];
+        cell = [[ShareTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"shareCell"];
     }
+
+    [cell addShareButtonAndAdjustFrame:self.view.frame
+                        withCellObject:self.dataSource[indexPath.row]];
 
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
+    switch (indexPath.row) {
+        case 0:
+            theSocialShareOption = FACEBOOK;
+            break;
+        case 1:
+            theSocialShareOption = PINTREST;
+            break;
+        case 2:
+            theSocialShareOption = TWITTER;
+            break;
+        case 3:
+            theSocialShareOption = INSTAGRAM;
+            break;
+        case 4:
+            theSocialShareOption = GOOGLEPLUS;
+            break;
+
+        default:
+            break;
+    }
+
+    [self handleSocialAction];
+}
+
+
+- (void)handleSocialAction {
+
+    switch (theSocialShareOption) {
+        case FACEBOOK:
+
+            break;
+
+        case PINTREST:
+
+            break;
+        case TWITTER:
+
+            break;
+        case INSTAGRAM:
+
+            break;
+        case GOOGLEPLUS:
+
+            break;
+
+        default:
+            break;
+    }
+}
 
 - (int)returnWidthForShareVC {
 

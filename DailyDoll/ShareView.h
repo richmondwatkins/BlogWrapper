@@ -10,6 +10,8 @@
 
 @interface ShareView : UIView
 
+@property NSArray *customDataSource;
+
 - (instancetype)initWithStyleAndFrame:(CGRect)parentFrame;
 
 @end

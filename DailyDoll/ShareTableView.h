@@ -10,8 +10,6 @@
 
 @interface ShareTableView : UITableView
 
-@property NSArray *customDataSource;
-
 - (instancetype)initWithStyleAndFrame:(CGRect)parentFrame;
 
 @end

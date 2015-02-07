@@ -18,9 +18,13 @@
         self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] shareTableView:kBackgroundColor]];
 
         self.frame = parentFrame;
+
+         self.separatorInset = UIEdgeInsetsMake(0.0f, self.frame.size.width, 0.0f, 0.0f);
+
     }
 
     return self;
 }
+
 
 @end

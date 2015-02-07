@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D0EDAB41A830196007DE68D /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0EDAB31A830196007DE68D /* SideMenuViewController.m */; };
 		5D0EDAB61A830290007DE68D /* MenuItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D0EDAB51A830290007DE68D /* MenuItems.plist */; };
+		5D0F177E1A86A1FC00AAE285 /* SocialSharingActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0F177D1A86A1FC00AAE285 /* SocialSharingActionController.m */; };
 		5D2D40751A83282D000A84B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2D40741A83282D000A84B1 /* Main.storyboard */; };
 		5D80527D1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80527C1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m */; };
 		5D8052801A8331FD0076A6E8 /* SideMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80527F1A8331FD0076A6E8 /* SideMenuTableViewCell.m */; };
@@ -58,6 +59,8 @@
 		5D0EDAB21A830196007DE68D /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
 		5D0EDAB31A830196007DE68D /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
 		5D0EDAB51A830290007DE68D /* MenuItems.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MenuItems.plist; sourceTree = "<group>"; };
+		5D0F177C1A86A1FC00AAE285 /* SocialSharingActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialSharingActionController.h; sourceTree = "<group>"; };
+		5D0F177D1A86A1FC00AAE285 /* SocialSharingActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialSharingActionController.m; sourceTree = "<group>"; };
 		5D2D40741A83282D000A84B1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5D80527B1A83315C0076A6E8 /* UIColor+UIColor_Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColor_Expanded.h"; sourceTree = "<group>"; };
 		5D80527C1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_Expanded.m"; sourceTree = "<group>"; };
@@ -350,6 +353,8 @@
 				5DDA3DC21A86714400FD085A /* ShareViewController.m */,
 				5DDA3DC41A86777800FD085A /* ShareView.h */,
 				5DDA3DC51A86777800FD085A /* ShareView.m */,
+				5D0F177C1A86A1FC00AAE285 /* SocialSharingActionController.h */,
+				5D0F177D1A86A1FC00AAE285 /* SocialSharingActionController.m */,
 			);
 			name = ShareVC;
 			sourceTree = "<group>";
@@ -509,6 +514,7 @@
 				5D0EDAB41A830196007DE68D /* SideMenuViewController.m in Sources */,
 				5DDA3D9B1A85CC0500FD085A /* SideMenuTableSectionLabel.m in Sources */,
 				5DDA3DA51A85D39500FD085A /* ProjectSettings.m in Sources */,
+				5D0F177E1A86A1FC00AAE285 /* SocialSharingActionController.m in Sources */,
 				5DC2F55E1A85BF8000ED1969 /* SideMenuHeaderImageView.m in Sources */,
 				5DDA3D981A85CA8A00FD085A /* SideMenuTableSectionHeader.m in Sources */,
 				5DA4B98D1A7F3B2D0016476C /* ExternalWebModalViewController.m in Sources */,

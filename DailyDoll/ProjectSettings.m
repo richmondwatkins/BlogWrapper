@@ -118,6 +118,11 @@ static ProjectSettings *sharedThemeManager = nil;
     return self.themeElements[@"ShareTableView"][property];
 }
 
+- (NSArray *)shareItems {
+
+    return self.projectVariables[@"Social"];
+}
+
 
 
 @end
