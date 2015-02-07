@@ -7,11 +7,12 @@
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "Screen Shot 2015-02-04 at 9.30.42 PM.png"
+      "filename" : "Logo-RGB-Web.png"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "Logo-RGB-HiRes.png"
     }
   ],
   "info" : {

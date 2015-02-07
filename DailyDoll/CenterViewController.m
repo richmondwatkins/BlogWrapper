@@ -6,58 +6,79 @@
 //  Copyright (c) 2015 Richmond. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "CenterViewController.h"
 #import "ExternalWebModalViewController.h"
 #import "SideMenuViewController.h"
 #import <MMDrawerController.h>
 #import <MMDrawerBarButtonItem.h>
-#import "UIColor+UIColor_Expanded.h"
+#import "ProjectSettings.h"
+#import "CenterViewControllerActivityIndicator.h"
 
-@interface ViewController () <UIWebViewDelegate, SideMenuProtocol>
+@interface CenterViewController () <UIWebViewDelegate, SideMenuProtocol>
 @property UIWebView *webView;
 @property NSURLRequest *externalRequest;
 @property MMDrawerController *drawerController;
-@property UIActivityIndicatorView *acitivityIndicator;
+@property CenterViewControllerActivityIndicator *acitivityIndicator;
 @end
 
-@implementation ViewController
+@implementation CenterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    [self.view addSubview:self.webView];
-    self.webView.delegate = self;
+    [self setUpWebView];
+
+    [self setUpDrawControllerAndButton];
+
+    self.acitivityIndicator =  [[CenterViewControllerActivityIndicator alloc] initWithStyle];
+
+ 
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.acitivityIndicator];
+
+    self.title = [[ProjectSettings sharedManager] homeVariables:@"Title"];
+}
+
+- (void)setUpDrawControllerAndButton {
 
     self.drawerController = (MMDrawerController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
 
     SideMenuViewController *sideMenuVC = (SideMenuViewController *) self.drawerController.leftDrawerViewController;
     sideMenuVC.delegate = self;
 
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://thedailydoll.com/"]]];
-
     self.navigationItem.leftBarButtonItem = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(showSideMenu)];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+}
 
-    self.acitivityIndicator =  [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    [self.acitivityIndicator hidesWhenStopped];
+- (void)setUpWebView {
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.acitivityIndicator];
-    self.navigationController.navigationBar.backgroundColor = [UIColor colorWithHexString:@"f4f7fc"];
-    self.title = @"The Daily Doll";
+    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+
+    [self.view addSubview:self.webView];
+
+    self.webView.delegate = self;
+
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[[ProjectSettings sharedManager] homeVariables:@"URLString"]]]];
 }
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
 
     [self.acitivityIndicator startAnimating];
 
-    if (![[request.URL absoluteString] containsString:@"dailydoll"]) {
+    if (![[request.URL absoluteString] containsString:[[ProjectSettings sharedManager] homeVariables:@"DomainString"]]) {
+        
+        ExternalWebModalViewController *externalVC = [[ExternalWebModalViewController alloc] initWithRequest:request];
 
-        self.externalRequest = request;
-        [self performSegueWithIdentifier:@"ExternalWeb" sender:self];
+        [self presentViewController:externalVC animated:YES completion:nil];
+
+        [self.acitivityIndicator stopAnimating];
+        
+        return NO;
+    } else {
+
+        return YES;
+
     }
-
-
-    return YES;
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
@@ -69,6 +90,7 @@
 - (void)showSideMenu {
 
     [self.drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
+
 }
 
 - (void)selectedSideMenuItem:(NSDictionary *)navigationObject {
@@ -77,13 +99,7 @@
     self.title = [navigationObject objectForKey:@"Title"];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
 
-    if ([segue.identifier isEqualToString:@"ExternalWeb"]) {
-        ExternalWebModalViewController *ewVC = segue.destinationViewController;
-        ewVC.request = self.externalRequest;
-    }
-}
 
 
 @end

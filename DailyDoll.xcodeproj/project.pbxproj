@@ -11,14 +11,27 @@
 		5D0EDAB61A830290007DE68D /* MenuItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D0EDAB51A830290007DE68D /* MenuItems.plist */; };
 		5D2D40751A83282D000A84B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2D40741A83282D000A84B1 /* Main.storyboard */; };
 		5D80527D1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80527C1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m */; };
-		5D8052801A8331FD0076A6E8 /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80527F1A8331FD0076A6E8 /* MenuTableViewCell.m */; };
+		5D8052801A8331FD0076A6E8 /* SideMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80527F1A8331FD0076A6E8 /* SideMenuTableViewCell.m */; };
 		5DA4B98D1A7F3B2D0016476C /* ExternalWebModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA4B98C1A7F3B2D0016476C /* ExternalWebModalViewController.m */; };
+		5DA64CD31A847A68004F08A8 /* SideMenuHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA64CD21A847A68004F08A8 /* SideMenuHeaderView.m */; };
+		5DA64CD51A847A7A004F08A8 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DA64CD41A847A7A004F08A8 /* HeaderView.xib */; };
+		5DC2F5511A85A91A00ED1969 /* SideMenuTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2F5501A85A91A00ED1969 /* SideMenuTableView.m */; };
+		5DC2F5541A85AECD00ED1969 /* DDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2F5531A85AECD00ED1969 /* DDViewController.m */; };
+		5DC2F5561A85B49300ED1969 /* Theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DC2F5551A85B49300ED1969 /* Theme.plist */; };
+		5DC2F55B1A85BBEF00ED1969 /* SideMenuTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2F55A1A85BBEF00ED1969 /* SideMenuTableHeaderView.m */; };
+		5DC2F55E1A85BF8000ED1969 /* SideMenuHeaderImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2F55D1A85BF8000ED1969 /* SideMenuHeaderImageView.m */; };
 		5DDA1B1F1A7F383C00914761 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA1B1E1A7F383C00914761 /* main.m */; };
 		5DDA1B221A7F383C00914761 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA1B211A7F383C00914761 /* AppDelegate.m */; };
-		5DDA1B251A7F383C00914761 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA1B241A7F383C00914761 /* ViewController.m */; };
+		5DDA1B251A7F383C00914761 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA1B241A7F383C00914761 /* CenterViewController.m */; };
 		5DDA1B2A1A7F383C00914761 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA1B291A7F383C00914761 /* Images.xcassets */; };
 		5DDA1B2D1A7F383C00914761 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA1B2B1A7F383C00914761 /* LaunchScreen.xib */; };
 		5DDA1B391A7F383C00914761 /* DailyDollTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA1B381A7F383C00914761 /* DailyDollTests.m */; };
+		5DDA3D981A85CA8A00FD085A /* SideMenuTableSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3D971A85CA8A00FD085A /* SideMenuTableSectionHeader.m */; };
+		5DDA3D9B1A85CC0500FD085A /* SideMenuTableSectionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3D9A1A85CC0500FD085A /* SideMenuTableSectionLabel.m */; };
+		5DDA3DA51A85D39500FD085A /* ProjectSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DA41A85D39500FD085A /* ProjectSettings.m */; };
+		5DDA3DAA1A85E37700FD085A /* ExternalWebNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DA91A85E37700FD085A /* ExternalWebNavBar.m */; };
+		5DDA3DAC1A85E67700FD085A /* ProjectVariables.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA3DAB1A85E67700FD085A /* ProjectVariables.plist */; };
+		5DDA3DAF1A85EE4900FD085A /* CenterViewControllerActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DAE1A85EE4900FD085A /* CenterViewControllerActivityIndicator.m */; };
 		BDF89CC8C066F8FFE29F7BC1 /* libPods-DailyDoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 579988490B7E0E905A16D25A /* libPods-DailyDoll.a */; };
 /* End PBXBuildFile section */
 
@@ -40,22 +53,45 @@
 		5D2D40741A83282D000A84B1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5D80527B1A83315C0076A6E8 /* UIColor+UIColor_Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColor_Expanded.h"; sourceTree = "<group>"; };
 		5D80527C1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_Expanded.m"; sourceTree = "<group>"; };
-		5D80527E1A8331FD0076A6E8 /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
-		5D80527F1A8331FD0076A6E8 /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
+		5D80527E1A8331FD0076A6E8 /* SideMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuTableViewCell.h; sourceTree = "<group>"; };
+		5D80527F1A8331FD0076A6E8 /* SideMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuTableViewCell.m; sourceTree = "<group>"; };
 		5DA4B98B1A7F3B2D0016476C /* ExternalWebModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExternalWebModalViewController.h; sourceTree = "<group>"; };
 		5DA4B98C1A7F3B2D0016476C /* ExternalWebModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExternalWebModalViewController.m; sourceTree = "<group>"; };
+		5DA64CD11A847A68004F08A8 /* SideMenuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuHeaderView.h; sourceTree = "<group>"; };
+		5DA64CD21A847A68004F08A8 /* SideMenuHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuHeaderView.m; sourceTree = "<group>"; };
+		5DA64CD41A847A7A004F08A8 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		5DC2F54F1A85A91A00ED1969 /* SideMenuTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuTableView.h; sourceTree = "<group>"; };
+		5DC2F5501A85A91A00ED1969 /* SideMenuTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuTableView.m; sourceTree = "<group>"; };
+		5DC2F5521A85AECD00ED1969 /* DDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDViewController.h; sourceTree = "<group>"; };
+		5DC2F5531A85AECD00ED1969 /* DDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDViewController.m; sourceTree = "<group>"; };
+		5DC2F5551A85B49300ED1969 /* Theme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Theme.plist; sourceTree = "<group>"; };
+		5DC2F5591A85BBEF00ED1969 /* SideMenuTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuTableHeaderView.h; sourceTree = "<group>"; };
+		5DC2F55A1A85BBEF00ED1969 /* SideMenuTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuTableHeaderView.m; sourceTree = "<group>"; };
+		5DC2F55C1A85BF8000ED1969 /* SideMenuHeaderImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuHeaderImageView.h; sourceTree = "<group>"; };
+		5DC2F55D1A85BF8000ED1969 /* SideMenuHeaderImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuHeaderImageView.m; sourceTree = "<group>"; };
 		5DDA1B191A7F383C00914761 /* DailyDoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyDoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DDA1B1D1A7F383C00914761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DDA1B1E1A7F383C00914761 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5DDA1B201A7F383C00914761 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5DDA1B211A7F383C00914761 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		5DDA1B231A7F383C00914761 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		5DDA1B241A7F383C00914761 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5DDA1B231A7F383C00914761 /* CenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CenterViewController.h; sourceTree = "<group>"; };
+		5DDA1B241A7F383C00914761 /* CenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CenterViewController.m; sourceTree = "<group>"; };
 		5DDA1B291A7F383C00914761 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		5DDA1B2C1A7F383C00914761 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5DDA1B321A7F383C00914761 /* DailyDollTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyDollTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DDA1B371A7F383C00914761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DDA1B381A7F383C00914761 /* DailyDollTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DailyDollTests.m; sourceTree = "<group>"; };
+		5DDA3D961A85CA8A00FD085A /* SideMenuTableSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuTableSectionHeader.h; sourceTree = "<group>"; };
+		5DDA3D971A85CA8A00FD085A /* SideMenuTableSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuTableSectionHeader.m; sourceTree = "<group>"; };
+		5DDA3D991A85CC0500FD085A /* SideMenuTableSectionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuTableSectionLabel.h; sourceTree = "<group>"; };
+		5DDA3D9A1A85CC0500FD085A /* SideMenuTableSectionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuTableSectionLabel.m; sourceTree = "<group>"; };
+		5DDA3DA31A85D39500FD085A /* ProjectSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectSettings.h; sourceTree = "<group>"; };
+		5DDA3DA41A85D39500FD085A /* ProjectSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectSettings.m; sourceTree = "<group>"; };
+		5DDA3DA81A85E37700FD085A /* ExternalWebNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExternalWebNavBar.h; sourceTree = "<group>"; };
+		5DDA3DA91A85E37700FD085A /* ExternalWebNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExternalWebNavBar.m; sourceTree = "<group>"; };
+		5DDA3DAB1A85E67700FD085A /* ProjectVariables.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ProjectVariables.plist; sourceTree = "<group>"; };
+		5DDA3DAD1A85EE4900FD085A /* CenterViewControllerActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterViewControllerActivityIndicator.h; sourceTree = "<group>"; };
+		5DDA3DAE1A85EE4900FD085A /* CenterViewControllerActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterViewControllerActivityIndicator.m; sourceTree = "<group>"; };
 		680B8C91B0508131C24B223C /* Pods-DailyDoll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDoll.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DailyDoll/Pods-DailyDoll.debug.xcconfig"; sourceTree = "<group>"; };
 		AA7FAADA7B793178F851DF47 /* Pods-DailyDoll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDoll.release.xcconfig"; path = "Pods/Target Support Files/Pods-DailyDoll/Pods-DailyDoll.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +132,27 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5DC2F5571A85BB7D00ED1969 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				5DDA3DA21A85CF8000FD085A /* Header */,
+				5DDA3DA11A85CF6D00FD085A /* Table */,
+				5DDA3D9F1A85CF4A00FD085A /* SectionHeader */,
+				5D0EDAB21A830196007DE68D /* SideMenuViewController.h */,
+				5D0EDAB31A830196007DE68D /* SideMenuViewController.m */,
+			);
+			name = SideMenu;
+			sourceTree = "<group>";
+		};
+		5DC2F5581A85BB9600ED1969 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				5D80527B1A83315C0076A6E8 /* UIColor+UIColor_Expanded.h */,
+				5D80527C1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		5DDA1B101A7F383C00914761 = {
 			isa = PBXGroup;
 			children = (
@@ -119,22 +176,26 @@
 		5DDA1B1B1A7F383C00914761 /* DailyDoll */ = {
 			isa = PBXGroup;
 			children = (
-				5D80527B1A83315C0076A6E8 /* UIColor+UIColor_Expanded.h */,
-				5D80527C1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m */,
+				5DDA3DA31A85D39500FD085A /* ProjectSettings.h */,
+				5DDA3DA41A85D39500FD085A /* ProjectSettings.m */,
+				5DDA3DA71A85E34400FD085A /* ExternalWebView */,
+				5DC2F5581A85BB9600ED1969 /* Categories */,
+				5DC2F5571A85BB7D00ED1969 /* SideMenu */,
+				5DC2F5521A85AECD00ED1969 /* DDViewController.h */,
+				5DC2F5531A85AECD00ED1969 /* DDViewController.m */,
 				5DDA1B201A7F383C00914761 /* AppDelegate.h */,
 				5DDA1B211A7F383C00914761 /* AppDelegate.m */,
-				5DDA1B231A7F383C00914761 /* ViewController.h */,
-				5DDA1B241A7F383C00914761 /* ViewController.m */,
-				5DA4B98B1A7F3B2D0016476C /* ExternalWebModalViewController.h */,
-				5DA4B98C1A7F3B2D0016476C /* ExternalWebModalViewController.m */,
-				5D80527E1A8331FD0076A6E8 /* MenuTableViewCell.h */,
-				5D80527F1A8331FD0076A6E8 /* MenuTableViewCell.m */,
-				5D0EDAB21A830196007DE68D /* SideMenuViewController.h */,
-				5D0EDAB31A830196007DE68D /* SideMenuViewController.m */,
+				5DDA1B231A7F383C00914761 /* CenterViewController.h */,
+				5DDA1B241A7F383C00914761 /* CenterViewController.m */,
 				5DDA1B291A7F383C00914761 /* Images.xcassets */,
 				5DDA1B2B1A7F383C00914761 /* LaunchScreen.xib */,
 				5DDA1B1C1A7F383C00914761 /* Supporting Files */,
 				5D2D40741A83282D000A84B1 /* Main.storyboard */,
+				5DA64CD11A847A68004F08A8 /* SideMenuHeaderView.h */,
+				5DA64CD21A847A68004F08A8 /* SideMenuHeaderView.m */,
+				5DA64CD41A847A7A004F08A8 /* HeaderView.xib */,
+				5DDA3DAD1A85EE4900FD085A /* CenterViewControllerActivityIndicator.h */,
+				5DDA3DAE1A85EE4900FD085A /* CenterViewControllerActivityIndicator.m */,
 			);
 			path = DailyDoll;
 			sourceTree = "<group>";
@@ -145,6 +206,8 @@
 				5DDA1B1D1A7F383C00914761 /* Info.plist */,
 				5DDA1B1E1A7F383C00914761 /* main.m */,
 				5D0EDAB51A830290007DE68D /* MenuItems.plist */,
+				5DC2F5551A85B49300ED1969 /* Theme.plist */,
+				5DDA3DAB1A85E67700FD085A /* ProjectVariables.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -164,6 +227,58 @@
 				5DDA1B371A7F383C00914761 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5DDA3D9F1A85CF4A00FD085A /* SectionHeader */ = {
+			isa = PBXGroup;
+			children = (
+				5DDA3D961A85CA8A00FD085A /* SideMenuTableSectionHeader.h */,
+				5DDA3D971A85CA8A00FD085A /* SideMenuTableSectionHeader.m */,
+				5DDA3D991A85CC0500FD085A /* SideMenuTableSectionLabel.h */,
+				5DDA3D9A1A85CC0500FD085A /* SideMenuTableSectionLabel.m */,
+			);
+			name = SectionHeader;
+			sourceTree = "<group>";
+		};
+		5DDA3DA01A85CF5800FD085A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5D80527E1A8331FD0076A6E8 /* SideMenuTableViewCell.h */,
+				5D80527F1A8331FD0076A6E8 /* SideMenuTableViewCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		5DDA3DA11A85CF6D00FD085A /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				5DDA3DA01A85CF5800FD085A /* Cells */,
+				5DC2F54F1A85A91A00ED1969 /* SideMenuTableView.h */,
+				5DC2F5501A85A91A00ED1969 /* SideMenuTableView.m */,
+			);
+			name = Table;
+			sourceTree = "<group>";
+		};
+		5DDA3DA21A85CF8000FD085A /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				5DC2F5591A85BBEF00ED1969 /* SideMenuTableHeaderView.h */,
+				5DC2F55A1A85BBEF00ED1969 /* SideMenuTableHeaderView.m */,
+				5DC2F55C1A85BF8000ED1969 /* SideMenuHeaderImageView.h */,
+				5DC2F55D1A85BF8000ED1969 /* SideMenuHeaderImageView.m */,
+			);
+			name = Header;
+			sourceTree = "<group>";
+		};
+		5DDA3DA71A85E34400FD085A /* ExternalWebView */ = {
+			isa = PBXGroup;
+			children = (
+				5DA4B98B1A7F3B2D0016476C /* ExternalWebModalViewController.h */,
+				5DA4B98C1A7F3B2D0016476C /* ExternalWebModalViewController.m */,
+				5DDA3DA81A85E37700FD085A /* ExternalWebNavBar.h */,
+				5DDA3DA91A85E37700FD085A /* ExternalWebNavBar.m */,
+			);
+			name = ExternalWebView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,7 +363,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DC2F5561A85B49300ED1969 /* Theme.plist in Resources */,
+				5DDA3DAC1A85E67700FD085A /* ProjectVariables.plist in Resources */,
 				5D0EDAB61A830290007DE68D /* MenuItems.plist in Resources */,
+				5DA64CD51A847A7A004F08A8 /* HeaderView.xib in Resources */,
 				5DDA1B2D1A7F383C00914761 /* LaunchScreen.xib in Resources */,
 				5D2D40751A83282D000A84B1 /* Main.storyboard in Resources */,
 				5DDA1B2A1A7F383C00914761 /* Images.xcassets in Resources */,
@@ -303,12 +421,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D0EDAB41A830196007DE68D /* SideMenuViewController.m in Sources */,
+				5DDA3D9B1A85CC0500FD085A /* SideMenuTableSectionLabel.m in Sources */,
+				5DDA3DA51A85D39500FD085A /* ProjectSettings.m in Sources */,
+				5DC2F55E1A85BF8000ED1969 /* SideMenuHeaderImageView.m in Sources */,
+				5DDA3D981A85CA8A00FD085A /* SideMenuTableSectionHeader.m in Sources */,
 				5DA4B98D1A7F3B2D0016476C /* ExternalWebModalViewController.m in Sources */,
 				5D80527D1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m in Sources */,
-				5D8052801A8331FD0076A6E8 /* MenuTableViewCell.m in Sources */,
-				5DDA1B251A7F383C00914761 /* ViewController.m in Sources */,
+				5D8052801A8331FD0076A6E8 /* SideMenuTableViewCell.m in Sources */,
+				5DC2F55B1A85BBEF00ED1969 /* SideMenuTableHeaderView.m in Sources */,
+				5DDA3DAF1A85EE4900FD085A /* CenterViewControllerActivityIndicator.m in Sources */,
+				5DDA3DAA1A85E37700FD085A /* ExternalWebNavBar.m in Sources */,
+				5DDA1B251A7F383C00914761 /* CenterViewController.m in Sources */,
+				5DA64CD31A847A68004F08A8 /* SideMenuHeaderView.m in Sources */,
 				5DDA1B221A7F383C00914761 /* AppDelegate.m in Sources */,
 				5DDA1B1F1A7F383C00914761 /* main.m in Sources */,
+				5DC2F5541A85AECD00ED1969 /* DDViewController.m in Sources */,
+				5DC2F5511A85A91A00ED1969 /* SideMenuTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,6 +551,8 @@
 			baseConfigurationReference = 680B8C91B0508131C24B223C /* Pods-DailyDoll.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = DailyDoll/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -434,6 +564,8 @@
 			baseConfigurationReference = AA7FAADA7B793178F851DF47 /* Pods-DailyDoll.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = DailyDoll/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -10,6 +10,6 @@
 
 @interface ExternalWebModalViewController : UIViewController
 
-@property NSURLRequest *request;
+-(instancetype)initWithRequest:(NSURLRequest *)request;
 
 @end

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Theme</key>
+	<dict>
+		<key>ActivityIndicator</key>
+		<dict>
+			<key>TintColor</key>
+			<string>ffffff</string>
+		</dict>
+		<key>NavBar</key>
+		<dict>
+			<key>BackgroundColor</key>
+			<string>e2c675</string>
+			<key>FontFamily</key>
+			<string></string>
+			<key>FontColor</key>
+			<string>ffffff</string>
+		</dict>
+		<key>StatusBarColor</key>
+		<dict>
+			<key>BackgroundColor</key>
+			<string>e2c675</string>
+		</dict>
+		<key>SideMenuHeader</key>
+		<dict>
+			<key>BackgroundColor</key>
+			<string>f4f7fc</string>
+			<key>FontFamily</key>
+			<string></string>
+			<key>FontColor</key>
+			<string></string>
+		</dict>
+		<key>SideMenuTableView</key>
+		<dict>
+			<key>BackgroundColor</key>
+			<string>f4f7fc</string>
+			<key>FontFamily</key>
+			<string></string>
+			<key>FontColor</key>
+			<string></string>
+		</dict>
+		<key>SideMenuCell</key>
+		<dict>
+			<key>BackgroundColor</key>
+			<string>f4f7fc</string>
+			<key>FontFamily</key>
+			<string></string>
+			<key>FontColor</key>
+			<string></string>
+		</dict>
+		<key>SideMenuSectionHeader</key>
+		<dict>
+			<key>BackgroundColor</key>
+			<string>e2c675</string>
+			<key>FontFamily</key>
+			<string></string>
+			<key>FontColor</key>
+			<string></string>
+		</dict>
+	</dict>
+</dict>
+</plist>

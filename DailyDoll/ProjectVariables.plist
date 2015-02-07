@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Project</key>
+	<dict>
+		<key>Home</key>
+		<dict>
+			<key>DomainString</key>
+			<string>dailydoll</string>
+			<key>Title</key>
+			<string>The Daily Doll</string>
+			<key>URLString</key>
+			<string>http://thedailydoll.com</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

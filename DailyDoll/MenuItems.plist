@@ -2,20 +2,84 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>MenuItems</key>
+	<key>Home</key>
+	<dict>
+		<key>URL</key>
+		<string>http://thedailydoll.com</string>
+		<key>Title</key>
+		<string>HOME</string>
+	</dict>
+	<key>Menu</key>
 	<array>
-		<dict>
-			<key>Title</key>
-			<string>Home</string>
-			<key>URL</key>
-			<string>http://thedailydoll.com</string>
-		</dict>
-		<dict>
-			<key>URL</key>
-			<string>http://thedailydoll.com/category/beauty/beauty-talk/</string>
-			<key>Title</key>
-			<string>Beauty Talk and Reviews</string>
-		</dict>
+		<array>
+			<array>
+				<string>THE LIFE STUFF</string>
+			</array>
+			<array>
+				<dict>
+					<key>URL</key>
+					<string>http://thedailydoll.com/category/life/what-men-really-think/</string>
+					<key>Title</key>
+					<string>A MAN&apos;S PERSPECTIVE</string>
+				</dict>
+				<dict>
+					<key>URL</key>
+					<string>http://thedailydoll.com/category/life/real-talk/</string>
+					<key>Title</key>
+					<string>I&apos;M JUST BEING HONEST!</string>
+				</dict>
+				<dict>
+					<key>URL</key>
+					<string>http://thedailydoll.com/category/life/inspiration-bits/</string>
+					<key>Title</key>
+					<string>INSPIRATION BITS</string>
+				</dict>
+			</array>
+		</array>
+		<array>
+			<array>
+				<string>THE WELLNESS STUFF</string>
+			</array>
+			<array>
+				<dict>
+					<key>URL</key>
+					<string>http://thedailydoll.com/category/beauty/i-love-the-drugstore-beauty/</string>
+					<key>Title</key>
+					<string>HAVE A HAPPY BODY</string>
+				</dict>
+			</array>
+		</array>
+		<array>
+			<array>
+				<string>THE BEAUTY STUFF</string>
+			</array>
+			<array>
+				<dict>
+					<key>URL</key>
+					<string>http://thedailydoll.com/category/beauty/i-love-the-drugstore-beauty/</string>
+					<key>Title</key>
+					<string>I LOVE THE DRUGSTORE</string>
+				</dict>
+				<dict>
+					<key>URL</key>
+					<string>http://thedailydoll.com/category/beauty/hidden-jewels-beauty/</string>
+					<key>Title</key>
+					<string>HIDDEN JEWELS</string>
+				</dict>
+				<dict>
+					<key>URL</key>
+					<string>http://thedailydoll.com/category/beauty/diy-beauty/</string>
+					<key>Title</key>
+					<string>DIY BEAUTY</string>
+				</dict>
+				<dict>
+					<key>URL</key>
+					<string>http://thedailydoll.com/category/beauty/beauty-talk/</string>
+					<key>Title</key>
+					<string>BEAUTY TALK &amp; REVIEWS</string>
+				</dict>
+			</array>
+		</array>
 	</array>
 </dict>
 </plist>

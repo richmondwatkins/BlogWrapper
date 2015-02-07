@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DDViewController.h"
 
 @protocol SideMenuProtocol <NSObject>
 
@@ -14,8 +15,10 @@
 
 @end
 
-@interface SideMenuViewController : UIViewController
+@interface SideMenuViewController : DDViewController
 
 @property id<SideMenuProtocol> delegate;
+
+- (int)returnWidthForMenuViewController;
 
 @end

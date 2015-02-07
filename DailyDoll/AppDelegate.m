@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "SideMenuViewController.h"
-#import "ViewController.h"
+#import "CenterViewController.h"
 
 @interface AppDelegate ()
 @end
@@ -18,11 +18,11 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     SideMenuViewController * leftDrawer = [[SideMenuViewController alloc] init];
-    ViewController *mainVC = [[ViewController alloc] init];
+    CenterViewController *mainVC = [[CenterViewController alloc] init];
     UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:mainVC];
 
     self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:navigationController leftDrawerViewController:leftDrawer];
-
+    self.drawerController.maximumLeftDrawerWidth = [leftDrawer returnWidthForMenuViewController];
     self.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
     self.drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
     self.drawerController.shouldStretchDrawer = NO;
@@ -31,6 +31,8 @@
 
     return YES;
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

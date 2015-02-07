@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  SideMenuHeaderView.h
 //  DailyDoll
 //
-//  Created by Richmond on 2/1/15.
+//  Created by Richmond on 2/5/15.
 //  Copyright (c) 2015 Richmond. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface SideMenuHeaderView : UIView
 
 @end
-
