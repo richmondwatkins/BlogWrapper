@@ -171,7 +171,7 @@
                                                 self.cachedImageViewSize.size.height+y);
 
         self.headerImageView.center = CGPointMake(self.imageViewCenter.x,
-                                                  self.imageViewCenter.y);
+                                                  self.imageViewCenter.y - (y/2));
     }
 }
 

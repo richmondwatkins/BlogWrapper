@@ -6,11 +6,11 @@
 //  Copyright (c) 2015 Richmond. All rights reserved.
 //
 
-#import "CenterViewControllerActivityIndicator.h"
+#import "CenterVCActivityIndicator.h"
 #import "ProjectSettings.h"
 #import "UIColor+UIColor_Expanded.h"
 
-@implementation CenterViewControllerActivityIndicator
+@implementation CenterVCActivityIndicator
 
 - (instancetype)initWithStyle {
 
@@ -18,7 +18,8 @@
 
         self.color = [UIColor colorWithHexString:[[ProjectSettings sharedManager] activityIndicator:@"TintColor"]];
 
-        [self hidesWhenStopped];
+        [self startAnimating];
+//        [self hidesWhenStopped];
     }
 
     return self;

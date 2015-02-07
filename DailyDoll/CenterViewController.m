@@ -12,13 +12,16 @@
 #import <MMDrawerController.h>
 #import <MMDrawerBarButtonItem.h>
 #import "ProjectSettings.h"
-#import "CenterViewControllerActivityIndicator.h"
+#import "BlurActivityOverlay.h"
+#import "CenterVCActivityIndicator.h"
+#import "CenterVCTitleLabel.h"
 
 @interface CenterViewController () <UIWebViewDelegate, SideMenuProtocol>
 @property UIWebView *webView;
 @property NSURLRequest *externalRequest;
 @property MMDrawerController *drawerController;
-@property CenterViewControllerActivityIndicator *acitivityIndicator;
+@property BlurActivityOverlay *blurOverlay;
+@property CenterVCActivityIndicator *acitivityIndicator;
 @end
 
 @implementation CenterViewController
@@ -30,13 +33,8 @@
 
     [self setUpDrawControllerAndButton];
 
-    self.acitivityIndicator =  [[CenterViewControllerActivityIndicator alloc] initWithStyle];
-
- 
-
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:self.acitivityIndicator];
-
-    self.title = [[ProjectSettings sharedManager] homeVariables:@"Title"];
+    self.acitivityIndicator = [[CenterVCActivityIndicator alloc] initWithStyle];
+    self.navigationItem.titleView = self.acitivityIndicator;
 }
 
 - (void)setUpDrawControllerAndButton {
@@ -63,18 +61,18 @@
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
 
-    [self.acitivityIndicator startAnimating];
-
     if (![[request.URL absoluteString] containsString:[[ProjectSettings sharedManager] homeVariables:@"DomainString"]]) {
         
         ExternalWebModalViewController *externalVC = [[ExternalWebModalViewController alloc] initWithRequest:request];
 
         [self presentViewController:externalVC animated:YES completion:nil];
 
-        [self.acitivityIndicator stopAnimating];
-        
         return NO;
     } else {
+
+        self.blurOverlay = [[BlurActivityOverlay alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+        self.blurOverlay.frame = webView.bounds;
+        [webView addSubview:self.blurOverlay];
 
         return YES;
 
@@ -82,9 +80,29 @@
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
+
     [self.acitivityIndicator stopAnimating];
 
-    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementsByClassName('site-header')[0].style.display='none';"];
+    NSString *jsFile = [[NSBundle mainBundle] pathForResource:@"webViewJS"
+                                                     ofType:@"js"];
+    NSString *javascript = [NSString stringWithContentsOfFile:jsFile encoding:NSUTF8StringEncoding error:NULL];
+
+    [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@", javascript]];
+
+    CenterVCTitleLabel *titleLabel = [[CenterVCTitleLabel alloc]
+                                      initWithStyleAndTitle:[webView stringByEvaluatingJavaScriptFromString:@"document.title"]];
+    self.navigationItem.titleView = titleLabel;
+
+    if (![titleLabel.text isEqualToString:@"The Daily Doll – Beauty | Wellness | Life"]) {
+        NSString *postFile = [[NSBundle mainBundle] pathForResource:@"post"
+                                                           ofType:@"js"];
+
+        NSString *postJS = [NSString stringWithContentsOfFile:postFile encoding:NSUTF8StringEncoding error:NULL];
+
+        [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@", postJS]];
+    }
+
+    [self.blurOverlay animateAndRemove];
 }
 
 - (void)showSideMenu {
@@ -96,9 +114,7 @@
 - (void)selectedSideMenuItem:(NSDictionary *)navigationObject {
 
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[navigationObject objectForKey:@"URL"]]]];
-    self.title = [navigationObject objectForKey:@"Title"];
 }
-
 
 
 

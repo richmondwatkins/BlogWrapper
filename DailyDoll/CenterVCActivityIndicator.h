@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CenterViewControllerActivityIndicator : UIActivityIndicatorView
+@interface CenterVCActivityIndicator : UIActivityIndicatorView
 
 - (instancetype)initWithStyle;
 

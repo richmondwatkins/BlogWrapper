@@ -13,7 +13,6 @@
 		5D80527D1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80527C1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m */; };
 		5D8052801A8331FD0076A6E8 /* SideMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80527F1A8331FD0076A6E8 /* SideMenuTableViewCell.m */; };
 		5DA4B98D1A7F3B2D0016476C /* ExternalWebModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA4B98C1A7F3B2D0016476C /* ExternalWebModalViewController.m */; };
-		5DA64CD31A847A68004F08A8 /* SideMenuHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA64CD21A847A68004F08A8 /* SideMenuHeaderView.m */; };
 		5DA64CD51A847A7A004F08A8 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DA64CD41A847A7A004F08A8 /* HeaderView.xib */; };
 		5DC2F5511A85A91A00ED1969 /* SideMenuTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2F5501A85A91A00ED1969 /* SideMenuTableView.m */; };
 		5DC2F5541A85AECD00ED1969 /* DDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2F5531A85AECD00ED1969 /* DDViewController.m */; };
@@ -31,7 +30,11 @@
 		5DDA3DA51A85D39500FD085A /* ProjectSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DA41A85D39500FD085A /* ProjectSettings.m */; };
 		5DDA3DAA1A85E37700FD085A /* ExternalWebNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DA91A85E37700FD085A /* ExternalWebNavBar.m */; };
 		5DDA3DAC1A85E67700FD085A /* ProjectVariables.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA3DAB1A85E67700FD085A /* ProjectVariables.plist */; };
-		5DDA3DAF1A85EE4900FD085A /* CenterViewControllerActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DAE1A85EE4900FD085A /* CenterViewControllerActivityIndicator.m */; };
+		5DDA3DAF1A85EE4900FD085A /* CenterVCActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DAE1A85EE4900FD085A /* CenterVCActivityIndicator.m */; };
+		5DDA3DB11A85F27F00FD085A /* webViewJS.js in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA3DB01A85F27F00FD085A /* webViewJS.js */; };
+		5DDA3DB51A85F4F700FD085A /* BlurActivityOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DB41A85F4F700FD085A /* BlurActivityOverlay.m */; };
+		5DDA3DB81A85FDFE00FD085A /* CenterVCTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DB71A85FDFE00FD085A /* CenterVCTitleLabel.m */; };
+		5DDA3DBC1A86053200FD085A /* post.js in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA3DBB1A86053200FD085A /* post.js */; };
 		BDF89CC8C066F8FFE29F7BC1 /* libPods-DailyDoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 579988490B7E0E905A16D25A /* libPods-DailyDoll.a */; };
 /* End PBXBuildFile section */
 
@@ -57,8 +60,6 @@
 		5D80527F1A8331FD0076A6E8 /* SideMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuTableViewCell.m; sourceTree = "<group>"; };
 		5DA4B98B1A7F3B2D0016476C /* ExternalWebModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExternalWebModalViewController.h; sourceTree = "<group>"; };
 		5DA4B98C1A7F3B2D0016476C /* ExternalWebModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExternalWebModalViewController.m; sourceTree = "<group>"; };
-		5DA64CD11A847A68004F08A8 /* SideMenuHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuHeaderView.h; sourceTree = "<group>"; };
-		5DA64CD21A847A68004F08A8 /* SideMenuHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuHeaderView.m; sourceTree = "<group>"; };
 		5DA64CD41A847A7A004F08A8 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		5DC2F54F1A85A91A00ED1969 /* SideMenuTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuTableView.h; sourceTree = "<group>"; };
 		5DC2F5501A85A91A00ED1969 /* SideMenuTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuTableView.m; sourceTree = "<group>"; };
@@ -90,8 +91,14 @@
 		5DDA3DA81A85E37700FD085A /* ExternalWebNavBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExternalWebNavBar.h; sourceTree = "<group>"; };
 		5DDA3DA91A85E37700FD085A /* ExternalWebNavBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExternalWebNavBar.m; sourceTree = "<group>"; };
 		5DDA3DAB1A85E67700FD085A /* ProjectVariables.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ProjectVariables.plist; sourceTree = "<group>"; };
-		5DDA3DAD1A85EE4900FD085A /* CenterViewControllerActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterViewControllerActivityIndicator.h; sourceTree = "<group>"; };
-		5DDA3DAE1A85EE4900FD085A /* CenterViewControllerActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterViewControllerActivityIndicator.m; sourceTree = "<group>"; };
+		5DDA3DAD1A85EE4900FD085A /* CenterVCActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterVCActivityIndicator.h; sourceTree = "<group>"; };
+		5DDA3DAE1A85EE4900FD085A /* CenterVCActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterVCActivityIndicator.m; sourceTree = "<group>"; };
+		5DDA3DB01A85F27F00FD085A /* webViewJS.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = webViewJS.js; sourceTree = "<group>"; };
+		5DDA3DB31A85F4F700FD085A /* BlurActivityOverlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurActivityOverlay.h; sourceTree = "<group>"; };
+		5DDA3DB41A85F4F700FD085A /* BlurActivityOverlay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurActivityOverlay.m; sourceTree = "<group>"; };
+		5DDA3DB61A85FDFE00FD085A /* CenterVCTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterVCTitleLabel.h; sourceTree = "<group>"; };
+		5DDA3DB71A85FDFE00FD085A /* CenterVCTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterVCTitleLabel.m; sourceTree = "<group>"; };
+		5DDA3DBB1A86053200FD085A /* post.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = post.js; sourceTree = "<group>"; };
 		680B8C91B0508131C24B223C /* Pods-DailyDoll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDoll.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DailyDoll/Pods-DailyDoll.debug.xcconfig"; sourceTree = "<group>"; };
 		AA7FAADA7B793178F851DF47 /* Pods-DailyDoll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDoll.release.xcconfig"; path = "Pods/Target Support Files/Pods-DailyDoll/Pods-DailyDoll.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -156,6 +163,8 @@
 		5DDA1B101A7F383C00914761 = {
 			isa = PBXGroup;
 			children = (
+				5DDA3DBB1A86053200FD085A /* post.js */,
+				5DDA3DB01A85F27F00FD085A /* webViewJS.js */,
 				5DDA1B1B1A7F383C00914761 /* DailyDoll */,
 				5DDA1B351A7F383C00914761 /* DailyDollTests */,
 				5DDA1B1A1A7F383C00914761 /* Products */,
@@ -181,21 +190,16 @@
 				5DDA3DA71A85E34400FD085A /* ExternalWebView */,
 				5DC2F5581A85BB9600ED1969 /* Categories */,
 				5DC2F5571A85BB7D00ED1969 /* SideMenu */,
+				5DDA3DB21A85F4A800FD085A /* MainVC */,
 				5DC2F5521A85AECD00ED1969 /* DDViewController.h */,
 				5DC2F5531A85AECD00ED1969 /* DDViewController.m */,
 				5DDA1B201A7F383C00914761 /* AppDelegate.h */,
 				5DDA1B211A7F383C00914761 /* AppDelegate.m */,
-				5DDA1B231A7F383C00914761 /* CenterViewController.h */,
-				5DDA1B241A7F383C00914761 /* CenterViewController.m */,
 				5DDA1B291A7F383C00914761 /* Images.xcassets */,
 				5DDA1B2B1A7F383C00914761 /* LaunchScreen.xib */,
 				5DDA1B1C1A7F383C00914761 /* Supporting Files */,
 				5D2D40741A83282D000A84B1 /* Main.storyboard */,
-				5DA64CD11A847A68004F08A8 /* SideMenuHeaderView.h */,
-				5DA64CD21A847A68004F08A8 /* SideMenuHeaderView.m */,
 				5DA64CD41A847A7A004F08A8 /* HeaderView.xib */,
-				5DDA3DAD1A85EE4900FD085A /* CenterViewControllerActivityIndicator.h */,
-				5DDA3DAE1A85EE4900FD085A /* CenterViewControllerActivityIndicator.m */,
 			);
 			path = DailyDoll;
 			sourceTree = "<group>";
@@ -279,6 +283,21 @@
 				5DDA3DA91A85E37700FD085A /* ExternalWebNavBar.m */,
 			);
 			name = ExternalWebView;
+			sourceTree = "<group>";
+		};
+		5DDA3DB21A85F4A800FD085A /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				5DDA3DAD1A85EE4900FD085A /* CenterVCActivityIndicator.h */,
+				5DDA3DAE1A85EE4900FD085A /* CenterVCActivityIndicator.m */,
+				5DDA1B231A7F383C00914761 /* CenterViewController.h */,
+				5DDA1B241A7F383C00914761 /* CenterViewController.m */,
+				5DDA3DB31A85F4F700FD085A /* BlurActivityOverlay.h */,
+				5DDA3DB41A85F4F700FD085A /* BlurActivityOverlay.m */,
+				5DDA3DB61A85FDFE00FD085A /* CenterVCTitleLabel.h */,
+				5DDA3DB71A85FDFE00FD085A /* CenterVCTitleLabel.m */,
+			);
+			name = MainVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -368,6 +387,8 @@
 				5D0EDAB61A830290007DE68D /* MenuItems.plist in Resources */,
 				5DA64CD51A847A7A004F08A8 /* HeaderView.xib in Resources */,
 				5DDA1B2D1A7F383C00914761 /* LaunchScreen.xib in Resources */,
+				5DDA3DBC1A86053200FD085A /* post.js in Resources */,
+				5DDA3DB11A85F27F00FD085A /* webViewJS.js in Resources */,
 				5D2D40751A83282D000A84B1 /* Main.storyboard in Resources */,
 				5DDA1B2A1A7F383C00914761 /* Images.xcassets in Resources */,
 			);
@@ -429,14 +450,15 @@
 				5D80527D1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m in Sources */,
 				5D8052801A8331FD0076A6E8 /* SideMenuTableViewCell.m in Sources */,
 				5DC2F55B1A85BBEF00ED1969 /* SideMenuTableHeaderView.m in Sources */,
-				5DDA3DAF1A85EE4900FD085A /* CenterViewControllerActivityIndicator.m in Sources */,
+				5DDA3DAF1A85EE4900FD085A /* CenterVCActivityIndicator.m in Sources */,
 				5DDA3DAA1A85E37700FD085A /* ExternalWebNavBar.m in Sources */,
 				5DDA1B251A7F383C00914761 /* CenterViewController.m in Sources */,
-				5DA64CD31A847A68004F08A8 /* SideMenuHeaderView.m in Sources */,
 				5DDA1B221A7F383C00914761 /* AppDelegate.m in Sources */,
 				5DDA1B1F1A7F383C00914761 /* main.m in Sources */,
+				5DDA3DB51A85F4F700FD085A /* BlurActivityOverlay.m in Sources */,
 				5DC2F5541A85AECD00ED1969 /* DDViewController.m in Sources */,
 				5DC2F5511A85A91A00ED1969 /* SideMenuTableView.m in Sources */,
+				5DDA3DB81A85FDFE00FD085A /* CenterVCTitleLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,6 +26,9 @@
     self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] sideMenuTableView:@"BackgroundColor"]];
     self.showsVerticalScrollIndicator = NO;
 
+    CGFloat bottomInset = 40;
+    self.contentInset = UIEdgeInsetsMake(0, 0 , bottomInset, 0);
+
 }
 
 @end
