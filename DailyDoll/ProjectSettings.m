@@ -123,6 +123,10 @@ static ProjectSettings *sharedThemeManager = nil;
     return self.projectVariables[@"Social"];
 }
 
+- (NSArray *)buttonsForShareItem:(int)shareId {
+
+    return self.projectVariables[@"Social"][shareId][@"Buttons"];
+}
 
 
 @end

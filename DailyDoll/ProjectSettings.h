@@ -37,5 +37,6 @@
 - (NSString *)shareView:(NSString *)property;
 - (NSString *)shareTableView:(NSString *)property;
 - (NSArray *)shareItems;
+- (NSArray *)buttonsForShareItem:(int)shareId;
 
 @end

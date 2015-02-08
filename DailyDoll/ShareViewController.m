@@ -11,6 +11,7 @@
 #import "ShareTableView.h"
 #import "ShareTableViewCell.h"
 #import "ProjectSettings.h"
+#import "SocialSharingActionController.h"
 
 @interface ShareViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -19,9 +20,7 @@
 
 @end
 
-@implementation ShareViewController {
-    SocialShare theSocialShareOption;
-}
+@implementation ShareViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -73,54 +72,35 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    switch (indexPath.row) {
+    UIView *socialPopUp;
+    UIWindow* mainWindow = [[UIApplication sharedApplication] keyWindow];
+
+    switch ([self.dataSource[indexPath.row][@"socialId"] intValue]) {
         case 0:
-            theSocialShareOption = FACEBOOK;
+
+           socialPopUp = [SocialSharingActionController
+                          facebookPopConfig:mainWindow.frame];
             break;
         case 1:
-            theSocialShareOption = PINTREST;
+            [SocialSharingActionController handlePintrestShare];
             break;
         case 2:
-            theSocialShareOption = TWITTER;
+            [SocialSharingActionController handleTwitterShare];
             break;
         case 3:
-            theSocialShareOption = INSTAGRAM;
+            [SocialSharingActionController handleInstagramShare];
             break;
         case 4:
-            theSocialShareOption = GOOGLEPLUS;
+            [SocialSharingActionController handleGooglePlusShare];
             break;
 
         default:
             break;
     }
 
-    [self handleSocialAction];
-}
 
-
-- (void)handleSocialAction {
-
-    switch (theSocialShareOption) {
-        case FACEBOOK:
-
-            break;
-
-        case PINTREST:
-
-            break;
-        case TWITTER:
-
-            break;
-        case INSTAGRAM:
-
-            break;
-        case GOOGLEPLUS:
-
-            break;
-
-        default:
-            break;
-    }
+    [mainWindow addSubview: socialPopUp];
+    [socialPopUp.subviews[0] setCenter:CGPointMake(mainWindow.frame.size.width / 2, mainWindow.frame.size.height / 2)];
 }
 
 - (int)returnWidthForShareVC {

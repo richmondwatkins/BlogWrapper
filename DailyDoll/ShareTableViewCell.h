@@ -10,16 +10,6 @@
 
 @interface ShareTableViewCell : UITableViewCell
 
-typedef enum socialShareOptions
-{
-    FACEBOOK,
-    PINTREST,
-    TWITTER,
-    INSTAGRAM,
-    GOOGLEPLUS
-
-} SocialShare;
-
 - (void)addShareButtonAndAdjustFrame:(CGRect)parentFrame withCellObject:(NSDictionary *)object;
 
 @end

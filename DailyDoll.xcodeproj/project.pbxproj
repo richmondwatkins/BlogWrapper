@@ -13,6 +13,7 @@
 		5D2D40751A83282D000A84B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2D40741A83282D000A84B1 /* Main.storyboard */; };
 		5D80527D1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80527C1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m */; };
 		5D8052801A8331FD0076A6E8 /* SideMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80527F1A8331FD0076A6E8 /* SideMenuTableViewCell.m */; };
+		5D86005C1A87C45A00AA8971 /* SocialSharePopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D86005B1A87C45A00AA8971 /* SocialSharePopoverView.m */; };
 		5DA4B98D1A7F3B2D0016476C /* ExternalWebModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA4B98C1A7F3B2D0016476C /* ExternalWebModalViewController.m */; };
 		5DA64CD51A847A7A004F08A8 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DA64CD41A847A7A004F08A8 /* HeaderView.xib */; };
 		5DC2F5511A85A91A00ED1969 /* SideMenuTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2F5501A85A91A00ED1969 /* SideMenuTableView.m */; };
@@ -66,6 +67,8 @@
 		5D80527C1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_Expanded.m"; sourceTree = "<group>"; };
 		5D80527E1A8331FD0076A6E8 /* SideMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuTableViewCell.h; sourceTree = "<group>"; };
 		5D80527F1A8331FD0076A6E8 /* SideMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuTableViewCell.m; sourceTree = "<group>"; };
+		5D86005A1A87C45A00AA8971 /* SocialSharePopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialSharePopoverView.h; sourceTree = "<group>"; };
+		5D86005B1A87C45A00AA8971 /* SocialSharePopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialSharePopoverView.m; sourceTree = "<group>"; };
 		5DA4B98B1A7F3B2D0016476C /* ExternalWebModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExternalWebModalViewController.h; sourceTree = "<group>"; };
 		5DA4B98C1A7F3B2D0016476C /* ExternalWebModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExternalWebModalViewController.m; sourceTree = "<group>"; };
 		5DA64CD41A847A7A004F08A8 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
@@ -355,6 +358,8 @@
 				5DDA3DC51A86777800FD085A /* ShareView.m */,
 				5D0F177C1A86A1FC00AAE285 /* SocialSharingActionController.h */,
 				5D0F177D1A86A1FC00AAE285 /* SocialSharingActionController.m */,
+				5D86005A1A87C45A00AA8971 /* SocialSharePopoverView.h */,
+				5D86005B1A87C45A00AA8971 /* SocialSharePopoverView.m */,
 			);
 			name = ShareVC;
 			sourceTree = "<group>";
@@ -513,6 +518,7 @@
 			files = (
 				5D0EDAB41A830196007DE68D /* SideMenuViewController.m in Sources */,
 				5DDA3D9B1A85CC0500FD085A /* SideMenuTableSectionLabel.m in Sources */,
+				5D86005C1A87C45A00AA8971 /* SocialSharePopoverView.m in Sources */,
 				5DDA3DA51A85D39500FD085A /* ProjectSettings.m in Sources */,
 				5D0F177E1A86A1FC00AAE285 /* SocialSharingActionController.m in Sources */,
 				5DC2F55E1A85BF8000ED1969 /* SideMenuHeaderImageView.m in Sources */,

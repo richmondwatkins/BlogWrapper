@@ -7,11 +7,26 @@
 		<key>Social</key>
 		<array>
 			<dict>
+				<key>Buttons</key>
+				<array>
+					<dict>
+						<key>Title</key>
+						<string>View</string>
+					</dict>
+					<dict>
+						<key>Title</key>
+						<string>Like</string>
+					</dict>
+					<dict>
+						<key>Title</key>
+						<string>Share</string>
+					</dict>
+				</array>
 				<key>Image</key>
 				<string>facebook</string>
 				<key>URL</key>
 				<string>https://www.facebook.com/thedailydollblog</string>
-				<key>Id</key>
+				<key>socialId</key>
 				<string>0</string>
 			</dict>
 			<dict>
@@ -19,7 +34,7 @@
 				<string>pintrest</string>
 				<key>URL</key>
 				<string>https://www.pinterest.com/thelaceyjohnson/pins/</string>
-				<key>Id</key>
+				<key>socialId</key>
 				<string>1</string>
 			</dict>
 			<dict>
@@ -27,7 +42,7 @@
 				<string>twitter</string>
 				<key>URL</key>
 				<string>https://twitter.com/the_daily_doll</string>
-				<key>Id</key>
+				<key>socialId</key>
 				<string>2</string>
 			</dict>
 			<dict>
@@ -35,7 +50,7 @@
 				<string>instagram</string>
 				<key>URL</key>
 				<string>http://instagram.com/thedailydollblog</string>
-				<key>Id</key>
+				<key>socialId</key>
 				<string>3</string>
 			</dict>
 			<dict>
@@ -43,7 +58,7 @@
 				<string>googlePlus</string>
 				<key>URL</key>
 				<string>https://plus.google.com/u/0/+Thedailydoll/posts</string>
-				<key>Id</key>
+				<key>socialId</key>
 				<string>4</string>
 			</dict>
 		</array>
