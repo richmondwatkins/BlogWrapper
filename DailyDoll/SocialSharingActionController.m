@@ -12,7 +12,7 @@
 
 @implementation SocialSharingActionController
 
-+ (UIView *)facebookPopConfig:(CGRect)windowFrame {
+- (SocialSharePopoverView *)facebookPopConfig:(CGRect)windowFrame {
 
     NSArray *buttonItems = [[ProjectSettings sharedManager]buttonsForShareItem:0];
 
@@ -31,9 +31,11 @@
                 //
                 break;
             case 2:  //Share
-                //
+
+                [button addTarget:self action:@selector(facebookShareDelegate:) forControlEvents:UIControlEventTouchUpInside];
+
                 break;
-                
+
             default:
                 break;
         }
@@ -44,6 +46,11 @@
     SocialSharePopoverView *popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
 
     return popUpView;
+}
+
+- (void)facebookShareDelegate:(UIButton *)button {
+    
+    [self.delegate facebookShare:[[ProjectSettings sharedManager] homeVariables:kTitle]];
 }
 
 

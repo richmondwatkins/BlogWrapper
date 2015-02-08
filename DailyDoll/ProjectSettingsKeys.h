@@ -18,4 +18,6 @@ extern NSString *const kFontFamily;
 
 extern NSString *const kFontColor;
 
+extern NSString *const kTitle;
+
 @end

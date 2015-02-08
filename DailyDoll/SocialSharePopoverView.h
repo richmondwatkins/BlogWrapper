@@ -12,4 +12,8 @@
 
 - (instancetype)initWithParentFrame:(CGRect)windowFrame andButtons:(NSArray *)buttons;
 
+- (void)animateOffScreen;
+
+- (void)animateOnToScreen;
+
 @end

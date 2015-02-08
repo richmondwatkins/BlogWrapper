@@ -8,10 +8,21 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "SocialSharePopoverView.h"
+
+@protocol SocialProtocol <NSObject>
+
+@optional
+
+- (void)facebookShare:(NSString *)shareContent;
+
+@end
 
 @interface SocialSharingActionController : NSObject
 
-+ (UIView *) facebookPopConfig:(CGRect)windoFrame;
+@property id<SocialProtocol> delegate;
+
+- (SocialSharePopoverView *) facebookPopConfig:(CGRect)windoFrame;
 
 + (void) handlePintrestShare;
 

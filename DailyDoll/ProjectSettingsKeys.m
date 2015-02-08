@@ -19,4 +19,6 @@ NSString *const kFontFamily = @"FontFamily";
 
 NSString *const kFontColor = @"FontColor";
 
+NSString *const kTitle = @"Title";
+
 @end

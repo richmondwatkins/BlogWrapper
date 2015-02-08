@@ -1,4 +1,4 @@
-//
+ //
 //  ShareViewController.m
 //  DailyDoll
 //
@@ -12,11 +12,16 @@
 #import "ShareTableViewCell.h"
 #import "ProjectSettings.h"
 #import "SocialSharingActionController.h"
+#import "SocialSharePopoverView.h"
 
-@interface ShareViewController () <UITableViewDataSource, UITableViewDelegate>
+@import Social;
+
+@interface ShareViewController () <UITableViewDataSource, UITableViewDelegate, SocialProtocol>
 
 @property ShareTableView *tableView;
 @property NSArray *dataSource;
+@property SocialSharingActionController *actionController;
+@property SocialSharePopoverView *socialPopUp;
 
 @end
 
@@ -72,14 +77,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    UIView *socialPopUp;
     UIWindow* mainWindow = [[UIApplication sharedApplication] keyWindow];
+
+    self.actionController = [[SocialSharingActionController alloc] init];
+    self.actionController.delegate = self;
 
     switch ([self.dataSource[indexPath.row][@"socialId"] intValue]) {
         case 0:
 
-           socialPopUp = [SocialSharingActionController
-                          facebookPopConfig:mainWindow.frame];
+           self.socialPopUp = [self.actionController facebookPopConfig:mainWindow.frame];
             break;
         case 1:
             [SocialSharingActionController handlePintrestShare];
@@ -98,14 +104,28 @@
             break;
     }
 
+    [mainWindow addSubview: self.socialPopUp];
 
-    [mainWindow addSubview: socialPopUp];
-    [socialPopUp.subviews[0] setCenter:CGPointMake(mainWindow.frame.size.width / 2, mainWindow.frame.size.height / 2)];
+    [self.socialPopUp animateOnToScreen];
+
+    [self.socialPopUp.subviews[0] setCenter:CGPointMake(mainWindow.frame.size.width / 2, mainWindow.frame.size.height / 2)];
 }
 
 - (int)returnWidthForShareVC {
 
     return [[UIScreen mainScreen] bounds].size.width * 0.15;
+}
+
+- (void)facebookShare:(NSString *)shareContent{
+    
+    [self.socialPopUp animateOffScreen];
+
+    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
+        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
+
+        [controller setInitialText:shareContent];
+        [self presentViewController:controller animated:YES completion:Nil];
+    }
 }
 
 @end

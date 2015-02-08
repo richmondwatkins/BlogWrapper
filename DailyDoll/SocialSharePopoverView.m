@@ -18,9 +18,11 @@
 
     if (self = [super init]) {
         self.frame = CGRectMake(0, 0, windowFrame.size.width, windowFrame.size.height);
-        self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
+        self.backgroundColor = [UIColor blackColor];
+        self.alpha = 0;
 
-        UIView *popUp = [[UIView alloc] initWithFrame:CGRectMake(0, 0, windowFrame.size.width * 0.8, windowFrame.size.height / 2)];
+        UIView *popUp = [[UIView alloc] initWithFrame:CGRectMake(0, windowFrame.size.height * 2, windowFrame.size.width * 0.8, windowFrame.size.height / 2)];
+        popUp.alpha = 0;
         popUp.backgroundColor = [UIColor whiteColor];
         popUp.layer.cornerRadius = 5;
         popUp.layer.shadowOpacity = 0.8;
@@ -40,7 +42,6 @@
             }
 
 
-
             button.backgroundColor = [UIColor greenColor];
         }
 
@@ -55,10 +56,55 @@
     return self;
 }
 
+- (void)animateOnToScreen {
+
+    [UIView animateWithDuration:0.3 animations:^{
+
+        UIView *popUpSubView = self.subviews[0];
+
+
+        popUpSubView.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height);
+
+        popUpSubView.alpha = 1;
+
+        self.alpha = 1;
+        self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
+
+    }];
+}
+
+- (void)animateOffScreen {
+
+    [UIView animateWithDuration:0.3 animations:^{
+
+        UIView *popUpSubView = self.subviews[0];
+
+        popUpSubView.center = CGPointMake(self.center.x, self.frame.size.height * 2);
+
+        popUpSubView.alpha = 0;
+
+        self.alpha = 0;
+
+    } completion:^(BOOL finished) {
+
+        [self removeFromSuperview];
+    }];
+}
 
 - (void)handleTapGesture:(UITapGestureRecognizer *)gesture {
 
-    [self removeFromSuperview];
+    [UIView animateWithDuration:0.3 animations:^{
+
+        UIView *popUpSubView = self.subviews[0];
+
+        popUpSubView.alpha = 0;
+
+        self.alpha = 0;
+
+    } completion:^(BOOL finished) {
+
+        [self removeFromSuperview];
+    }];
 }
 
 - (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
