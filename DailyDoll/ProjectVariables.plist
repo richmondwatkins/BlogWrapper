@@ -10,14 +10,20 @@
 				<key>Buttons</key>
 				<array>
 					<dict>
+						<key>Id</key>
+						<string>0</string>
 						<key>Title</key>
 						<string>View</string>
 					</dict>
 					<dict>
+						<key>Id</key>
+						<string>1</string>
 						<key>Title</key>
 						<string>Like</string>
 					</dict>
 					<dict>
+						<key>Id</key>
+						<string>2</string>
 						<key>Title</key>
 						<string>Share</string>
 					</dict>

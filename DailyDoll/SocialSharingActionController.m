@@ -23,6 +23,21 @@
         UIButton *button = [[UIButton alloc] init];
         [button setTitle:buttonItem[@"Title"] forState:UIControlStateNormal];
 
+        switch ([buttonItem[@"Id"] intValue]) {
+            case 0:  //View
+                //
+                break;
+            case 1:  //Like
+                //
+                break;
+            case 2:  //Share
+                //
+                break;
+                
+            default:
+                break;
+        }
+
         [buttons addObject:button];
     }
 
@@ -31,6 +46,5 @@
     return popUpView;
 }
 
-//.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
-//CGRectMake(0, 0, windowFrame.size.width * 0.8, windowFrame.size.height / 2)
+
 @end

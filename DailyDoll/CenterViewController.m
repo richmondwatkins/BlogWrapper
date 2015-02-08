@@ -34,8 +34,6 @@
 
     [self setUpDrawControllerAndButton];
 
-    self.acitivityIndicator = [[CenterVCActivityIndicator alloc] initWithStyle];
-    self.navigationItem.titleView = self.acitivityIndicator;
 }
 
 - (void)setUpDrawControllerAndButton {
@@ -65,6 +63,9 @@
 }
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+
+    self.acitivityIndicator = [[CenterVCActivityIndicator alloc] initWithStyle];
+    self.navigationItem.titleView = self.acitivityIndicator;
 
     if (![[request.URL absoluteString] containsString:[[ProjectSettings sharedManager] homeVariables:@"DomainString"]]) {
         

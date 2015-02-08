@@ -8,12 +8,16 @@
 
 #import "SocialSharePopoverView.h"
 
+@interface SocialSharePopoverView () <UIGestureRecognizerDelegate>
+
+@end
+
 @implementation SocialSharePopoverView
 
 - (instancetype)initWithParentFrame:(CGRect)windowFrame andButtons:(NSArray *)buttons {
 
     if (self = [super init]) {
-       self.frame = CGRectMake(0, 0, windowFrame.size.width, windowFrame.size.height);
+        self.frame = CGRectMake(0, 0, windowFrame.size.width, windowFrame.size.height);
         self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
 
         UIView *popUp = [[UIView alloc] initWithFrame:CGRectMake(0, 0, windowFrame.size.width * 0.8, windowFrame.size.height / 2)];
@@ -42,12 +46,31 @@
 
         [self addSubview:popUp];
 
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeFromSuperview)];
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
+        tapGesture.delegate = self;
         [self addGestureRecognizer:tapGesture];
         
     }
 
     return self;
+}
+
+
+- (void)handleTapGesture:(UITapGestureRecognizer *)gesture {
+
+    [self removeFromSuperview];
+}
+
+- (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
+{
+    UIView *popUp = self.subviews[0];
+
+    if (CGRectContainsPoint(popUp.bounds, [touch locationInView:popUp])) {
+
+        return NO;
+    }
+
+    return YES;
 }
 
 @end
