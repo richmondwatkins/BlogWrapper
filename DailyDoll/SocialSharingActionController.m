@@ -44,6 +44,17 @@
                 break;
         }
 
+        [button addTarget:self action:@selector(_handleLikeButtonTap:) forControlEvents:UIControlEventTouchUpInside];
+        [button addTarget:self
+                        action:@selector(_handleLikeButtonTouchDown:)
+              forControlEvents:(//UIControlEventTouchDragEnter |
+                                UIControlEventTouchDown)];
+        [button addTarget:self
+                        action:@selector(_handleLikeButtonTouchUp:)
+              forControlEvents:(UIControlEventTouchCancel |
+                                //UIControlEventTouchDragExit |
+                                UIControlEventTouchUpOutside)];
+
     }
 
     SocialSharePopoverView *popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
@@ -51,14 +62,39 @@
     return popUpView;
 }
 
+
+
 - (void)facebookShareDelegate:(UIButton *)button {
-    
+
+
     [self.delegate facebookShare:[[ProjectSettings sharedManager] homeVariables:kTitle]];
 }
 
 - (void)faceBookLikeDelegate:(UIButton *)button {
 
+
     [self.delegate facebookLike];
+}
+
+- (void)_handleLikeButtonTap:(UIButton *)likeButton
+{
+
+    [self _handleLikeButtonTouchUp:likeButton];
+
+}
+
+- (void)_handleLikeButtonTouchDown:(UIButton *)likeButton
+{
+    [UIView animateWithDuration:0.1 animations:^{
+        likeButton.transform = CGAffineTransformMakeScale(0.8, 0.8);
+    }];
+}
+
+- (void)_handleLikeButtonTouchUp:(UIButton *)likeButton
+{
+    [UIView animateWithDuration:0.05 animations:^{
+        likeButton.transform = CGAffineTransformIdentity;
+    }];
 }
 
 @end

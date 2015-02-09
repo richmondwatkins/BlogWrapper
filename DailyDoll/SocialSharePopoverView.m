@@ -32,35 +32,23 @@
 
         for (UIButton *button in buttons) {
             if ([button.titleLabel.text isEqualToString:@"Like"]) {
-                [FBSettings enablePlatformCompatibility:NO];
 
-                FBLikeControl *like = [[FBLikeControl alloc] initWithFrame:CGRectMake(0, 0, popUp.frame.size.width * 0.8, 40)];
-
-                like.objectID = @"http://shareitexampleapp.parseapp.com/photo1/";
-                [popUp addSubview:like];
-                like.preferredMaxLayoutWidth = 300;
-                like.likeControlStyle = FBLikeControlStyleButton;
-                like.likeControlAuxiliaryPosition = FBLikeControlHorizontalAlignmentCenter;
-
-                UIView *lastSubView = [[popUp subviews] lastObject];
-                if (lastSubView) {
-
-                    [like setCenter:CGPointMake(popUp.frame.size.width / 2, lastSubView.center.y + button.frame.size.height + 40)];
-                }else {
-                    [like setCenter:CGPointMake(popUp.frame.size.width / 2, popUp.frame.size.height * 0.2)];
-                }
-
+                [self genarateLikeButton:popUp withOriginalButton:button];
             }else {
+
                 button.frame = CGRectMake(0, 0, popUp.frame.size.width * 0.8, 40);
+
                 UIView *lastSubView = [[popUp subviews] lastObject];
 
                 [popUp addSubview:button];
 
                 if (lastSubView) {
 
-                    [button setCenter:CGPointMake(popUp.frame.size.width / 2, lastSubView.center.y + button.frame.size.height + 40)];
+                    [button setCenter:CGPointMake(popUp.frame.size.width / 2,
+                                                  lastSubView.center.y + button.frame.size.height + 40)];
                 }else {
-                    [button setCenter:CGPointMake(popUp.frame.size.width / 2, popUp.frame.size.height * 0.2)];
+                    [button setCenter:CGPointMake(popUp.frame.size.width / 2,
+                                                  popUp.frame.size.height * 0.2)];
                 }
                 
                 
@@ -73,37 +61,12 @@
         UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTapGesture:)];
         tapGesture.delegate = self;
         [self addGestureRecognizer:tapGesture];
-        
     }
 
     return self;
 }
 
-//        UIButton *button = [[UIButton alloc] init];
-//        [button setTitle:buttonItem[@"Title"] forState:UIControlStateNormal];
-//
-//        switch ([buttonItem[@"Id"] intValue]) {
-//            case 0:  //View
-//                //
-//                break;
-//            case 1: { //Like
-//
-//                [FBSettings enablePlatformCompatibility:NO];
-//
-//                FBLikeControl *like = [[FBLikeControl alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
-//                like.objectID = @"http://shareitexampleapp.parseapp.com/photo1/";
-//
-//                [buttons addObject:like];
-//            }
-//                break;
-//            case 2:  //Share
-//
-//                [button addTarget:self action:@selector(facebookShareDelegate:) forControlEvents:UIControlEventTouchUpInside];
-//                [buttons addObject:button];
-//                break;
-//
-//            default:
-//                break;
+
 
 - (void)animateOnToScreen {
 
@@ -168,6 +131,26 @@
     return YES;
 }
 
+- (void)genarateLikeButton:(UIView *)popUp withOriginalButton:(UIButton *)button {
+
+    [FBSettings enablePlatformCompatibility:NO];
+
+    FBLikeControl *like = [[FBLikeControl alloc] initWithFrame:CGRectMake(0, 0, popUp.frame.size.width * 0.8, 40)];
+
+    like.objectID = @"http://shareitexampleapp.parseapp.com/photo1/";
+    [popUp addSubview:like];
+    like.preferredMaxLayoutWidth = 300;
+    like.likeControlStyle = FBLikeControlStyleButton;
+    like.likeControlAuxiliaryPosition = FBLikeControlHorizontalAlignmentCenter;
+
+    UIView *lastSubView = [[popUp subviews] lastObject];
+    if (lastSubView) {
+
+        [like setCenter:CGPointMake(popUp.frame.size.width / 2, lastSubView.center.y + button.frame.size.height + 40)];
+    }else {
+        [like setCenter:CGPointMake(popUp.frame.size.width / 2, popUp.frame.size.height * 0.2)];
+    }
+}
 
 
 @end
