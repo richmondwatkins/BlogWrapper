@@ -15,12 +15,11 @@
 @optional
 
 - (void)facebookShare:(NSString *)shareContent;
+- (void)facebookLike;
 
 @end
 
 @interface SocialSharingActionController : NSObject
-
-@property id<SocialProtocol> delegate;
 
 - (SocialSharePopoverView *) facebookPopConfig:(CGRect)windoFrame;
 
@@ -31,6 +30,8 @@
 + (void) handleInstagramShare;
 
 + (void) handleGooglePlusShare;
+
+@property id<SocialProtocol> delegate;
 
 
 @end

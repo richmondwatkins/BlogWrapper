@@ -9,6 +9,7 @@
 #import "SocialSharingActionController.h"
 #import "ProjectSettings.h"
 #import "SocialSharePopoverView.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @implementation SocialSharingActionController
 
@@ -27,20 +28,22 @@
             case 0:  //View
                 //
                 break;
-            case 1:  //Like
-                //
+            case 1: { //Like
+                [button addTarget:self action:@selector(faceBookLikeDelegate:) forControlEvents:UIControlEventTouchUpInside];
+    
+                [buttons addObject:button];
+            }
                 break;
             case 2:  //Share
 
                 [button addTarget:self action:@selector(facebookShareDelegate:) forControlEvents:UIControlEventTouchUpInside];
-
+                [buttons addObject:button];
                 break;
 
             default:
                 break;
         }
 
-        [buttons addObject:button];
     }
 
     SocialSharePopoverView *popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
@@ -53,5 +56,9 @@
     [self.delegate facebookShare:[[ProjectSettings sharedManager] homeVariables:kTitle]];
 }
 
+- (void)faceBookLikeDelegate:(UIButton *)button {
+
+    [self.delegate facebookLike];
+}
 
 @end

@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface SocialSharePopoverView : UIView
+
 
 - (instancetype)initWithParentFrame:(CGRect)windowFrame andButtons:(NSArray *)buttons;
 

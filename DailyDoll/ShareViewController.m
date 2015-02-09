@@ -13,6 +13,7 @@
 #import "ProjectSettings.h"
 #import "SocialSharingActionController.h"
 #import "SocialSharePopoverView.h"
+//#import <FacebookSDK/FacebookSDK.h>
 
 @import Social;
 
@@ -103,6 +104,7 @@
         default:
             break;
     }
+    
 
     [mainWindow addSubview: self.socialPopUp];
 
@@ -127,5 +129,13 @@
         [self presentViewController:controller animated:YES completion:Nil];
     }
 }
+
+-(void)facebookLike {
+
+
+
+}
+
+
 
 @end

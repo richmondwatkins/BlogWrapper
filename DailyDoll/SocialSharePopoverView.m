@@ -7,6 +7,8 @@
 //
 
 #import "SocialSharePopoverView.h"
+#import "ProjectSettings.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface SocialSharePopoverView () <UIGestureRecognizerDelegate>
 
@@ -29,20 +31,41 @@
         popUp.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
 
         for (UIButton *button in buttons) {
-            button.frame = CGRectMake(0, 0, popUp.frame.size.width * 0.8, 40);
-            UIView *lastSubView = [[popUp subviews] lastObject];
+            if ([button.titleLabel.text isEqualToString:@"Like"]) {
+                [FBSettings enablePlatformCompatibility:NO];
 
-            [popUp addSubview:button];
+                FBLikeControl *like = [[FBLikeControl alloc] initWithFrame:CGRectMake(0, 0, popUp.frame.size.width * 0.8, 40)];
 
-            if (lastSubView) {
+                like.objectID = @"http://shareitexampleapp.parseapp.com/photo1/";
+                [popUp addSubview:like];
+                like.preferredMaxLayoutWidth = 300;
+                like.likeControlStyle = FBLikeControlStyleButton;
+                like.likeControlAuxiliaryPosition = FBLikeControlHorizontalAlignmentCenter;
 
-                [button setCenter:CGPointMake(popUp.frame.size.width / 2, lastSubView.center.y + button.frame.size.height + 40)];
+                UIView *lastSubView = [[popUp subviews] lastObject];
+                if (lastSubView) {
+
+                    [like setCenter:CGPointMake(popUp.frame.size.width / 2, lastSubView.center.y + button.frame.size.height + 40)];
+                }else {
+                    [like setCenter:CGPointMake(popUp.frame.size.width / 2, popUp.frame.size.height * 0.2)];
+                }
+
             }else {
-                [button setCenter:CGPointMake(popUp.frame.size.width / 2, popUp.frame.size.height * 0.2)];
+                button.frame = CGRectMake(0, 0, popUp.frame.size.width * 0.8, 40);
+                UIView *lastSubView = [[popUp subviews] lastObject];
+
+                [popUp addSubview:button];
+
+                if (lastSubView) {
+
+                    [button setCenter:CGPointMake(popUp.frame.size.width / 2, lastSubView.center.y + button.frame.size.height + 40)];
+                }else {
+                    [button setCenter:CGPointMake(popUp.frame.size.width / 2, popUp.frame.size.height * 0.2)];
+                }
+                
+                
+                button.backgroundColor = [UIColor greenColor];
             }
-
-
-            button.backgroundColor = [UIColor greenColor];
         }
 
         [self addSubview:popUp];
@@ -56,18 +79,44 @@
     return self;
 }
 
+//        UIButton *button = [[UIButton alloc] init];
+//        [button setTitle:buttonItem[@"Title"] forState:UIControlStateNormal];
+//
+//        switch ([buttonItem[@"Id"] intValue]) {
+//            case 0:  //View
+//                //
+//                break;
+//            case 1: { //Like
+//
+//                [FBSettings enablePlatformCompatibility:NO];
+//
+//                FBLikeControl *like = [[FBLikeControl alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
+//                like.objectID = @"http://shareitexampleapp.parseapp.com/photo1/";
+//
+//                [buttons addObject:like];
+//            }
+//                break;
+//            case 2:  //Share
+//
+//                [button addTarget:self action:@selector(facebookShareDelegate:) forControlEvents:UIControlEventTouchUpInside];
+//                [buttons addObject:button];
+//                break;
+//
+//            default:
+//                break;
+
 - (void)animateOnToScreen {
 
     [UIView animateWithDuration:0.3 animations:^{
 
         UIView *popUpSubView = self.subviews[0];
 
-
         popUpSubView.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height);
 
         popUpSubView.alpha = 1;
 
         self.alpha = 1;
+
         self.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
 
     }];
@@ -118,5 +167,7 @@
 
     return YES;
 }
+
+
 
 @end
