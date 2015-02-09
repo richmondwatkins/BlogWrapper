@@ -13,7 +13,7 @@
 #import "ProjectSettings.h"
 #import "SocialSharingActionController.h"
 #import "SocialSharePopoverView.h"
-//#import <FacebookSDK/FacebookSDK.h>
+#import "ExternalWebModalViewController.h"
 
 @import Social;
 
@@ -118,22 +118,40 @@
     return [[UIScreen mainScreen] bounds].size.width * 0.15;
 }
 
-- (void)facebookShare:(NSString *)shareContent{
+- (void)facebookShareInternal:(NSString *)shareContent{
     
     [self.socialPopUp animateOffScreen];
 
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
         SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-
+        //TODO add text and images
         [controller setInitialText:shareContent];
         [self presentViewController:controller animated:YES completion:Nil];
     }
 }
 
--(void)facebookLike {
+- (void)facebookShareExternal:(FBLinkShareParams *)shareContent {
 
+    [FBDialogs presentShareDialogWithLink:shareContent.link
+                                  handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+                                      if(error) {
+                                          // An error occurred, we need to handle the error
+                                          // See: https://developers.facebook.com/docs/ios/errors
+                                          NSLog(@"Error publishing story: %@", error.description);
+                                      } else {
+                                          // Success
+                                          NSLog(@"result %@", results);
+                                      }
+                                  }];
+}
 
+-(void)facebookWebView:(NSURL *)facebookURL {
 
+    [self.socialPopUp animateOffScreen];
+
+    ExternalWebModalViewController *externalVC = [[ExternalWebModalViewController alloc] initWithRequest:[NSURLRequest requestWithURL:facebookURL]];
+
+    [self presentViewController:externalVC animated:YES completion:nil];
 }
 
 

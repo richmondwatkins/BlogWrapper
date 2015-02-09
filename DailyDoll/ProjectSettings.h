@@ -38,5 +38,7 @@
 - (NSString *)shareTableView:(NSString *)property;
 - (NSArray *)shareItems;
 - (NSArray *)buttonsForShareItem:(int)shareId;
+- (NSString *)facebookId;
+- (NSString *)facebookName;
 
 @end

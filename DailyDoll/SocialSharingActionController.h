@@ -9,13 +9,16 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "SocialSharePopoverView.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 @protocol SocialProtocol <NSObject>
 
 @optional
 
-- (void)facebookShare:(NSString *)shareContent;
+- (void)facebookShareInternal:(NSString *)shareContent;
+- (void)facebookShareExternal:(FBLinkShareParams *)shareContent;
 - (void)facebookLike;
+- (void)facebookWebView:(NSURL *)facebookURL;
 
 @end
 

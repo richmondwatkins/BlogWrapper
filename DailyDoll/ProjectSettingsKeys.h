@@ -20,4 +20,6 @@ extern NSString *const kFontColor;
 
 extern NSString *const kTitle;
 
+extern NSString *const kURLString;
+
 @end

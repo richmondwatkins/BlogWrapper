@@ -128,5 +128,15 @@ static ProjectSettings *sharedThemeManager = nil;
     return self.projectVariables[@"Social"][shareId][@"Buttons"];
 }
 
+- (NSString *)facebookId {
+
+    return self.projectVariables[@"Social"][0][@"pageId"];
+}
+
+- (NSString *)facebookName {
+
+    return self.projectVariables[@"Social"][0][@"pageName"];
+}
+
 
 @end

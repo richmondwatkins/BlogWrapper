@@ -74,15 +74,17 @@
         [self presentViewController:externalVC animated:YES completion:nil];
 
         return NO;
-    } else {
-
-        self.blurOverlay = [[BlurActivityOverlay alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
-        self.blurOverlay.frame = webView.bounds;
-        [webView addSubview:self.blurOverlay];
-
-        return YES;
-
     }
+
+
+    return YES;
+}
+
+-(void)webViewDidStartLoad:(UIWebView *)webView {
+
+    self.blurOverlay = [[BlurActivityOverlay alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+    self.blurOverlay.frame = webView.bounds;
+    [webView addSubview:self.blurOverlay];
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
@@ -101,6 +103,13 @@
 
 
     [self.blurOverlay animateAndRemove];
+}
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+
+    if (self.blurOverlay) {
+        [self.blurOverlay animateAndRemove];
+    }
 }
 
 - (void)showSideMenu {

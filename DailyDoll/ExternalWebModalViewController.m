@@ -58,4 +58,9 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void)webViewDidFinishLoad:(UIWebView *)webView {
+
+    NSLog(@"URL %@", webView.request.URL.absoluteString);
+}
+
 @end

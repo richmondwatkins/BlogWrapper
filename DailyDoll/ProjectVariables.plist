@@ -7,14 +7,12 @@
 		<key>Social</key>
 		<array>
 			<dict>
+				<key>pageName</key>
+				<string>thedailydollblog</string>
+				<key>pageId</key>
+				<string>1375752596010969</string>
 				<key>Buttons</key>
 				<array>
-					<dict>
-						<key>Id</key>
-						<string>0</string>
-						<key>Title</key>
-						<string>View</string>
-					</dict>
 					<dict>
 						<key>Id</key>
 						<string>1</string>
@@ -26,6 +24,12 @@
 						<string>2</string>
 						<key>Title</key>
 						<string>Share</string>
+					</dict>
+					<dict>
+						<key>Id</key>
+						<string>0</string>
+						<key>Title</key>
+						<string>View</string>
 					</dict>
 				</array>
 				<key>Image</key>
@@ -75,7 +79,7 @@
 			<key>Title</key>
 			<string>The Daily Doll</string>
 			<key>URLString</key>
-			<string>http://thedailydoll.com</string>
+			<string>http://www.thedailydoll.com</string>
 		</dict>
 	</dict>
 </dict>

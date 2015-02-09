@@ -14,7 +14,11 @@
 
 @end
 
-@implementation SocialSharePopoverView
+CGFloat const kButtonPadding = 20;
+CGFloat const kButtonHeight = 40;
+
+@implementation SocialSharePopoverView {
+}
 
 - (instancetype)initWithParentFrame:(CGRect)windowFrame andButtons:(NSArray *)buttons {
 
@@ -23,7 +27,8 @@
         self.backgroundColor = [UIColor blackColor];
         self.alpha = 0;
 
-        UIView *popUp = [[UIView alloc] initWithFrame:CGRectMake(0, windowFrame.size.height * 2, windowFrame.size.width * 0.8, windowFrame.size.height / 2)];
+        UIView *popUp = [[UIView alloc] initWithFrame:CGRectMake(0, windowFrame.size.height * 2, windowFrame.size.width * 0.8, (buttons.count * kButtonHeight) + (buttons.count + 1) * kButtonPadding)];
+
         popUp.alpha = 0;
         popUp.backgroundColor = [UIColor whiteColor];
         popUp.layer.cornerRadius = 5;
@@ -36,7 +41,7 @@
                 [self genarateLikeButton:popUp withOriginalButton:button];
             }else {
 
-                button.frame = CGRectMake(0, 0, popUp.frame.size.width * 0.8, 40);
+                button.frame = CGRectMake(0, 0, popUp.frame.size.width * 0.8, kButtonHeight);
 
                 UIView *lastSubView = [[popUp subviews] lastObject];
 
@@ -45,14 +50,11 @@
                 if (lastSubView) {
 
                     [button setCenter:CGPointMake(popUp.frame.size.width / 2,
-                                                  lastSubView.center.y + button.frame.size.height + 40)];
+                                                  lastSubView.center.y + button.frame.size.height + kButtonPadding)];
                 }else {
-                    [button setCenter:CGPointMake(popUp.frame.size.width / 2,
-                                                  popUp.frame.size.height * 0.2)];
+
+                    [self setFirstButton:button withPopUp:popUp];
                 }
-                
-                
-                button.backgroundColor = [UIColor greenColor];
             }
         }
 
@@ -66,7 +68,11 @@
     return self;
 }
 
+- (void)setFirstButton:(UIControl *)button withPopUp:(UIView *)popUp {
 
+     [button setCenter:CGPointMake(popUp.frame.size.width / 2,
+                                 kButtonPadding + (kButtonHeight / 2))];
+}
 
 - (void)animateOnToScreen {
 
@@ -135,21 +141,25 @@
 
     [FBSettings enablePlatformCompatibility:NO];
 
-    FBLikeControl *like = [[FBLikeControl alloc] initWithFrame:CGRectMake(0, 0, popUp.frame.size.width * 0.8, 40)];
+    FBLikeControl *like = [[FBLikeControl alloc] initWithFrame:CGRectMake(0, 0, popUp.frame.size.width * 0.8, kButtonHeight)];
 
     like.objectID = @"http://shareitexampleapp.parseapp.com/photo1/";
-    [popUp addSubview:like];
     like.preferredMaxLayoutWidth = 300;
     like.likeControlStyle = FBLikeControlStyleButton;
     like.likeControlAuxiliaryPosition = FBLikeControlHorizontalAlignmentCenter;
 
     UIView *lastSubView = [[popUp subviews] lastObject];
     if (lastSubView) {
-
-        [like setCenter:CGPointMake(popUp.frame.size.width / 2, lastSubView.center.y + button.frame.size.height + 40)];
+        
+        [like setCenter:CGPointMake(popUp.frame.size.width / 2,
+                                      lastSubView.center.y + button.frame.size.height + kButtonPadding)];
     }else {
-        [like setCenter:CGPointMake(popUp.frame.size.width / 2, popUp.frame.size.height * 0.2)];
+        
+        [self setFirstButton:like withPopUp:popUp];
     }
+
+    [popUp addSubview:like];
+
 }
 
 

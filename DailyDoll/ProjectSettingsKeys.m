@@ -21,4 +21,6 @@ NSString *const kFontColor = @"FontColor";
 
 NSString *const kTitle = @"Title";
 
+NSString *const kURLString = @"URLString";
+
 @end
