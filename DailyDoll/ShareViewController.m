@@ -89,16 +89,16 @@
            self.socialPopUp = [self.actionController facebookPopConfig:mainWindow.frame];
             break;
         case 1:
-            [SocialSharingActionController handlePintrestShare];
+//            [SocialSharingActionController handlePintrestShare];
             break;
         case 2:
-            [SocialSharingActionController handleTwitterShare];
+//            [SocialSharingActionController handleTwitterShare];
             break;
         case 3:
-            [SocialSharingActionController handleInstagramShare];
+//            [SocialSharingActionController handleInstagramShare];
             break;
         case 4:
-            [SocialSharingActionController handleGooglePlusShare];
+//            [SocialSharingActionController handleGooglePlusShare];
             break;
 
         default:

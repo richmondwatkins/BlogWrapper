@@ -26,13 +26,13 @@
 
 - (SocialSharePopoverView *) facebookPopConfig:(CGRect)windoFrame;
 
-+ (void) handlePintrestShare;
+- (SocialSharePopoverView *) handlePintrestShare;
 
-+ (void) handleTwitterShare;
+- (SocialSharePopoverView *)  handleTwitterShare;
 
-+ (void) handleInstagramShare;
+- (SocialSharePopoverView *) handleInstagramShare;
 
-+ (void) handleGooglePlusShare;
+- (SocialSharePopoverView *)  handleGooglePlusShare;
 
 @property id<SocialProtocol> delegate;
 
