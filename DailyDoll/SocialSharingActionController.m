@@ -217,10 +217,10 @@
                  forControlEvents:UIControlEventTouchUpInside];
 
             }   break;
-            case 1:
+            case 1: //
 
                 [button addTarget:self
-                           action:@selector(viewBoards:)
+                           action:@selector(authenticateAndFollowWithInstagram:)
                  forControlEvents:UIControlEventTouchUpInside];
 
             default:
@@ -238,8 +238,6 @@
     
     return popUpView;
 
-
-
 }
 
 - (void)viewOnInstagram:(UIButton *)button {
@@ -248,6 +246,16 @@
 
     [self openWithAppOrWebView:[NSString stringWithFormat:@"instagram://user?username=%@", instagramAccountName]
                      andWebURL:[NSString stringWithFormat:@"http://instagram.com/%@", instagramAccountName]];
+}
+
+- (void)authenticateAndFollowWithInstagram:(UIButton *) button {
+
+    NSString *authorizationURLConfigKey = [[ProjectSettings sharedManager]instagramOAuthItems:kInstagramKitAuthorizationUrl];
+    NSString *instagramKitAppClientId = [[ProjectSettings sharedManager]instagramOAuthItems:kInstagramKitAppClientId];
+    NSString *instagramKitAppRedirectURL = [[ProjectSettings sharedManager]instagramOAuthItems:kInstagramKitAppRedirectURL];
+
+    [self.delegate socialWebView:[NSURL URLWithString:[NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@&response_type=token&scope=relationships", authorizationURLConfigKey, instagramKitAppClientId, instagramKitAppRedirectURL]]];
+
 }
 
 

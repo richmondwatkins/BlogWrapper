@@ -158,4 +158,9 @@ static ProjectSettings *sharedThemeManager = nil;
     return self.projectVariables[@"Social"][shareId][@"AccountName"];
 }
 
+- (NSString *)instagramOAuthItems:(NSString *)item {
+
+    return self.projectVariables[@"Instagram"][item];
+}
+
 @end

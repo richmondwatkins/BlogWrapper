@@ -26,4 +26,12 @@ extern NSString *const kImage;
 
 extern NSString *const kBlogName;
 
+extern NSString *const kInstagramKitAuthorizationUrl;
+
+extern NSString *const kInstagramKitBaseUrl;
+
+extern NSString *const kInstagramKitAppRedirectURL;
+
+extern NSString *const kInstagramKitAppClientId;
+
 @end

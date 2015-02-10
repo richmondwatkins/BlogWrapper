@@ -27,4 +27,13 @@ NSString *const kImage = @"Image";
 
 NSString *const kBlogName = @"Title";
 
+NSString *const kInstagramKitAuthorizationUrl = @"InstagramKitAuthorizationUrl";
+
+NSString *const kInstagramKitBaseUrl = @"InstagramKitBaseUrl";
+
+NSString *const kInstagramKitAppRedirectURL = @"InstagramKitAppRedirectURL";
+
+NSString *const kInstagramKitAppClientId = @"InstagramKitAppClientId";
+
+
 @end

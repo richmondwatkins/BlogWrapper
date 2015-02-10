@@ -46,4 +46,6 @@
 
 - (NSString *)pintrestId;
 
+- (NSString *)instagramOAuthItems:(NSString *)item;
+
 @end

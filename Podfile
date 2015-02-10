@@ -5,6 +5,7 @@ target 'DailyDoll' do
 pod 'MMDrawerController', '~> 0.5.7'
 
 pod 'Facebook-iOS-SDK'
+
 end
 
 target 'DailyDollTests' do
