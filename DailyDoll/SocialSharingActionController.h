@@ -20,6 +20,7 @@
 - (void)facebookShareExternal:(FBLinkShareParams *)shareContent;
 - (void)facebookLike;
 - (void)socialWebView:(NSURL *)facebookURL;
+- (void)instagramAuthWebView:(NSURL *)instagramURL;
 
 @end
 

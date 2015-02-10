@@ -254,8 +254,9 @@
     NSString *instagramKitAppClientId = [[ProjectSettings sharedManager]instagramOAuthItems:kInstagramKitAppClientId];
     NSString *instagramKitAppRedirectURL = [[ProjectSettings sharedManager]instagramOAuthItems:kInstagramKitAppRedirectURL];
 
-    [self.delegate socialWebView:[NSURL URLWithString:[NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@&response_type=token&scope=relationships", authorizationURLConfigKey, instagramKitAppClientId, instagramKitAppRedirectURL]]];
+    NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@&response_type=token&scope=relationships", authorizationURLConfigKey, instagramKitAppClientId, instagramKitAppRedirectURL]];
 
+    [self.delegate socialWebView:instagramURL];
 }
 
 

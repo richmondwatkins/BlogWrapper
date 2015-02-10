@@ -69,7 +69,18 @@
             NSLog(@"ACCESS TOKEN = %@",accessToken);
 //            [[InstagramEngine sharedEngine] setAccessToken:accessToken];
 
-            [self dismissViewControllerAnimated:YES completion:nil];
+            NSString *urlString=[NSString stringWithFormat:@"https://api.instagram.com/v1/users/%@/relationship?access_token=%@",@"486292136",accessToken];
+
+            NSURL* url = [NSURL URLWithString:urlString];
+            NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:1000.0];
+            NSString *parameters=@"action=follow";
+            [theRequest setHTTPBody:[parameters dataUsingEncoding:NSUTF8StringEncoding]];
+            [theRequest setHTTPMethod:@"POST"];
+
+            [NSURLConnection sendAsynchronousRequest:theRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+                NSLog(@"Response %@",dict);
+            }];
         }
         return NO;
     }

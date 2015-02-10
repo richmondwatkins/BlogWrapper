@@ -182,6 +182,13 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		5D7F6B471A89C9EC00A207CD /* CustomTransitions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CustomTransitions;
+			sourceTree = "<group>";
+		};
 		5DC2F5571A85BB7D00ED1969 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,6 +213,7 @@
 		5DDA1B101A7F383C00914761 = {
 			isa = PBXGroup;
 			children = (
+				5D7F6B471A89C9EC00A207CD /* CustomTransitions */,
 				5D7F6B3A1A898EC600A207CD /* Pinterest.embeddedframework */,
 				5DDA3DBB1A86053200FD085A /* post.js */,
 				5DDA3DB01A85F27F00FD085A /* webViewJS.js */,
