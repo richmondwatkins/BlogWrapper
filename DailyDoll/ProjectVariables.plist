@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>BundleId</key>
+	<string>scheme://com-greekconnect.DailyDoll</string>
 	<key>Project</key>
 	<dict>
 		<key>Social</key>
@@ -75,6 +77,23 @@
 				<string>2</string>
 			</dict>
 			<dict>
+				<key>Buttons</key>
+				<array>
+					<dict>
+						<key>Id</key>
+						<string>0</string>
+						<key>Title</key>
+						<string>View</string>
+					</dict>
+					<dict>
+						<key>Id</key>
+						<string>1</string>
+						<key>Title</key>
+						<string>Follow</string>
+					</dict>
+				</array>
+				<key>AccountName</key>
+				<string>thedailydollblog</string>
 				<key>Image</key>
 				<string>instagram</string>
 				<key>URLString</key>

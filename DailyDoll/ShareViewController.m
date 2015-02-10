@@ -96,7 +96,7 @@
 //            [SocialSharingActionController handleTwitterShare];
             break;
         case 3:
-//            [SocialSharingActionController handleInstagramShare];
+            self.socialPopUp = [self.actionController instagramPopConfig:mainWindow.frame];
             break;
         case 4:
 //            [SocialSharingActionController handleGooglePlusShare];

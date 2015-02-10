@@ -153,7 +153,7 @@
                 break;
         }
 
-        [self styleButtonAndAnimateActions:button withColor:[UIColor redColor]];
+        [self styleButtonAndAnimateActions:button withColor:[UIColor colorWithHexString:@"cb2027"]];
 
         
         [buttons addObject:button];
@@ -191,6 +191,63 @@
     [self openWithAppOrWebView:[NSString stringWithFormat:@"pinterest://user/%@/", pintrestAccountName]
                      andWebURL:[NSString stringWithFormat:@"https://www.pinterest.com/%@/pins/", pintrestAccountName]];
 
+}
+
+
+
+
+// ======= Instagram ======
+
+-(SocialSharePopoverView *)instagramPopConfig:(CGRect)windowFrame {
+
+    NSArray *buttonItems = [[ProjectSettings sharedManager]buttonsForShareItem:3];
+
+    NSMutableArray *buttons = [NSMutableArray array];
+
+    for (NSDictionary *buttonItem in buttonItems) {
+
+        UIButton *button = [[UIButton alloc] init];
+        [button setTitle:buttonItem[@"Title"] forState:UIControlStateNormal];
+
+        switch ([buttonItem[@"Id"] intValue]) {
+            case 0: { //View
+
+                [button addTarget:self
+                           action:@selector(viewOnInstagram:)
+                 forControlEvents:UIControlEventTouchUpInside];
+
+            }   break;
+            case 1:
+
+                [button addTarget:self
+                           action:@selector(viewBoards:)
+                 forControlEvents:UIControlEventTouchUpInside];
+
+            default:
+                break;
+        }
+
+        [self styleButtonAndAnimateActions:button withColor:[UIColor colorWithHexString:@"517fa4"]];
+
+
+        [buttons addObject:button];
+
+    }
+
+    SocialSharePopoverView *popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
+    
+    return popUpView;
+
+
+
+}
+
+- (void)viewOnInstagram:(UIButton *)button {
+
+    NSString *instagramAccountName = [[ProjectSettings sharedManager] socialAccountName:3];
+
+    [self openWithAppOrWebView:[NSString stringWithFormat:@"instagram://user?username=%@", instagramAccountName]
+                     andWebURL:[NSString stringWithFormat:@"http://instagram.com/%@", instagramAccountName]];
 }
 
 

@@ -27,6 +27,7 @@
 // ======= Project Variabels ====
 
 -(NSString *)homeVariables:(NSString *)property;
+- (NSString *)bundleID;
 
 // ======= Main View ====
 

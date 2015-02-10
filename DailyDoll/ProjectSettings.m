@@ -98,6 +98,11 @@ static ProjectSettings *sharedThemeManager = nil;
     return self.projectVariables[@"Home"][property];
 }
 
+- (NSString *)bundleID {
+
+   return self.projectVariables[@"BundleId"];
+}
+
 // ======= Main View ====
 
 - (NSString *)activityIndicator:(NSString *)property {
