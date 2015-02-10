@@ -39,6 +39,7 @@ CGFloat const kButtonHeight = 40;
             if ([button.titleLabel.text isEqualToString:@"Like"]) {
 
                 [self genarateLikeButton:popUp withOriginalButton:button];
+                
             }else {
 
                 button.frame = CGRectMake(0, 0, popUp.frame.size.width * 0.8, kButtonHeight);

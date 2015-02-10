@@ -11,6 +11,8 @@
 		5D0EDAB61A830290007DE68D /* MenuItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D0EDAB51A830290007DE68D /* MenuItems.plist */; };
 		5D0F177E1A86A1FC00AAE285 /* SocialSharingActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0F177D1A86A1FC00AAE285 /* SocialSharingActionController.m */; };
 		5D2D40751A83282D000A84B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2D40741A83282D000A84B1 /* Main.storyboard */; };
+		5D7F6B3E1A898EC600A207CD /* Pinterest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7F6B3B1A898EC600A207CD /* Pinterest.framework */; };
+		5D7F6B3F1A898EC600A207CD /* PinterestSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D7F6B3D1A898EC600A207CD /* PinterestSDKResources.bundle */; };
 		5D80527D1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80527C1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m */; };
 		5D8052801A8331FD0076A6E8 /* SideMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80527F1A8331FD0076A6E8 /* SideMenuTableViewCell.m */; };
 		5D86005C1A87C45A00AA8971 /* SocialSharePopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D86005B1A87C45A00AA8971 /* SocialSharePopoverView.m */; };
@@ -63,6 +65,8 @@
 		5D0F177C1A86A1FC00AAE285 /* SocialSharingActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialSharingActionController.h; sourceTree = "<group>"; };
 		5D0F177D1A86A1FC00AAE285 /* SocialSharingActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialSharingActionController.m; sourceTree = "<group>"; };
 		5D2D40741A83282D000A84B1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5D7F6B3B1A898EC600A207CD /* Pinterest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pinterest.framework; sourceTree = "<group>"; };
+		5D7F6B3D1A898EC600A207CD /* PinterestSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PinterestSDKResources.bundle; sourceTree = "<group>"; };
 		5D80527B1A83315C0076A6E8 /* UIColor+UIColor_Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColor_Expanded.h"; sourceTree = "<group>"; };
 		5D80527C1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_Expanded.m"; sourceTree = "<group>"; };
 		5D80527E1A8331FD0076A6E8 /* SideMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuTableViewCell.h; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDF89CC8C066F8FFE29F7BC1 /* libPods-DailyDoll.a in Frameworks */,
+				5D7F6B3E1A898EC600A207CD /* Pinterest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +165,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5D7F6B3A1A898EC600A207CD /* Pinterest.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				5D7F6B3B1A898EC600A207CD /* Pinterest.framework */,
+				5D7F6B3C1A898EC600A207CD /* Resources */,
+			);
+			path = Pinterest.embeddedframework;
+			sourceTree = "<group>";
+		};
+		5D7F6B3C1A898EC600A207CD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5D7F6B3D1A898EC600A207CD /* PinterestSDKResources.bundle */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		5DC2F5571A85BB7D00ED1969 /* SideMenu */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +206,7 @@
 		5DDA1B101A7F383C00914761 = {
 			isa = PBXGroup;
 			children = (
+				5D7F6B3A1A898EC600A207CD /* Pinterest.embeddedframework */,
 				5DDA3DBB1A86053200FD085A /* post.js */,
 				5DDA3DB01A85F27F00FD085A /* webViewJS.js */,
 				5DDA1B1B1A7F383C00914761 /* DailyDoll */,
@@ -458,6 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DC2F5561A85B49300ED1969 /* Theme.plist in Resources */,
+				5D7F6B3F1A898EC600A207CD /* PinterestSDKResources.bundle in Resources */,
 				5DDA3DAC1A85E67700FD085A /* ProjectVariables.plist in Resources */,
 				5D0EDAB61A830290007DE68D /* MenuItems.plist in Resources */,
 				5DA64CD51A847A7A004F08A8 /* HeaderView.xib in Resources */,
@@ -655,6 +679,10 @@
 			baseConfigurationReference = 680B8C91B0508131C24B223C /* Pods-DailyDoll.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pinterest.embeddedframework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = DailyDoll/Info.plist;
@@ -668,6 +696,10 @@
 			baseConfigurationReference = AA7FAADA7B793178F851DF47 /* Pods-DailyDoll.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pinterest.embeddedframework",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = DailyDoll/Info.plist;

@@ -50,25 +50,7 @@
                 break;
         }
 
-        button.layer.cornerRadius = 3;
-
-        button.backgroundColor = [UIColor colorWithHexString:@"425daf"];
-
-        button.titleLabel.font = [UIFont boldSystemFontOfSize:18.0];
-
-        [button addTarget:self action:@selector(handleLikeButtonTouchUp:)
-         forControlEvents:UIControlEventTouchUpInside];
-
-        [button addTarget:self
-                        action:@selector(handleLikeButtonTouchDown:)
-              forControlEvents:(//UIControlEventTouchDragEnter |
-                                UIControlEventTouchDown)];
-
-        [button addTarget:self
-                        action:@selector(handleLikeButtonTouchUp:)
-              forControlEvents:(UIControlEventTouchCancel |
-                                //UIControlEventTouchDragExit |
-                                UIControlEventTouchUpOutside)];
+        [self styleButtonAndAnimateActions:button withColor:[UIColor colorWithHexString:@"425daf"]];
 
         [buttons addObject:button];
 
@@ -81,17 +63,10 @@
 
 - (void)facebookViewDelegate:(UIButton *)button {
 
-    NSURL *facebookURL = [NSURL URLWithString:[NSString stringWithFormat:@"fb://profile/%@",
-                                               [[ProjectSettings sharedManager] facebookId]]];
-
-    if ([[UIApplication sharedApplication] canOpenURL:facebookURL]) {
-
-        [[UIApplication sharedApplication] openURL:facebookURL];
-    } else {
-
-        [self.delegate facebookWebView:[NSURL URLWithString:[NSString stringWithFormat:@"https://www.facebook.com/%@",
-                                                             [[ProjectSettings sharedManager] facebookId]]]];
-    }
+    [self openWithAppOrWebView:[NSString stringWithFormat:@"fb://profile/%@",
+                                [[ProjectSettings sharedManager] facebookId]]
+                     andWebURL:[NSString stringWithFormat:@"https://www.facebook.com/%@",
+                                                           [[ProjectSettings sharedManager] facebookId]]];
 }
 
 - (void)facebookShareDelegate:(UIButton *)button {
@@ -111,7 +86,7 @@
 
             [self.delegate facebookShareInternal:[[ProjectSettings sharedManager] homeVariables:kTitle]];
         }else {
-            [self.delegate facebookWebView:params.link];
+            [self.delegate socialWebView:params.link];
         }
     }
 
@@ -145,10 +120,116 @@
 }
 
 
-//==== TWITTER =====
+//==== Pintrest =====
 
-//-(SocialSharePopoverView *)handleTwitterShare {
-//
-//}
+-(SocialSharePopoverView *)pintrestPopConfig:(CGRect)windowFrame {
+
+    NSArray *buttonItems = [[ProjectSettings sharedManager]buttonsForShareItem:1];
+
+    NSMutableArray *buttons = [NSMutableArray array];
+
+    for (NSDictionary *buttonItem in buttonItems) {
+
+        UIButton *button = [[UIButton alloc] init];
+        [button setTitle:buttonItem[@"Title"] forState:UIControlStateNormal];
+
+        switch ([buttonItem[@"Id"] intValue]) {
+            case 0: { //Pin
+
+                self.pinterest = [[Pinterest alloc]initWithClientId:[[ProjectSettings sharedManager]pintrestId]];
+
+                [button addTarget:self
+                           action:@selector(pinIt:)
+                 forControlEvents:UIControlEventTouchUpInside];
+
+            }   break;
+            case 1:
+
+                [button addTarget:self
+                           action:@selector(viewBoards:)
+                 forControlEvents:UIControlEventTouchUpInside];
+
+            default:
+                break;
+        }
+
+        [self styleButtonAndAnimateActions:button withColor:[UIColor redColor]];
+
+        
+        [buttons addObject:button];
+        
+    }
+
+    SocialSharePopoverView *popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
+
+    return popUpView;
+
+}
+
+- (void)pinIt:(UIButton *)button {
+
+    //TODO setup s3 to host images
+    NSURL *imageURL     = [NSURL URLWithString:@"http://placekitten.com/500/400"];
+    NSURL *sourceURL    = [NSURL URLWithString:[[ProjectSettings sharedManager] socialPropertiesForItem:1 withItem:kURLString]];
+
+
+    if ([self.pinterest canPinWithSDK]) {
+        [self.pinterest createPinWithImageURL:imageURL
+                                    sourceURL:sourceURL
+                                  description:[[ProjectSettings sharedManager] homeVariables:kBlogName]];
+    } else {
+
+        [self.delegate socialWebView:sourceURL];
+    }
+
+}
+
+- (void)viewBoards:(UIButton *)button {
+
+    NSString *pintrestAccountName = [[ProjectSettings sharedManager] socialAccountName:1];
+
+    [self openWithAppOrWebView:[NSString stringWithFormat:@"pinterest://user/%@/", pintrestAccountName]
+                     andWebURL:[NSString stringWithFormat:@"https://www.pinterest.com/%@/pins/", pintrestAccountName]];
+
+}
+
+
+//helper methods
+
+- (void) styleButtonAndAnimateActions:(UIButton *)button withColor:(UIColor *)color {
+
+    button.layer.cornerRadius = 3;
+
+    button.backgroundColor = color;
+
+    button.titleLabel.font = [UIFont boldSystemFontOfSize:18.0];
+
+    [button addTarget:self action:@selector(handleLikeButtonTouchUp:)
+     forControlEvents:UIControlEventTouchUpInside];
+
+    [button addTarget:self
+               action:@selector(handleLikeButtonTouchDown:)
+     forControlEvents:(//UIControlEventTouchDragEnter |
+                       UIControlEventTouchDown)];
+
+    [button addTarget:self
+               action:@selector(handleLikeButtonTouchUp:)
+     forControlEvents:(UIControlEventTouchCancel |
+                       //UIControlEventTouchDragExit |
+                       UIControlEventTouchUpOutside)];
+}
+
+- (void)openWithAppOrWebView:(NSString *)deepLinkURLString andWebURL:(NSString *)webURLString {
+
+    NSURL *deepLinkURL = [NSURL URLWithString:deepLinkURLString];
+
+    if ([[UIApplication sharedApplication] canOpenURL:deepLinkURL]) {
+
+        [[UIApplication sharedApplication] openURL:deepLinkURL];
+    } else {
+        NSURL *webURL = [NSURL URLWithString:webURLString];
+        [self.delegate socialWebView:webURL];
+    }
+}
 
 @end

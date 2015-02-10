@@ -23,4 +23,8 @@ NSString *const kTitle = @"Title";
 
 NSString *const kURLString = @"URLString";
 
+NSString *const kImage = @"Image";
+
+NSString *const kBlogName = @"Title";
+
 @end

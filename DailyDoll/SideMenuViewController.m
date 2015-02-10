@@ -15,6 +15,7 @@
 #import "SideMenuHeaderImageView.h"
 #import "SideMenuTableSectionHeader.h"
 #import "SideMenuTableSectionLabel.h"
+#import <Pinterest/Pinterest.h>
 
 @interface SideMenuViewController () <UITableViewDataSource, UITableViewDelegate>
 

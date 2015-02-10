@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 #import "SocialSharePopoverView.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <Pinterest/Pinterest.h>
 
 @protocol SocialProtocol <NSObject>
 
@@ -18,21 +19,23 @@
 - (void)facebookShareInternal:(NSString *)shareContent;
 - (void)facebookShareExternal:(FBLinkShareParams *)shareContent;
 - (void)facebookLike;
-- (void)facebookWebView:(NSURL *)facebookURL;
+- (void)socialWebView:(NSURL *)facebookURL;
 
 @end
 
 @interface SocialSharingActionController : NSObject
 
-- (SocialSharePopoverView *) facebookPopConfig:(CGRect)windoFrame;
+@property Pinterest *pinterest;
 
-- (SocialSharePopoverView *) handlePintrestShare;
+- (SocialSharePopoverView *) facebookPopConfig:(CGRect)windowFrame;
 
-- (SocialSharePopoverView *)  handleTwitterShare;
+- (SocialSharePopoverView *) pintrestPopConfig:(CGRect)windowFrame;
 
-- (SocialSharePopoverView *) handleInstagramShare;
+- (SocialSharePopoverView *) twitterPopConfig:(CGRect)windowFrame;
 
-- (SocialSharePopoverView *)  handleGooglePlusShare;
+- (SocialSharePopoverView *) instagramPopConfig:(CGRect)windowFrame;
+
+- (SocialSharePopoverView *) googlePlusPopConfig:(CGRect)windowFrame;
 
 @property id<SocialProtocol> delegate;
 

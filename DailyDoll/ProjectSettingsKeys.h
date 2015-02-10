@@ -22,4 +22,8 @@ extern NSString *const kTitle;
 
 extern NSString *const kURLString;
 
+extern NSString *const kImage;
+
+extern NSString *const kBlogName;
+
 @end

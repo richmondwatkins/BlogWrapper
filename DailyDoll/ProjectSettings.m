@@ -128,6 +128,11 @@ static ProjectSettings *sharedThemeManager = nil;
     return self.projectVariables[@"Social"][shareId][@"Buttons"];
 }
 
+- (NSString *)socialPropertiesForItem:(int)shareId withItem:(NSString *)item {
+
+    return self.projectVariables[@"Social"][shareId][item];
+}
+
 - (NSString *)facebookId {
 
     return self.projectVariables[@"Social"][0][@"pageId"];
@@ -138,5 +143,14 @@ static ProjectSettings *sharedThemeManager = nil;
     return self.projectVariables[@"Social"][0][@"pageName"];
 }
 
+- (NSString *)pintrestId {
+
+    return self.projectVariables[@"Social"][1][@"appId"];
+}
+
+- (NSString *)socialAccountName:(int)shareId {
+
+    return self.projectVariables[@"Social"][shareId][@"AccountName"];
+}
 
 @end

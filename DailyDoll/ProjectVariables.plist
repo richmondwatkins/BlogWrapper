@@ -34,15 +34,34 @@
 				</array>
 				<key>Image</key>
 				<string>facebook</string>
-				<key>URL</key>
+				<key>URLString</key>
 				<string>https://www.facebook.com/thedailydollblog</string>
 				<key>socialId</key>
 				<string>0</string>
 			</dict>
 			<dict>
+				<key>AccountName</key>
+				<string>thelaceyjohnson</string>
+				<key>Buttons</key>
+				<array>
+					<dict>
+						<key>Id</key>
+						<string>0</string>
+						<key>Title</key>
+						<string>Pin</string>
+					</dict>
+					<dict>
+						<key>Id</key>
+						<string>1</string>
+						<key>Title</key>
+						<string>View Boards</string>
+					</dict>
+				</array>
+				<key>appId</key>
+				<string>1442952</string>
 				<key>Image</key>
 				<string>pintrest</string>
-				<key>URL</key>
+				<key>URLString</key>
 				<string>https://www.pinterest.com/thelaceyjohnson/pins/</string>
 				<key>socialId</key>
 				<string>1</string>
@@ -50,7 +69,7 @@
 			<dict>
 				<key>Image</key>
 				<string>twitter</string>
-				<key>URL</key>
+				<key>URLString</key>
 				<string>https://twitter.com/the_daily_doll</string>
 				<key>socialId</key>
 				<string>2</string>
@@ -58,7 +77,7 @@
 			<dict>
 				<key>Image</key>
 				<string>instagram</string>
-				<key>URL</key>
+				<key>URLString</key>
 				<string>http://instagram.com/thedailydollblog</string>
 				<key>socialId</key>
 				<string>3</string>
@@ -66,7 +85,7 @@
 			<dict>
 				<key>Image</key>
 				<string>googlePlus</string>
-				<key>URL</key>
+				<key>URLString</key>
 				<string>https://plus.google.com/u/0/+Thedailydoll/posts</string>
 				<key>socialId</key>
 				<string>4</string>

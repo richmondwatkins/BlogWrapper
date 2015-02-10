@@ -34,11 +34,15 @@
 
 // ======== Share View ====
 
+- (NSString *)socialPropertiesForItem:(int)shareId withItem:(NSString *)item;
+- (NSString *)socialAccountName:(int)shareId;
 - (NSString *)shareView:(NSString *)property;
 - (NSString *)shareTableView:(NSString *)property;
 - (NSArray *)shareItems;
 - (NSArray *)buttonsForShareItem:(int)shareId;
 - (NSString *)facebookId;
 - (NSString *)facebookName;
+
+- (NSString *)pintrestId;
 
 @end

@@ -89,6 +89,7 @@
            self.socialPopUp = [self.actionController facebookPopConfig:mainWindow.frame];
             break;
         case 1:
+            self.socialPopUp = [self.actionController pintrestPopConfig:mainWindow.frame];
 //            [SocialSharingActionController handlePintrestShare];
             break;
         case 2:
@@ -145,7 +146,7 @@
                                   }];
 }
 
--(void)facebookWebView:(NSURL *)facebookURL {
+-(void)socialWebView:(NSURL *)facebookURL {
 
     [self.socialPopUp animateOffScreen];
 
