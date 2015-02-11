@@ -34,4 +34,21 @@ extern NSString *const kInstagramKitAppRedirectURL;
 
 extern NSString *const kInstagramKitAppClientId;
 
+extern NSString *const kFirstStartUp;
+
+
+//Theme Elements
+
+extern NSString *const kNavBar;
+
+extern NSString *const kStatusBar;
+
+extern NSString *const kSideMenuHeader;
+
+extern NSString *const kSideMenuTableView;
+
+extern NSString *const kSideMenuCell;
+
+extern NSString *const kSideMenuSectionHeader;
+
 @end

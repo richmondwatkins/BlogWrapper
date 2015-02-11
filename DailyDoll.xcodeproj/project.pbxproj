@@ -11,8 +11,23 @@
 		5D0EDAB61A830290007DE68D /* MenuItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D0EDAB51A830290007DE68D /* MenuItems.plist */; };
 		5D0F177E1A86A1FC00AAE285 /* SocialSharingActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0F177D1A86A1FC00AAE285 /* SocialSharingActionController.m */; };
 		5D2D40751A83282D000A84B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2D40741A83282D000A84B1 /* Main.storyboard */; };
+		5D62FD651A8AF1230022671F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D62FD641A8AF1230022671F /* CoreData.framework */; };
+		5D62FD681A8AF1680022671F /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD661A8AF1680022671F /* DataModel.xcdatamodeld */; };
+		5D62FD6B1A8AFAE80022671F /* ThemeElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD6A1A8AFAE80022671F /* ThemeElement.m */; };
+		5D62FD6E1A8AFAE90022671F /* NavBarTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD6D1A8AFAE90022671F /* NavBarTheme.m */; };
+		5D62FD711A8AFAE90022671F /* ActivityIndicatorTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD701A8AFAE90022671F /* ActivityIndicatorTheme.m */; };
+		5D62FD741A8AFAE90022671F /* SideMenuTableViewTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD731A8AFAE90022671F /* SideMenuTableViewTheme.m */; };
+		5D62FD771A8AFAE90022671F /* ShareViewTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD761A8AFAE90022671F /* ShareViewTheme.m */; };
+		5D62FD7A1A8AFAE90022671F /* StatusBarTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD791A8AFAE90022671F /* StatusBarTheme.m */; };
+		5D62FD7D1A8AFAE90022671F /* SideMenuSectionHeaderTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD7C1A8AFAE90022671F /* SideMenuSectionHeaderTheme.m */; };
+		5D62FD801A8AFAE90022671F /* SideMenuHeaderTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD7F1A8AFAE90022671F /* SideMenuHeaderTheme.m */; };
+		5D62FD831A8AFAE90022671F /* SideMenuCellTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD821A8AFAE90022671F /* SideMenuCellTheme.m */; };
+		5D62FD861A8AFAEA0022671F /* ShareTableViewTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD851A8AFAEA0022671F /* ShareTableViewTheme.m */; };
 		5D7F6B3E1A898EC600A207CD /* Pinterest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7F6B3B1A898EC600A207CD /* Pinterest.framework */; };
 		5D7F6B3F1A898EC600A207CD /* PinterestSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D7F6B3D1A898EC600A207CD /* PinterestSDKResources.bundle */; };
+		5D7F6B5C1A8A893800A207CD /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7F6B591A8A893800A207CD /* TwitterKit.framework */; };
+		5D7F6B5D1A8A893800A207CD /* TwitterKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D7F6B5A1A8A893800A207CD /* TwitterKitResources.bundle */; };
+		5D7F6B5E1A8A893800A207CD /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7F6B5B1A8A893800A207CD /* Fabric.framework */; };
 		5D80527D1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80527C1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m */; };
 		5D8052801A8331FD0076A6E8 /* SideMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80527F1A8331FD0076A6E8 /* SideMenuTableViewCell.m */; };
 		5D86005C1A87C45A00AA8971 /* SocialSharePopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D86005B1A87C45A00AA8971 /* SocialSharePopoverView.m */; };
@@ -65,8 +80,33 @@
 		5D0F177C1A86A1FC00AAE285 /* SocialSharingActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialSharingActionController.h; sourceTree = "<group>"; };
 		5D0F177D1A86A1FC00AAE285 /* SocialSharingActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialSharingActionController.m; sourceTree = "<group>"; };
 		5D2D40741A83282D000A84B1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5D62FD641A8AF1230022671F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		5D62FD671A8AF1680022671F /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		5D62FD691A8AFAE80022671F /* ThemeElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThemeElement.h; path = DailyDoll/ThemeElement.h; sourceTree = "<group>"; };
+		5D62FD6A1A8AFAE80022671F /* ThemeElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThemeElement.m; path = DailyDoll/ThemeElement.m; sourceTree = "<group>"; };
+		5D62FD6C1A8AFAE90022671F /* NavBarTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavBarTheme.h; path = DailyDoll/NavBarTheme.h; sourceTree = "<group>"; };
+		5D62FD6D1A8AFAE90022671F /* NavBarTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavBarTheme.m; path = DailyDoll/NavBarTheme.m; sourceTree = "<group>"; };
+		5D62FD6F1A8AFAE90022671F /* ActivityIndicatorTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityIndicatorTheme.h; path = DailyDoll/ActivityIndicatorTheme.h; sourceTree = "<group>"; };
+		5D62FD701A8AFAE90022671F /* ActivityIndicatorTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityIndicatorTheme.m; path = DailyDoll/ActivityIndicatorTheme.m; sourceTree = "<group>"; };
+		5D62FD721A8AFAE90022671F /* SideMenuTableViewTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideMenuTableViewTheme.h; path = DailyDoll/SideMenuTableViewTheme.h; sourceTree = "<group>"; };
+		5D62FD731A8AFAE90022671F /* SideMenuTableViewTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideMenuTableViewTheme.m; path = DailyDoll/SideMenuTableViewTheme.m; sourceTree = "<group>"; };
+		5D62FD751A8AFAE90022671F /* ShareViewTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShareViewTheme.h; path = DailyDoll/ShareViewTheme.h; sourceTree = "<group>"; };
+		5D62FD761A8AFAE90022671F /* ShareViewTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShareViewTheme.m; path = DailyDoll/ShareViewTheme.m; sourceTree = "<group>"; };
+		5D62FD781A8AFAE90022671F /* StatusBarTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StatusBarTheme.h; path = DailyDoll/StatusBarTheme.h; sourceTree = "<group>"; };
+		5D62FD791A8AFAE90022671F /* StatusBarTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StatusBarTheme.m; path = DailyDoll/StatusBarTheme.m; sourceTree = "<group>"; };
+		5D62FD7B1A8AFAE90022671F /* SideMenuSectionHeaderTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideMenuSectionHeaderTheme.h; path = DailyDoll/SideMenuSectionHeaderTheme.h; sourceTree = "<group>"; };
+		5D62FD7C1A8AFAE90022671F /* SideMenuSectionHeaderTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideMenuSectionHeaderTheme.m; path = DailyDoll/SideMenuSectionHeaderTheme.m; sourceTree = "<group>"; };
+		5D62FD7E1A8AFAE90022671F /* SideMenuHeaderTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideMenuHeaderTheme.h; path = DailyDoll/SideMenuHeaderTheme.h; sourceTree = "<group>"; };
+		5D62FD7F1A8AFAE90022671F /* SideMenuHeaderTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideMenuHeaderTheme.m; path = DailyDoll/SideMenuHeaderTheme.m; sourceTree = "<group>"; };
+		5D62FD811A8AFAE90022671F /* SideMenuCellTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SideMenuCellTheme.h; path = DailyDoll/SideMenuCellTheme.h; sourceTree = "<group>"; };
+		5D62FD821A8AFAE90022671F /* SideMenuCellTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideMenuCellTheme.m; path = DailyDoll/SideMenuCellTheme.m; sourceTree = "<group>"; };
+		5D62FD841A8AFAEA0022671F /* ShareTableViewTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShareTableViewTheme.h; path = DailyDoll/ShareTableViewTheme.h; sourceTree = "<group>"; };
+		5D62FD851A8AFAEA0022671F /* ShareTableViewTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShareTableViewTheme.m; path = DailyDoll/ShareTableViewTheme.m; sourceTree = "<group>"; };
 		5D7F6B3B1A898EC600A207CD /* Pinterest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pinterest.framework; sourceTree = "<group>"; };
 		5D7F6B3D1A898EC600A207CD /* PinterestSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PinterestSDKResources.bundle; sourceTree = "<group>"; };
+		5D7F6B591A8A893800A207CD /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterKit.framework; path = ../TwitterKit.framework; sourceTree = "<group>"; };
+		5D7F6B5A1A8A893800A207CD /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = ../TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		5D7F6B5B1A8A893800A207CD /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = ../Fabric.framework; sourceTree = "<group>"; };
 		5D80527B1A83315C0076A6E8 /* UIColor+UIColor_Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColor_Expanded.h"; sourceTree = "<group>"; };
 		5D80527C1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_Expanded.m"; sourceTree = "<group>"; };
 		5D80527E1A8331FD0076A6E8 /* SideMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuTableViewCell.h; sourceTree = "<group>"; };
@@ -133,8 +173,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D62FD651A8AF1230022671F /* CoreData.framework in Frameworks */,
 				BDF89CC8C066F8FFE29F7BC1 /* libPods-DailyDoll.a in Frameworks */,
 				5D7F6B3E1A898EC600A207CD /* Pinterest.framework in Frameworks */,
+				5D7F6B5C1A8A893800A207CD /* TwitterKit.framework in Frameworks */,
+				5D7F6B5E1A8A893800A207CD /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +194,7 @@
 		0DA83D6F48BB2DF1721401E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D62FD641A8AF1230022671F /* CoreData.framework */,
 				579988490B7E0E905A16D25A /* libPods-DailyDoll.a */,
 			);
 			name = Frameworks;
@@ -165,13 +209,41 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5D62FD871A8AFAF10022671F /* ThemeModel */ = {
+			isa = PBXGroup;
+			children = (
+				5D62FD841A8AFAEA0022671F /* ShareTableViewTheme.h */,
+				5D62FD851A8AFAEA0022671F /* ShareTableViewTheme.m */,
+				5D62FD811A8AFAE90022671F /* SideMenuCellTheme.h */,
+				5D62FD821A8AFAE90022671F /* SideMenuCellTheme.m */,
+				5D62FD7E1A8AFAE90022671F /* SideMenuHeaderTheme.h */,
+				5D62FD7F1A8AFAE90022671F /* SideMenuHeaderTheme.m */,
+				5D62FD7B1A8AFAE90022671F /* SideMenuSectionHeaderTheme.h */,
+				5D62FD7C1A8AFAE90022671F /* SideMenuSectionHeaderTheme.m */,
+				5D62FD781A8AFAE90022671F /* StatusBarTheme.h */,
+				5D62FD791A8AFAE90022671F /* StatusBarTheme.m */,
+				5D62FD751A8AFAE90022671F /* ShareViewTheme.h */,
+				5D62FD761A8AFAE90022671F /* ShareViewTheme.m */,
+				5D62FD721A8AFAE90022671F /* SideMenuTableViewTheme.h */,
+				5D62FD731A8AFAE90022671F /* SideMenuTableViewTheme.m */,
+				5D62FD6F1A8AFAE90022671F /* ActivityIndicatorTheme.h */,
+				5D62FD701A8AFAE90022671F /* ActivityIndicatorTheme.m */,
+				5D62FD6C1A8AFAE90022671F /* NavBarTheme.h */,
+				5D62FD6D1A8AFAE90022671F /* NavBarTheme.m */,
+				5D62FD691A8AFAE80022671F /* ThemeElement.h */,
+				5D62FD6A1A8AFAE80022671F /* ThemeElement.m */,
+			);
+			name = ThemeModel;
+			sourceTree = "<group>";
+		};
 		5D7F6B3A1A898EC600A207CD /* Pinterest.embeddedframework */ = {
 			isa = PBXGroup;
 			children = (
 				5D7F6B3B1A898EC600A207CD /* Pinterest.framework */,
 				5D7F6B3C1A898EC600A207CD /* Resources */,
 			);
-			path = Pinterest.embeddedframework;
+			name = Pinterest.embeddedframework;
+			path = ../Pinterest.embeddedframework;
 			sourceTree = "<group>";
 		};
 		5D7F6B3C1A898EC600A207CD /* Resources */ = {
@@ -213,8 +285,8 @@
 		5DDA1B101A7F383C00914761 = {
 			isa = PBXGroup;
 			children = (
+				5D62FD871A8AFAF10022671F /* ThemeModel */,
 				5D7F6B471A89C9EC00A207CD /* CustomTransitions */,
-				5D7F6B3A1A898EC600A207CD /* Pinterest.embeddedframework */,
 				5DDA3DBB1A86053200FD085A /* post.js */,
 				5DDA3DB01A85F27F00FD085A /* webViewJS.js */,
 				5DDA1B1B1A7F383C00914761 /* DailyDoll */,
@@ -247,6 +319,7 @@
 				5DDA3DC01A86711A00FD085A /* ShareVC */,
 				5DDA1B1C1A7F383C00914761 /* Supporting Files */,
 				5DDA1B291A7F383C00914761 /* Images.xcassets */,
+				5D62FD661A8AF1680022671F /* DataModel.xcdatamodeld */,
 				5D2D40741A83282D000A84B1 /* Main.storyboard */,
 				5DDA1B2B1A7F383C00914761 /* LaunchScreen.xib */,
 				5DA64CD41A847A7A004F08A8 /* HeaderView.xib */,
@@ -257,6 +330,10 @@
 		5DDA1B1C1A7F383C00914761 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D7F6B3A1A898EC600A207CD /* Pinterest.embeddedframework */,
+				5D7F6B591A8A893800A207CD /* TwitterKit.framework */,
+				5D7F6B5A1A8A893800A207CD /* TwitterKitResources.bundle */,
+				5D7F6B5B1A8A893800A207CD /* Fabric.framework */,
 				5DDA1B1D1A7F383C00914761 /* Info.plist */,
 				5DDA1B1E1A7F383C00914761 /* main.m */,
 				5D0EDAB51A830290007DE68D /* MenuItems.plist */,
@@ -418,6 +495,7 @@
 				5DDA1B161A7F383C00914761 /* Frameworks */,
 				5DDA1B171A7F383C00914761 /* Resources */,
 				54761223F37D4BA229105B7F /* Copy Pods Resources */,
+				5D7F6B581A8A88D800A207CD /* Fabric Script */,
 			);
 			buildRules = (
 			);
@@ -496,6 +574,7 @@
 				5DDA1B2D1A7F383C00914761 /* LaunchScreen.xib in Resources */,
 				5DDA3DBC1A86053200FD085A /* post.js in Resources */,
 				5DDA3DB11A85F27F00FD085A /* webViewJS.js in Resources */,
+				5D7F6B5D1A8A893800A207CD /* TwitterKitResources.bundle in Resources */,
 				5D2D40751A83282D000A84B1 /* Main.storyboard in Resources */,
 				5DDA1B2A1A7F383C00914761 /* Images.xcassets in Resources */,
 			);
@@ -541,6 +620,20 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DailyDoll/Pods-DailyDoll-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5D7F6B581A8A88D800A207CD /* Fabric Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Fabric Script";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run b2fa13da961943ada093ca86282c0717d8d6c662 7cad0ab1a6f39490fc1b7a2086c4b18cd46eab09c11125e6b936de9bc4dd93ee";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -552,25 +645,36 @@
 				5DDA3D9B1A85CC0500FD085A /* SideMenuTableSectionLabel.m in Sources */,
 				5D86005C1A87C45A00AA8971 /* SocialSharePopoverView.m in Sources */,
 				5DDA3DA51A85D39500FD085A /* ProjectSettings.m in Sources */,
+				5D62FD771A8AFAE90022671F /* ShareViewTheme.m in Sources */,
+				5D62FD6B1A8AFAE80022671F /* ThemeElement.m in Sources */,
 				5D0F177E1A86A1FC00AAE285 /* SocialSharingActionController.m in Sources */,
 				5DC2F55E1A85BF8000ED1969 /* SideMenuHeaderImageView.m in Sources */,
 				5DDA3D981A85CA8A00FD085A /* SideMenuTableSectionHeader.m in Sources */,
 				5DA4B98D1A7F3B2D0016476C /* ExternalWebModalViewController.m in Sources */,
+				5D62FD6E1A8AFAE90022671F /* NavBarTheme.m in Sources */,
 				5D80527D1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m in Sources */,
 				5D8052801A8331FD0076A6E8 /* SideMenuTableViewCell.m in Sources */,
+				5D62FD861A8AFAEA0022671F /* ShareTableViewTheme.m in Sources */,
 				5DC2F55B1A85BBEF00ED1969 /* SideMenuTableHeaderView.m in Sources */,
+				5D62FD7D1A8AFAE90022671F /* SideMenuSectionHeaderTheme.m in Sources */,
 				5DDA3DAF1A85EE4900FD085A /* CenterVCActivityIndicator.m in Sources */,
+				5D62FD711A8AFAE90022671F /* ActivityIndicatorTheme.m in Sources */,
+				5D62FD831A8AFAE90022671F /* SideMenuCellTheme.m in Sources */,
 				5DDA3DC31A86714400FD085A /* ShareViewController.m in Sources */,
 				5DDA3DAA1A85E37700FD085A /* ExternalWebNavBar.m in Sources */,
 				5DDA3DC61A86777800FD085A /* ShareView.m in Sources */,
 				5DDA1B251A7F383C00914761 /* CenterViewController.m in Sources */,
+				5D62FD741A8AFAE90022671F /* SideMenuTableViewTheme.m in Sources */,
 				5DDA1B221A7F383C00914761 /* AppDelegate.m in Sources */,
 				5DDA1B1F1A7F383C00914761 /* main.m in Sources */,
+				5D62FD7A1A8AFAE90022671F /* StatusBarTheme.m in Sources */,
 				5DDA3DCF1A8685A200FD085A /* ShareTableViewCell.m in Sources */,
+				5D62FD801A8AFAE90022671F /* SideMenuHeaderTheme.m in Sources */,
 				5DDA3DB51A85F4F700FD085A /* BlurActivityOverlay.m in Sources */,
 				5DC2F5541A85AECD00ED1969 /* DDViewController.m in Sources */,
 				5DDA3DCC1A8681EF00FD085A /* ProjectSettingsKeys.m in Sources */,
 				5DDA3DC91A867F7E00FD085A /* ShareTableView.m in Sources */,
+				5D62FD681A8AF1680022671F /* DataModel.xcdatamodeld in Sources */,
 				5DC2F5511A85A91A00ED1969 /* SideMenuTableView.m in Sources */,
 				5DDA3DB81A85FDFE00FD085A /* CenterVCTitleLabel.m in Sources */,
 			);
@@ -690,12 +794,14 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pinterest.embeddedframework",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = DailyDoll/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -707,12 +813,14 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pinterest.embeddedframework",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
 				INFOPLIST_FILE = DailyDoll/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -781,6 +889,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		5D62FD661A8AF1680022671F /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				5D62FD671A8AF1680022671F /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 5D62FD671A8AF1680022671F /* DataModel.xcdatamodel */;
+			name = DataModel.xcdatamodeld;
+			path = ../DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 5DDA1B111A7F383C00914761 /* Project object */;
 }

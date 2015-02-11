@@ -17,7 +17,7 @@
 #import "CenterVCTitleLabel.h"
 #import "ShareViewController.h"
 
-@interface CenterViewController () <UIWebViewDelegate, SideMenuProtocol>
+@interface CenterViewController () <UIWebViewDelegate, SideMenuProtocol >
 @property UIWebView *webView;
 @property NSURLRequest *externalRequest;
 @property MMDrawerController *drawerController;
@@ -54,7 +54,7 @@
 - (void)setUpWebView {
 
     self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-
+    self.webView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.webView];
 
     self.webView.delegate = self;

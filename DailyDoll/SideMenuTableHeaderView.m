@@ -14,6 +14,7 @@
 
     if (self = [super init]) {
 
+        //TODO pull add image to documents and pull from there on load
         self.frame = CGRectMake(0, 0, menuInset, imageViewFrame.size.height);
     }
 

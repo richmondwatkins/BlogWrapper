@@ -7,6 +7,17 @@
 //
 
 #import "ProjectSettings.h"
+#import "ThemeElement.h"
+#import "ShareTableViewTheme.h"
+#import "SideMenuCellTheme.h"
+#import "SideMenuHeaderTheme.h"
+#import "SideMenuSectionHeaderTheme.h"
+#import "StatusBarTheme.h"
+#import "ShareTableViewTheme.h"
+#import "ActivityIndicatorTheme.h"
+#import "NavBarTheme.h"
+#import "SideMenuTableViewTheme.h"
+#import "AppDelegate.h"
 
 @interface ProjectSettings ()
 
@@ -22,7 +33,7 @@ static ProjectSettings *sharedThemeManager = nil;
 + (ProjectSettings *)sharedManager {
     @synchronized([ProjectSettings class]){
         if (sharedThemeManager == nil) {
-            sharedThemeManager = [[self alloc] init];
+            sharedThemeManager = [[self alloc] initFromPlist];
         }
 
         return sharedThemeManager;
@@ -40,7 +51,7 @@ static ProjectSettings *sharedThemeManager = nil;
     return nil;
 }
 
-- (id)init {
+- (id)initFromPlist {
     if ( (self = [super init]) ) {
 
         NSDictionary *themeDict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]
@@ -56,41 +67,180 @@ static ProjectSettings *sharedThemeManager = nil;
     }
     return self;
 }
+// Theme Set - Core Data
+
+-(void)populateCoreData:(NSManagedObjectContext *)moc {
+
+
+    ThemeElement *themeElement = [NSEntityDescription insertNewObjectForEntityForName:@"ThemeElement" inManagedObjectContext:moc];
+
+    themeElement.navBar = [self setNavBar:moc];
+    themeElement.statusBar = [self setStatusBarColor:moc];
+    themeElement.sideMenuHeader = [self setSideMenuHeader:moc];
+    themeElement.sideMenutableView = [self setSideMenuTableView:moc];
+    themeElement.sideMenuCell = [self setSideMenuCell:moc];
+    themeElement.sideMenuSectionHeader = [self setSideMenuSectionHeader:moc];
+
+    [moc save:nil];
+}
 
 //========= Side Menu ========
 
-- (NSString *)navBar:(NSString *)property {
+- (NavBarTheme *)setNavBar:(NSManagedObjectContext *)moc {
 
-    return self.themeElements[@"NavBar"][property];
+    NSString *themeItem = @"NavBar";
+
+    NavBarTheme  *navBarTheme = [NSEntityDescription insertNewObjectForEntityForName:@"NavBarTheme" inManagedObjectContext:moc];
+    navBarTheme.backgroundColor = [self returnThemeElement:themeItem andProperty:kBackgroundColor];
+    navBarTheme.fontColor = [self returnThemeElement:themeItem andProperty:kFontColor];
+    navBarTheme.fontFamily = [self returnThemeElement:themeItem andProperty:kFontFamily];
+
+  
+    return navBarTheme;
 }
 
-- (NSString *)statusBarColor:(NSString *)property {
+- (NSString *)getNavBar:(NSString *)property {
 
-    return self.themeElements[@"StatusBarColor"][property];
+    NSArray *fetchResults = [self fetchThemeElement:@"NavBarTheme"];
+
+    NavBarTheme *themeItem = [fetchResults firstObject];
+
+    return [themeItem valueForKey:property];
 }
 
-- (NSString *)sideMenuHeader:(NSString *)property {
 
-    return self.themeElements[@"SideMenuHeader"][property];
+- (StatusBarTheme *)setStatusBarColor:(NSManagedObjectContext *)moc {
+
+    NSString *themeItem = @"StatusBar";
+
+    StatusBarTheme *statusBar = [NSEntityDescription insertNewObjectForEntityForName:@"StatusBarTheme" inManagedObjectContext:moc];
+    statusBar.backgroundColor = [self returnThemeElement:themeItem andProperty:kBackgroundColor];
+
+    return statusBar;
 }
 
-- (NSString *)sideMenuTableView:(NSString *)property {
+- (NSString *)getStatusBarColor:(NSString *)property {
 
-    return self.themeElements[@"SideMenuTableView"][property];
+    NSArray *fetchResults = [self fetchThemeElement:@"StatusBarTheme"];
+
+    StatusBarTheme *themeItem = [fetchResults firstObject];
+
+    return [themeItem valueForKey:property];
 }
 
-- (NSString *)sideMenuCell:(NSString *)property {
+- (SideMenuHeaderTheme *)setSideMenuHeader:(NSManagedObjectContext *)moc {
 
-    return self.themeElements[@"SideMenuCell"][property];
+    NSString *themeItem = @"SideMenuHeader";
+
+    SideMenuHeaderTheme *sideMenuHeader = [NSEntityDescription insertNewObjectForEntityForName:@"SideMenuHeaderTheme" inManagedObjectContext:moc];
+    sideMenuHeader.backgroundColor = [self returnThemeElement:themeItem andProperty:kBackgroundColor];
+
+    return sideMenuHeader;
 }
 
-- (NSString *)sideMenuSectionHeader:(NSString *)property {
+- (NSString *)getSideMenuHeader:(NSString *)property {
 
-    return self.themeElements[@"SideMenuSectionHeader"][property];
+    NSArray *fetchResults = [self fetchThemeElement:@"SideMenuHeaderTheme"];
+
+    SideMenuHeaderTheme *themeItem = [fetchResults firstObject];
+
+    return [themeItem valueForKey:property];
 }
 
+- (SideMenuTableViewTheme *)setSideMenuTableView:(NSManagedObjectContext *)moc {
+
+    NSString *themeItem = @"SideMenuTableView";
+
+    SideMenuTableViewTheme *sideMenuTableView = [NSEntityDescription insertNewObjectForEntityForName:@"SideMenuTableViewTheme" inManagedObjectContext:moc];
+    sideMenuTableView.backgroundColor = [self returnThemeElement:themeItem andProperty:kBackgroundColor];
+
+    return sideMenuTableView;
+}
+
+- (NSString *)getSideMenuTableView:(NSString *)property {
+
+    NSArray *fetchResults = [self fetchThemeElement:@"SideMenuTableViewTheme"];
+
+    SideMenuTableViewTheme *themeItem = [fetchResults firstObject];
+
+    return [themeItem valueForKey:property];
+}
+
+
+- (SideMenuCellTheme *)setSideMenuCell:(NSManagedObjectContext *)moc {
+
+    NSString *themeItem = @"SideMenuCell";
+
+    SideMenuCellTheme *sideMenuCell = [NSEntityDescription insertNewObjectForEntityForName:@"SideMenuCellTheme" inManagedObjectContext:moc];
+    sideMenuCell.backgroundColor = [self returnThemeElement:themeItem andProperty:kBackgroundColor];
+    sideMenuCell.fontColor = [self returnThemeElement:themeItem andProperty:kFontColor];
+    sideMenuCell.fontFamily = [self returnThemeElement:themeItem andProperty:kFontFamily];
+
+    return sideMenuCell;
+}
+
+- (NSString *)getSideMenuCell:(NSString *)property {
+
+    NSArray *fetchResults = [self fetchThemeElement:@"SideMenuCellTheme"];
+
+    SideMenuCellTheme *themeItem = [fetchResults firstObject];
+
+    return [themeItem valueForKey:property];
+}
+
+- (SideMenuSectionHeaderTheme *)setSideMenuSectionHeader:(NSManagedObjectContext *)moc {
+
+    NSString *themeItem = @"SideMenuSectionHeader";
+    SideMenuSectionHeaderTheme *sideMenuHeader = [NSEntityDescription insertNewObjectForEntityForName:@"SideMenuSectionHeaderTheme" inManagedObjectContext:moc];
+    sideMenuHeader.backgroundColor = [self returnThemeElement:themeItem andProperty:kBackgroundColor];
+    sideMenuHeader.fontColor =  [self returnThemeElement:themeItem andProperty:kFontColor];
+    sideMenuHeader.fontFamily =  [self returnThemeElement:themeItem andProperty:kFontFamily];
+
+    return sideMenuHeader;
+}
+
+- (NSString *)getSideMenuSectionHeader:(NSString *)property {
+
+    NSArray *fetchResults = [self fetchThemeElement:@"SideMenuSectionHeaderTheme"];
+
+    SideMenuSectionHeaderTheme *themeItem = [fetchResults firstObject];
+
+    return [themeItem valueForKey:property];
+}
+
+// HELPER
+
+- (NSString *)returnThemeElement:(NSString *)themeElement andProperty:(NSString *)property {
+
+    return self.themeElements[themeElement][property];
+}
+
+
+// Theme Fetch - Core Data
 
 // ======== Project Variabels ====
+
+- (NSArray *)fetchThemeElement:(NSString *)elementName {
+
+    NSFetchRequest *themeFetch = [[NSFetchRequest alloc] initWithEntityName:elementName];
+
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+    NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:themeFetch error:nil];
+
+    return results;
+}
+
+- (NSString *)fetchThemeElement:(NSString *)elementName withProperty:(NSString *)property {
+
+    NSFetchRequest *themeFetch = [[NSFetchRequest alloc] initWithEntityName:elementName];
+
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+    NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:themeFetch error:nil];
+
+    return [results firstObject][property];
+}
 
 
 - (NSString *)homeVariables:(NSString *)property {

@@ -17,7 +17,7 @@
         
         self.frame = CGRectMake(0, 0, parentFrame.size.width, 15);
 
-        self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] sideMenuSectionHeader:kBackgroundColor]];
+        self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] getSideMenuSectionHeader:kBackgroundColor]];
     }
 
 

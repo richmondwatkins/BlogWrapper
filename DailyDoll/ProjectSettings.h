@@ -15,14 +15,18 @@
 
 + (ProjectSettings *)sharedManager;
 
+- (id)initFromPlist;
+
+-(void)populateCoreData:(NSManagedObjectContext *)moc;
+
 // ======= Side Menu ============
 
--(NSString *)navBar:(NSString *)property;
--(NSString *)statusBarColor:(NSString *)property;
--(NSString *)sideMenuHeader:(NSString *)property;
--(NSString *)sideMenuTableView:(NSString *)property;
--(NSString *)sideMenuCell:(NSString *)property;
--(NSString *)sideMenuSectionHeader:(NSString *)property;
+- (NSString *)getNavBar:(NSString *)property;
+- (NSString *)getStatusBarColor:(NSString *)property;
+- (NSString *)getSideMenuHeader:(NSString *)property;
+- (NSString *)getSideMenuTableView:(NSString *)property;
+- (NSString *)getSideMenuCell:(NSString *)property;
+- (NSString *)getSideMenuSectionHeader:(NSString *)property;
 
 // ======= Project Variabels ====
 

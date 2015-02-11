@@ -11,7 +11,7 @@
 @implementation ProjectSettingsKeys
 
 
-NSString *const kBackgroundColor = @"BackgroundColor";
+NSString *const kBackgroundColor = @"backgroundColor";
 
 NSString *const kTintColor = @"TintColor";
 
@@ -34,6 +34,23 @@ NSString *const kInstagramKitBaseUrl = @"InstagramKitBaseUrl";
 NSString *const kInstagramKitAppRedirectURL = @"InstagramKitAppRedirectURL";
 
 NSString *const kInstagramKitAppClientId = @"InstagramKitAppClientId";
+
+NSString *const kFirstStartUp = @"FirstStartUp";
+
+//Theme Elements
+
+NSString *const kNavBar = @"NavBarTheme";
+
+NSString *const kStatusBar = @"StatusBarTheme";
+
+NSString *const kSideMenuHeader = @"SideMenuHeaderTheme";
+
+NSString *const kSideMenuTableView = @"SideMenuTableViewTheme";
+
+NSString *const kSideMenuCell = @"SideMenuCellTheme";
+
+NSString *const kSideMenuSectionHeader = @"SideMenuSectionHeaderTheme";
+
 
 
 @end

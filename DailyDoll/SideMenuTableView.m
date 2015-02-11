@@ -22,7 +22,7 @@
         [self setLayoutMargins:UIEdgeInsetsZero];
     }
 
-    self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] sideMenuTableView:kBackgroundColor]];
+    self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] getSideMenuTableView:kBackgroundColor]];
     self.showsVerticalScrollIndicator = NO;
 
     CGFloat bottomInset = 40;

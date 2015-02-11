@@ -10,7 +10,7 @@
 #import "ProjectSettings.h"
 
 @interface DDViewController ()
-
+@property UIView *statusBarBackground;
 @end
 
 @implementation DDViewController
@@ -18,17 +18,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    UIView *statusBarBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
-    statusBarBackground.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] statusBarColor:kBackgroundColor]];
-    [self.view addSubview:statusBarBackground];
+    self.statusBarBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
+    self.statusBarBackground.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] getStatusBarColor:kBackgroundColor]];
+    self.statusBarBackground.autoresizingMask =  UIViewAutoresizingFlexibleWidth;
+    [self.view addSubview:self.statusBarBackground];
 
-    [[[UIApplication sharedApplication] keyWindow] addSubview:statusBarBackground];
+    [[[UIApplication sharedApplication] keyWindow] addSubview:self.statusBarBackground];
 
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithHexString:@"e2c675"];
 
-    self.view.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] navBar:kBackgroundColor]];
+    self.view.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] getNavBar:kBackgroundColor]];
 
 }
 
+-(void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+
+    if (self.view.frame.size.height > self.view.frame.size.width) {
+        //view is in portrait about to transtion to landscape
+        self.statusBarBackground.hidden = YES;
+    }else {
+
+        self.statusBarBackground.hidden = NO;
+    }
+}
 
 @end

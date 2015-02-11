@@ -6,36 +6,36 @@
 	<dict>
 		<key>ShareTableView</key>
 		<dict>
-			<key>BackgroundColor</key>
+			<key>backgroundColor</key>
 			<string>ffffff</string>
 		</dict>
 		<key>ShareView</key>
 		<dict>
-			<key>BackgroundColor</key>
+			<key>backgroundColor</key>
 			<string>ffffff</string>
 		</dict>
 		<key>ActivityIndicator</key>
 		<dict>
-			<key>TintColor</key>
+			<key>backgroundColor</key>
 			<string>ffffff</string>
 		</dict>
 		<key>NavBar</key>
 		<dict>
-			<key>BackgroundColor</key>
+			<key>backgroundColor</key>
 			<string>e2c675</string>
 			<key>FontFamily</key>
 			<string></string>
 			<key>FontColor</key>
 			<string>ffffff</string>
 		</dict>
-		<key>StatusBarColor</key>
+		<key>StatusBar</key>
 		<dict>
-			<key>BackgroundColor</key>
+			<key>backgroundColor</key>
 			<string>e2c675</string>
 		</dict>
 		<key>SideMenuHeader</key>
 		<dict>
-			<key>BackgroundColor</key>
+			<key>backgroundColor</key>
 			<string>f4f7fc</string>
 			<key>FontFamily</key>
 			<string></string>
@@ -44,7 +44,7 @@
 		</dict>
 		<key>SideMenuTableView</key>
 		<dict>
-			<key>BackgroundColor</key>
+			<key>backgroundColor</key>
 			<string>f4f7fc</string>
 			<key>FontFamily</key>
 			<string></string>
@@ -53,7 +53,7 @@
 		</dict>
 		<key>SideMenuCell</key>
 		<dict>
-			<key>BackgroundColor</key>
+			<key>backgroundColor</key>
 			<string>f4f7fc</string>
 			<key>FontFamily</key>
 			<string></string>
@@ -62,7 +62,7 @@
 		</dict>
 		<key>SideMenuSectionHeader</key>
 		<dict>
-			<key>BackgroundColor</key>
+			<key>backgroundColor</key>
 			<string>e2c675</string>
 			<key>FontFamily</key>
 			<string></string>

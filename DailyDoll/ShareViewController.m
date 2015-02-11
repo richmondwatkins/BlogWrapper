@@ -155,6 +155,15 @@
     [self presentViewController:externalVC animated:YES completion:nil];
 }
 
+-(void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+
+    if (self.view.frame.size.height > self.view.frame.size.width) {
+        //view is in portrait about to transtion to landscape
+        if (self.socialPopUp) {
+            [self.socialPopUp animateOffScreen];
+        }
+    }
+}
 
 
 @end
