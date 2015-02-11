@@ -22,9 +22,9 @@
 
 @interface ProjectSettings ()
 
-@property NSDictionary *themeElements;
+@property NSDictionary *themeElementsPlist;
 @property NSDictionary *projectVariables;
-@property ThemeElement *themeItems;
+@property ThemeElement *themeElementsCoreData;
 
 @end
 
@@ -59,12 +59,15 @@ static ProjectSettings *sharedThemeManager = nil;
         NSDictionary *themeDict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]
                                                                                pathForResource:@"Theme"
                                                                                ofType:@"plist"]];
-        self.themeElements = [themeDict objectForKey:@"Theme"];
+        self.themeElementsPlist = [themeDict objectForKey:@"Theme"];
 
         NSDictionary *projectDict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]
                                                                                pathForResource:@"ProjectVariables"
                                                                                ofType:@"plist"]];
-        self.projectVariables = [projectDict objectForKey:@"Project"];
+
+        if (!self.projectVariables) {
+            self.projectVariables = [projectDict objectForKey:@"Project"];
+        }
 
     }
     return self;
@@ -94,8 +97,11 @@ static ProjectSettings *sharedThemeManager = nil;
 
     completion(YES);
 
-    self.themeElements = nil;
+    self.themeElementsPlist = nil;
 }
+
+//TODO setup primary and secondary colors
+//TODO add option for email news letter sign up
 
 //========= Side Menu ========
 
@@ -187,28 +193,28 @@ static ProjectSettings *sharedThemeManager = nil;
 
 - (NSString *)fetchThemeElement:(NSString *)elementName withProperty:(NSString *)property {
 
-    if (self.themeItems == nil) {
+    if (self.themeElementsCoreData == nil) {
         NSFetchRequest *themeFetch = [[NSFetchRequest alloc] initWithEntityName:@"ThemeElement"];
 
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
         NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:themeFetch error:nil];
 
-        self.themeItems = [results firstObject];
+        self.themeElementsCoreData = [results firstObject];
 
     }
 
-    return [[self.themeItems valueForKey:elementName] valueForKey:property];
+    return [[self.themeElementsCoreData valueForKey:elementName] valueForKey:property];
 }
 
 - (NSString *)returnThemeElement:(NSString *)themeElement andProperty:(NSString *)property {
 
-    return self.themeElements[themeElement][property];
+    return self.themeElementsPlist[themeElement][property];
 }
 
 - (void)setThemeItemsToNil {
 
-    self.themeItems = nil;
+    self.themeElementsCoreData = nil;
 }
 
 
@@ -231,7 +237,7 @@ static ProjectSettings *sharedThemeManager = nil;
 
 - (NSString *)activityIndicator:(NSString *)property {
 
-    return self.themeElements[@"ActivityIndicator"][property];
+    return self.themeElementsPlist[@"ActivityIndicator"][property];
 }
 
 
@@ -239,12 +245,12 @@ static ProjectSettings *sharedThemeManager = nil;
 
 - (NSString *)shareView:(NSString *)property {
 
-    return self.themeElements[@"ShareView"][property];
+    return self.themeElementsPlist[@"ShareView"][property];
 }
 
 - (NSString *)shareTableView:(NSString *)property {
 
-    return self.themeElements[@"ShareTableView"][property];
+    return self.themeElementsPlist[@"ShareTableView"][property];
 }
 
 - (NSArray *)shareItems {
@@ -285,6 +291,11 @@ static ProjectSettings *sharedThemeManager = nil;
 - (NSString *)instagramOAuthItems:(NSString *)item {
 
     return self.projectVariables[@"Instagram"][item];
+}
+
+-(void)dealloc {
+
+
 }
 
 @end

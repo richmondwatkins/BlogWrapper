@@ -80,7 +80,9 @@
 
     UIWindow* mainWindow = [[UIApplication sharedApplication] keyWindow];
 
-    self.actionController = [[SocialSharingActionController alloc] init];
+    if (!self.actionController) {
+        self.actionController = [[SocialSharingActionController alloc] init];
+    }
     self.actionController.delegate = self;
 
     switch ([self.dataSource[indexPath.row][@"socialId"] intValue]) {

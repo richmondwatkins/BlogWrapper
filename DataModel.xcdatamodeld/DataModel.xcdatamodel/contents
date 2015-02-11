@@ -10,6 +10,7 @@
         <attribute name="fontFamily" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="themeElement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeElement" inverseName="navBar" inverseEntity="ThemeElement" syncable="YES"/>
     </entity>
+    <entity name="ProjectVariables" syncable="YES"/>
     <entity name="ShareTableViewTheme" representedClassName="ShareTableViewTheme" syncable="YES">
         <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="themeElement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeElement" inverseName="shareTableView" inverseEntity="ThemeElement" syncable="YES"/>
@@ -56,15 +57,16 @@
         <relationship name="statusBar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StatusBarTheme" inverseName="themeElement" inverseEntity="StatusBarTheme" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ShareTableViewTheme" positionX="-162" positionY="-93" width="128" height="30"/>
-        <element name="ThemeElement" positionX="178" positionY="-99" width="128" height="208"/>
-        <element name="ShareViewTheme" positionX="-18" positionY="54" width="128" height="30"/>
         <element name="ActivityIndicatorTheme" positionX="-117" positionY="267" width="128" height="30"/>
         <element name="NavBarTheme" positionX="-153" positionY="72" width="128" height="30"/>
-        <element name="StatusBarTheme" positionX="72" positionY="186" width="128" height="75"/>
-        <element name="SideMenuHeaderTheme" positionX="367" positionY="186" width="128" height="75"/>
-        <element name="SideMenuTableViewTheme" positionX="205" positionY="189" width="128" height="30"/>
+        <element name="ShareTableViewTheme" positionX="-162" positionY="-93" width="128" height="30"/>
+        <element name="ShareViewTheme" positionX="-18" positionY="54" width="128" height="30"/>
         <element name="SideMenuCellTheme" positionX="-162" positionY="-27" width="128" height="30"/>
+        <element name="SideMenuHeaderTheme" positionX="367" positionY="186" width="128" height="75"/>
         <element name="SideMenuSectionHeaderTheme" positionX="394" positionY="54" width="128" height="30"/>
+        <element name="SideMenuTableViewTheme" positionX="205" positionY="189" width="128" height="30"/>
+        <element name="StatusBarTheme" positionX="72" positionY="186" width="128" height="75"/>
+        <element name="ThemeElement" positionX="178" positionY="-99" width="128" height="208"/>
+        <element name="ProjectVariables" positionX="45" positionY="54" width="128" height="45"/>
     </elements>
 </model>

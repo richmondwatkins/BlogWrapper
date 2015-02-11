@@ -30,6 +30,9 @@
                 [projectSettings setThemeItemsToNil];
             }
         }];
+    } else {
+
+        [self setUpDrawerController];
     }
 
 
