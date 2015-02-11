@@ -55,4 +55,20 @@ NSString *const kShareView = @"shareView";
 
 NSString *const kActivityIndicator = @"activityIndicator";
 
+
+//Social
+
+NSString *const kInstagram = @"Instagram";
+
+NSString *const kFacebook = @"Facebook";
+
+NSString *const kTwitter = @"Twitter";
+
+NSString *const kPintrest= @"Pintrest";
+
+NSString *const kGooglePlus = @"GooglePlus";
+
+
+
+
 @end

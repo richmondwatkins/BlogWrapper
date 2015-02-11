@@ -4,19 +4,6 @@
 <dict>
 	<key>Project</key>
 	<dict>
-		<key>BundleId</key>
-		<string>scheme://com-greekconnect.DailyDoll</string>
-		<key>Instagram</key>
-		<dict>
-			<key>InstagramKitAuthorizationUrl</key>
-			<string>https://api.instagram.com/oauth/authorize/</string>
-			<key>InstagramKitBaseUrl</key>
-			<string>https://api.instagram.com/v1/</string>
-			<key>InstagramKitAppRedirectURL</key>
-			<string>scheme://com-greekconnect.DailyDoll</string>
-			<key>InstagramKitAppClientId</key>
-			<string>cf47463b546b4f879ff9e13c69092018</string>
-		</dict>
 		<key>Social</key>
 		<array>
 			<dict>
@@ -88,6 +75,17 @@
 				<string>2</string>
 			</dict>
 			<dict>
+				<key>APIKeys</key>
+				<dict>
+					<key>InstagramKitAuthorizationUrl</key>
+					<string>https://api.instagram.com/oauth/authorize/</string>
+					<key>InstagramKitBaseUrl</key>
+					<string>https://api.instagram.com/v1/</string>
+					<key>InstagramKitAppRedirectURL</key>
+					<string>scheme://com-greekconnect.DailyDoll</string>
+					<key>InstagramKitAppClientId</key>
+					<string>cf47463b546b4f879ff9e13c69092018</string>
+				</dict>
 				<key>Buttons</key>
 				<array>
 					<dict>
@@ -121,8 +119,10 @@
 				<string>4</string>
 			</dict>
 		</array>
-		<key>Home</key>
+		<key>MetaData</key>
 		<dict>
+			<key>BundleId</key>
+			<string>scheme://com-greekconnect.DailyDoll</string>
 			<key>DomainString</key>
 			<string>dailydoll</string>
 			<key>Title</key>

@@ -36,6 +36,17 @@ extern NSString *const kInstagramKitAppClientId;
 
 extern NSString *const kFirstStartUp;
 
+//Social
+
+extern NSString *const kInstagram;
+
+extern NSString *const kFacebook;
+
+extern NSString *const kTwitter;
+
+extern NSString *const kPintrest;
+
+extern NSString *const kGooglePlus;
 
 //Theme Elements
 

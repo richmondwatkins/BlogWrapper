@@ -225,12 +225,12 @@ static ProjectSettings *sharedThemeManager = nil;
 
 - (NSString *)homeVariables:(NSString *)property {
 
-    return self.projectVariables[@"Home"][property];
+    return self.projectVariables[@"MetaData"][property];
 }
 
 - (NSString *)bundleID {
 
-   return self.projectVariables[@"BundleId"];
+   return self.projectVariables[@"MetaData"][@"BundleId"];
 }
 
 // ======= Main View ====
@@ -270,12 +270,12 @@ static ProjectSettings *sharedThemeManager = nil;
 
 - (NSString *)facebookId {
 
-    return self.projectVariables[@"Social"][0][@"pageId"];
+    return self.projectVariables[@"Social"][@"Facebook"][@"pageId"];
 }
 
 - (NSString *)facebookName {
 
-    return self.projectVariables[@"Social"][0][@"pageName"];
+    return self.projectVariables[@"Social"][@"Facebook"][@"pageName"];
 }
 
 - (NSString *)pintrestId {
@@ -290,7 +290,7 @@ static ProjectSettings *sharedThemeManager = nil;
 
 - (NSString *)instagramOAuthItems:(NSString *)item {
 
-    return self.projectVariables[@"Instagram"][item];
+    return self.projectVariables[@"Social"][@"Instagram"][@"APIKeys"][item];
 }
 
 -(void)dealloc {

@@ -4,13 +4,64 @@
         <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="themeElement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeElement" inverseName="activityIndicator" inverseEntity="ThemeElement" syncable="YES"/>
     </entity>
+    <entity name="Button" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="facebook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Facebook" inverseName="buttons" inverseEntity="Facebook" syncable="YES"/>
+        <relationship name="googlePlus" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GooglePlus" inverseName="buttons" inverseEntity="GooglePlus" syncable="YES"/>
+        <relationship name="instagram" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Instagram" inverseName="buttons" inverseEntity="Instagram" syncable="YES"/>
+        <relationship name="pinterest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pinterest" inverseName="buttons" inverseEntity="Pinterest" syncable="YES"/>
+        <relationship name="twitter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Twitter" inverseName="buttons" inverseEntity="Twitter" syncable="YES"/>
+    </entity>
+    <entity name="Facebook" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pageId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pageName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="buttons" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Button" inverseName="facebook" inverseEntity="Button" syncable="YES"/>
+        <relationship name="socialVariable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SocialVariable" inverseName="facebook" inverseEntity="SocialVariable" syncable="YES"/>
+    </entity>
+    <entity name="GooglePlus" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="buttons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Button" inverseName="googlePlus" inverseEntity="Button" syncable="YES"/>
+        <relationship name="socialVariable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SocialVariable" inverseName="googlePlus" inverseEntity="SocialVariable" syncable="YES"/>
+    </entity>
+    <entity name="Instagram" syncable="YES">
+        <attribute name="accountName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="attribute" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="authBaseURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="authClientId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="authRedirect" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="authURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="buttons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Button" inverseName="instagram" inverseEntity="Button" syncable="YES"/>
+        <relationship name="socialVariable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SocialVariable" inverseName="instagram" inverseEntity="SocialVariable" syncable="YES"/>
+    </entity>
+    <entity name="MetaData" syncable="YES">
+        <attribute name="domain" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="NavBarTheme" representedClassName="NavBarTheme" syncable="YES">
         <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fontColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="fontFamily" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="themeElement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeElement" inverseName="navBar" inverseEntity="ThemeElement" syncable="YES"/>
     </entity>
-    <entity name="ProjectVariables" syncable="YES"/>
+    <entity name="Pinterest" syncable="YES">
+        <attribute name="accountName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="appId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="buttons" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Button" inverseName="pinterest" inverseEntity="Button" syncable="YES"/>
+        <relationship name="socialVariable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SocialVariable" inverseName="pinterest" inverseEntity="SocialVariable" syncable="YES"/>
+    </entity>
+    <entity name="ProjectVariable" syncable="YES"/>
     <entity name="ShareTableViewTheme" representedClassName="ShareTableViewTheme" syncable="YES">
         <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="themeElement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeElement" inverseName="shareTableView" inverseEntity="ThemeElement" syncable="YES"/>
@@ -39,6 +90,13 @@
         <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="themeElement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeElement" inverseName="sideMenuTableView" inverseEntity="ThemeElement" syncable="YES"/>
     </entity>
+    <entity name="SocialVariable" syncable="YES">
+        <relationship name="facebook" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Facebook" inverseName="socialVariable" inverseEntity="Facebook" syncable="YES"/>
+        <relationship name="googlePlus" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GooglePlus" inverseName="socialVariable" inverseEntity="GooglePlus" syncable="YES"/>
+        <relationship name="instagram" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Instagram" inverseName="socialVariable" inverseEntity="Instagram" syncable="YES"/>
+        <relationship name="pinterest" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Pinterest" inverseName="socialVariable" inverseEntity="Pinterest" syncable="YES"/>
+        <relationship name="twitter" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Twitter" inverseName="socialVariable" inverseEntity="Twitter" syncable="YES"/>
+    </entity>
     <entity name="StatusBarTheme" representedClassName="StatusBarTheme" syncable="YES">
         <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="themeElement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeElement" inverseName="statusBar" inverseEntity="ThemeElement" syncable="YES"/>
@@ -56,6 +114,13 @@
         <relationship name="sideMenuTableView" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SideMenuTableViewTheme" inverseName="themeElement" inverseEntity="SideMenuTableViewTheme" syncable="YES"/>
         <relationship name="statusBar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StatusBarTheme" inverseName="themeElement" inverseEntity="StatusBarTheme" syncable="YES"/>
     </entity>
+    <entity name="Twitter" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="buttons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Button" inverseName="twitter" inverseEntity="Button" syncable="YES"/>
+        <relationship name="socialVariable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SocialVariable" inverseName="twitter" inverseEntity="SocialVariable" syncable="YES"/>
+    </entity>
     <elements>
         <element name="ActivityIndicatorTheme" positionX="-117" positionY="267" width="128" height="30"/>
         <element name="NavBarTheme" positionX="-153" positionY="72" width="128" height="30"/>
@@ -67,6 +132,14 @@
         <element name="SideMenuTableViewTheme" positionX="205" positionY="189" width="128" height="30"/>
         <element name="StatusBarTheme" positionX="72" positionY="186" width="128" height="75"/>
         <element name="ThemeElement" positionX="178" positionY="-99" width="128" height="208"/>
-        <element name="ProjectVariables" positionX="45" positionY="54" width="128" height="45"/>
+        <element name="ProjectVariable" positionX="45" positionY="54" width="128" height="43"/>
+        <element name="SocialVariable" positionX="54" positionY="63" width="128" height="118"/>
+        <element name="Instagram" positionX="63" positionY="72" width="128" height="193"/>
+        <element name="Facebook" positionX="72" positionY="81" width="128" height="148"/>
+        <element name="GooglePlus" positionX="81" positionY="90" width="128" height="118"/>
+        <element name="Twitter" positionX="90" positionY="99" width="128" height="118"/>
+        <element name="MetaData" positionX="99" positionY="108" width="128" height="88"/>
+        <element name="Button" positionX="45" positionY="54" width="128" height="148"/>
+        <element name="Pinterest" positionX="54" positionY="63" width="128" height="148"/>
     </elements>
 </model>
