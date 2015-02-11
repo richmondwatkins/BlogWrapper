@@ -19,7 +19,7 @@
     [super viewDidLoad];
 
     self.statusBarBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
-    self.statusBarBackground.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] getStatusBarColor:kBackgroundColor]];
+    self.statusBarBackground.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeElement:kStatusBar withProperty:kBackgroundColor]];
     self.statusBarBackground.autoresizingMask =  UIViewAutoresizingFlexibleWidth;
     [self.view addSubview:self.statusBarBackground];
 
@@ -27,7 +27,7 @@
 
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithHexString:@"e2c675"];
 
-    self.view.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] getNavBar:kBackgroundColor]];
+    self.view.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeElement:kNavBar withProperty:kBackgroundColor]];
 
 }
 

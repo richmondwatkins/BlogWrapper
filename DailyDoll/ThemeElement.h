@@ -20,7 +20,7 @@
 @property (nonatomic, retain) NSManagedObject *navBar;
 @property (nonatomic, retain) NSManagedObject *statusBar;
 @property (nonatomic, retain) NSManagedObject *sideMenuHeader;
-@property (nonatomic, retain) NSManagedObject *sideMenutableView;
+@property (nonatomic, retain) NSManagedObject *sideMenuTableView;
 @property (nonatomic, retain) NSManagedObject *sideMenuCell;
 @property (nonatomic, retain) NSManagedObject *sideMenuSectionHeader;
 

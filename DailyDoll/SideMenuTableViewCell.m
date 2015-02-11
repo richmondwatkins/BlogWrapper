@@ -23,7 +23,7 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
 
 
-        self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] getSideMenuCell:kBackgroundColor]];
+        self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeElement:kSideMenuCell withProperty:kBackgroundColor]];
 
         if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
             [self setSeparatorInset:UIEdgeInsetsZero];

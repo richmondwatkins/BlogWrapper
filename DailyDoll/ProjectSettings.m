@@ -17,12 +17,14 @@
 #import "ActivityIndicatorTheme.h"
 #import "NavBarTheme.h"
 #import "SideMenuTableViewTheme.h"
+#import "ShareViewTheme.h"
 #import "AppDelegate.h"
 
 @interface ProjectSettings ()
 
 @property NSDictionary *themeElements;
 @property NSDictionary *projectVariables;
+@property ThemeElement *themeItems;
 
 @end
 
@@ -69,7 +71,7 @@ static ProjectSettings *sharedThemeManager = nil;
 }
 // Theme Set - Core Data
 
--(void)populateCoreData:(NSManagedObjectContext *)moc {
+-(void)populateCoreData:(NSManagedObjectContext *)moc withCompletion:(void(^)(BOOL))completion {
 
 
     ThemeElement *themeElement = [NSEntityDescription insertNewObjectForEntityForName:@"ThemeElement" inManagedObjectContext:moc];
@@ -77,11 +79,22 @@ static ProjectSettings *sharedThemeManager = nil;
     themeElement.navBar = [self setNavBar:moc];
     themeElement.statusBar = [self setStatusBarColor:moc];
     themeElement.sideMenuHeader = [self setSideMenuHeader:moc];
-    themeElement.sideMenutableView = [self setSideMenuTableView:moc];
+    themeElement.sideMenuTableView = [self setSideMenuTableView:moc];
     themeElement.sideMenuCell = [self setSideMenuCell:moc];
     themeElement.sideMenuSectionHeader = [self setSideMenuSectionHeader:moc];
-
+    themeElement.shareView = [self setShareView:moc];
+    themeElement.activityIndicator = [self setActivityIndicator:moc];
     [moc save:nil];
+
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+
+    [userDefaults setBool:YES forKey:kFirstStartUp];
+    
+    [userDefaults synchronize];
+
+    completion(YES);
+
+    self.themeElements = nil;
 }
 
 //========= Side Menu ========
@@ -99,16 +112,6 @@ static ProjectSettings *sharedThemeManager = nil;
     return navBarTheme;
 }
 
-- (NSString *)getNavBar:(NSString *)property {
-
-    NSArray *fetchResults = [self fetchThemeElement:@"NavBarTheme"];
-
-    NavBarTheme *themeItem = [fetchResults firstObject];
-
-    return [themeItem valueForKey:property];
-}
-
-
 - (StatusBarTheme *)setStatusBarColor:(NSManagedObjectContext *)moc {
 
     NSString *themeItem = @"StatusBar";
@@ -117,15 +120,6 @@ static ProjectSettings *sharedThemeManager = nil;
     statusBar.backgroundColor = [self returnThemeElement:themeItem andProperty:kBackgroundColor];
 
     return statusBar;
-}
-
-- (NSString *)getStatusBarColor:(NSString *)property {
-
-    NSArray *fetchResults = [self fetchThemeElement:@"StatusBarTheme"];
-
-    StatusBarTheme *themeItem = [fetchResults firstObject];
-
-    return [themeItem valueForKey:property];
 }
 
 - (SideMenuHeaderTheme *)setSideMenuHeader:(NSManagedObjectContext *)moc {
@@ -138,15 +132,6 @@ static ProjectSettings *sharedThemeManager = nil;
     return sideMenuHeader;
 }
 
-- (NSString *)getSideMenuHeader:(NSString *)property {
-
-    NSArray *fetchResults = [self fetchThemeElement:@"SideMenuHeaderTheme"];
-
-    SideMenuHeaderTheme *themeItem = [fetchResults firstObject];
-
-    return [themeItem valueForKey:property];
-}
-
 - (SideMenuTableViewTheme *)setSideMenuTableView:(NSManagedObjectContext *)moc {
 
     NSString *themeItem = @"SideMenuTableView";
@@ -156,16 +141,6 @@ static ProjectSettings *sharedThemeManager = nil;
 
     return sideMenuTableView;
 }
-
-- (NSString *)getSideMenuTableView:(NSString *)property {
-
-    NSArray *fetchResults = [self fetchThemeElement:@"SideMenuTableViewTheme"];
-
-    SideMenuTableViewTheme *themeItem = [fetchResults firstObject];
-
-    return [themeItem valueForKey:property];
-}
-
 
 - (SideMenuCellTheme *)setSideMenuCell:(NSManagedObjectContext *)moc {
 
@@ -179,15 +154,6 @@ static ProjectSettings *sharedThemeManager = nil;
     return sideMenuCell;
 }
 
-- (NSString *)getSideMenuCell:(NSString *)property {
-
-    NSArray *fetchResults = [self fetchThemeElement:@"SideMenuCellTheme"];
-
-    SideMenuCellTheme *themeItem = [fetchResults firstObject];
-
-    return [themeItem valueForKey:property];
-}
-
 - (SideMenuSectionHeaderTheme *)setSideMenuSectionHeader:(NSManagedObjectContext *)moc {
 
     NSString *themeItem = @"SideMenuSectionHeader";
@@ -199,48 +165,56 @@ static ProjectSettings *sharedThemeManager = nil;
     return sideMenuHeader;
 }
 
-- (NSString *)getSideMenuSectionHeader:(NSString *)property {
+- (ShareViewTheme *)setShareView:(NSManagedObjectContext *)moc {
 
-    NSArray *fetchResults = [self fetchThemeElement:@"SideMenuSectionHeaderTheme"];
+    NSString *themeItem = @"ShareView";
+    ShareViewTheme *shareView = [NSEntityDescription insertNewObjectForEntityForName:@"ShareViewTheme" inManagedObjectContext:moc];
+    shareView.backgroundColor = [self returnThemeElement:themeItem andProperty:kBackgroundColor];
 
-    SideMenuSectionHeaderTheme *themeItem = [fetchResults firstObject];
-
-    return [themeItem valueForKey:property];
+    return shareView;
 }
 
-// HELPER
+- (ActivityIndicatorTheme *)setActivityIndicator:(NSManagedObjectContext *)moc {
+
+    NSString *themeItem = @"ActivityIndicator";
+    ActivityIndicatorTheme *activityIndicator = [NSEntityDescription insertNewObjectForEntityForName:@"ActivityIndicatorTheme" inManagedObjectContext:moc];
+    activityIndicator.backgroundColor = [self returnThemeElement:themeItem andProperty:kBackgroundColor];
+
+    return activityIndicator;
+}
+
+// HELPERS
+
+- (NSString *)fetchThemeElement:(NSString *)elementName withProperty:(NSString *)property {
+
+    if (self.themeItems == nil) {
+        NSFetchRequest *themeFetch = [[NSFetchRequest alloc] initWithEntityName:@"ThemeElement"];
+
+        AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+        NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:themeFetch error:nil];
+
+        self.themeItems = [results firstObject];
+
+    }
+
+    return [[self.themeItems valueForKey:elementName] valueForKey:property];
+}
 
 - (NSString *)returnThemeElement:(NSString *)themeElement andProperty:(NSString *)property {
 
     return self.themeElements[themeElement][property];
 }
 
+- (void)setThemeItemsToNil {
+
+    self.themeItems = nil;
+}
+
 
 // Theme Fetch - Core Data
 
 // ======== Project Variabels ====
-
-- (NSArray *)fetchThemeElement:(NSString *)elementName {
-
-    NSFetchRequest *themeFetch = [[NSFetchRequest alloc] initWithEntityName:elementName];
-
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-
-    NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:themeFetch error:nil];
-
-    return results;
-}
-
-- (NSString *)fetchThemeElement:(NSString *)elementName withProperty:(NSString *)property {
-
-    NSFetchRequest *themeFetch = [[NSFetchRequest alloc] initWithEntityName:elementName];
-
-    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-
-    NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:themeFetch error:nil];
-
-    return [results firstObject][property];
-}
 
 
 - (NSString *)homeVariables:(NSString *)property {

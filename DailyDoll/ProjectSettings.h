@@ -17,16 +17,11 @@
 
 - (id)initFromPlist;
 
--(void)populateCoreData:(NSManagedObjectContext *)moc;
+-(void)populateCoreData:(NSManagedObjectContext *)moc withCompletion:(void(^)(BOOL))completion;
 
-// ======= Side Menu ============
+- (NSString *)fetchThemeElement:(NSString *)elementName withProperty:(NSString *)property;
 
-- (NSString *)getNavBar:(NSString *)property;
-- (NSString *)getStatusBarColor:(NSString *)property;
-- (NSString *)getSideMenuHeader:(NSString *)property;
-- (NSString *)getSideMenuTableView:(NSString *)property;
-- (NSString *)getSideMenuCell:(NSString *)property;
-- (NSString *)getSideMenuSectionHeader:(NSString *)property;
+- (void)setThemeItemsToNil;
 
 // ======= Project Variabels ====
 

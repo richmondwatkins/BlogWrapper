@@ -36,7 +36,7 @@
     </entity>
     <entity name="SideMenuTableViewTheme" representedClassName="SideMenuTableViewTheme" syncable="YES">
         <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="themeElement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeElement" inverseName="sideMenutableView" inverseEntity="ThemeElement" syncable="YES"/>
+        <relationship name="themeElement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeElement" inverseName="sideMenuTableView" inverseEntity="ThemeElement" syncable="YES"/>
     </entity>
     <entity name="StatusBarTheme" representedClassName="StatusBarTheme" syncable="YES">
         <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
@@ -52,7 +52,7 @@
         <relationship name="sideMenuCell" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SideMenuCellTheme" inverseName="themeElement" inverseEntity="SideMenuCellTheme" syncable="YES"/>
         <relationship name="sideMenuHeader" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SideMenuHeaderTheme" inverseName="themeElement" inverseEntity="SideMenuHeaderTheme" syncable="YES"/>
         <relationship name="sideMenuSectionHeader" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SideMenuSectionHeaderTheme" inverseName="themeElement" inverseEntity="SideMenuSectionHeaderTheme" syncable="YES"/>
-        <relationship name="sideMenutableView" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SideMenuTableViewTheme" inverseName="themeElement" inverseEntity="SideMenuTableViewTheme" syncable="YES"/>
+        <relationship name="sideMenuTableView" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SideMenuTableViewTheme" inverseName="themeElement" inverseEntity="SideMenuTableViewTheme" syncable="YES"/>
         <relationship name="statusBar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StatusBarTheme" inverseName="themeElement" inverseEntity="StatusBarTheme" syncable="YES"/>
     </entity>
     <elements>

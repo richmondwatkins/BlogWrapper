@@ -51,4 +51,8 @@ extern NSString *const kSideMenuCell;
 
 extern NSString *const kSideMenuSectionHeader;
 
+extern NSString *const kShareView;
+
+extern NSString *const kActivityIndicator;
+
 @end

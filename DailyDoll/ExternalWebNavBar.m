@@ -16,7 +16,7 @@
     if (self = [super init]) {
         self.frame = CGRectMake(0, 15, width, 50);
 
-        self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] getNavBar:kBackgroundColor]];
+        self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeElement:kNavBar withProperty:kBackgroundColor]];
     }
 
     return self;

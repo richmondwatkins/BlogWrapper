@@ -19,7 +19,7 @@
 @dynamic navBar;
 @dynamic statusBar;
 @dynamic sideMenuHeader;
-@dynamic sideMenutableView;
+@dynamic sideMenuTableView;
 @dynamic sideMenuCell;
 @dynamic sideMenuSectionHeader;
 

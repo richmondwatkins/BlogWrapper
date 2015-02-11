@@ -39,18 +39,20 @@ NSString *const kFirstStartUp = @"FirstStartUp";
 
 //Theme Elements
 
-NSString *const kNavBar = @"NavBarTheme";
+NSString *const kNavBar = @"navBar";
 
-NSString *const kStatusBar = @"StatusBarTheme";
+NSString *const kStatusBar = @"statusBar";
 
-NSString *const kSideMenuHeader = @"SideMenuHeaderTheme";
+NSString *const kSideMenuHeader = @"sideMenuHeader";
 
-NSString *const kSideMenuTableView = @"SideMenuTableViewTheme";
+NSString *const kSideMenuTableView = @"sideMenuTableView";
 
-NSString *const kSideMenuCell = @"SideMenuCellTheme";
+NSString *const kSideMenuCell = @"sideMenuCell";
 
-NSString *const kSideMenuSectionHeader = @"SideMenuSectionHeaderTheme";
+NSString *const kSideMenuSectionHeader = @"sideMenuSectionHeader";
 
+NSString *const kShareView = @"shareView";
 
+NSString *const kActivityIndicator = @"activityIndicator";
 
 @end
