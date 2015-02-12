@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14B25" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
-    <entity name="ActivityIndicatorTheme" representedClassName="ActivityIndicatorTheme" syncable="YES">
-        <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="themeElement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeElement" inverseName="activityIndicator" inverseEntity="ThemeElement" syncable="YES"/>
-    </entity>
     <entity name="Button" representedClassName="Button" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -15,43 +11,9 @@
         <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="projectVariable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProjectVariable" inverseName="metaData" inverseEntity="ProjectVariable" syncable="YES"/>
     </entity>
-    <entity name="NavBarTheme" representedClassName="NavBarTheme" syncable="YES">
-        <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="fontColor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="fontFamily" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="themeElement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeElement" inverseName="navBar" inverseEntity="ThemeElement" syncable="YES"/>
-    </entity>
     <entity name="ProjectVariable" representedClassName="ProjectVariable" syncable="YES">
         <relationship name="metaData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MetaData" inverseName="projectVariable" inverseEntity="MetaData" syncable="YES"/>
         <relationship name="socialContainer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SocialContainer" inverseName="projectVariable" inverseEntity="SocialContainer" syncable="YES"/>
-    </entity>
-    <entity name="ShareTableViewTheme" representedClassName="ShareTableViewTheme" syncable="YES">
-        <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="themeElement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeElement" inverseName="shareTableView" inverseEntity="ThemeElement" syncable="YES"/>
-    </entity>
-    <entity name="ShareViewTheme" representedClassName="ShareViewTheme" syncable="YES">
-        <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="themeElement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeElement" inverseName="shareView" inverseEntity="ThemeElement" syncable="YES"/>
-    </entity>
-    <entity name="SideMenuCellTheme" representedClassName="SideMenuCellTheme" syncable="YES">
-        <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="fontColor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="fontFamily" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="themeElement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeElement" inverseName="sideMenuCell" inverseEntity="ThemeElement" syncable="YES"/>
-    </entity>
-    <entity name="SideMenuHeaderTheme" representedClassName="SideMenuHeaderTheme" syncable="YES">
-        <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="themeElement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeElement" inverseName="sideMenuHeader" inverseEntity="ThemeElement" syncable="YES"/>
-    </entity>
-    <entity name="SideMenuSectionHeaderTheme" representedClassName="SideMenuSectionHeaderTheme" syncable="YES">
-        <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="fontColor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="fontFamily" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="themeElement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeElement" inverseName="sideMenuSectionHeader" inverseEntity="ThemeElement" syncable="YES"/>
-    </entity>
-    <entity name="SideMenuTableViewTheme" representedClassName="SideMenuTableViewTheme" syncable="YES">
-        <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="themeElement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeElement" inverseName="sideMenuTableView" inverseEntity="ThemeElement" syncable="YES"/>
     </entity>
     <entity name="SocialContainer" representedClassName="SocialContainer" syncable="YES">
         <relationship name="projectVariable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProjectVariable" inverseName="socialContainer" inverseEntity="ProjectVariable" syncable="YES"/>
@@ -71,38 +33,25 @@
         <relationship name="buttons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Button" inverseName="socialItem" inverseEntity="Button" syncable="YES"/>
         <relationship name="socialContainer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SocialContainer" inverseName="socialItems" inverseEntity="SocialContainer" syncable="YES"/>
     </entity>
-    <entity name="StatusBarTheme" representedClassName="StatusBarTheme" syncable="YES">
-        <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="themeElement" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeElement" inverseName="statusBar" inverseEntity="ThemeElement" syncable="YES"/>
-    </entity>
-    <entity name="ThemeElement" representedClassName="ThemeElement" syncable="YES">
+    <entity name="ThemeContainer" representedClassName="ThemeContainer" syncable="YES">
         <attribute name="primaryColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="secondaryColor" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="activityIndicator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityIndicatorTheme" inverseName="themeElement" inverseEntity="ActivityIndicatorTheme" syncable="YES"/>
-        <relationship name="navBar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="NavBarTheme" inverseName="themeElement" inverseEntity="NavBarTheme" syncable="YES"/>
-        <relationship name="shareTableView" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShareTableViewTheme" inverseName="themeElement" inverseEntity="ShareTableViewTheme" syncable="YES"/>
-        <relationship name="shareView" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShareViewTheme" inverseName="themeElement" inverseEntity="ShareViewTheme" syncable="YES"/>
-        <relationship name="sideMenuCell" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SideMenuCellTheme" inverseName="themeElement" inverseEntity="SideMenuCellTheme" syncable="YES"/>
-        <relationship name="sideMenuHeader" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SideMenuHeaderTheme" inverseName="themeElement" inverseEntity="SideMenuHeaderTheme" syncable="YES"/>
-        <relationship name="sideMenuSectionHeader" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SideMenuSectionHeaderTheme" inverseName="themeElement" inverseEntity="SideMenuSectionHeaderTheme" syncable="YES"/>
-        <relationship name="sideMenuTableView" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SideMenuTableViewTheme" inverseName="themeElement" inverseEntity="SideMenuTableViewTheme" syncable="YES"/>
-        <relationship name="statusBar" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="StatusBarTheme" inverseName="themeElement" inverseEntity="StatusBarTheme" syncable="YES"/>
+        <relationship name="themeItem" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ThemeItem" inverseName="themeContainer" inverseEntity="ThemeItem" syncable="YES"/>
+    </entity>
+    <entity name="ThemeItem" representedClassName="ThemeItem" syncable="YES">
+        <attribute name="backgroundColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fontColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fontFamily" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="themeContainer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeContainer" inverseName="themeItem" inverseEntity="ThemeContainer" syncable="YES"/>
     </entity>
     <elements>
-        <element name="ActivityIndicatorTheme" positionX="0" positionY="0" width="128" height="75"/>
         <element name="Button" positionX="0" positionY="0" width="128" height="88"/>
         <element name="MetaData" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="NavBarTheme" positionX="0" positionY="0" width="128" height="105"/>
         <element name="ProjectVariable" positionX="0" positionY="0" width="128" height="73"/>
-        <element name="ShareTableViewTheme" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="ShareViewTheme" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="SideMenuCellTheme" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="SideMenuHeaderTheme" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="SideMenuSectionHeaderTheme" positionX="0" positionY="0" width="128" height="105"/>
-        <element name="SideMenuTableViewTheme" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="StatusBarTheme" positionX="0" positionY="0" width="128" height="75"/>
-        <element name="ThemeElement" positionX="0" positionY="0" width="128" height="210"/>
+        <element name="ThemeContainer" positionX="0" positionY="0" width="128" height="88"/>
         <element name="SocialContainer" positionX="9" positionY="90" width="128" height="73"/>
         <element name="SocialItem" positionX="18" positionY="99" width="128" height="223"/>
+        <element name="ThemeItem" positionX="27" positionY="162" width="128" height="118"/>
     </elements>
 </model>

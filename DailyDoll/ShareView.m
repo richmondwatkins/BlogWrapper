@@ -15,7 +15,7 @@
 
     if (self = [super init]) {
 
-        self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeElement:kShareView withProperty:kBackgroundColor]];
+        self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:SHAREVIEW withProperty:kBackgroundColor]];
 
         self.frame = parentFrame;
     }

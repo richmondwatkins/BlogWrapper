@@ -15,7 +15,7 @@
 
     if (self = [super init]) {
 
-        self.color = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeElement:kActivityIndicator withProperty:kBackgroundColor]];
+        self.color = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:ACTIVITYINDICATOR withProperty:kBackgroundColor]];
 
         [self startAnimating];
 //        [self hidesWhenStopped];

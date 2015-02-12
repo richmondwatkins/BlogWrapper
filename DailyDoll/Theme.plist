@@ -23,9 +23,9 @@
 		<dict>
 			<key>backgroundColor</key>
 			<string>e2c675</string>
-			<key>FontFamily</key>
+			<key>fontFamily</key>
 			<string></string>
-			<key>FontColor</key>
+			<key>fontColor</key>
 			<string>ffffff</string>
 		</dict>
 		<key>StatusBar</key>
@@ -37,36 +37,36 @@
 		<dict>
 			<key>backgroundColor</key>
 			<string>f4f7fc</string>
-			<key>FontFamily</key>
+			<key>fontFamily</key>
 			<string></string>
-			<key>FontColor</key>
+			<key>fontColor</key>
 			<string></string>
 		</dict>
 		<key>SideMenuTableView</key>
 		<dict>
 			<key>backgroundColor</key>
 			<string>f4f7fc</string>
-			<key>FontFamily</key>
+			<key>fontFamily</key>
 			<string></string>
-			<key>FontColor</key>
+			<key>fontColor</key>
 			<string></string>
 		</dict>
 		<key>SideMenuCell</key>
 		<dict>
 			<key>backgroundColor</key>
 			<string>f4f7fc</string>
-			<key>FontFamily</key>
+			<key>fontFamily</key>
 			<string></string>
-			<key>FontColor</key>
+			<key>fontColor</key>
 			<string></string>
 		</dict>
 		<key>SideMenuSectionHeader</key>
 		<dict>
 			<key>backgroundColor</key>
 			<string>e2c675</string>
-			<key>FontFamily</key>
+			<key>fontFamily</key>
 			<string></string>
-			<key>FontColor</key>
+			<key>fontColor</key>
 			<string></string>
 		</dict>
 	</dict>

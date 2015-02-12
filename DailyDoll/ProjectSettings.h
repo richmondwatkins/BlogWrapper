@@ -25,6 +25,8 @@
 
 - (NSArray *)fetchSocialButtonsForItem:(int)itemId;
 
+- (NSString *)fetchThemeItem:(int)itemId withProperty:(NSString *)property;
+
 - (void)setThemeItemsToNil;
 
 // ======= Project Variabels ====

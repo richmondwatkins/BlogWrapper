@@ -1,20 +1,20 @@
 //
-//  NavBarTheme.m
+//  ThemeItem.m
 //  DailyDoll
 //
-//  Created by Richmond on 2/10/15.
+//  Created by Richmond on 2/12/15.
 //  Copyright (c) 2015 Richmond. All rights reserved.
 //
 
-#import "NavBarTheme.h"
-#import "ThemeElement.h"
+#import "ThemeItem.h"
+#import "ThemeItem.h"
 
 
-@implementation NavBarTheme
+@implementation ThemeItem
 
 @dynamic backgroundColor;
 @dynamic fontFamily;
 @dynamic fontColor;
-@dynamic themeElement;
+@dynamic themeContainer;
 
 @end

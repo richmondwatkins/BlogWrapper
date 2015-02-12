@@ -27,7 +27,6 @@
         [projectSettings populateCoreData:self.managedObjectContext withCompletion:^(BOOL completion) {
             if (completion) {
                 [self setUpDrawerController];
-                [projectSettings setThemeItemsToNil];
             }
         }];
     } else {
