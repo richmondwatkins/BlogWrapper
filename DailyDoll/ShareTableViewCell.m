@@ -7,6 +7,7 @@
 //
 
 #import "ShareTableViewCell.h"
+#import "SocialItem.h"
 
 @implementation ShareTableViewCell
 
@@ -20,11 +21,11 @@
     // Configure the view for the selected state
 }
 
--(void)addShareButtonAndAdjustFrame:(CGRect)parentFrame withCellObject:(NSDictionary *)object {
+-(void)addShareButtonAndAdjustFrame:(CGRect)parentFrame withCellObject:(SocialItem *)object {
 
     self.frame = CGRectMake(0, 0, parentFrame.size.width, self.frame.size.height);
 
-    UIImageView *cellImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:object[@"Image"]]];
+    UIImageView *cellImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[object valueForKey:@"image"]]];
 
     cellImageView.frame = CGRectMake(0, 0, self.frame.size.width * 0.9, self.frame.size.height * 0.9);
 

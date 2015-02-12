@@ -61,7 +61,7 @@
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
 
     NSString *URLString = [request.URL absoluteString];
-    if ([URLString hasPrefix:[[ProjectSettings sharedManager]instagramOAuthItems:kInstagramKitAppRedirectURL]]) {
+    if ([URLString hasPrefix:[[ProjectSettings sharedManager] fetchSocialItem:INSTAGRAM withProperty:kInstagramAppRedirectURL]]) {
         NSString *delimiter = @"access_token=";
         NSArray *components = [URLString componentsSeparatedByString:delimiter];
         if (components.count > 1) {
@@ -84,14 +84,17 @@
         }
         return NO;
     }
+
     return YES;
-
-
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
 
     NSLog(@"URL %@", webView.request.URL.absoluteString);
+}
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    NSLog(@"Error %@",error);
 }
 
 @end

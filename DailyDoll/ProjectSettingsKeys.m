@@ -21,19 +21,19 @@ NSString *const kFontColor = @"FontColor";
 
 NSString *const kTitle = @"Title";
 
-NSString *const kURLString = @"URLString";
+NSString *const kURLString = @"urlString";
 
 NSString *const kImage = @"Image";
 
 NSString *const kBlogName = @"Title";
 
-NSString *const kInstagramKitAuthorizationUrl = @"InstagramKitAuthorizationUrl";
+NSString *const kInstagramAuthorizationUrl = @"authURL";
 
-NSString *const kInstagramKitBaseUrl = @"InstagramKitBaseUrl";
+NSString *const kInstagramBaseUrl = @"authBaseURL";
 
-NSString *const kInstagramKitAppRedirectURL = @"InstagramKitAppRedirectURL";
+NSString *const kInstagramAppRedirectURL = @"authRedirect";
 
-NSString *const kInstagramKitAppClientId = @"InstagramKitAppClientId";
+NSString *const kInstagramAppClientId = @"authClientId";
 
 NSString *const kFirstStartUp = @"FirstStartUp";
 
@@ -53,22 +53,26 @@ NSString *const kSideMenuSectionHeader = @"sideMenuSectionHeader";
 
 NSString *const kShareView = @"shareView";
 
+NSString *const kShareTableView = @"shareTableView";
+
 NSString *const kActivityIndicator = @"activityIndicator";
 
 
 //Social
 
-NSString *const kInstagram = @"Instagram";
+NSString *const kInstagram = @"instagram";
 
-NSString *const kFacebook = @"Facebook";
+NSString *const kFacebook = @"facebook";
 
-NSString *const kTwitter = @"Twitter";
+NSString *const kTwitter = @"twitter";
 
-NSString *const kPintrest= @"Pintrest";
+NSString *const kPintrest= @"pinterest";
 
-NSString *const kGooglePlus = @"GooglePlus";
+NSString *const kGooglePlus = @"googlePlus";
 
+NSString *const kButtons = @"buttons";
 
+NSString *const kAccountName = @"accountName";
 
 
 @end

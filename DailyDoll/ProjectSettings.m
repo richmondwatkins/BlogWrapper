@@ -7,17 +7,26 @@
 //
 
 #import "ProjectSettings.h"
+
 #import "ThemeElement.h"
 #import "ShareTableViewTheme.h"
 #import "SideMenuCellTheme.h"
 #import "SideMenuHeaderTheme.h"
 #import "SideMenuSectionHeaderTheme.h"
 #import "StatusBarTheme.h"
-#import "ShareTableViewTheme.h"
 #import "ActivityIndicatorTheme.h"
 #import "NavBarTheme.h"
 #import "SideMenuTableViewTheme.h"
 #import "ShareViewTheme.h"
+
+#import "ProjectVariable.h"
+#import "SocialContainer.h"
+#import "MetaData.h"
+#import "Button.h"
+#import "ProjectVariable.h"
+#import "SocialContainer.h"
+#import "SocialItem.h"
+
 #import "AppDelegate.h"
 
 @interface ProjectSettings ()
@@ -87,7 +96,18 @@ static ProjectSettings *sharedThemeManager = nil;
     themeElement.sideMenuSectionHeader = [self setSideMenuSectionHeader:moc];
     themeElement.shareView = [self setShareView:moc];
     themeElement.activityIndicator = [self setActivityIndicator:moc];
+    themeElement.shareTableView = [self setShareTableView:moc];
+
+    ProjectVariable *projectVariable = [NSEntityDescription insertNewObjectForEntityForName:@"ProjectVariable" inManagedObjectContext:moc];
+
+    projectVariable.socialContainer = [NSEntityDescription insertNewObjectForEntityForName:@"SocialContainer" inManagedObjectContext:moc];
+
+    [projectVariable.socialContainer  setSocialItems:[self returnSocialItemSet:moc]];
+
+    projectVariable.metaData = [self setMetaData:moc];
+
     [moc save:nil];
+
 
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 
@@ -100,8 +120,92 @@ static ProjectSettings *sharedThemeManager = nil;
     self.themeElementsPlist = nil;
 }
 
+- (MetaData *)setMetaData:(NSManagedObjectContext *)moc {
+
+    MetaData *metaData = [NSEntityDescription insertNewObjectForEntityForName:@"MetaData" inManagedObjectContext:moc];
+    metaData.domain = self.projectVariables[@"MetaData"][@"DomainString"];
+    metaData.name = self.projectVariables[@"MetaData"][@"Name"];
+    metaData.urlString = self.projectVariables[@"MetaData"][kURLString];
+
+    return metaData;
+}
+
+- (NSSet *)returnSocialItemSet:(NSManagedObjectContext *)moc {
+
+    NSMutableArray *socialItemsArray = [NSMutableArray array];
+
+    for (NSDictionary *socialItemDict in self.projectVariables[@"Social"]) {
+
+        SocialItem *socialItem =[NSEntityDescription insertNewObjectForEntityForName:@"SocialItem" inManagedObjectContext:moc];
+    
+        for (NSString *key in [socialItemDict allKeys]) {
+
+            if ([key isEqualToString:kButtons]) {
+
+                [socialItem setButtons:[self createButtons:socialItemDict[key] withManagedObject:moc]];
+            }else {
+                
+                [socialItem setValue:socialItemDict[key] forKey:key];
+            }
+        }
+
+        [socialItemsArray addObject:socialItem];
+    }
+
+    return [NSSet setWithArray:socialItemsArray];
+}
+
 //TODO setup primary and secondary colors
 //TODO add option for email news letter sign up
+
+- (NSSet *)createButtons:(NSArray *)buttons withManagedObject:(NSManagedObjectContext *)moc {
+
+    NSMutableArray *buttonMutableArray = [NSMutableArray array];
+
+    for (NSDictionary *buttonDict in buttons) {
+
+        Button *buttonCD = [NSEntityDescription insertNewObjectForEntityForName:@"Button" inManagedObjectContext:moc];
+        buttonCD.id = buttonDict[@"Id"];
+        buttonCD.title = buttonDict[@"Title"];
+
+        [buttonMutableArray addObject:buttonCD];
+    }
+
+    return [NSSet setWithArray:buttonMutableArray];
+}
+
+- (NSString *)fetchSocialItem:(int)itemId withProperty:(NSString *)property {
+
+    NSFetchRequest *socialFetch = [[NSFetchRequest alloc] initWithEntityName:@"SocialItem"];
+
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+    [socialFetch setPredicate:[NSPredicate predicateWithFormat:@"id == %@", [NSNumber numberWithInt:itemId]]];
+
+    NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:socialFetch error:nil];
+
+    return [results[0] valueForKey:property];
+}
+
+- (NSArray *)fetchSocialButtonsForItem:(int)itemId {
+
+    NSFetchRequest *buttonFetch = [[NSFetchRequest alloc] initWithEntityName:@"SocialItem"];
+
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+    [buttonFetch setPredicate:[NSPredicate predicateWithFormat:@"id == %@", [NSNumber numberWithInt:itemId]]];
+
+    NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:buttonFetch error:nil];
+
+    NSMutableArray *buttonsArray = [[[results[0] valueForKey:kButtons] allObjects] mutableCopy];
+
+    NSSortDescriptor *sortButtons = [[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES];
+
+    [buttonsArray sortUsingDescriptors:@[sortButtons]];
+
+    return [NSArray arrayWithArray:buttonsArray];
+}
+
 
 //========= Side Menu ========
 
@@ -180,6 +284,15 @@ static ProjectSettings *sharedThemeManager = nil;
     return shareView;
 }
 
+- (ShareTableViewTheme *)setShareTableView:(NSManagedObjectContext *)moc {
+
+    NSString *themeItem = @"ShareView";
+    ShareTableViewTheme *shareTableView = [NSEntityDescription insertNewObjectForEntityForName:@"ShareTableViewTheme" inManagedObjectContext:moc];
+    shareTableView.backgroundColor = [self returnThemeElement:themeItem andProperty:kBackgroundColor];
+
+    return shareTableView;
+}
+
 - (ActivityIndicatorTheme *)setActivityIndicator:(NSManagedObjectContext *)moc {
 
     NSString *themeItem = @"ActivityIndicator";
@@ -197,8 +310,7 @@ static ProjectSettings *sharedThemeManager = nil;
         NSFetchRequest *themeFetch = [[NSFetchRequest alloc] initWithEntityName:@"ThemeElement"];
 
         AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
-
-        NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:themeFetch error:nil];
+n         NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:themeFetch error:nil];
 
         self.themeElementsCoreData = [results firstObject];
 
@@ -211,6 +323,7 @@ static ProjectSettings *sharedThemeManager = nil;
 
     return self.themeElementsPlist[themeElement][property];
 }
+
 
 - (void)setThemeItemsToNil {
 
@@ -228,74 +341,24 @@ static ProjectSettings *sharedThemeManager = nil;
     return self.projectVariables[@"MetaData"][property];
 }
 
-- (NSString *)bundleID {
-
-   return self.projectVariables[@"MetaData"][@"BundleId"];
-}
-
-// ======= Main View ====
-
-- (NSString *)activityIndicator:(NSString *)property {
-
-    return self.themeElementsPlist[@"ActivityIndicator"][property];
-}
-
 
 // ======== Share View ====
 
-- (NSString *)shareView:(NSString *)property {
-
-    return self.themeElementsPlist[@"ShareView"][property];
-}
-
-- (NSString *)shareTableView:(NSString *)property {
-
-    return self.themeElementsPlist[@"ShareTableView"][property];
-}
 
 - (NSArray *)shareItems {
 
-    return self.projectVariables[@"Social"];
+    NSFetchRequest *themeFetch = [[NSFetchRequest alloc] initWithEntityName:@"SocialContainer"];
+
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+    NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:themeFetch error:nil];
+
+    SocialContainer *socialContainer = results[0];
+
+    return [socialContainer.socialItems  allObjects];
 }
 
-- (NSArray *)buttonsForShareItem:(int)shareId {
-
-    return self.projectVariables[@"Social"][shareId][@"Buttons"];
-}
-
-- (NSString *)socialPropertiesForItem:(int)shareId withItem:(NSString *)item {
-
-    return self.projectVariables[@"Social"][shareId][item];
-}
-
-- (NSString *)facebookId {
-
-    return self.projectVariables[@"Social"][@"Facebook"][@"pageId"];
-}
-
-- (NSString *)facebookName {
-
-    return self.projectVariables[@"Social"][@"Facebook"][@"pageName"];
-}
-
-- (NSString *)pintrestId {
-
-    return self.projectVariables[@"Social"][1][@"appId"];
-}
-
-- (NSString *)socialAccountName:(int)shareId {
-
-    return self.projectVariables[@"Social"][shareId][@"AccountName"];
-}
-
-- (NSString *)instagramOAuthItems:(NSString *)item {
-
-    return self.projectVariables[@"Social"][@"Instagram"][@"APIKeys"][item];
-}
-
--(void)dealloc {
 
 
-}
 
 @end

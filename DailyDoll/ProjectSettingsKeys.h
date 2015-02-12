@@ -8,6 +8,27 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    FACEBOOK,
+    PINTEREST,
+    TWIITER,
+    INSTAGRAM,
+    GOOGLEPLUS
+} SocialType;
+
+typedef enum {
+    ACTIVITYINDICATOR,
+    NAVBAR,
+    SHARETABLEVIEW,
+    SHAREVIEW,
+    SIDEMENUCELL,
+    SIDEMENUHEADER,
+    SIDEMENUSECTIONHEADER,
+    SIDEMENUTABLEVIEW,
+    STATUSBAR
+} Theme;
+
+
 @interface ProjectSettingsKeys : NSObject
 
 extern NSString *const kBackgroundColor;
@@ -26,13 +47,13 @@ extern NSString *const kImage;
 
 extern NSString *const kBlogName;
 
-extern NSString *const kInstagramKitAuthorizationUrl;
+extern NSString *const kInstagramAuthorizationUrl;
 
-extern NSString *const kInstagramKitBaseUrl;
+extern NSString *const kInstagramBaseUrl;
 
-extern NSString *const kInstagramKitAppRedirectURL;
+extern NSString *const kInstagramAppRedirectURL;
 
-extern NSString *const kInstagramKitAppClientId;
+extern NSString *const kInstagramAppClientId;
 
 extern NSString *const kFirstStartUp;
 
@@ -47,6 +68,10 @@ extern NSString *const kTwitter;
 extern NSString *const kPintrest;
 
 extern NSString *const kGooglePlus;
+
+extern NSString *const kButtons;
+
+extern NSString *const kAccountName;
 
 //Theme Elements
 
@@ -65,5 +90,7 @@ extern NSString *const kSideMenuSectionHeader;
 extern NSString *const kShareView;
 
 extern NSString *const kActivityIndicator;
+
+extern NSString *const kShareTableView;
 
 @end

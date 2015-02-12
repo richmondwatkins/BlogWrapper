@@ -11,6 +11,7 @@
 		5D0EDAB61A830290007DE68D /* MenuItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D0EDAB51A830290007DE68D /* MenuItems.plist */; };
 		5D0F177E1A86A1FC00AAE285 /* SocialSharingActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0F177D1A86A1FC00AAE285 /* SocialSharingActionController.m */; };
 		5D2D40751A83282D000A84B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2D40741A83282D000A84B1 /* Main.storyboard */; };
+		5D617B721A8C19FC009063D0 /* MetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D617B711A8C19FC009063D0 /* MetaData.m */; };
 		5D62FD651A8AF1230022671F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D62FD641A8AF1230022671F /* CoreData.framework */; };
 		5D62FD681A8AF1680022671F /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD661A8AF1680022671F /* DataModel.xcdatamodeld */; };
 		5D62FD6B1A8AFAE80022671F /* ThemeElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD6A1A8AFAE80022671F /* ThemeElement.m */; };
@@ -23,6 +24,11 @@
 		5D62FD801A8AFAE90022671F /* SideMenuHeaderTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD7F1A8AFAE90022671F /* SideMenuHeaderTheme.m */; };
 		5D62FD831A8AFAE90022671F /* SideMenuCellTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD821A8AFAE90022671F /* SideMenuCellTheme.m */; };
 		5D62FD861A8AFAEA0022671F /* ShareTableViewTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD851A8AFAEA0022671F /* ShareTableViewTheme.m */; };
+		5D6C98561A8C5D8000EB408E /* SocialContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6C98551A8C5D8000EB408E /* SocialContainer.m */; };
+		5D6C98591A8C5D8000EB408E /* Button.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6C98581A8C5D8000EB408E /* Button.m */; };
+		5D6C985C1A8C5D8000EB408E /* ProjectVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6C985B1A8C5D8000EB408E /* ProjectVariable.m */; };
+		5D6C985F1A8C636500EB408E /* SocialItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6C985E1A8C636500EB408E /* SocialItem.m */; };
+		5D6C98631A8D01AE00EB408E /* Themer.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D6C98621A8D01AE00EB408E /* Themer.plist */; };
 		5D7F6B3E1A898EC600A207CD /* Pinterest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7F6B3B1A898EC600A207CD /* Pinterest.framework */; };
 		5D7F6B3F1A898EC600A207CD /* PinterestSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D7F6B3D1A898EC600A207CD /* PinterestSDKResources.bundle */; };
 		5D7F6B5C1A8A893800A207CD /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7F6B591A8A893800A207CD /* TwitterKit.framework */; };
@@ -80,6 +86,8 @@
 		5D0F177C1A86A1FC00AAE285 /* SocialSharingActionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialSharingActionController.h; sourceTree = "<group>"; };
 		5D0F177D1A86A1FC00AAE285 /* SocialSharingActionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialSharingActionController.m; sourceTree = "<group>"; };
 		5D2D40741A83282D000A84B1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5D617B701A8C19FC009063D0 /* MetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaData.h; sourceTree = "<group>"; };
+		5D617B711A8C19FC009063D0 /* MetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaData.m; sourceTree = "<group>"; };
 		5D62FD641A8AF1230022671F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5D62FD671A8AF1680022671F /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		5D62FD691A8AFAE80022671F /* ThemeElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThemeElement.h; path = DailyDoll/ThemeElement.h; sourceTree = "<group>"; };
@@ -102,6 +110,15 @@
 		5D62FD821A8AFAE90022671F /* SideMenuCellTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SideMenuCellTheme.m; path = DailyDoll/SideMenuCellTheme.m; sourceTree = "<group>"; };
 		5D62FD841A8AFAEA0022671F /* ShareTableViewTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShareTableViewTheme.h; path = DailyDoll/ShareTableViewTheme.h; sourceTree = "<group>"; };
 		5D62FD851A8AFAEA0022671F /* ShareTableViewTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShareTableViewTheme.m; path = DailyDoll/ShareTableViewTheme.m; sourceTree = "<group>"; };
+		5D6C98541A8C5D8000EB408E /* SocialContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialContainer.h; sourceTree = "<group>"; };
+		5D6C98551A8C5D8000EB408E /* SocialContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialContainer.m; sourceTree = "<group>"; };
+		5D6C98571A8C5D8000EB408E /* Button.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
+		5D6C98581A8C5D8000EB408E /* Button.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Button.m; sourceTree = "<group>"; };
+		5D6C985A1A8C5D8000EB408E /* ProjectVariable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectVariable.h; sourceTree = "<group>"; };
+		5D6C985B1A8C5D8000EB408E /* ProjectVariable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectVariable.m; sourceTree = "<group>"; };
+		5D6C985D1A8C636500EB408E /* SocialItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialItem.h; sourceTree = "<group>"; };
+		5D6C985E1A8C636500EB408E /* SocialItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialItem.m; sourceTree = "<group>"; };
+		5D6C98621A8D01AE00EB408E /* Themer.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Themer.plist; sourceTree = "<group>"; };
 		5D7F6B3B1A898EC600A207CD /* Pinterest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pinterest.framework; sourceTree = "<group>"; };
 		5D7F6B3D1A898EC600A207CD /* PinterestSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PinterestSDKResources.bundle; sourceTree = "<group>"; };
 		5D7F6B591A8A893800A207CD /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterKit.framework; path = ../TwitterKit.framework; sourceTree = "<group>"; };
@@ -209,6 +226,23 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5D617B661A8C18CA009063D0 /* ProjectVariablesModel */ = {
+			isa = PBXGroup;
+			children = (
+				5D617B701A8C19FC009063D0 /* MetaData.h */,
+				5D617B711A8C19FC009063D0 /* MetaData.m */,
+				5D6C985A1A8C5D8000EB408E /* ProjectVariable.h */,
+				5D6C985B1A8C5D8000EB408E /* ProjectVariable.m */,
+				5D6C98571A8C5D8000EB408E /* Button.h */,
+				5D6C98581A8C5D8000EB408E /* Button.m */,
+				5D6C98541A8C5D8000EB408E /* SocialContainer.h */,
+				5D6C98551A8C5D8000EB408E /* SocialContainer.m */,
+				5D6C985D1A8C636500EB408E /* SocialItem.h */,
+				5D6C985E1A8C636500EB408E /* SocialItem.m */,
+			);
+			name = ProjectVariablesModel;
+			sourceTree = "<group>";
+		};
 		5D62FD871A8AFAF10022671F /* ThemeModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -285,6 +319,7 @@
 		5DDA1B101A7F383C00914761 = {
 			isa = PBXGroup;
 			children = (
+				5D617B661A8C18CA009063D0 /* ProjectVariablesModel */,
 				5D62FD871A8AFAF10022671F /* ThemeModel */,
 				5D7F6B471A89C9EC00A207CD /* CustomTransitions */,
 				5DDA3DBB1A86053200FD085A /* post.js */,
@@ -339,6 +374,7 @@
 				5D0EDAB51A830290007DE68D /* MenuItems.plist */,
 				5DC2F5551A85B49300ED1969 /* Theme.plist */,
 				5DDA3DAB1A85E67700FD085A /* ProjectVariables.plist */,
+				5D6C98621A8D01AE00EB408E /* Themer.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -569,6 +605,7 @@
 				5DC2F5561A85B49300ED1969 /* Theme.plist in Resources */,
 				5D7F6B3F1A898EC600A207CD /* PinterestSDKResources.bundle in Resources */,
 				5DDA3DAC1A85E67700FD085A /* ProjectVariables.plist in Resources */,
+				5D6C98631A8D01AE00EB408E /* Themer.plist in Resources */,
 				5D0EDAB61A830290007DE68D /* MenuItems.plist in Resources */,
 				5DA64CD51A847A7A004F08A8 /* HeaderView.xib in Resources */,
 				5DDA1B2D1A7F383C00914761 /* LaunchScreen.xib in Resources */,
@@ -648,7 +685,9 @@
 				5D62FD771A8AFAE90022671F /* ShareViewTheme.m in Sources */,
 				5D62FD6B1A8AFAE80022671F /* ThemeElement.m in Sources */,
 				5D0F177E1A86A1FC00AAE285 /* SocialSharingActionController.m in Sources */,
+				5D6C98591A8C5D8000EB408E /* Button.m in Sources */,
 				5DC2F55E1A85BF8000ED1969 /* SideMenuHeaderImageView.m in Sources */,
+				5D617B721A8C19FC009063D0 /* MetaData.m in Sources */,
 				5DDA3D981A85CA8A00FD085A /* SideMenuTableSectionHeader.m in Sources */,
 				5DA4B98D1A7F3B2D0016476C /* ExternalWebModalViewController.m in Sources */,
 				5D62FD6E1A8AFAE90022671F /* NavBarTheme.m in Sources */,
@@ -661,7 +700,9 @@
 				5D62FD711A8AFAE90022671F /* ActivityIndicatorTheme.m in Sources */,
 				5D62FD831A8AFAE90022671F /* SideMenuCellTheme.m in Sources */,
 				5DDA3DC31A86714400FD085A /* ShareViewController.m in Sources */,
+				5D6C985F1A8C636500EB408E /* SocialItem.m in Sources */,
 				5DDA3DAA1A85E37700FD085A /* ExternalWebNavBar.m in Sources */,
+				5D6C98561A8C5D8000EB408E /* SocialContainer.m in Sources */,
 				5DDA3DC61A86777800FD085A /* ShareView.m in Sources */,
 				5DDA1B251A7F383C00914761 /* CenterViewController.m in Sources */,
 				5D62FD741A8AFAE90022671F /* SideMenuTableViewTheme.m in Sources */,
@@ -670,6 +711,7 @@
 				5D62FD7A1A8AFAE90022671F /* StatusBarTheme.m in Sources */,
 				5DDA3DCF1A8685A200FD085A /* ShareTableViewCell.m in Sources */,
 				5D62FD801A8AFAE90022671F /* SideMenuHeaderTheme.m in Sources */,
+				5D6C985C1A8C5D8000EB408E /* ProjectVariable.m in Sources */,
 				5DDA3DB51A85F4F700FD085A /* BlurActivityOverlay.m in Sources */,
 				5DC2F5541A85AECD00ED1969 /* DDViewController.m in Sources */,
 				5DDA3DCC1A8681EF00FD085A /* ProjectSettingsKeys.m in Sources */,

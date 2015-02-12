@@ -15,7 +15,7 @@
 
     if (self = [super init]) {
 
-        self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] shareTableView:kBackgroundColor]];
+        self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeElement:kShareTableView withProperty:kBackgroundColor]];
 
         self.frame = parentFrame;
 

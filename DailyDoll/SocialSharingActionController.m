@@ -10,6 +10,7 @@
 #import "ProjectSettings.h"
 #import "SocialSharePopoverView.h"
 #import "UIColor+UIColor_Expanded.h"
+#import "Button.h"
 
 @import Social;
 
@@ -17,25 +18,25 @@
 
 - (SocialSharePopoverView *)facebookPopConfig:(CGRect)windowFrame {
 
-    NSArray *buttonItems = [[ProjectSettings sharedManager]buttonsForShareItem:0];
+    NSArray *buttonItems = [[ProjectSettings sharedManager] fetchSocialButtonsForItem:FACEBOOK];
 
     NSMutableArray *buttons = [NSMutableArray array];
 
-    for (NSDictionary *buttonItem in buttonItems) {
+    for (Button *buttonItem in buttonItems) {
 
         UIButton *button = [[UIButton alloc] init];
-        [button setTitle:buttonItem[@"Title"] forState:UIControlStateNormal];
+        [button setTitle:buttonItem.title forState:UIControlStateNormal];
 
-        switch ([buttonItem[@"Id"] intValue]) {
-            case 0:  //View
+        switch ([buttonItem.id intValue]) {
+            case 0:  //Like
 
-                [button addTarget:self action:@selector(facebookViewDelegate:)
+                [button addTarget:self action:@selector(faceBookLikeDelegate:)
                  forControlEvents:UIControlEventTouchUpInside];
 
                 break;
-            case 1:  //Like
+            case 1:  //View
 
-                [button addTarget:self action:@selector(faceBookLikeDelegate:)
+                [button addTarget:self action:@selector(facebookViewDelegate:)
                  forControlEvents:UIControlEventTouchUpInside];
 
                 break;
@@ -64,9 +65,9 @@
 - (void)facebookViewDelegate:(UIButton *)button {
 
     [self openWithAppOrWebView:[NSString stringWithFormat:@"fb://profile/%@",
-                                [[ProjectSettings sharedManager] facebookId]]
+                                [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:@"pageId"]]
                      andWebURL:[NSString stringWithFormat:@"https://www.facebook.com/%@",
-                                                           [[ProjectSettings sharedManager] facebookId]]];
+                                                           [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:@"pageId"]]];
 }
 
 - (void)facebookShareDelegate:(UIButton *)button {
@@ -74,7 +75,7 @@
     FBLinkShareParams *params = [[FBLinkShareParams alloc] init];
     
     params.link = [NSURL URLWithString:[NSString stringWithFormat:@"https://www.facebook.com/%@",
-                                        [[ProjectSettings sharedManager] facebookId]]];
+                                        [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:@"pageId"]]];
 
     // If the Facebook app is installed and we can present the share dialog
     if ([FBDialogs canPresentShareDialogWithParams:params]) {
@@ -124,19 +125,19 @@
 
 -(SocialSharePopoverView *)pintrestPopConfig:(CGRect)windowFrame {
 
-    NSArray *buttonItems = [[ProjectSettings sharedManager]buttonsForShareItem:1];
+    NSArray *buttonItems = [[ProjectSettings sharedManager] fetchSocialButtonsForItem:PINTEREST];
 
     NSMutableArray *buttons = [NSMutableArray array];
 
-    for (NSDictionary *buttonItem in buttonItems) {
+    for (Button *buttonItem in buttonItems) {
 
         UIButton *button = [[UIButton alloc] init];
-        [button setTitle:buttonItem[@"Title"] forState:UIControlStateNormal];
+        [button setTitle:buttonItem.title forState:UIControlStateNormal];
 
-        switch ([buttonItem[@"Id"] intValue]) {
+        switch ([buttonItem.id intValue]) {
             case 0: { //Pin
 
-                self.pinterest = [[Pinterest alloc]initWithClientId:[[ProjectSettings sharedManager]pintrestId]];
+                self.pinterest = [[Pinterest alloc] initWithClientId:@"1442952"];
 
                 [button addTarget:self
                            action:@selector(pinIt:)
@@ -170,7 +171,7 @@
 
     //TODO setup s3 to host images
     NSURL *imageURL     = [NSURL URLWithString:@"http://placekitten.com/500/400"];
-    NSURL *sourceURL    = [NSURL URLWithString:[[ProjectSettings sharedManager] socialPropertiesForItem:1 withItem:kURLString]];
+    NSURL *sourceURL    = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:PINTEREST withProperty:kURLString]];
 
 
     if ([self.pinterest canPinWithSDK]) {
@@ -195,21 +196,20 @@
 
 
 
-
 // ======= Instagram ======
 
 -(SocialSharePopoverView *)instagramPopConfig:(CGRect)windowFrame {
 
-    NSArray *buttonItems = [[ProjectSettings sharedManager]buttonsForShareItem:3];
+    NSArray *buttonItems = [[ProjectSettings sharedManager] fetchSocialButtonsForItem:INSTAGRAM];
 
     NSMutableArray *buttons = [NSMutableArray array];
 
-    for (NSDictionary *buttonItem in buttonItems) {
+    for (Button *buttonItem in buttonItems) {
 
         UIButton *button = [[UIButton alloc] init];
-        [button setTitle:buttonItem[@"Title"] forState:UIControlStateNormal];
+        [button setTitle:buttonItem.title forState:UIControlStateNormal];
 
-        switch ([buttonItem[@"Id"] intValue]) {
+        switch ([buttonItem.id intValue]) {
             case 0: { //View
 
                 [button addTarget:self
@@ -227,6 +227,7 @@
                 break;
         }
 
+
         [self styleButtonAndAnimateActions:button withColor:[UIColor colorWithHexString:@"517fa4"]];
 
 
@@ -242,7 +243,7 @@
 
 - (void)viewOnInstagram:(UIButton *)button {
 
-    NSString *instagramAccountName = [[ProjectSettings sharedManager] socialAccountName:3];
+    NSString *instagramAccountName = [[ProjectSettings sharedManager] fetchSocialItem:INSTAGRAM withProperty:kAccountName];
 
     [self openWithAppOrWebView:[NSString stringWithFormat:@"instagram://user?username=%@", instagramAccountName]
                      andWebURL:[NSString stringWithFormat:@"http://instagram.com/%@", instagramAccountName]];
@@ -250,9 +251,9 @@
 
 - (void)authenticateAndFollowWithInstagram:(UIButton *) button {
 
-    NSString *authorizationURLConfigKey = [[ProjectSettings sharedManager]instagramOAuthItems:kInstagramKitAuthorizationUrl];
-    NSString *instagramKitAppClientId = [[ProjectSettings sharedManager]instagramOAuthItems:kInstagramKitAppClientId];
-    NSString *instagramKitAppRedirectURL = [[ProjectSettings sharedManager]instagramOAuthItems:kInstagramKitAppRedirectURL];
+    NSString *authorizationURLConfigKey = [[ProjectSettings sharedManager] fetchSocialItem:INSTAGRAM withProperty:kInstagramAuthorizationUrl];
+    NSString *instagramKitAppClientId = [[ProjectSettings sharedManager]fetchSocialItem:INSTAGRAM withProperty:kInstagramAppClientId];
+    NSString *instagramKitAppRedirectURL = [[ProjectSettings sharedManager]fetchSocialItem:INSTAGRAM withProperty:kInstagramAppRedirectURL];
 
     NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@&response_type=token&scope=relationships", authorizationURLConfigKey, instagramKitAppClientId, instagramKitAppRedirectURL]];
 

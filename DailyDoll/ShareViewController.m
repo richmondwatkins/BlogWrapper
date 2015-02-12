@@ -52,9 +52,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-//    return self.tableView.customDataSource.count;
-
-    return 4;
+    return self.dataSource.count;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -85,7 +83,7 @@
     }
     self.actionController.delegate = self;
 
-    switch ([self.dataSource[indexPath.row][@"socialId"] intValue]) {
+    switch ([[self.dataSource[indexPath.row] valueForKey:@"id" ] intValue]) {
         case 0:
 
            self.socialPopUp = [self.actionController facebookPopConfig:mainWindow.frame];

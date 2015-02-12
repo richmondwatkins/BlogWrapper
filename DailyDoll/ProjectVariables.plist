@@ -7,116 +7,113 @@
 		<key>Social</key>
 		<array>
 			<dict>
-				<key>pageName</key>
+				<key>accountName</key>
 				<string>thedailydollblog</string>
 				<key>pageId</key>
 				<string>1375752596010969</string>
-				<key>Buttons</key>
+				<key>buttons</key>
 				<array>
 					<dict>
 						<key>Id</key>
-						<string>1</string>
+						<integer>0</integer>
 						<key>Title</key>
 						<string>Like</string>
 					</dict>
 					<dict>
 						<key>Id</key>
-						<string>2</string>
+						<integer>2</integer>
 						<key>Title</key>
 						<string>Share</string>
 					</dict>
 					<dict>
 						<key>Id</key>
-						<string>0</string>
+						<integer>1</integer>
 						<key>Title</key>
 						<string>View</string>
 					</dict>
 				</array>
-				<key>Image</key>
+				<key>image</key>
 				<string>facebook</string>
-				<key>URLString</key>
+				<key>urlString</key>
 				<string>https://www.facebook.com/thedailydollblog</string>
-				<key>socialId</key>
-				<string>0</string>
+				<key>id</key>
+				<integer>0</integer>
 			</dict>
 			<dict>
-				<key>AccountName</key>
+				<key>accountName</key>
 				<string>thelaceyjohnson</string>
-				<key>Buttons</key>
+				<key>buttons</key>
 				<array>
 					<dict>
 						<key>Id</key>
-						<string>0</string>
+						<integer>0</integer>
 						<key>Title</key>
 						<string>Pin</string>
 					</dict>
 					<dict>
 						<key>Id</key>
-						<string>1</string>
+						<integer>1</integer>
 						<key>Title</key>
 						<string>View Boards</string>
 					</dict>
 				</array>
 				<key>appId</key>
 				<string>1442952</string>
-				<key>Image</key>
+				<key>image</key>
 				<string>pintrest</string>
-				<key>URLString</key>
+				<key>urlString</key>
 				<string>https://www.pinterest.com/thelaceyjohnson/pins/</string>
-				<key>socialId</key>
-				<string>1</string>
+				<key>id</key>
+				<integer>1</integer>
 			</dict>
 			<dict>
-				<key>Image</key>
+				<key>image</key>
 				<string>twitter</string>
-				<key>URLString</key>
+				<key>urlString</key>
 				<string>https://twitter.com/the_daily_doll</string>
-				<key>socialId</key>
-				<string>2</string>
+				<key>id</key>
+				<integer>2</integer>
 			</dict>
 			<dict>
-				<key>APIKeys</key>
-				<dict>
-					<key>InstagramKitAuthorizationUrl</key>
-					<string>https://api.instagram.com/oauth/authorize/</string>
-					<key>InstagramKitBaseUrl</key>
-					<string>https://api.instagram.com/v1/</string>
-					<key>InstagramKitAppRedirectURL</key>
-					<string>scheme://com-greekconnect.DailyDoll</string>
-					<key>InstagramKitAppClientId</key>
-					<string>cf47463b546b4f879ff9e13c69092018</string>
-				</dict>
-				<key>Buttons</key>
+				<key>authClientId</key>
+				<string>cf47463b546b4f879ff9e13c69092018</string>
+				<key>authRedirect</key>
+				<string>scheme://com-greekconnect.DailyDoll</string>
+				<key>authBaseURL</key>
+				<string>https://api.instagram.com/v1/</string>
+				<key>authURL</key>
+				<string>https://api.instagram.com/oauth/authorize/</string>
+				<key>buttons</key>
 				<array>
 					<dict>
 						<key>Id</key>
-						<string>0</string>
+						<integer>0</integer>
 						<key>Title</key>
 						<string>View</string>
 					</dict>
 					<dict>
 						<key>Id</key>
-						<string>1</string>
+						<integer>1</integer>
 						<key>Title</key>
 						<string>Follow</string>
 					</dict>
 				</array>
-				<key>AccountName</key>
+				<key>accountName</key>
 				<string>thedailydollblog</string>
-				<key>Image</key>
+				<key>image</key>
 				<string>instagram</string>
-				<key>URLString</key>
+				<key>urlString</key>
 				<string>http://instagram.com/thedailydollblog</string>
-				<key>socialId</key>
-				<string>3</string>
+				<key>id</key>
+				<integer>3</integer>
 			</dict>
 			<dict>
-				<key>Image</key>
+				<key>image</key>
 				<string>googlePlus</string>
-				<key>URLString</key>
+				<key>urlString</key>
 				<string>https://plus.google.com/u/0/+Thedailydoll/posts</string>
-				<key>socialId</key>
-				<string>4</string>
+				<key>id</key>
+				<integer>4</integer>
 			</dict>
 		</array>
 		<key>MetaData</key>
@@ -125,7 +122,7 @@
 			<string>scheme://com-greekconnect.DailyDoll</string>
 			<key>DomainString</key>
 			<string>dailydoll</string>
-			<key>Title</key>
+			<key>Name</key>
 			<string>The Daily Doll</string>
 			<key>URLString</key>
 			<string>http://www.thedailydoll.com</string>
