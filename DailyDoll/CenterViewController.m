@@ -59,7 +59,7 @@
 
     self.webView.delegate = self;
 
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[[ProjectSettings sharedManager] homeVariables:@"URLString"]]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[[ProjectSettings sharedManager] metaDataVariables:kURLString]]]];
 }
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
@@ -67,7 +67,7 @@
     self.acitivityIndicator = [[CenterVCActivityIndicator alloc] initWithStyle];
     self.navigationItem.titleView = self.acitivityIndicator;
 
-    if (![[request.URL absoluteString] containsString:[[ProjectSettings sharedManager] homeVariables:@"DomainString"]]) {
+    if (![[request.URL absoluteString] containsString:[[ProjectSettings sharedManager] metaDataVariables:kDomainString]]) {
         
         ExternalWebModalViewController *externalVC = [[ExternalWebModalViewController alloc] initWithRequest:request];
 

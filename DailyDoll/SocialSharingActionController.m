@@ -11,6 +11,7 @@
 #import "SocialSharePopoverView.h"
 #import "UIColor+UIColor_Expanded.h"
 #import "Button.h"
+#import <TwitterKit/TwitterKit.h>
 
 @import Social;
 
@@ -85,7 +86,7 @@
         //TODO add share items ... text and images
         if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
 
-            [self.delegate facebookShareInternal:[[ProjectSettings sharedManager] homeVariables:kTitle]];
+            [self.delegate facebookShareInternal:[[ProjectSettings sharedManager] metaDataVariables:kSiteName]];
         }else {
             [self.delegate socialWebView:params.link];
         }
@@ -177,7 +178,7 @@
     if ([self.pinterest canPinWithSDK]) {
         [self.pinterest createPinWithImageURL:imageURL
                                     sourceURL:sourceURL
-                                  description:[[ProjectSettings sharedManager] homeVariables:kBlogName]];
+                                  description:[[ProjectSettings sharedManager] metaDataVariables:kBlogName]];
     } else {
 
         [self.delegate socialWebView:sourceURL];
@@ -194,7 +195,7 @@
 
 }
 
-
+//TODO save instagram auth token to keychain
 
 // ======= Instagram ======
 
@@ -259,6 +260,73 @@
 
     [self.delegate socialWebView:instagramURL];
 }
+
+//TODO save twitter auth token to keychain
+// ========   Twitter =======
+
+-(SocialSharePopoverView *)twitterPopConfig:(CGRect)windowFrame {
+
+    NSArray *buttonItems = [[ProjectSettings sharedManager] fetchSocialButtonsForItem:TWIITER];
+
+    NSMutableArray *buttons = [NSMutableArray array];
+
+    for (Button *buttonItem in buttonItems) {
+
+        UIButton *button = [[UIButton alloc] init];
+        [button setTitle:buttonItem.title forState:UIControlStateNormal];
+
+        switch ([buttonItem.id intValue]) {
+            case 0: { //Follow
+
+//                button.tag = 2;
+
+                [button addTarget:self
+                           action:@selector(checkForTwitterSession:)
+                 forControlEvents:UIControlEventTouchUpInside];
+
+            }   break;
+            case 1: //
+
+                [button addTarget:self
+                           action:@selector(openOnTwitter:)
+                 forControlEvents:UIControlEventTouchUpInside];
+
+            default:
+                break;
+        }
+
+
+        [self styleButtonAndAnimateActions:button withColor:[UIColor colorWithHexString:@"00aced"]];
+
+
+        [buttons addObject:button];
+
+    }
+
+    SocialSharePopoverView *popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
+    
+    return popUpView;
+    
+}
+
+
+- (void)checkForTwitterSession:(UIButton *)button {
+
+    if (![[Twitter sharedInstance] session]) {
+
+        [self.delegate instantiateOAuthLoginView:TWIITER];
+    }
+
+}
+
+
+- (void)openOnTwitter:(UIButton *)button {
+
+    [self openWithAppOrWebView:[NSString stringWithFormat:@"twitter://user?id=%@", [[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:@"pageId"]]
+                     andWebURL:[[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:kURLString]];
+}
+
+
 
 
 //helper methods

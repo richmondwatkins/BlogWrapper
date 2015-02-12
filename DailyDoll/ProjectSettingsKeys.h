@@ -93,4 +93,10 @@ extern NSString *const kActivityIndicator;
 
 extern NSString *const kShareTableView;
 
+//Meta Data
+
+extern NSString *const kDomainString;
+
+extern NSString *const kSiteName;
+
 @end

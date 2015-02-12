@@ -75,4 +75,10 @@ NSString *const kButtons = @"buttons";
 NSString *const kAccountName = @"accountName";
 
 
+//Meta Data
+
+NSString *const kDomainString = @"domain";
+
+NSString *const kSiteName = @"name";
+
 @end

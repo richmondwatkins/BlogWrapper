@@ -21,6 +21,7 @@
 - (void)facebookLike;
 - (void)socialWebView:(NSURL *)facebookURL;
 - (void)instagramAuthWebView:(NSURL *)instagramURL;
+- (void)instantiateOAuthLoginView:(int)socialType;
 
 @end
 

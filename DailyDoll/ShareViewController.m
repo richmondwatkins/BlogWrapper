@@ -14,6 +14,8 @@
 #import "SocialSharingActionController.h"
 #import "SocialSharePopoverView.h"
 #import "ExternalWebModalViewController.h"
+#import "OAuthSignInView.h"
+#import <TwitterKit/TwitterKit.h>
 
 @import Social;
 
@@ -81,6 +83,7 @@
     if (!self.actionController) {
         self.actionController = [[SocialSharingActionController alloc] init];
     }
+
     self.actionController.delegate = self;
 
     switch ([[self.dataSource[indexPath.row] valueForKey:@"id" ] intValue]) {
@@ -89,13 +92,15 @@
            self.socialPopUp = [self.actionController facebookPopConfig:mainWindow.frame];
             break;
         case 1:
+
             self.socialPopUp = [self.actionController pintrestPopConfig:mainWindow.frame];
-//            [SocialSharingActionController handlePintrestShare];
             break;
         case 2:
-//            [SocialSharingActionController handleTwitterShare];
+
+            self.socialPopUp = [self.actionController twitterPopConfig:mainWindow.frame];
             break;
         case 3:
+            
             self.socialPopUp = [self.actionController instagramPopConfig:mainWindow.frame];
             break;
         case 4:
@@ -165,5 +170,50 @@
     }
 }
 
+- (void)instantiateOAuthLoginView:(int)socialType {
+    NSLog(@"Made it");
 
+    OAuthSignInView *signInView;
+
+    UIWindow* mainWindow = [[UIApplication sharedApplication] keyWindow];
+
+    switch (socialType) {
+        case TWIITER:
+            //TODO make call back for animation to ensure it is complete before performin anything else
+//            [self.socialPopUp animateOffScreen];
+
+            signInView = [[OAuthSignInView alloc] initWithSubview:[self returnTwitterLoginButton] andParentFrame:mainWindow.frame];
+
+            [mainWindow addSubview:signInView];
+
+            [signInView animateOntoScreen:mainWindow.frame];
+
+            break;
+
+        default:
+            break;
+    }
+}
+
+- (TWTRLogInButton *)returnTwitterLoginButton {
+
+    TWTRLogInButton* logInButton =  [TWTRLogInButton
+                                     buttonWithLogInCompletion:
+                                     ^(TWTRSession* session, NSError* error) {
+                                         if (session) {
+                                             NSLog(@"signed in as %@", session);
+                                         } else {
+                                             NSLog(@"error: %@", [error localizedDescription]);
+                                         }
+                                     }];
+
+    [logInButton addTarget:self action:@selector(removeOauthView:)
+          forControlEvents:UIControlEventTouchUpInside];
+
+    return logInButton;
+}
+
+- (void)removeOauthView:(UIButton *)button {
+
+}
 @end

@@ -31,7 +31,7 @@
 
 // ======= Project Variabels ====
 
--(NSString *)homeVariables:(NSString *)property;
+-(NSString *)metaDataVariables:(NSString *)property;
 
 // ======== Share View ====
 

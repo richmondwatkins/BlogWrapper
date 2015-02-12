@@ -9,6 +9,7 @@
 #import "SocialSharePopoverView.h"
 #import "ProjectSettings.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <TwitterKit/TwitterKit.h>
 
 @interface SocialSharePopoverView () <UIGestureRecognizerDelegate>
 
@@ -39,7 +40,10 @@ CGFloat const kButtonHeight = 40;
             if ([button.titleLabel.text isEqualToString:@"Like"]) {
 
                 [self genarateLikeButton:popUp withOriginalButton:button];
-                
+
+            }else if(button.tag == 2 && [button.titleLabel.text isEqualToString:@"Follow"]){
+
+                [self generateTwitterFollowButton:popUp withOriginalButton:button];
             }else {
 
                 button.frame = CGRectMake(0, 0, popUp.frame.size.width * 0.8, kButtonHeight);
@@ -138,12 +142,38 @@ CGFloat const kButtonHeight = 40;
     return YES;
 }
 
+- (void)generateTwitterFollowButton:(UIView *)popUp withOriginalButton:(UIButton *)button {
+
+    TWTRLogInButton* logInButton =  [TWTRLogInButton
+                                     buttonWithLogInCompletion:
+                                     ^(TWTRSession* session, NSError* error) {
+                                         if (session) {
+                                             NSLog(@"signed in as %@", session);
+                                         } else {
+                                             NSLog(@"error: %@", [error localizedDescription]);
+                                         }
+                                     }];
+
+    UIView *lastSubView = [[popUp subviews] lastObject];
+    
+    if (lastSubView) {
+
+        [logInButton setCenter:CGPointMake(popUp.frame.size.width / 2,
+                                    lastSubView.center.y + button.frame.size.height + kButtonPadding)];
+    }else {
+
+        [self setFirstButton:logInButton withPopUp:popUp];
+    }
+
+    [popUp addSubview:logInButton];
+}
+
 - (void)genarateLikeButton:(UIView *)popUp withOriginalButton:(UIButton *)button {
 
     [FBSettings enablePlatformCompatibility:NO];
 
     FBLikeControl *like = [[FBLikeControl alloc] initWithFrame:CGRectMake(0, 0, popUp.frame.size.width * 0.8, kButtonHeight)];
-
+    //TODO change this out for the appropriate URL from core data
     like.objectID = @"http://shareitexampleapp.parseapp.com/photo1/";
     like.preferredMaxLayoutWidth = 300;
     like.likeControlStyle = FBLikeControlStyleButton;

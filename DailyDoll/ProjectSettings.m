@@ -73,6 +73,7 @@ static ProjectSettings *sharedThemeManager = nil;
     }
     return self;
 }
+
 // Theme Set - Core Data
 
 -(void)populateCoreData:(NSManagedObjectContext *)moc withCompletion:(void(^)(BOOL))completion {
@@ -225,13 +226,21 @@ static ProjectSettings *sharedThemeManager = nil;
 }
 
 
-// META DATA //TODO fetch this from core data
+// META DATA
 
-- (NSString *)homeVariables:(NSString *)property {
+- (NSString *)metaDataVariables:(NSString *)property {
 
-    return self.projectVariables[@"MetaData"][property];
+    NSFetchRequest *metaDataFetch = [[NSFetchRequest alloc] initWithEntityName:@"MetaData"];
+
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+    NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:metaDataFetch error:nil];
+
+    return [results[0] valueForKey:property];
 }
 
+
+// Fetches share items for share tableview
 
 - (NSArray *)shareItems {
 
@@ -243,7 +252,13 @@ static ProjectSettings *sharedThemeManager = nil;
 
     SocialContainer *socialContainer = results[0];
 
-    return [socialContainer.socialItems  allObjects];
+    NSMutableArray *shareItems = [[socialContainer.socialItems allObjects] mutableCopy];
+
+    NSSortDescriptor *shareSort = [[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES];
+
+    [shareItems sortUsingDescriptors:@[shareSort]];
+
+    return [NSArray arrayWithArray:shareItems];
 }
 
 
