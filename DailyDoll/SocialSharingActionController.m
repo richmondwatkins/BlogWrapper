@@ -62,7 +62,6 @@
     }
 
     SocialSharePopoverView *popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
-    popUpView.delegate = self;
 
     return popUpView;
 }
@@ -225,6 +224,10 @@
             }   break;
             case 1: //
 
+                if ([[ProjectSettings sharedManager] hasInteractedWithSocialItem:INSTAGRAM]) {
+                    [button setTitle:@"UnFollow" forState:UIControlStateNormal];
+                }
+
                 [button addTarget:self
                            action:@selector(authenticateAndFollowWithInstagram:)
                  forControlEvents:UIControlEventTouchUpInside];
@@ -284,9 +287,8 @@
         switch ([buttonItem.id intValue]) {
             case 0: { //Follow
 
-//                button.tag = 2;
                 if ([[ProjectSettings sharedManager] hasInteractedWithSocialItem:TWIITER]) {
-                    [button setTitle:@"Following" forState:UIControlStateNormal];
+                    [button setTitle:@"UnFollow" forState:UIControlStateNormal];
                 }
 
                 [button addTarget:self
@@ -325,7 +327,7 @@
 
         [self.delegate instantiateOAuthLoginView:TWIITER];
     } else {
-        [self createFollowRelationshipWithTwitter:[[Twitter sharedInstance] session]];
+        [self createFollowRelationshipWithTwitter:[[Twitter sharedInstance] session] withFollowButton:button];
     }
 
 }
@@ -387,16 +389,27 @@
 }
 
 
--(void)createFollowRelationshipWithTwitter:(TWTRSession *)twitterSession {
+-(void)createFollowRelationshipWithTwitter:(TWTRSession *)twitterSession withFollowButton:(UIButton *)button {
 
     NSString *statusesShowEndpoint;
 
-    if (![[ProjectSettings sharedManager] hasInteractedWithSocialItem:TWIITER]) {
+    BOOL isFollowing = [[ProjectSettings sharedManager] hasInteractedWithSocialItem:TWIITER];
+
+    if (!isFollowing) {
+
         statusesShowEndpoint = @"https://api.twitter.com/1.1/friendships/create.json?follow=true";
+
+        [button setTitle:@"UnFollow" forState:UIControlStateNormal];
     }else {
+
         statusesShowEndpoint = @"https://api.twitter.com/1.1/friendships/destroy.json?";
+
+        [button setTitle:@"Follow" forState:UIControlStateNormal];
     }
 
+    [[ProjectSettings sharedManager] saveSocialInteraction:TWIITER withStatus:!isFollowing];
+
+ //TODO add activity indicator in button to show request
 
     NSDictionary *params = @{@"user_id" : @"1630611914"};
 
@@ -422,8 +435,6 @@
                                        error:&jsonError];
 
                  NSLog(@"RESPONSE: %@",json);
-
-                 [[ProjectSettings sharedManager] saveSocialInteraction:TWIITER];
              }
              else {
                  NSLog(@"Error: %@", connectionError);
@@ -476,9 +487,5 @@
     }
 }
 
--(void)saveInteractionStatus:(int)socialItem {
-
-    
-}
 
 @end

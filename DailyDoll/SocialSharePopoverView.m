@@ -116,18 +116,7 @@ CGFloat const kButtonHeight = 40;
 
 - (void)handleTapGesture:(UITapGestureRecognizer *)gesture {
 
-    [UIView animateWithDuration:0.3 animations:^{
-
-        UIView *popUpSubView = self.subviews[0];
-
-        popUpSubView.alpha = 0;
-
-        self.alpha = 0;
-
-    } completion:^(BOOL finished) {
-
-        [self removeFromSuperview];
-    }];
+    [self.delegate removeViewsFromWindow];
 }
 
 - (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch

@@ -42,7 +42,7 @@
 
 - (SocialSharePopoverView *) googlePlusPopConfig:(CGRect)windowFrame;
 
-- (void) createFollowRelationshipWithTwitter:(TWTRSession *)twitterSession;
+-(void)createFollowRelationshipWithTwitter:(TWTRSession *)twitterSession withFollowButton:(UIButton *)button;
 
 - (void)checkForCurrentTwitterRelationshipWithCompletion:(void(^)(BOOL))isFollowing;
 

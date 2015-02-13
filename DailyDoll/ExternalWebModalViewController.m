@@ -61,25 +61,43 @@
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
 
     NSString *URLString = [request.URL absoluteString];
-    if ([URLString hasPrefix:[[ProjectSettings sharedManager] fetchSocialItem:INSTAGRAM withProperty:kInstagramAppRedirectURL]]) {
+    if ([URLString hasPrefix:@"scheme"]) {
+
         NSString *delimiter = @"access_token=";
+
         NSArray *components = [URLString componentsSeparatedByString:delimiter];
+
         if (components.count > 1) {
+
             NSString *accessToken = [components lastObject];
+
             NSLog(@"ACCESS TOKEN = %@",accessToken);
-//            [[InstagramEngine sharedEngine] setAccessToken:accessToken];
 
             NSString *urlString=[NSString stringWithFormat:@"https://api.instagram.com/v1/users/%@/relationship?access_token=%@",@"486292136",accessToken];
 
             NSURL* url = [NSURL URLWithString:urlString];
+
             NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:1000.0];
-            NSString *parameters=@"action=follow";
+
+
+            NSString *parameters;
+            BOOL isFollowing = [[ProjectSettings sharedManager] hasInteractedWithSocialItem:INSTAGRAM];
+
+            if (isFollowing) {
+                parameters=@"action=unfollow";
+            }else {
+                parameters=@"action=follow";
+            }
+
+            [[ProjectSettings sharedManager] saveSocialInteraction:INSTAGRAM withStatus:!isFollowing];
+
             [theRequest setHTTPBody:[parameters dataUsingEncoding:NSUTF8StringEncoding]];
+
             [theRequest setHTTPMethod:@"POST"];
 
             [NSURLConnection sendAsynchronousRequest:theRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
-                NSLog(@"Response %@",dict);
+
+                [self dismissViewControllerAnimated:YES completion:nil];
             }];
         }
         return NO;
@@ -88,13 +106,15 @@
     return YES;
 }
 
+-(void)webViewDidStartLoad:(UIWebView *)webView {
+    NSLog(@"REQUEST %@",webView.request.URL);
+}
+
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
 
     NSLog(@"URL %@", webView.request.URL.absoluteString);
 }
 
--(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-    NSLog(@"Error %@",error);
-}
+
 
 @end

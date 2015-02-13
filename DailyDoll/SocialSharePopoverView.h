@@ -12,6 +12,8 @@
 
 - (void)saveInteractionStatus:(int)socialItem;
 
+- (void)removeViewsFromWindow;
+
 @end
 
 @interface SocialSharePopoverView : UIView

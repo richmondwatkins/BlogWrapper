@@ -37,7 +37,7 @@
 
 - (BOOL)siteHasSocialAccount:(int)socialAccount withMoc:(NSManagedObjectContext *)moc;
 
-- (void)saveSocialInteraction:(int)socialItem;
+- (void)saveSocialInteraction:(int)socialId withStatus:(BOOL)saveStatus;
 
 - (BOOL)hasInteractedWithSocialItem:(int)socialId;
 

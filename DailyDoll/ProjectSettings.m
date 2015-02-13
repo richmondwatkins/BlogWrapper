@@ -303,7 +303,7 @@ static ProjectSettings *sharedThemeManager = nil;
 }
 
 
-- (void)saveSocialInteraction:(int)socialId {
+- (void)saveSocialInteraction:(int)socialId withStatus:(BOOL)saveStatus {
 
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
@@ -314,14 +314,7 @@ static ProjectSettings *sharedThemeManager = nil;
     NSArray *socialAccountResult = [appDelegate.managedObjectContext executeFetchRequest:socialFetch error:nil];
 
     SocialItem *socialItem = socialAccountResult[0];
-
-    if ([socialItem.hasInteracted boolValue]) {
-
-        socialItem.hasInteracted = [NSNumber numberWithInt:0];
-    }else {
-
-        socialItem.hasInteracted = [NSNumber numberWithInt:1];
-    }
+    socialItem.hasInteracted = [NSNumber numberWithBool:saveStatus];
 
     [appDelegate.managedObjectContext save:nil];
 }

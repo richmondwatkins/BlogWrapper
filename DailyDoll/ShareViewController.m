@@ -19,7 +19,7 @@
 
 @import Social;
 
-@interface ShareViewController () <UITableViewDataSource, UITableViewDelegate, SocialProtocol>
+@interface ShareViewController () <UITableViewDataSource, UITableViewDelegate, SocialProtocol, SocialPopUp>
 
 @property ShareTableView *tableView;
 @property NSArray *dataSource;
@@ -111,13 +111,9 @@
         default:
             break;
     }
-    
 
-    [mainWindow addSubview: self.socialPopUp];
+    [self displaySocialPoUp];
 
-    [self.socialPopUp animateOnToScreen];
-
-    [self.socialPopUp.subviews[0] setCenter:CGPointMake(mainWindow.frame.size.width / 2, mainWindow.frame.size.height / 2)];
 }
 
 - (int)returnWidthForShareVC {
@@ -201,34 +197,45 @@
                                          if (session) {
                                              NSLog(@"signed in as %@", session);
 
-                                             [self.actionController checkForCurrentTwitterRelationshipWithCompletion:^(BOOL isFollowing) {
-                                                 if (isFollowing) {
-                                                     [[ProjectSettings sharedManager] saveSocialInteraction:TWIITER];
+                                            [[ProjectSettings sharedManager] saveSocialInteraction:TWIITER withStatus:YES];
 
-                                                 } else {
+                                             UIWindow* mainWindow = [[UIApplication sharedApplication] keyWindow];
 
-                                                     [self.actionController createFollowRelationshipWithTwitter:session];
-                                                 }
+                                             self.socialPopUp = [self.actionController twitterPopConfig:mainWindow.frame];
 
-                                                 UIWindow* mainWindow = [[UIApplication sharedApplication] keyWindow];
-
-                                                 self.socialPopUp = [self.actionController twitterPopConfig:mainWindow.frame];
-                                             }];
+                                             [self displaySocialPoUp];
 
                                          } else {
                                              NSLog(@"error: %@", [error localizedDescription]);
                                          }
                                      }];
 
-    [logInButton addTarget:self action:@selector(removeOauthView:)
+    [logInButton addTarget:self action:@selector(removeViewsFromWindow)
           forControlEvents:UIControlEventTouchUpInside];
 
     return logInButton;
 }
 
-- (void)removeOauthView:(UIButton *)button {
+
+- (void)displaySocialPoUp {
+
+    UIWindow* mainWindow = [[UIApplication sharedApplication] keyWindow];
+
+    [mainWindow addSubview: self.socialPopUp];
+
+    self.socialPopUp.delegate = self;
+
+    [self.socialPopUp animateOnToScreen];
+
+    [self.socialPopUp.subviews[0] setCenter:CGPointMake(mainWindow.frame.size.width / 2, mainWindow.frame.size.height / 2)];
+}
+
+- (void)removeViewsFromWindow {
+
 
     [self.socialPopUp animateOffScreen];
     [self.signInView animateOffScreen];
 }
+
+
 @end
