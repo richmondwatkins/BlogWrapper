@@ -25,7 +25,7 @@ NSString *const kURLString = @"urlString";
 
 NSString *const kImage = @"Image";
 
-NSString *const kBlogName = @"Title";
+NSString *const kBlogName = @"name";
 
 NSString *const kInstagramAuthorizationUrl = @"authURL";
 

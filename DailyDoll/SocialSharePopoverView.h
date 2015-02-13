@@ -10,8 +10,6 @@
 
 @protocol SocialPopUp <NSObject>
 
-- (void)saveInteractionStatus:(int)socialItem;
-
 - (void)removeViewsFromWindow;
 
 @end

@@ -27,6 +27,16 @@
 				<string>fb352521494954785</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com-greekconnect.DailyDoll</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com-greekconnect.com.DailyDoll</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>

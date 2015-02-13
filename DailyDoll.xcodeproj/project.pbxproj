@@ -31,6 +31,20 @@
 		5D8052801A8331FD0076A6E8 /* SideMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80527F1A8331FD0076A6E8 /* SideMenuTableViewCell.m */; };
 		5D86005C1A87C45A00AA8971 /* SocialSharePopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D86005B1A87C45A00AA8971 /* SocialSharePopoverView.m */; };
 		5D9F58A51A8DCBA400A53BB7 /* OAuthWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9F58A41A8DCBA400A53BB7 /* OAuthWebView.m */; };
+		5D9F59DB1A8E781D00A53BB7 /* README in Resources */ = {isa = PBXBuildFile; fileRef = 5D9F59401A8E781C00A53BB7 /* README */; };
+		5D9F5A061A8E781D00A53BB7 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9F599E1A8E781C00A53BB7 /* GooglePlus.framework */; };
+		5D9F5A071A8E781D00A53BB7 /* GooglePlus.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D9F599F1A8E781C00A53BB7 /* GooglePlus.bundle */; };
+		5D9F5A081A8E781D00A53BB7 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9F59A01A8E781C00A53BB7 /* GoogleOpenSource.framework */; };
+		5D9F5A0D1A8E783C00A53BB7 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9F5A0C1A8E783C00A53BB7 /* AddressBook.framework */; };
+		5D9F5A0F1A8E784400A53BB7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9F5A0E1A8E784400A53BB7 /* AssetsLibrary.framework */; };
+		5D9F5A111A8E784F00A53BB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9F5A101A8E784F00A53BB7 /* Foundation.framework */; };
+		5D9F5A131A8E785500A53BB7 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9F5A121A8E785500A53BB7 /* CoreLocation.framework */; };
+		5D9F5A151A8E785D00A53BB7 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9F5A141A8E785D00A53BB7 /* CoreMotion.framework */; };
+		5D9F5A171A8E786400A53BB7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9F5A161A8E786400A53BB7 /* CoreGraphics.framework */; };
+		5D9F5A191A8E786A00A53BB7 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9F5A181A8E786A00A53BB7 /* CoreText.framework */; };
+		5D9F5A1B1A8E787100A53BB7 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9F5A1A1A8E787100A53BB7 /* MediaPlayer.framework */; };
+		5D9F5A1D1A8E788400A53BB7 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9F5A1C1A8E788400A53BB7 /* SystemConfiguration.framework */; };
+		5D9F5A1F1A8E788C00A53BB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9F5A1E1A8E788C00A53BB7 /* UIKit.framework */; };
 		5DA4B98D1A7F3B2D0016476C /* ExternalWebModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA4B98C1A7F3B2D0016476C /* ExternalWebModalViewController.m */; };
 		5DA64CD51A847A7A004F08A8 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DA64CD41A847A7A004F08A8 /* HeaderView.xib */; };
 		5DC2F5511A85A91A00ED1969 /* SideMenuTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2F5501A85A91A00ED1969 /* SideMenuTableView.m */; };
@@ -113,6 +127,20 @@
 		5D86005B1A87C45A00AA8971 /* SocialSharePopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialSharePopoverView.m; sourceTree = "<group>"; };
 		5D9F58A31A8DCBA400A53BB7 /* OAuthWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthWebView.h; sourceTree = "<group>"; };
 		5D9F58A41A8DCBA400A53BB7 /* OAuthWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthWebView.m; sourceTree = "<group>"; };
+		5D9F59401A8E781C00A53BB7 /* README */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README; sourceTree = "<group>"; };
+		5D9F599E1A8E781C00A53BB7 /* GooglePlus.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GooglePlus.framework; sourceTree = "<group>"; };
+		5D9F599F1A8E781C00A53BB7 /* GooglePlus.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = GooglePlus.bundle; sourceTree = "<group>"; };
+		5D9F59A01A8E781C00A53BB7 /* GoogleOpenSource.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleOpenSource.framework; sourceTree = "<group>"; };
+		5D9F5A0C1A8E783C00A53BB7 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		5D9F5A0E1A8E784400A53BB7 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
+		5D9F5A101A8E784F00A53BB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5D9F5A121A8E785500A53BB7 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		5D9F5A141A8E785D00A53BB7 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		5D9F5A161A8E786400A53BB7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5D9F5A181A8E786A00A53BB7 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		5D9F5A1A1A8E787100A53BB7 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		5D9F5A1C1A8E788400A53BB7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5D9F5A1E1A8E788C00A53BB7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5DA4B98B1A7F3B2D0016476C /* ExternalWebModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExternalWebModalViewController.h; sourceTree = "<group>"; };
 		5DA4B98C1A7F3B2D0016476C /* ExternalWebModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExternalWebModalViewController.m; sourceTree = "<group>"; };
 		5DA64CD41A847A7A004F08A8 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
@@ -174,11 +202,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D9F5A1F1A8E788C00A53BB7 /* UIKit.framework in Frameworks */,
+				5D9F5A1D1A8E788400A53BB7 /* SystemConfiguration.framework in Frameworks */,
+				5D9F5A1B1A8E787100A53BB7 /* MediaPlayer.framework in Frameworks */,
+				5D9F5A191A8E786A00A53BB7 /* CoreText.framework in Frameworks */,
+				5D9F5A171A8E786400A53BB7 /* CoreGraphics.framework in Frameworks */,
+				5D9F5A151A8E785D00A53BB7 /* CoreMotion.framework in Frameworks */,
+				5D9F5A131A8E785500A53BB7 /* CoreLocation.framework in Frameworks */,
+				5D9F5A111A8E784F00A53BB7 /* Foundation.framework in Frameworks */,
+				5D9F5A0F1A8E784400A53BB7 /* AssetsLibrary.framework in Frameworks */,
+				5D9F5A0D1A8E783C00A53BB7 /* AddressBook.framework in Frameworks */,
 				5DC696291A8D8D5D00A5D3AB /* Security.framework in Frameworks */,
 				5D62FD651A8AF1230022671F /* CoreData.framework in Frameworks */,
+				5D9F5A061A8E781D00A53BB7 /* GooglePlus.framework in Frameworks */,
 				BDF89CC8C066F8FFE29F7BC1 /* libPods-DailyDoll.a in Frameworks */,
 				5D7F6B3E1A898EC600A207CD /* Pinterest.framework in Frameworks */,
 				5D7F6B5C1A8A893800A207CD /* TwitterKit.framework in Frameworks */,
+				5D9F5A081A8E781D00A53BB7 /* GoogleOpenSource.framework in Frameworks */,
 				5D7F6B5E1A8A893800A207CD /* Fabric.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -196,6 +236,16 @@
 		0DA83D6F48BB2DF1721401E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D9F5A1E1A8E788C00A53BB7 /* UIKit.framework */,
+				5D9F5A1C1A8E788400A53BB7 /* SystemConfiguration.framework */,
+				5D9F5A1A1A8E787100A53BB7 /* MediaPlayer.framework */,
+				5D9F5A181A8E786A00A53BB7 /* CoreText.framework */,
+				5D9F5A161A8E786400A53BB7 /* CoreGraphics.framework */,
+				5D9F5A141A8E785D00A53BB7 /* CoreMotion.framework */,
+				5D9F5A121A8E785500A53BB7 /* CoreLocation.framework */,
+				5D9F5A101A8E784F00A53BB7 /* Foundation.framework */,
+				5D9F5A0E1A8E784400A53BB7 /* AssetsLibrary.framework */,
+				5D9F5A0C1A8E783C00A53BB7 /* AddressBook.framework */,
 				5DC696281A8D8D5D00A5D3AB /* Security.framework */,
 				5D62FD641A8AF1230022671F /* CoreData.framework */,
 				579988490B7E0E905A16D25A /* libPods-DailyDoll.a */,
@@ -263,6 +313,35 @@
 			children = (
 			);
 			name = CustomTransitions;
+			sourceTree = "<group>";
+		};
+		5D9F58BC1A8E77BF00A53BB7 /* PInterest */ = {
+			isa = PBXGroup;
+			children = (
+				5D7F6B3A1A898EC600A207CD /* Pinterest.embeddedframework */,
+			);
+			name = PInterest;
+			sourceTree = "<group>";
+		};
+		5D9F58BD1A8E77C900A53BB7 /* Twitter */ = {
+			isa = PBXGroup;
+			children = (
+				5D7F6B591A8A893800A207CD /* TwitterKit.framework */,
+				5D7F6B5A1A8A893800A207CD /* TwitterKitResources.bundle */,
+				5D7F6B5B1A8A893800A207CD /* Fabric.framework */,
+			);
+			name = Twitter;
+			sourceTree = "<group>";
+		};
+		5D9F58BE1A8E77DD00A53BB7 /* GooglePlus */ = {
+			isa = PBXGroup;
+			children = (
+				5D9F59401A8E781C00A53BB7 /* README */,
+				5D9F599E1A8E781C00A53BB7 /* GooglePlus.framework */,
+				5D9F599F1A8E781C00A53BB7 /* GooglePlus.bundle */,
+				5D9F59A01A8E781C00A53BB7 /* GoogleOpenSource.framework */,
+			);
+			name = GooglePlus;
 			sourceTree = "<group>";
 		};
 		5DC2F5571A85BB7D00ED1969 /* SideMenu */ = {
@@ -335,10 +414,9 @@
 		5DDA1B1C1A7F383C00914761 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5D7F6B3A1A898EC600A207CD /* Pinterest.embeddedframework */,
-				5D7F6B591A8A893800A207CD /* TwitterKit.framework */,
-				5D7F6B5A1A8A893800A207CD /* TwitterKitResources.bundle */,
-				5D7F6B5B1A8A893800A207CD /* Fabric.framework */,
+				5D9F58BE1A8E77DD00A53BB7 /* GooglePlus */,
+				5D9F58BD1A8E77C900A53BB7 /* Twitter */,
+				5D9F58BC1A8E77BF00A53BB7 /* PInterest */,
 				5DDA1B1D1A7F383C00914761 /* Info.plist */,
 				5DDA1B1E1A7F383C00914761 /* main.m */,
 				5D0EDAB51A830290007DE68D /* MenuItems.plist */,
@@ -559,6 +637,41 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
+				ca,
+				cs,
+				da,
+				de,
+				el,
+				en_AU,
+				en_GB,
+				es,
+				es_MX,
+				fi,
+				fr,
+				hr,
+				hu,
+				id,
+				it,
+				iw,
+				ja,
+				ko,
+				ms,
+				nb,
+				nl,
+				pl,
+				pt,
+				pt_PT,
+				ro,
+				ru,
+				sk,
+				sv,
+				th,
+				tr,
+				uk,
+				vi,
+				zh_CN,
+				zh_TW,
 			);
 			mainGroup = 5DDA1B101A7F383C00914761;
 			productRefGroup = 5DDA1B1A1A7F383C00914761 /* Products */;
@@ -577,6 +690,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DC2F5561A85B49300ED1969 /* Theme.plist in Resources */,
+				5D9F59DB1A8E781D00A53BB7 /* README in Resources */,
 				5D7F6B3F1A898EC600A207CD /* PinterestSDKResources.bundle in Resources */,
 				5DDA3DAC1A85E67700FD085A /* ProjectVariables.plist in Resources */,
 				5D6C98631A8D01AE00EB408E /* Themer.plist in Resources */,
@@ -588,6 +702,7 @@
 				5D7F6B5D1A8A893800A207CD /* TwitterKitResources.bundle in Resources */,
 				5D2D40751A83282D000A84B1 /* Main.storyboard in Resources */,
 				5DDA1B2A1A7F383C00914761 /* Images.xcassets in Resources */,
+				5D9F5A071A8E781D00A53BB7 /* GooglePlus.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -805,6 +920,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pinterest.embeddedframework",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/DailyDoll",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";
@@ -824,6 +940,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pinterest.embeddedframework",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/DailyDoll",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREFIX_HEADER = "";

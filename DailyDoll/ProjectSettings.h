@@ -19,19 +19,13 @@
 
 -(void)populateCoreData:(NSManagedObjectContext *)moc withCompletion:(void(^)(BOOL))completion;
 
-- (NSString *)fetchThemeElement:(NSString *)elementName withProperty:(NSString *)property;
-
 - (NSString *)fetchSocialItem:(int)itemId withProperty:(NSString *)property;
 
 - (NSArray *)fetchSocialButtonsForItem:(int)itemId;
 
 - (NSString *)fetchThemeItem:(int)itemId withProperty:(NSString *)property;
 
-- (void)setThemeItemsToNil;
-
 -(NSString *)metaDataVariables:(NSString *)property;
-
-- (NSString *)socialAccountName:(int)shareId;
 
 - (NSArray *)shareItems;
 

@@ -97,6 +97,8 @@
 
 }
 
+
+
 - (void)faceBookLikeDelegate:(UIButton *)button {
 
 
@@ -192,7 +194,7 @@
 
 - (void)viewBoards:(UIButton *)button {
 
-    NSString *pintrestAccountName = [[ProjectSettings sharedManager] socialAccountName:1];
+    NSString *pintrestAccountName = [[ProjectSettings sharedManager] fetchSocialItem:PINTEREST withProperty:kAccountName];
 
     [self openWithAppOrWebView:[NSString stringWithFormat:@"pinterest://user/%@/", pintrestAccountName]
                      andWebURL:[NSString stringWithFormat:@"https://www.pinterest.com/%@/pins/", pintrestAccountName]];

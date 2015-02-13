@@ -192,7 +192,7 @@
 
             self.signInView = [[OAuthSignInView alloc] initWithSubview:oAuthWV andParentFrame:mainWindow.frame];
 
-            [self.socialPopUp removeChildView];
+            [self.socialPopUp animateOffScreen];
 
             [self.signInView animateOntoScreen:mainWindow.frame];
         }
@@ -302,6 +302,8 @@
                 self.socialPopUp = [self.actionController instagramPopConfig:mainWindow.frame];
 
                 [self displaySocialPoUp];
+
+                [self.signInView animateOffScreen];
 
             }];
         }

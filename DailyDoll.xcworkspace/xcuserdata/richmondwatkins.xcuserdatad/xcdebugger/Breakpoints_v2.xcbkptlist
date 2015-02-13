@@ -36,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DailyDoll/SocialSharePopoverView.m"
-            timestampString = "445501705.406669"
+            timestampString = "445534560.000292"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "-animateOffScreen"
             landmarkType = "5">
          </BreakpointContent>
