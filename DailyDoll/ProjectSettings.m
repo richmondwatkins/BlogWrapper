@@ -18,6 +18,7 @@
 #import "ProjectVariable.h"
 #import "SocialContainer.h"
 #import "SocialItem.h"
+#import <TwitterKit/TwitterKit.h>
 
 #import "AppDelegate.h"
 
@@ -262,6 +263,67 @@ static ProjectSettings *sharedThemeManager = nil;
 }
 
 
+- (BOOL)siteHasSocialAccount:(int)socialAccount withMoc:(NSManagedObjectContext *)moc {
 
+    NSFetchRequest *accountCheck = [[NSFetchRequest alloc] initWithEntityName:@"SocialItem"];
+
+    [accountCheck setPredicate:[NSPredicate predicateWithFormat:@"id == %@", [NSNumber numberWithInt:socialAccount]]];
+
+    NSInteger hasAccount = [moc countForFetchRequest:accountCheck error:nil];
+
+    if (hasAccount) {
+        
+        return YES;
+    }else {
+
+        return NO;
+    }
+}
+
+
+- (BOOL)hasInteractedWithSocialItem:(int)socialId {
+
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+    NSFetchRequest *socialFetch = [[NSFetchRequest alloc] initWithEntityName:@"SocialItem"];
+
+    [socialFetch setPredicate:[NSPredicate predicateWithFormat:@"id == %@", [NSNumber numberWithInt:socialId]]];
+
+    NSArray *socialAccountResult = [appDelegate.managedObjectContext executeFetchRequest:socialFetch error:nil];
+
+    SocialItem *socialItem = socialAccountResult[0];
+
+    if ([socialItem.hasInteracted boolValue]) {
+
+        return YES;
+    }else {
+
+        return NO;
+    }
+}
+
+
+- (void)saveSocialInteraction:(int)socialId {
+
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+    NSFetchRequest *socialFetch = [[NSFetchRequest alloc] initWithEntityName:@"SocialItem"];
+
+    [socialFetch setPredicate:[NSPredicate predicateWithFormat:@"id == %@", [NSNumber numberWithInt:socialId]]];
+
+    NSArray *socialAccountResult = [appDelegate.managedObjectContext executeFetchRequest:socialFetch error:nil];
+
+    SocialItem *socialItem = socialAccountResult[0];
+
+    if ([socialItem.hasInteracted boolValue]) {
+
+        socialItem.hasInteracted = [NSNumber numberWithInt:0];
+    }else {
+
+        socialItem.hasInteracted = [NSNumber numberWithInt:1];
+    }
+
+    [appDelegate.managedObjectContext save:nil];
+}
 
 @end

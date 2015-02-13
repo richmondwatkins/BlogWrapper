@@ -81,4 +81,15 @@ NSString *const kDomainString = @"domain";
 
 NSString *const kSiteName = @"name";
 
+//Key Chain
+
+NSString *const kTwitterAuthToken = @"authToken";
+
+NSString *const kTwitterAuthSecret = @"authTokenSecret";
+
+NSString *const kTwitteruserName = @"userName";
+
+NSString *const kTwitteruserId = @"userID";
+
+
 @end

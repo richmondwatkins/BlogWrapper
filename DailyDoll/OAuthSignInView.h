@@ -10,8 +10,10 @@
 
 @interface OAuthSignInView : UIView
 
--(instancetype)initWithSubview:(UIView *)subView andParentFrame:(CGRect)parentFrame;
+- (instancetype)initWithSubview:(UIView *)subView andParentFrame:(CGRect)parentFrame;
 
 - (void)animateOntoScreen:(CGRect)parentFrame;
+
+- (void)animateOffScreen;
 
 @end

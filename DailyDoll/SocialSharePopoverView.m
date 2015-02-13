@@ -191,7 +191,13 @@ CGFloat const kButtonHeight = 40;
 
     [popUp addSubview:like];
 
+    [like addTarget:self action:@selector(handleFacebookLike:) forControlEvents:UIControlEventTouchUpInside];
+
 }
 
+- (void)handleFacebookLike:(UIButton *)button {
+
+    [self.delegate saveInteractionStatus:FACEBOOK];
+}
 
 @end

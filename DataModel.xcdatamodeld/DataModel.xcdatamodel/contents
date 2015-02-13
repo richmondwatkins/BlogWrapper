@@ -26,6 +26,7 @@
         <attribute name="authClientId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="authRedirect" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="authURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="hasInteracted" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="image" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="pageId" optional="YES" attributeType="String" syncable="YES"/>
@@ -49,9 +50,9 @@
         <element name="Button" positionX="0" positionY="0" width="128" height="88"/>
         <element name="MetaData" positionX="0" positionY="0" width="128" height="105"/>
         <element name="ProjectVariable" positionX="0" positionY="0" width="128" height="73"/>
-        <element name="ThemeContainer" positionX="0" positionY="0" width="128" height="88"/>
         <element name="SocialContainer" positionX="9" positionY="90" width="128" height="73"/>
-        <element name="SocialItem" positionX="18" positionY="99" width="128" height="223"/>
+        <element name="SocialItem" positionX="18" positionY="99" width="128" height="240"/>
+        <element name="ThemeContainer" positionX="0" positionY="0" width="128" height="88"/>
         <element name="ThemeItem" positionX="27" positionY="162" width="128" height="118"/>
     </elements>
 </model>

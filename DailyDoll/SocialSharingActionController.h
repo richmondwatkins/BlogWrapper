@@ -11,6 +11,7 @@
 #import "SocialSharePopoverView.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <Pinterest/Pinterest.h>
+#import <TwitterKit/TwitterKit.h>
 
 @protocol SocialProtocol <NSObject>
 
@@ -27,6 +28,8 @@
 
 @interface SocialSharingActionController : NSObject
 
+@property id<SocialProtocol> delegate;
+
 @property Pinterest *pinterest;
 
 - (SocialSharePopoverView *) facebookPopConfig:(CGRect)windowFrame;
@@ -39,7 +42,10 @@
 
 - (SocialSharePopoverView *) googlePlusPopConfig:(CGRect)windowFrame;
 
-@property id<SocialProtocol> delegate;
+- (void) createFollowRelationshipWithTwitter:(TWTRSession *)twitterSession;
+
+- (void)checkForCurrentTwitterRelationshipWithCompletion:(void(^)(BOOL))isFollowing;
+
 
 
 @end

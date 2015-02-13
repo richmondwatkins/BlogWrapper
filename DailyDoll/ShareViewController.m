@@ -25,6 +25,7 @@
 @property NSArray *dataSource;
 @property SocialSharingActionController *actionController;
 @property SocialSharePopoverView *socialPopUp;
+@property OAuthSignInView *signInView;
 
 @end
 
@@ -171,9 +172,6 @@
 }
 
 - (void)instantiateOAuthLoginView:(int)socialType {
-    NSLog(@"Made it");
-
-    OAuthSignInView *signInView;
 
     UIWindow* mainWindow = [[UIApplication sharedApplication] keyWindow];
 
@@ -182,11 +180,11 @@
             //TODO make call back for animation to ensure it is complete before performin anything else
 //            [self.socialPopUp animateOffScreen];
 
-            signInView = [[OAuthSignInView alloc] initWithSubview:[self returnTwitterLoginButton] andParentFrame:mainWindow.frame];
+            self.signInView = [[OAuthSignInView alloc] initWithSubview:[self returnTwitterLoginButton] andParentFrame:mainWindow.frame];
 
-            [mainWindow addSubview:signInView];
+            [mainWindow addSubview:self.signInView];
 
-            [signInView animateOntoScreen:mainWindow.frame];
+            [self.signInView animateOntoScreen:mainWindow.frame];
 
             break;
 
@@ -202,6 +200,21 @@
                                      ^(TWTRSession* session, NSError* error) {
                                          if (session) {
                                              NSLog(@"signed in as %@", session);
+
+                                             [self.actionController checkForCurrentTwitterRelationshipWithCompletion:^(BOOL isFollowing) {
+                                                 if (isFollowing) {
+                                                     [[ProjectSettings sharedManager] saveSocialInteraction:TWIITER];
+
+                                                 } else {
+
+                                                     [self.actionController createFollowRelationshipWithTwitter:session];
+                                                 }
+
+                                                 UIWindow* mainWindow = [[UIApplication sharedApplication] keyWindow];
+
+                                                 self.socialPopUp = [self.actionController twitterPopConfig:mainWindow.frame];
+                                             }];
+
                                          } else {
                                              NSLog(@"error: %@", [error localizedDescription]);
                                          }
@@ -215,5 +228,7 @@
 
 - (void)removeOauthView:(UIButton *)button {
 
+    [self.socialPopUp animateOffScreen];
+    [self.signInView animateOffScreen];
 }
 @end

@@ -11,7 +11,10 @@
 #import "SocialSharePopoverView.h"
 #import "UIColor+UIColor_Expanded.h"
 #import "Button.h"
-#import <TwitterKit/TwitterKit.h>
+
+@interface SocialSharingActionController () <SocialPopUp>
+
+@end
 
 @import Social;
 
@@ -59,6 +62,7 @@
     }
 
     SocialSharePopoverView *popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
+    popUpView.delegate = self;
 
     return popUpView;
 }
@@ -163,6 +167,7 @@
     }
 
     SocialSharePopoverView *popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
+    popUpView.delegate = self;
 
     return popUpView;
 
@@ -237,7 +242,8 @@
     }
 
     SocialSharePopoverView *popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
-    
+    popUpView.delegate = self;
+
     return popUpView;
 
 }
@@ -279,6 +285,9 @@
             case 0: { //Follow
 
 //                button.tag = 2;
+                if ([[ProjectSettings sharedManager] hasInteractedWithSocialItem:TWIITER]) {
+                    [button setTitle:@"Following" forState:UIControlStateNormal];
+                }
 
                 [button addTarget:self
                            action:@selector(checkForTwitterSession:)
@@ -315,6 +324,8 @@
     if (![[Twitter sharedInstance] session]) {
 
         [self.delegate instantiateOAuthLoginView:TWIITER];
+    } else {
+        [self createFollowRelationshipWithTwitter:[[Twitter sharedInstance] session]];
     }
 
 }
@@ -326,6 +337,104 @@
                      andWebURL:[[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:kURLString]];
 }
 
+//TODO remove hard coded page id
+- (void)checkForCurrentTwitterRelationshipWithCompletion:(void(^)(BOOL))isFollowing {
+
+    NSString *statusesShowEndpoint = @"https://api.twitter.com/1.1/friendships/create.json?";
+
+    NSDictionary *params = @{@"user_id" : @"1630611914"};
+
+    NSError *clientError;
+    NSURLRequest *request = [[[Twitter sharedInstance] APIClient]
+                             URLRequestWithMethod:@"POST"
+                             URL:statusesShowEndpoint
+                             parameters:params
+                             error:&clientError];
+
+    if (request) {
+        [[[Twitter sharedInstance] APIClient]
+         sendTwitterRequest:request
+         completion:^(NSURLResponse *response,
+                      NSData *data,
+                      NSError *connectionError) {
+             if (data) {
+                 // handle the response data e.g.
+                 NSError *jsonError;
+                 NSDictionary *json = [NSJSONSerialization
+                                       JSONObjectWithData:data
+                                       options:0
+                                       error:&jsonError];
+
+                 NSLog(@"RESPONSE: %@",json);
+
+                 if (json[@"following"]) {
+
+                     isFollowing(YES);
+                 }else {
+
+                     isFollowing(NO);
+                 }
+                 
+             }
+             else {
+                 NSLog(@"Error: %@", connectionError);
+             }
+         }];
+    }
+    else {
+        NSLog(@"Error: %@", clientError);
+    }
+}
+
+
+-(void)createFollowRelationshipWithTwitter:(TWTRSession *)twitterSession {
+
+    NSString *statusesShowEndpoint;
+
+    if (![[ProjectSettings sharedManager] hasInteractedWithSocialItem:TWIITER]) {
+        statusesShowEndpoint = @"https://api.twitter.com/1.1/friendships/create.json?follow=true";
+    }else {
+        statusesShowEndpoint = @"https://api.twitter.com/1.1/friendships/destroy.json?";
+    }
+
+
+    NSDictionary *params = @{@"user_id" : @"1630611914"};
+
+    NSError *clientError;
+    NSURLRequest *request = [[[Twitter sharedInstance] APIClient]
+                             URLRequestWithMethod:@"POST"
+                             URL:statusesShowEndpoint
+                             parameters:params
+                             error:&clientError];
+
+    if (request) {
+        [[[Twitter sharedInstance] APIClient]
+         sendTwitterRequest:request
+         completion:^(NSURLResponse *response,
+                      NSData *data,
+                      NSError *connectionError) {
+             if (data) {
+                 // handle the response data e.g.
+                 NSError *jsonError;
+                 NSDictionary *json = [NSJSONSerialization
+                                       JSONObjectWithData:data
+                                       options:0
+                                       error:&jsonError];
+
+                 NSLog(@"RESPONSE: %@",json);
+
+                 [[ProjectSettings sharedManager] saveSocialInteraction:TWIITER];
+             }
+             else {
+                 NSLog(@"Error: %@", connectionError);
+             }
+         }];
+    }
+    else {
+        NSLog(@"Error: %@", clientError);
+    }
+
+}
 
 
 
@@ -365,6 +474,11 @@
         NSURL *webURL = [NSURL URLWithString:webURLString];
         [self.delegate socialWebView:webURL];
     }
+}
+
+-(void)saveInteractionStatus:(int)socialItem {
+
+    
 }
 
 @end

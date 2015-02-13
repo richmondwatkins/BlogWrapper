@@ -43,13 +43,9 @@
 
 - (void)animateOffScreen {
 
-    [UIView animateWithDuration:0.01 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
 
-        UIView *popUpSubView = self.subviews[0];
-
-        popUpSubView.center = CGPointMake(self.center.x, self.frame.size.height * 2);
-
-        popUpSubView.alpha = 0;
+        self.center = CGPointMake(self.center.x, -(self.frame.size.height));
 
         self.alpha = 0;
 

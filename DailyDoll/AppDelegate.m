@@ -13,6 +13,7 @@
 #import <Fabric/Fabric.h>
 #import <TwitterKit/TwitterKit.h>
 #import "ProjectSettings.h"
+#import <SSKeychain.h>
 
 @interface AppDelegate ()
 @end
@@ -27,9 +28,13 @@
         [projectSettings populateCoreData:self.managedObjectContext withCompletion:^(BOOL completion) {
             if (completion) {
                 [self setUpDrawerController];
+
+                [self checkForTwitter];
             }
         }];
     } else {
+
+        [self checkForTwitter];
 
         [self setUpDrawerController];
     }
@@ -38,6 +43,14 @@
     [Fabric with:@[TwitterKit]];
 
     return YES;
+}
+
+- (void) checkForTwitter {
+
+    BOOL hasTwitter = [[ProjectSettings sharedManager] siteHasSocialAccount:TWIITER withMoc:self.managedObjectContext];
+
+    NSLog(@"Social %@",hasTwitter ? @"true" : @"fals");
+
 }
 
 - (void) setUpDrawerController {

@@ -25,5 +25,6 @@
 @dynamic accountName;
 @dynamic socialContainer;
 @dynamic buttons;
+@dynamic hasInteracted;
 
 @end

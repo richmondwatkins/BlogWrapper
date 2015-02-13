@@ -2,9 +2,12 @@
 # platform :ios, '6.0'
 
 target 'DailyDoll' do
+
 pod 'MMDrawerController', '~> 0.5.7'
 
 pod 'Facebook-iOS-SDK'
+
+pod 'SSKeychain'
 
 end
 

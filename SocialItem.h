@@ -23,6 +23,7 @@
 @property (nonatomic, retain) NSString * authRedirect;
 @property (nonatomic, retain) NSString * authClientId;
 @property (nonatomic, retain) NSString * accountName;
+@property (nonatomic, retain) NSNumber * hasInteracted;
 @property (nonatomic, retain) SocialContainer *socialContainer;
 @property (nonatomic, retain) NSSet *buttons;
 @end

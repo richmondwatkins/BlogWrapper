@@ -99,4 +99,15 @@ extern NSString *const kDomainString;
 
 extern NSString *const kSiteName;
 
+
+// Key Chain
+
+extern NSString *const kTwitterAuthToken;
+
+extern NSString *const kTwitterAuthSecret;
+
+extern NSString *const kTwitteruserName;
+
+extern NSString *const kTwitteruserId;
+
 @end

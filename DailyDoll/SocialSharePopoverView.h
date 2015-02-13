@@ -8,9 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SocialPopUp <NSObject>
+
+- (void)saveInteractionStatus:(int)socialItem;
+
+@end
 
 @interface SocialSharePopoverView : UIView
 
+@property id<SocialPopUp> delegate;
 
 - (instancetype)initWithParentFrame:(CGRect)windowFrame andButtons:(NSArray *)buttons;
 

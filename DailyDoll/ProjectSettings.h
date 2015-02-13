@@ -29,18 +29,16 @@
 
 - (void)setThemeItemsToNil;
 
-// ======= Project Variabels ====
-
 -(NSString *)metaDataVariables:(NSString *)property;
 
-// ======== Share View ====
-
 - (NSString *)socialAccountName:(int)shareId;
+
 - (NSArray *)shareItems;
-- (NSString *)facebookId;
-- (NSString *)facebookName;
 
-- (NSString *)pintrestId;
+- (BOOL)siteHasSocialAccount:(int)socialAccount withMoc:(NSManagedObjectContext *)moc;
 
+- (void)saveSocialInteraction:(int)socialItem;
+
+- (BOOL)hasInteractedWithSocialItem:(int)socialId;
 
 @end

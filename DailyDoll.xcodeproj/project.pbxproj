@@ -37,6 +37,7 @@
 		5DC2F5561A85B49300ED1969 /* Theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DC2F5551A85B49300ED1969 /* Theme.plist */; };
 		5DC2F55B1A85BBEF00ED1969 /* SideMenuTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2F55A1A85BBEF00ED1969 /* SideMenuTableHeaderView.m */; };
 		5DC2F55E1A85BF8000ED1969 /* SideMenuHeaderImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2F55D1A85BF8000ED1969 /* SideMenuHeaderImageView.m */; };
+		5DC696291A8D8D5D00A5D3AB /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DC696281A8D8D5D00A5D3AB /* Security.framework */; };
 		5DDA1B1F1A7F383C00914761 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA1B1E1A7F383C00914761 /* main.m */; };
 		5DDA1B221A7F383C00914761 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA1B211A7F383C00914761 /* AppDelegate.m */; };
 		5DDA1B251A7F383C00914761 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA1B241A7F383C00914761 /* CenterViewController.m */; };
@@ -121,6 +122,7 @@
 		5DC2F55A1A85BBEF00ED1969 /* SideMenuTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuTableHeaderView.m; sourceTree = "<group>"; };
 		5DC2F55C1A85BF8000ED1969 /* SideMenuHeaderImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuHeaderImageView.h; sourceTree = "<group>"; };
 		5DC2F55D1A85BF8000ED1969 /* SideMenuHeaderImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuHeaderImageView.m; sourceTree = "<group>"; };
+		5DC696281A8D8D5D00A5D3AB /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		5DDA1B191A7F383C00914761 /* DailyDoll.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyDoll.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DDA1B1D1A7F383C00914761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DDA1B1E1A7F383C00914761 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DC696291A8D8D5D00A5D3AB /* Security.framework in Frameworks */,
 				5D62FD651A8AF1230022671F /* CoreData.framework in Frameworks */,
 				BDF89CC8C066F8FFE29F7BC1 /* libPods-DailyDoll.a in Frameworks */,
 				5D7F6B3E1A898EC600A207CD /* Pinterest.framework in Frameworks */,
@@ -190,6 +193,7 @@
 		0DA83D6F48BB2DF1721401E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5DC696281A8D8D5D00A5D3AB /* Security.framework */,
 				5D62FD641A8AF1230022671F /* CoreData.framework */,
 				579988490B7E0E905A16D25A /* libPods-DailyDoll.a */,
 			);
