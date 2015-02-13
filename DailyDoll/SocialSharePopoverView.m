@@ -100,17 +100,36 @@ CGFloat const kButtonHeight = 40;
 
     [UIView animateWithDuration:0.01 animations:^{
 
-        UIView *popUpSubView = self.subviews[0];
+        if (self.subviews.count) {
+            UIView *popUpSubView = self.subviews[0];
 
-        popUpSubView.center = CGPointMake(self.center.x, self.frame.size.height * 2);
+            popUpSubView.center = CGPointMake(self.center.x, self.frame.size.height * 2);
 
-        popUpSubView.alpha = 0;
+            popUpSubView.alpha = 0;
+        }
 
         self.alpha = 0;
 
     } completion:^(BOOL finished) {
 
         [self removeFromSuperview];
+    }];
+}
+
+- (void)removeChildView {
+
+    UIView *popUpSubView = self.subviews[0];
+
+
+    [UIView animateWithDuration:0.3 animations:^{
+
+        popUpSubView.center = CGPointMake(self.center.x, self.frame.size.height * 2);
+
+        popUpSubView.alpha = 0;
+
+    } completion:^(BOOL finished) {
+
+        [popUpSubView removeFromSuperview];
     }];
 }
 
@@ -121,14 +140,22 @@ CGFloat const kButtonHeight = 40;
 
 - (BOOL) gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
-    UIView *popUp = self.subviews[0];
+    if (self.subviews.count) {
+        UIView *popUp = self.subviews[0];
 
-    if (CGRectContainsPoint(popUp.bounds, [touch locationInView:popUp])) {
+        if (CGRectContainsPoint(popUp.bounds, [touch locationInView:popUp])) {
 
-        return NO;
+            return NO;
+        } else {
+            
+            return YES;
+        }
+
+    } else {
+        return YES;
     }
 
-    return YES;
+
 }
 
 - (void)generateTwitterFollowButton:(UIView *)popUp withOriginalButton:(UIButton *)button {

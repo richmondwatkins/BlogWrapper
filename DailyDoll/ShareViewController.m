@@ -16,10 +16,11 @@
 #import "ExternalWebModalViewController.h"
 #import "OAuthSignInView.h"
 #import <TwitterKit/TwitterKit.h>
+#import "OAuthWebView.h"
 
 @import Social;
 
-@interface ShareViewController () <UITableViewDataSource, UITableViewDelegate, SocialProtocol, SocialPopUp>
+@interface ShareViewController () <UITableViewDataSource, UITableViewDelegate, SocialProtocol, SocialPopUp, UIWebViewDelegate>
 
 @property ShareTableView *tableView;
 @property NSArray *dataSource;
@@ -178,15 +179,35 @@
 
             self.signInView = [[OAuthSignInView alloc] initWithSubview:[self returnTwitterLoginButton] andParentFrame:mainWindow.frame];
 
-            [mainWindow addSubview:self.signInView];
+            [self.signInView animateOntoScreen:mainWindow.frame];
+
+            break;
+
+        case INSTAGRAM: {
+            OAuthWebView *oAuthWV = [[OAuthWebView alloc] initForInstagram:mainWindow.frame];
+
+            oAuthWV.delegate = self;
+
+            [oAuthWV loadRequest:[NSURLRequest requestWithURL:oAuthWV.urlToLoad]];
+
+            self.signInView = [[OAuthSignInView alloc] initWithSubview:oAuthWV andParentFrame:mainWindow.frame];
+
+            [self.socialPopUp removeChildView];
 
             [self.signInView animateOntoScreen:mainWindow.frame];
+        }
+
 
             break;
 
         default:
             break;
+
     }
+
+
+    [mainWindow addSubview:self.signInView];
+
 }
 
 - (TWTRLogInButton *)returnTwitterLoginButton {
@@ -232,9 +253,68 @@
 
 - (void)removeViewsFromWindow {
 
-
     [self.socialPopUp animateOffScreen];
+
     [self.signInView animateOffScreen];
+}
+
+-(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+
+    NSString *URLString = [request.URL absoluteString];
+    if ([URLString hasPrefix:@"scheme"]) {
+
+        NSString *delimiter = @"access_token=";
+
+        NSArray *components = [URLString componentsSeparatedByString:delimiter];
+
+        if (components.count > 1) {
+
+            NSString *accessToken = [components lastObject];
+
+            NSLog(@"ACCESS TOKEN = %@",accessToken);
+
+            NSString *urlString=[NSString stringWithFormat:@"https://api.instagram.com/v1/users/%@/relationship?access_token=%@",@"486292136",accessToken];
+
+            NSURL* url = [NSURL URLWithString:urlString];
+
+            NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:1000.0];
+
+            NSString *parameters;
+
+            BOOL isFollowing = [[ProjectSettings sharedManager] hasInteractedWithSocialItem:INSTAGRAM];
+
+            if (isFollowing) {
+                parameters=@"action=unfollow";
+            }else {
+                parameters=@"action=follow";
+            }
+
+            [[ProjectSettings sharedManager] saveSocialInteraction:INSTAGRAM withStatus:!isFollowing];
+
+            [theRequest setHTTPBody:[parameters dataUsingEncoding:NSUTF8StringEncoding]];
+
+            [theRequest setHTTPMethod:@"POST"];
+
+            [NSURLConnection sendAsynchronousRequest:theRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+
+                UIWindow* mainWindow = [[UIApplication sharedApplication] keyWindow];
+
+                self.socialPopUp = [self.actionController instagramPopConfig:mainWindow.frame];
+
+                [self displaySocialPoUp];
+
+            }];
+        }
+        return NO;
+    }
+    
+    return YES;
+}
+
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView {
+
+    [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('id_username').select();"];
 }
 
 

@@ -26,4 +26,6 @@
 
 - (void)animateOnToScreen;
 
+- (void)removeChildView;
+
 @end

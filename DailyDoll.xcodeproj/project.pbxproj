@@ -30,6 +30,7 @@
 		5D80527D1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80527C1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m */; };
 		5D8052801A8331FD0076A6E8 /* SideMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80527F1A8331FD0076A6E8 /* SideMenuTableViewCell.m */; };
 		5D86005C1A87C45A00AA8971 /* SocialSharePopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D86005B1A87C45A00AA8971 /* SocialSharePopoverView.m */; };
+		5D9F58A51A8DCBA400A53BB7 /* OAuthWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9F58A41A8DCBA400A53BB7 /* OAuthWebView.m */; };
 		5DA4B98D1A7F3B2D0016476C /* ExternalWebModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA4B98C1A7F3B2D0016476C /* ExternalWebModalViewController.m */; };
 		5DA64CD51A847A7A004F08A8 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DA64CD41A847A7A004F08A8 /* HeaderView.xib */; };
 		5DC2F5511A85A91A00ED1969 /* SideMenuTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2F5501A85A91A00ED1969 /* SideMenuTableView.m */; };
@@ -110,6 +111,8 @@
 		5D80527F1A8331FD0076A6E8 /* SideMenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuTableViewCell.m; sourceTree = "<group>"; };
 		5D86005A1A87C45A00AA8971 /* SocialSharePopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialSharePopoverView.h; sourceTree = "<group>"; };
 		5D86005B1A87C45A00AA8971 /* SocialSharePopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialSharePopoverView.m; sourceTree = "<group>"; };
+		5D9F58A31A8DCBA400A53BB7 /* OAuthWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthWebView.h; sourceTree = "<group>"; };
+		5D9F58A41A8DCBA400A53BB7 /* OAuthWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthWebView.m; sourceTree = "<group>"; };
 		5DA4B98B1A7F3B2D0016476C /* ExternalWebModalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExternalWebModalViewController.h; sourceTree = "<group>"; };
 		5DA4B98C1A7F3B2D0016476C /* ExternalWebModalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExternalWebModalViewController.m; sourceTree = "<group>"; };
 		5DA64CD41A847A7A004F08A8 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
@@ -484,6 +487,8 @@
 				5DDA3DC81A867F7E00FD085A /* ShareTableView.m */,
 				5DDA3DCD1A8685A200FD085A /* ShareTableViewCell.h */,
 				5DDA3DCE1A8685A200FD085A /* ShareTableViewCell.m */,
+				5D9F58A31A8DCBA400A53BB7 /* OAuthWebView.h */,
+				5D9F58A41A8DCBA400A53BB7 /* OAuthWebView.m */,
 			);
 			name = TableView;
 			sourceTree = "<group>";
@@ -657,6 +662,7 @@
 				5D6C98591A8C5D8000EB408E /* Button.m in Sources */,
 				5DC2F55E1A85BF8000ED1969 /* SideMenuHeaderImageView.m in Sources */,
 				5D617B721A8C19FC009063D0 /* MetaData.m in Sources */,
+				5D9F58A51A8DCBA400A53BB7 /* OAuthWebView.m in Sources */,
 				5D6C98691A8D059700EB408E /* ThemeItem.m in Sources */,
 				5DDA3D981A85CA8A00FD085A /* SideMenuTableSectionHeader.m in Sources */,
 				5DA4B98D1A7F3B2D0016476C /* ExternalWebModalViewController.m in Sources */,
