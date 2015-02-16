@@ -20,4 +20,5 @@
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated;
 
+- (instancetype)initWithFrame:(CGRect)frame andTitle:(NSString *)title;
 @end

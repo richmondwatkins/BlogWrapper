@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "DDViewController.h"
+#import "MenuItem.h"
 
 @protocol SideMenuProtocol <NSObject>
 
-- (void)selectedSideMenuItem:(NSDictionary *)navigationObject;
+- (void)selectedSideMenuItem:(MenuItem *)navigationObject;
 
 @end
 

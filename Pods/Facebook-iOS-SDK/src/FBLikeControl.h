@@ -168,6 +168,7 @@ FBSDK_EXTERN NSString *NSStringFromFBLikeControlStyle(FBLikeControlStyle style);
  @default YES
  */
 @property (nonatomic, assign, getter = isSoundEnabled) BOOL soundEnabled;
- 
+
+- (instancetype)initWithFrame:(CGRect)frame andTitle:(NSString *)title;
 
 @end

@@ -31,6 +31,8 @@
 
 @property CGSize buttonSize;
 
+@property NSString *buttonTitle;
+
 @end
 
 NSString *NSStringFromFBLikeControlAuxiliaryPosition(FBLikeControlAuxiliaryPosition auxiliaryPosition)
@@ -112,6 +114,20 @@ typedef CGSize (^fb_like_control_sizing_block_t)(UIView *subview, CGSize constra
 }
 
 #pragma mark - Object Lifecycle
+
+- (instancetype)initWithFrame:(CGRect)frame andTitle:(NSString *)title {
+
+    if ((self = [super initWithFrame:frame])) {
+        self.buttonSize = CGSizeMake(frame.size.width, frame.size.height);
+        self.buttonTitle = title;
+
+        [self _initializeContent];
+        if (CGRectEqualToRect(frame, CGRectZero)) {
+            [self sizeToFit];
+        }
+    }
+    return self;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -445,7 +461,7 @@ typedef CGSize (^fb_like_control_sizing_block_t)(UIView *subview, CGSize constra
     _likeButtonContainer.opaque = self.opaque;
     [self addSubview:_likeButtonContainer];
 
-    _likeButton = [[FBLikeButton alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+    _likeButton = [[FBLikeButton alloc] initWithFrame:CGRectMake(0, 0, 300, 300) andTitle:self.buttonTitle];
     [_likeButton addTarget:self action:@selector(_handleLikeButtonTap:) forControlEvents:UIControlEventTouchUpInside];
     [_likeButton addTarget:self
                     action:@selector(_handleLikeButtonTouchDown:)

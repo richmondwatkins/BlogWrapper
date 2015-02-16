@@ -18,7 +18,7 @@
 
         self.textAlignment = NSTextAlignmentCenter;
 
-        self.text = text;
+        self.text = [text uppercaseString];
     }
 
     return self;

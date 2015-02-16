@@ -18,7 +18,10 @@
 #import "ProjectVariable.h"
 #import "SocialContainer.h"
 #import "SocialItem.h"
-#import <TwitterKit/TwitterKit.h>
+
+#import "MenuContainer.h"
+#import "MenuHeader.h"
+#import "MenuItem.h"
 
 #import "AppDelegate.h"
 
@@ -27,6 +30,8 @@
 @property NSArray *themeElementsPlist;
 
 @property NSDictionary *projectVariables;
+
+@property NSArray *menuItems;
 
 @end
 
@@ -66,12 +71,16 @@ static ProjectSettings *sharedThemeManager = nil;
         NSDictionary *projectDict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]
                                                                                pathForResource:@"ProjectVariables"
                                                                                ofType:@"plist"]];
+        self.projectVariables = [projectDict objectForKey:@"Project"];
 
-        if (!self.projectVariables) {
-            self.projectVariables = [projectDict objectForKey:@"Project"];
-        }
+
+        NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]
+                                                                               pathForResource:@"MenuItemList"
+                                                                               ofType:@"plist"]];
+        self.menuItems = [dictionary objectForKey:@"Menu"];
 
     }
+
     return self;
 }
 
@@ -93,6 +102,11 @@ static ProjectSettings *sharedThemeManager = nil;
 
     projectVariable.metaData = [self setMetaData:moc];
 
+
+    MenuContainer *menuContainer = [NSEntityDescription insertNewObjectForEntityForName:@"MenuContainer" inManagedObjectContext:moc];
+
+    [menuContainer setMenuHeader: [self returnMenuHeaderAndItems:moc]];
+
     [moc save:nil];
 
 
@@ -104,6 +118,8 @@ static ProjectSettings *sharedThemeManager = nil;
 
     completion(YES);
 
+    self.projectVariables = nil;
+    self.menuItems = nil;
     self.themeElementsPlist = nil;
 }
 
@@ -162,6 +178,31 @@ static ProjectSettings *sharedThemeManager = nil;
     return [NSSet setWithArray:socialItemsArray];
 }
 
+- (NSSet *)returnMenuHeaderAndItems:(NSManagedObjectContext *)moc {
+
+    NSMutableArray *menuItemsArray = [NSMutableArray array];
+
+    for (NSDictionary *menuItemsDict in self.menuItems) {
+
+        MenuHeader *menuHeader =[NSEntityDescription insertNewObjectForEntityForName:@"MenuHeader" inManagedObjectContext:moc];
+
+        for (NSString *key in [menuItemsDict allKeys]) {
+
+            if ([key isEqualToString:kMenuItem]) {
+
+                [menuHeader addMenuItems:[self createMenuItems:menuItemsDict[key] withManagedObject:moc]];
+            }else {
+
+                [menuHeader setValue:menuItemsDict[key] forKey:key];
+            }
+        }
+
+        [menuItemsArray addObject:menuHeader];
+    }
+    
+    return [NSSet setWithArray:menuItemsArray];
+}
+
 //TODO setup primary and secondary colors
 //TODO add option for email news letter sign up
 
@@ -179,6 +220,24 @@ static ProjectSettings *sharedThemeManager = nil;
     }
 
     return [NSSet setWithArray:buttonMutableArray];
+}
+
+- (NSSet *)createMenuItems:(NSArray *)menuItems withManagedObject:(NSManagedObjectContext *)moc {
+
+    NSMutableArray *menuMutableArray = [NSMutableArray array];
+
+    for (NSDictionary *menuDict in menuItems) {
+
+        MenuItem *menuItem = [NSEntityDescription insertNewObjectForEntityForName:@"MenuItem" inManagedObjectContext:moc];
+        
+        menuItem.position = menuDict[@"position"];
+        menuItem.title = menuDict[@"title"];
+        menuItem.urlString = menuDict[@"urlString"];
+
+        [menuMutableArray addObject:menuItem];
+    }
+
+    return [NSSet setWithArray:menuMutableArray];
 }
 
 - (NSString *)fetchSocialItem:(int)itemId withProperty:(NSString *)property {
@@ -224,6 +283,17 @@ static ProjectSettings *sharedThemeManager = nil;
     NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:themeFetch error:nil];
 
     return [results[0] valueForKey:property];
+}
+
+- (NSArray *)fetchMenuItemsAndHeaders {
+
+    NSFetchRequest *menuItemFetch = [[NSFetchRequest alloc] initWithEntityName:@"MenuHeader"];
+
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+    NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:menuItemFetch error:nil];
+
+    return results;
 }
 
 

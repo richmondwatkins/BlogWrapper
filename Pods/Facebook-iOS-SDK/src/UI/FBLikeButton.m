@@ -29,6 +29,12 @@
 #define kFBLikeButtonAnimationSpringDamping 0.3
 #define kFBLikeButtonAnimationSpringVelocity 0.2
 
+@interface FBLikeButton ()
+
+@property NSString *buttonTitle;
+
+@end
+
 @implementation FBLikeButton
 {
     UIImage *_iconImageNormal;
@@ -37,6 +43,18 @@
 }
 
 #pragma mark - Object Lifecycle
+
+- (instancetype)initWithFrame:(CGRect)frame andTitle:(NSString *)title
+{
+    if ((self = [super initWithFrame:frame])) {
+
+        self.buttonTitle = title;
+
+        [self _initializeContent];
+    }
+
+    return self;
+}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -205,7 +223,7 @@
     _iconImageNormal = [[[FBLikeButtonIconPNG image] resizableImageWithCapInsets:UIEdgeInsetsZero resizingMode:UIImageResizingModeStretch] retain];
     _iconImageSelected = [[[FBLikeButtonIconSelectedPNG image] resizableImageWithCapInsets:UIEdgeInsetsZero resizingMode:UIImageResizingModeStretch] retain];
 
-    [self setTitle:NSLocalizedString(@"Like", @"FBLB:LikeButton") forState:UIControlStateNormal];
+    [self setTitle:NSLocalizedString(self.buttonTitle, @"FBLB:LikeButton") forState:UIControlStateNormal];
     [self setTitle:NSLocalizedString(@"Liked", @"FBLB:LikeButton") forState:UIControlStateSelected];
     [self setTitle:NSLocalizedString(@"Liked", @"FBLB:LikeButton")
           forState:(UIControlStateSelected | UIControlStateHighlighted)];

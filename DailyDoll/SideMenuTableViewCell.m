@@ -12,9 +12,9 @@
 @implementation SideMenuTableViewCell
 
 
-- (void)addTextToMenu:(NSDictionary *)menuItem {
+- (void)addTextToMenu:(MenuItem *)menuItem {
 
-    self.textLabel.text = menuItem[@"Title"];
+    self.textLabel.text = [menuItem.title uppercaseString];
     self.textLabel.textAlignment = NSTextAlignmentCenter;
 }
 

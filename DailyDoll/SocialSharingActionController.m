@@ -227,7 +227,7 @@
             case 1: //
 
                 if ([[ProjectSettings sharedManager] hasInteractedWithSocialItem:INSTAGRAM]) {
-                    [button setTitle:@"UnFollow" forState:UIControlStateNormal];
+                    [button setTitle:@"Following" forState:UIControlStateNormal];
                 }
 
                 [button addTarget:self
@@ -263,15 +263,7 @@
 
 - (void)authenticateAndFollowWithInstagram:(UIButton *) button {
 
-//    NSString *authorizationURLConfigKey = [[ProjectSettings sharedManager] fetchSocialItem:INSTAGRAM withProperty:kInstagramAuthorizationUrl];
-//    NSString *instagramKitAppClientId = [[ProjectSettings sharedManager]fetchSocialItem:INSTAGRAM withProperty:kInstagramAppClientId];
-//    NSString *instagramKitAppRedirectURL = [[ProjectSettings sharedManager]fetchSocialItem:INSTAGRAM withProperty:kInstagramAppRedirectURL];
-//
-//    NSURL *instagramURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@&response_type=token&scope=relationships", authorizationURLConfigKey, instagramKitAppClientId, instagramKitAppRedirectURL]];
-
     [self.delegate instantiateOAuthLoginView:INSTAGRAM];
-
-//    [self.delegate socialWebView:instagramURL];
 }
 
 //TODO save twitter auth token to keychain
@@ -292,7 +284,7 @@
             case 0: { //Follow
 
                 if ([[ProjectSettings sharedManager] hasInteractedWithSocialItem:TWIITER]) {
-                    [button setTitle:@"UnFollow" forState:UIControlStateNormal];
+                    [button setTitle:@"Following" forState:UIControlStateNormal];
                 }
 
                 [button addTarget:self
@@ -403,7 +395,7 @@
 
         statusesShowEndpoint = @"https://api.twitter.com/1.1/friendships/create.json?follow=true";
 
-        [button setTitle:@"UnFollow" forState:UIControlStateNormal];
+        [button setTitle:@"Following" forState:UIControlStateNormal];
     }else {
 
         statusesShowEndpoint = @"https://api.twitter.com/1.1/friendships/destroy.json?";

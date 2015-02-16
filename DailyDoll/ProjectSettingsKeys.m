@@ -92,4 +92,8 @@ NSString *const kTwitteruserName = @"userName";
 NSString *const kTwitteruserId = @"userID";
 
 
+//Menu Items
+
+NSString *const kMenuItem = @"menuItems";
+
 @end

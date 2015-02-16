@@ -122,9 +122,9 @@
     [self.drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
 }
 
-- (void)selectedSideMenuItem:(NSDictionary *)navigationObject {
+- (void)selectedSideMenuItem:(MenuItem *)navigationObject {
 
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[navigationObject objectForKey:@"URL"]]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:navigationObject.urlString]]];
 }
 
 

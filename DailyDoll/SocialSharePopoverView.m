@@ -13,6 +13,7 @@
 
 @interface SocialSharePopoverView () <UIGestureRecognizerDelegate>
 
+@property BOOL facebookLikeStatus;
 @end
 
 CGFloat const kButtonPadding = 20;
@@ -160,7 +161,18 @@ CGFloat const kButtonHeight = 40;
 
     [FBSettings enablePlatformCompatibility:NO];
 
-    FBLikeControl *like = [[FBLikeControl alloc] initWithFrame:CGRectMake(0, 0, popUp.frame.size.width * 0.8, kButtonHeight)];
+    NSString *buttonTitle;
+
+   self.facebookLikeStatus = [[ProjectSettings sharedManager] hasInteractedWithSocialItem:FACEBOOK];
+
+    if (self.facebookLikeStatus) {
+        buttonTitle = @"Liked";
+    }else {
+        buttonTitle = @"Like";
+    }
+
+
+    FBLikeControl *like = [[FBLikeControl alloc] initWithFrame:CGRectMake(0, 0, popUp.frame.size.width * 0.8, kButtonHeight) andTitle:buttonTitle];
     //TODO change this out for the appropriate URL from core data
     like.objectID = [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:kURLString];
     like.preferredMaxLayoutWidth = 300;
@@ -185,7 +197,14 @@ CGFloat const kButtonHeight = 40;
 
 - (void)handleFacebookLike:(UIButton *)button {
 
-    [[ProjectSettings sharedManager] saveSocialInteraction:FACEBOOK withStatus:YES];
+    if (self.facebookLikeStatus) {
+       [button setTitle:@"Liked" forState:UIControlStateNormal];
+    }else {
+        [button setTitle:@"Liked" forState:UIControlStateNormal];
+    }
+
+    [[ProjectSettings sharedManager] saveSocialInteraction:TWIITER withStatus:!self.facebookLikeStatus];
+
 
 }
 

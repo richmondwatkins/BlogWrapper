@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MenuItem.h"
 
 @interface SideMenuTableViewCell : UITableViewCell
 
-- (void)addTextToMenu:(NSDictionary *)menuItem;
+- (void)addTextToMenu:(MenuItem *)menuItem;
 
 @end

@@ -15,7 +15,7 @@
 #import "SideMenuHeaderImageView.h"
 #import "SideMenuTableSectionHeader.h"
 #import "SideMenuTableSectionLabel.h"
-#import <Pinterest/Pinterest.h>
+#import "ProjectSettings.h"
 
 @interface SideMenuViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -50,10 +50,7 @@
 
     [self.view addSubview:self.tableView];
 
-    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]
-                                                                           pathForResource:@"MenuItems"
-                                                                           ofType:@"plist"]];
-    self.dataSource = [dictionary objectForKey:@"Menu"];
+    self.dataSource = [[ProjectSettings sharedManager] fetchMenuItemsAndHeaders];
 
     [self.tableView reloadData];
 }
@@ -102,7 +99,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    NSArray *menuItems = self.dataSource[section][1];
+    NSArray *menuItems = [self.dataSource[section] valueForKey:@"menuItems"];
 
     return menuItems.count;
 }
@@ -118,7 +115,7 @@
 
     SideMenuTableSectionLabel *label = [[SideMenuTableSectionLabel alloc] initWithHeight:view.frame.size.height
                                                                                 andWidth:tableView.frame.size.width
-                                                                                 andText:self.dataSource[section][0][0]];
+                                                                                 andText:[self.dataSource[section] valueForKey: @"title"]];
 
     [view addSubview:label];
 
@@ -127,7 +124,7 @@
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
 
-    return self.dataSource[section][0][0];
+    return [self.dataSource[section] valueForKey:@"title"];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -138,9 +135,9 @@
         cell = [[SideMenuTableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
                                             reuseIdentifier: @"cell"];
     }
-    
-    NSDictionary *menuItem = self.dataSource[indexPath.section][1][indexPath.row];
 
+    MenuItem *menuItem = [[self.dataSource[indexPath.section] valueForKey:@"menuItems"] allObjects][indexPath.row];
+    
     [cell addTextToMenu: menuItem];
 
     return cell;
@@ -148,7 +145,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    [self.delegate selectedSideMenuItem:self.dataSource[indexPath.section][1][indexPath.row]];
+    [self.delegate selectedSideMenuItem:[self.dataSource[indexPath.section] valueForKey:@"menuItems"][indexPath.row]];
 
     MMDrawerController *drawController = (MMDrawerController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
 
