@@ -10,6 +10,7 @@
 
 @protocol SocialPopUp <NSObject>
 
+@optional
 - (void)removeViewsFromWindow;
 
 @end

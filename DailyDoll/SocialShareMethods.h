@@ -10,16 +10,19 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <Pinterest/Pinterest.h>
 #import <TwitterKit/TwitterKit.h>
+#import <GooglePlus/GooglePlus.h>
 
 #import "ProjectSettings.h"
 
 @interface SocialShareMethods : NSObject
 
 
-+(BOOL)shareToFaceBookWithURL:(FBLinkShareParams *)params;
++ (BOOL)shareToFaceBookWithURL:(FBLinkShareParams *)params;
 
-+(BOOL)pinToPinterest:(NSURL *)imageURL andSource:(NSURL *)sourceURL;
++ (BOOL)pinToPinterest:(NSURL *)imageURL andSource:(NSURL *)sourceURL;
 
 + (BOOL)shareToTwitter:(NSString *)shareContent;
+
++ (BOOL)shareToGooglePlus:(NSString *)shareContent;
 
 @end

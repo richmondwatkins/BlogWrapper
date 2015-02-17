@@ -132,5 +132,30 @@
 
 
 
+//========= GOOGLE PLUS ======
+
++ (BOOL)shareToGooglePlus:(NSString *)shareContent {
+
+    if ([[GPPSignIn sharedInstance] authentication]) {
+
+        id<GPPShareBuilder> shareBuilder = [[GPPShare sharedInstance] nativeShareDialog];
+
+        // This line will fill out the title, description, and thumbnail from
+        // the URL that you are sharing and includes a link to that URL.
+        [shareBuilder setURLToShare:[NSURL URLWithString:shareContent]];
+
+        // Optionally attach a deep link ID for your mobile app
+//        [shareBuilder setContentDeepLinkID:@"/restaurant/sf/1234567/"];
+
+        [shareBuilder open];
+        
+        return YES;
+    }else {
+        
+        return NO;
+    }
+
+}
+
 
 @end

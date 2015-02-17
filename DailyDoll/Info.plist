@@ -34,7 +34,7 @@
 			<string>com-greekconnect.DailyDoll</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com-greekconnect.com.DailyDoll</string>
+				<string>com-greekconnect.DailyDoll</string>
 			</array>
 		</dict>
 	</array>

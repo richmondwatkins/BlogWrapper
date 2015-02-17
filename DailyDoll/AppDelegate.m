@@ -14,6 +14,7 @@
 #import <TwitterKit/TwitterKit.h>
 #import "ProjectSettings.h"
 #import <SSKeychain.h>
+#import <GooglePlus/GooglePlus.h>
 
 @interface AppDelegate ()
 @end
@@ -30,6 +31,8 @@
                 [self setUpDrawerController];
 
                 [self checkForTwitter];
+
+                [self setUpGooglePlus];
             }
         }];
     } else {
@@ -37,10 +40,14 @@
         [self checkForTwitter];
 
         [self setUpDrawerController];
+
+        [self setUpGooglePlus];
     }
 
 
     [Fabric with:@[TwitterKit]];
+
+
 
     return YES;
 }
@@ -51,6 +58,16 @@
 
     NSLog(@"Social %@",hasTwitter ? @"true" : @"fals");
 
+}
+
+
+- (void) setUpGooglePlus {
+
+    [GPPSignIn sharedInstance].clientID = [[ProjectSettings sharedManager]fetchSocialItem:GOOGLEPLUS withProperty:kSocialClientId];;
+    ;
+    [GPPDeepLink setDelegate:self];
+
+    [GPPDeepLink readDeepLinkAfterInstall];
 }
 
 - (void) setUpDrawerController {
@@ -70,6 +87,16 @@
     self.drawerController.shouldStretchDrawer = NO;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setRootViewController:self.drawerController];
+}
+
+- (BOOL)application: (UIApplication *)application
+            openURL: (NSURL *)url
+  sourceApplication: (NSString *)sourceApplication
+         annotation: (id)annotation {
+    
+    return [GPPURLHandler handleURL:url
+                  sourceApplication:sourceApplication
+                         annotation:annotation];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

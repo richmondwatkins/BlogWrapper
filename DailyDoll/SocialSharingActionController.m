@@ -14,7 +14,7 @@
 
 #import "SocialShareMethods.h"
 
-@interface SocialSharingActionController () <SocialPopUp>
+@interface SocialSharingActionController ()
 
 @property SocialSharePopoverView *popUpView;
 
@@ -165,7 +165,6 @@
     }
 
     SocialSharePopoverView *popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
-    popUpView.delegate = self;
 
     return popUpView;
 
@@ -241,7 +240,6 @@
     }
 
     SocialSharePopoverView *popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
-    popUpView.delegate = self;
 
     return popUpView;
 
@@ -457,6 +455,67 @@
     else {
         NSLog(@"Error: %@", clientError);
     }
+
+}
+
+
+// =========== GOOGLE PLUS =======
+
+- (SocialSharePopoverView *) googlePlusPopConfig:(CGRect)windowFrame {
+
+    NSArray *buttonItems = [[ProjectSettings sharedManager] fetchSocialButtonsForItem:GOOGLEPLUS];
+
+    NSMutableArray *buttons = [NSMutableArray array];
+
+    for (Button *buttonItem in buttonItems) {
+
+        UIButton *button = [[UIButton alloc] init];
+        [button setTitle:buttonItem.title forState:UIControlStateNormal];
+
+        switch ([buttonItem.id intValue]) {
+            case 0: { //View
+
+                [button addTarget:self action:@selector(googlePlusView:) forControlEvents:UIControlEventTouchUpInside];
+
+            }   break;
+            case 1: //Share
+
+                [self.popUpView animateOffScreen];
+
+                [button addTarget:self action:@selector(googlePlusShare:) forControlEvents:UIControlEventTouchUpInside];
+            default:
+                break;
+        }
+
+
+        [self styleButtonAndAnimateActions:button withColor:[UIColor colorWithHexString:@"dd4b39"]];
+
+
+        [buttons addObject:button];
+
+    }
+    
+    self.popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
+    
+    return self.popUpView;
+
+}
+
+
+- (void) googlePlusShare:(UIButton *)button {
+
+
+    NSURL *sourceURL = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kURLString]];
+
+    BOOL didShare = [SocialShareMethods shareToGooglePlus:sourceURL.absoluteString];
+
+    if (!didShare) {
+
+        [self.delegate instantiateOAuthLoginView:GOOGLEPLUS];
+    }
+}
+
+- (void) googlePlusView:(UIButton *)button {
 
 }
 

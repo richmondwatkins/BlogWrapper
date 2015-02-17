@@ -131,6 +131,23 @@
 				<integer>3</integer>
 			</dict>
 			<dict>
+				<key>authClientId</key>
+				<string>221581957001-l5lv9h11jtpf1g978n7fc9jqjul0oir1.apps.googleusercontent.com</string>
+				<key>buttons</key>
+				<array>
+					<dict>
+						<key>Id</key>
+						<integer>0</integer>
+						<key>Title</key>
+						<string>View</string>
+					</dict>
+					<dict>
+						<key>Id</key>
+						<integer>1</integer>
+						<key>Title</key>
+						<string>+1 Share</string>
+					</dict>
+				</array>
 				<key>image</key>
 				<string>googlePlus</string>
 				<key>urlString</key>

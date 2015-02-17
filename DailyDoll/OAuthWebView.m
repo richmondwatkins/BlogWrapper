@@ -16,7 +16,7 @@
     if (self= [super init]) {
 
         NSString *authorizationURLConfigKey = [[ProjectSettings sharedManager] fetchSocialItem:INSTAGRAM withProperty:kInstagramAuthorizationUrl];
-        NSString *instagramKitAppClientId = [[ProjectSettings sharedManager]fetchSocialItem:INSTAGRAM withProperty:kInstagramAppClientId];
+        NSString *instagramKitAppClientId = [[ProjectSettings sharedManager]fetchSocialItem:INSTAGRAM withProperty:kSocialClientId];
         NSString *instagramKitAppRedirectURL = [[ProjectSettings sharedManager]fetchSocialItem:INSTAGRAM withProperty:kInstagramAppRedirectURL];
 
         self.urlToLoad = [NSURL URLWithString:[NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@&response_type=token&scope=relationships", authorizationURLConfigKey, instagramKitAppClientId, instagramKitAppRedirectURL]];

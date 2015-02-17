@@ -53,7 +53,7 @@ extern NSString *const kInstagramBaseUrl;
 
 extern NSString *const kInstagramAppRedirectURL;
 
-extern NSString *const kInstagramAppClientId;
+extern NSString *const kSocialClientId;
 
 extern NSString *const kFirstStartUp;
 

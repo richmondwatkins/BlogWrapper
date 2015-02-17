@@ -33,7 +33,7 @@ NSString *const kInstagramBaseUrl = @"authBaseURL";
 
 NSString *const kInstagramAppRedirectURL = @"authRedirect";
 
-NSString *const kInstagramAppClientId = @"authClientId";
+NSString *const kSocialClientId = @"authClientId";
 
 NSString *const kFirstStartUp = @"FirstStartUp";
 

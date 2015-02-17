@@ -8,6 +8,7 @@
 
 #import "DDViewController.h"
 #import "ProjectSettings.h"
+#import "ExternalWebModalViewController.h"
 
 @interface DDViewController ()
 @property UIView *statusBarBackground;
@@ -40,6 +41,15 @@
 
         self.statusBarBackground.hidden = NO;
     }
+}
+
+-(void)socialWebView:(NSURL *)facebookURL {
+
+    [self.socialPopUp animateOffScreen];
+
+    ExternalWebModalViewController *externalVC = [[ExternalWebModalViewController alloc] initWithRequest:[NSURLRequest requestWithURL:facebookURL]];
+
+    [self presentViewController:externalVC animated:YES completion:nil];
 }
 
 @end

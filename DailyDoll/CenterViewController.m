@@ -178,13 +178,5 @@
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:navigationObject.urlString]]];
 }
 
--(void)socialWebView:(NSURL *)facebookURL {
-
-    ExternalWebModalViewController *externalVC = [[ExternalWebModalViewController alloc] initWithRequest:[NSURLRequest requestWithURL:facebookURL]];
-
-    [self presentViewController:externalVC animated:YES completion:nil];
-}
-
-
 
 @end

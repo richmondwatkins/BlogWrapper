@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SocialSharePopoverView.h"
 
 @interface DDViewController : UIViewController
+
+@property SocialSharePopoverView *socialPopUp;
 
 @end
