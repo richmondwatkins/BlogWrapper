@@ -187,8 +187,9 @@
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]
                                                                            pathForResource:@"MenuItems"
                                                                            ofType:@"plist"]];
-    
-    [self.delegate selectedSideMenuItem:[dictionary objectForKey:@"Home"]];
+
+    //TODO add Home url and menu variables to core data
+    [self.delegate selectedSideMenuItem:[dictionary objectForKey:@"Home"][@"URL"]];
 
 
     MMDrawerController *drawController = (MMDrawerController *)[[UIApplication sharedApplication] keyWindow].rootViewController;

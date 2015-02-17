@@ -73,6 +73,12 @@
 				<array>
 					<dict>
 						<key>Id</key>
+						<integer>2</integer>
+						<key>Title</key>
+						<string>Tweet</string>
+					</dict>
+					<dict>
+						<key>Id</key>
 						<integer>0</integer>
 						<key>Title</key>
 						<string>Follow</string>

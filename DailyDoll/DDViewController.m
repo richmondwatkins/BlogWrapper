@@ -25,7 +25,7 @@
 
     [[[UIApplication sharedApplication] keyWindow] addSubview:self.statusBarBackground];
 
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithHexString:@"e2c675"];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:NAVBAR withProperty:kBackgroundColor]];
 
     self.view.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:NAVBAR withProperty:kBackgroundColor]];
 

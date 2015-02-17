@@ -16,13 +16,18 @@
 #import "CenterVCActivityIndicator.h"
 #import "CenterVCTitleLabel.h"
 #import "ShareViewController.h"
+#import "CenterShareView.h"
 
-@interface CenterViewController () <UIWebViewDelegate, SideMenuProtocol >
+@interface CenterViewController () <UIWebViewDelegate, SideMenuProtocol, UIScrollViewDelegate, CenterShare>
 @property UIWebView *webView;
 @property NSURLRequest *externalRequest;
 @property MMDrawerController *drawerController;
 @property BlurActivityOverlay *blurOverlay;
 @property CenterVCActivityIndicator *acitivityIndicator;
+@property CGPoint lastScrollPosition;
+@property BOOL isScrollingDown;
+@property CenterShareView *shareSlideUp;
+
 @end
 
 @implementation CenterViewController
@@ -34,6 +39,10 @@
 
     [self setUpDrawControllerAndButton];
 
+    self.shareSlideUp = [[CenterShareView alloc] initWithFrameAndStyle:self.view.frame];
+    self.shareSlideUp.delegate = self;
+
+    [self.view addSubview:self.shareSlideUp];
 }
 
 - (void)setUpDrawControllerAndButton {
@@ -58,6 +67,7 @@
     [self.view addSubview:self.webView];
 
     self.webView.delegate = self;
+    self.webView.scrollView.delegate = self;
 
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[[ProjectSettings sharedManager] metaDataVariables:kURLString]]]];
 }
@@ -76,6 +86,7 @@
         return NO;
     }
 
+    [self.shareSlideUp animateOffScreen];
 
     return YES;
 }
@@ -103,13 +114,53 @@
 
 
     [self.blurOverlay animateAndRemove];
+
+    [self.shareSlideUp animateOntoScreen];
 }
 
--(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
 
     if (self.blurOverlay) {
         [self.blurOverlay animateAndRemove];
     }
+}
+
+-(NSURL *)returnCurrentURL {
+    return self.webView.request.URL;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+
+
+    CGPoint currentPosition = scrollView.contentOffset;
+
+    if (currentPosition.y > self.lastScrollPosition.y){
+
+//        [self.shareSlideUp slideDownOnDrag:[scrollView.panGestureRecognizer translationInView:scrollView].y / 10];
+
+        self.isScrollingDown = YES;
+    }else{
+
+//        [self.shareSlideUp slideUpOnDrag:[scrollView.panGestureRecognizer translationInView:scrollView].y / 10];
+
+        self.isScrollingDown = NO;
+    }
+    
+
+    self.lastScrollPosition = currentPosition;
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+
+    
+    if (self.isScrollingDown) {
+
+        [self.shareSlideUp animateOffScreen];
+    }else{
+
+        [self.shareSlideUp animateOntoScreen];
+    }
+
 }
 
 - (void)showSideMenu {
@@ -125,6 +176,13 @@
 - (void)selectedSideMenuItem:(MenuItem *)navigationObject {
 
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:navigationObject.urlString]]];
+}
+
+-(void)socialWebView:(NSURL *)facebookURL {
+
+    ExternalWebModalViewController *externalVC = [[ExternalWebModalViewController alloc] initWithRequest:[NSURLRequest requestWithURL:facebookURL]];
+
+    [self presentViewController:externalVC animated:YES completion:nil];
 }
 
 

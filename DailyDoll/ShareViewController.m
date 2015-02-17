@@ -122,33 +122,6 @@
     return [[UIScreen mainScreen] bounds].size.width * 0.15;
 }
 
-- (void)facebookShareInternal:(NSString *)shareContent{
-    
-    [self.socialPopUp animateOffScreen];
-
-    if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
-        SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        //TODO add text and images
-        [controller setInitialText:shareContent];
-        [self presentViewController:controller animated:YES completion:Nil];
-    }
-}
-
-- (void)facebookShareExternal:(FBLinkShareParams *)shareContent {
-
-    [FBDialogs presentShareDialogWithLink:shareContent.link
-                                  handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
-                                      if(error) {
-                                          // An error occurred, we need to handle the error
-                                          // See: https://developers.facebook.com/docs/ios/errors
-                                          NSLog(@"Error publishing story: %@", error.description);
-                                      } else {
-                                          // Success
-                                          NSLog(@"result %@", results);
-                                      }
-                                  }];
-}
-
 -(void)socialWebView:(NSURL *)facebookURL {
 
     [self.socialPopUp animateOffScreen];

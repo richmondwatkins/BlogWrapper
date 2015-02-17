@@ -96,7 +96,7 @@ CGFloat const kButtonHeight = 40;
 
 - (void)animateOffScreen {
 
-    [UIView animateWithDuration:0.01 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
 
         if (self.subviews.count) {
             UIView *popUpSubView = self.subviews[0];

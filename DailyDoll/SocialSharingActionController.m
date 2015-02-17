@@ -12,7 +12,11 @@
 #import "UIColor+UIColor_Expanded.h"
 #import "Button.h"
 
+#import "SocialShareMethods.h"
+
 @interface SocialSharingActionController () <SocialPopUp>
+
+@property SocialSharePopoverView *popUpView;
 
 @end
 
@@ -61,9 +65,9 @@
 
     }
 
-    SocialSharePopoverView *popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
+    self.popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
 
-    return popUpView;
+    return self.popUpView;
 }
 
 - (void)facebookViewDelegate:(UIButton *)button {
@@ -80,21 +84,14 @@
     
     params.link = [NSURL URLWithString:[NSString stringWithFormat:@"https://www.facebook.com/%@",
                                         [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:@"pageId"]]];
+    BOOL didShare = [SocialShareMethods shareToFaceBookWithURL:params];
 
-    // If the Facebook app is installed and we can present the share dialog
-    if ([FBDialogs canPresentShareDialogWithParams:params]) {
+    if (!didShare) {
 
-        [self.delegate facebookShareExternal:params];
-    } else {
-        //TODO add share items ... text and images
-        if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
-
-            [self.delegate facebookShareInternal:[[ProjectSettings sharedManager] metaDataVariables:kSiteName]];
-        }else {
-            [self.delegate socialWebView:params.link];
-        }
+        [self.delegate socialWebView:params.link];
     }
 
+    [self.popUpView animateOffScreen];
 }
 
 
@@ -177,19 +174,16 @@
 - (void)pinIt:(UIButton *)button {
 
     //TODO setup s3 to host images
-    NSURL *imageURL     = [NSURL URLWithString:@"http://placekitten.com/500/400"];
-    NSURL *sourceURL    = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:PINTEREST withProperty:kURLString]];
+    NSURL *imageURL = [NSURL URLWithString:@"http://placekitten.com/g/200/300"];
+    NSURL *sourceURL = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:PINTEREST withProperty:kURLString]];
 
+    BOOL didShare = [SocialShareMethods pinToPinterest:imageURL andSource:sourceURL];
 
-    if ([self.pinterest canPinWithSDK]) {
-        [self.pinterest createPinWithImageURL:imageURL
-                                    sourceURL:sourceURL
-                                  description:[[ProjectSettings sharedManager] metaDataVariables:kBlogName]];
-    } else {
+    if (!didShare) {
 
         [self.delegate socialWebView:sourceURL];
     }
-
+    
 }
 
 - (void)viewBoards:(UIButton *)button {
@@ -298,6 +292,13 @@
                            action:@selector(openOnTwitter:)
                  forControlEvents:UIControlEventTouchUpInside];
 
+            case 2:
+
+                [button addTarget:self
+                           action:@selector(tweet:)
+                 forControlEvents:UIControlEventTouchUpInside];
+                break;
+
             default:
                 break;
         }
@@ -310,10 +311,26 @@
 
     }
 
-    SocialSharePopoverView *popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
+    self.popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
     
-    return popUpView;
+    return self.popUpView;
     
+}
+
+- (void)tweet:(UIButton *)button {
+
+    NSString *accountURLString = [[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:kURLString];
+
+    NSString *blogName = [[ProjectSettings sharedManager] fetchSocialItem:INSTAGRAM withProperty:kAccountName];
+
+    BOOL didShare = [SocialShareMethods shareToTwitter:[NSString stringWithFormat:@"%@ - %@", blogName, accountURLString]];
+
+    if (!didShare) {
+
+        [self.delegate socialWebView:[NSURL URLWithString:accountURLString]];
+    }
+
+    [self.popUpView animateOffScreen];
 }
 
 
