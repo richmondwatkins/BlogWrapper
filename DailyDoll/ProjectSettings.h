@@ -25,7 +25,7 @@
 
 - (NSString *)fetchThemeItem:(int)itemId withProperty:(NSString *)property;
 
--(NSString *)metaDataVariables:(NSString *)property;
+- (NSString *)metaDataVariables:(NSString *)property;
 
 - (NSArray *)shareItems;
 
@@ -36,5 +36,9 @@
 - (void)saveSocialInteraction:(int)socialId withStatus:(BOOL)saveStatus;
 
 - (BOOL)hasInteractedWithSocialItem:(int)socialId;
+
+- (NSString *)fetchMetaThemeItemWithProperty:(NSString *)property;
+
+- (NSArray *)shareItemsWithoutInstagram;
 
 @end

@@ -27,7 +27,7 @@
 
     UIImageView *cellImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:[object valueForKey:@"image"]]];
 
-    cellImageView.frame = CGRectMake(0, 0, self.frame.size.width * 0.9, self.frame.size.height * 0.9);
+    cellImageView.frame = CGRectMake(0, 0, self.frame.size.width * 0.85, self.frame.size.height * 0.9);
 
     [self addSubview:cellImageView];
 

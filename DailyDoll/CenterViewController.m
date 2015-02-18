@@ -53,12 +53,21 @@
     SideMenuViewController *sideMenuVC = (SideMenuViewController *) self.drawerController.leftDrawerViewController;
     sideMenuVC.delegate = self;
 
-    //TODO move colors to theme manager and find share image
     self.navigationItem.leftBarButtonItem = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(showSideMenu)];
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor whiteColor];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithHexString: [[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kSecondaryColor]];
+}
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction target:self action:@selector(presentShareVC:)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+- (void)setRightNavigationItem {
+    //TODO move colors to theme manager and find share imag
+
+    UIBarButtonItem *rightBarButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"share"]
+                                                          style:UIBarButtonItemStylePlain
+                                                         target:self
+                                                                   action:@selector(presentShareVC:)];
+
+    self.navigationItem.rightBarButtonItem= rightBarButton;
+
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithHexString: [[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kSecondaryColor]];
 }
 
 - (void)setUpWebView {

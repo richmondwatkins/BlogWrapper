@@ -7,7 +7,14 @@
 //
 
 #import "SocialShareMethods.h"
+#import <MessageUI/MFMailComposeViewController.h>
+
 @import Social;
+@import MessageUI;
+
+@interface SocialShareMethods () <MFMailComposeViewControllerDelegate, MFMessageComposeViewControllerDelegate>
+
+@end
 
 @implementation SocialShareMethods
 
@@ -186,35 +193,6 @@ static SocialShareMethods *sharedSocialManager = nil;
     
 }
 
-//+ (TWTRLogInButton *)returnTwitterLoginButton {
-//
-//    TWTRLogInButton* logInButton =  [TWTRLogInButton
-//                                     buttonWithLogInCompletion:
-//                                     ^(TWTRSession* session, NSError* error) {
-//                                         if (session) {
-//                                             NSLog(@"signed in as %@", session);
-//
-//                                             [[ProjectSettings sharedManager] saveSocialInteraction:TWIITER withStatus:YES];
-//
-//                                             UIWindow* mainWindow = [[UIApplication sharedApplication] keyWindow];
-//
-//                                             self.socialPopUp = [self.actionController twitterPopConfig:mainWindow.frame];
-//
-//                                             [self displaySocialPoUp];
-//
-//                                         } else {
-//                                             NSLog(@"error: %@", [error localizedDescription]);
-//                                         }
-//                                     }];
-//    
-//    [logInButton addTarget:self action:@selector(removeViewsFromWindow)
-//          forControlEvents:UIControlEventTouchUpInside];
-//    
-//    return logInButton;
-//}
-
-
-
 //========= GOOGLE PLUS ======
 
 - (BOOL)shareToGooglePlus:(NSString *)shareContent {
@@ -241,8 +219,52 @@ static SocialShareMethods *sharedSocialManager = nil;
 }
 
 
+-(void)shareViaEmail:(NSDictionary *)messageComponents {
+
+    if ([MFMailComposeViewController canSendMail]) {
+
+        MFMailComposeViewController* controller = [[MFMailComposeViewController alloc] init];
+
+        controller.mailComposeDelegate = self;
+
+        [controller setSubject:messageComponents[@"subject"]];
+        //TODO figure out message
+        [controller setMessageBody:messageComponents[@"message"] isHTML:NO];
+
+        if (controller) [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:controller animated:YES completion:nil];
+    } else {
+        // TODO handle when device does not have email
+    }
+
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller
+          didFinishWithResult:(MFMailComposeResult)result
+                        error:(NSError*)error;
+{
+
+    [[[[UIApplication sharedApplication] keyWindow] rootViewController] dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)shareViaSMS:(NSDictionary *)messageComponents {
+
+    if([MFMessageComposeViewController canSendText]) {
 
 
+        MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
+        messageController.messageComposeDelegate = self;
+        [messageController setBody:messageComponents[@"message"]];
 
+        [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:messageController animated:YES completion:nil];
+    }else {
+        //TODO handle error for devices that don't send texts
+    }
+}
+
+-(void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult)result {
+
+    [[[[UIApplication sharedApplication] keyWindow] rootViewController] dismissViewControllerAnimated:YES completion:nil];
+
+}
 
 @end

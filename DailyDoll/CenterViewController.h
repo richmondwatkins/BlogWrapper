@@ -11,6 +11,7 @@
 
 @interface CenterViewController : DDViewController
 
+- (void)setRightNavigationItem;
 
 @end
 

@@ -7,6 +7,56 @@
 		<key>Social</key>
 		<array>
 			<dict>
+				<key>authClientId</key>
+				<string></string>
+				<key>buttons</key>
+				<array>
+					<dict>
+						<key>Id</key>
+						<integer>0</integer>
+						<key>Title</key>
+						<string>View</string>
+					</dict>
+					<dict>
+						<key>Id</key>
+						<integer>1</integer>
+						<key>Title</key>
+						<string>+1 Share</string>
+					</dict>
+				</array>
+				<key>image</key>
+				<string>sms</string>
+				<key>urlString</key>
+				<string></string>
+				<key>id</key>
+				<integer>6</integer>
+			</dict>
+			<dict>
+				<key>authClientId</key>
+				<string></string>
+				<key>buttons</key>
+				<array>
+					<dict>
+						<key>Id</key>
+						<integer>0</integer>
+						<key>Title</key>
+						<string>View</string>
+					</dict>
+					<dict>
+						<key>Id</key>
+						<integer>1</integer>
+						<key>Title</key>
+						<string>+1 Share</string>
+					</dict>
+				</array>
+				<key>image</key>
+				<string>mail</string>
+				<key>urlString</key>
+				<string></string>
+				<key>id</key>
+				<integer>5</integer>
+			</dict>
+			<dict>
 				<key>accountName</key>
 				<string>thedailydollblog</string>
 				<key>pageId</key>

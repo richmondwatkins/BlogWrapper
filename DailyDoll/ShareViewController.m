@@ -114,6 +114,26 @@
             self.socialPopUp = [self.actionController googlePlusPopConfig:mainWindow.frame];
             break;
 
+        case 5: {
+
+            NSString *blogName = [[ProjectSettings sharedManager] metaDataVariables:kBlogName];
+            NSString *blogUrl = [[ProjectSettings sharedManager] metaDataVariables:kURLString];
+
+            [[SocialShareMethods sharedManager] shareViaEmail: @{@"message": blogUrl, @"subject": blogName}];
+
+        }
+            break;
+
+        case 6: {
+
+            NSString *blogName = [[ProjectSettings sharedManager] metaDataVariables:kBlogName];
+            NSString *blogUrl = [[ProjectSettings sharedManager] metaDataVariables:kURLString];
+
+            [[SocialShareMethods sharedManager] shareViaSMS: @{@"message": blogUrl, @"subject": blogName}];
+
+        }
+            break;
+
         default:
             break;
     }

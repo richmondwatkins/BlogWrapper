@@ -14,5 +14,7 @@
 @dynamic primaryColor;
 @dynamic secondaryColor;
 @dynamic themeItem;
+@dynamic fontColor;
+@dynamic fontFamily;
 
 @end

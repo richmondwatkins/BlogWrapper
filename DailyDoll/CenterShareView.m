@@ -54,7 +54,7 @@ CGFloat const kButtonHeightAndWidth = 40;
 
 - (void)addShareButtonsToView {
 
-    NSArray *socialShareItems = [[ProjectSettings sharedManager] shareItems];
+    NSArray *socialShareItems = [[ProjectSettings sharedManager] shareItemsWithoutInstagram];
 
     CGFloat buttonPadding = [self calculateButtonPadding:socialShareItems.count];
 
@@ -106,13 +106,23 @@ CGFloat const kButtonHeightAndWidth = 40;
         break;
 
         case 3:
-
+            //instagram
         break;
 
         case 4:
 
             [shareButton addTarget:self action:@selector(googlePlusShare:) forControlEvents:UIControlEventTouchUpInside];
         break;
+
+        case 5:
+
+            [shareButton addTarget:self action:@selector(shareViaEmail:) forControlEvents:UIControlEventTouchUpInside];
+            break;
+
+        case 6:
+
+            [shareButton addTarget:self action:@selector(shareViaSMS:) forControlEvents:UIControlEventTouchUpInside];
+            break;
 
         default:
             break;
@@ -169,7 +179,6 @@ CGFloat const kButtonHeightAndWidth = 40;
     if (!didShare) {
 
         [self.delegate oAuthSetUpDelegate:TWIITER];
-//        [self.delegate socialWebView:[NSURL URLWithString:accountPage]];
     }
 
 }
@@ -185,6 +194,23 @@ CGFloat const kButtonHeightAndWidth = 40;
 
         [self.delegate oAuthSetUpDelegate:GOOGLEPLUS];
     }
+}
+
+- (void)shareViaEmail:(UIButton *)button {
+
+    NSURL *sourceURL = [self.delegate returnCurrentURL];
+
+    NSString *blogName = [[ProjectSettings sharedManager] metaDataVariables:kBlogName];
+
+    [[SocialShareMethods sharedManager] shareViaEmail:@{@"subject": blogName, @"message":sourceURL.absoluteString}];
+
+}
+
+- (void)shareViaSMS:(UIButton *)button {
+
+    NSURL *sourceURL = [self.delegate returnCurrentURL];
+
+    [[SocialShareMethods sharedManager] shareViaSMS:@{@"message":sourceURL.absoluteString}];
 }
 
 

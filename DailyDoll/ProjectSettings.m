@@ -29,6 +29,8 @@
 
 @property NSArray *themeElementsPlist;
 
+@property NSDictionary *primaryThemeElements;
+
 @property NSDictionary *projectVariables;
 
 @property NSArray *menuItems;
@@ -68,6 +70,8 @@ static ProjectSettings *sharedThemeManager = nil;
                                                                                ofType:@"plist"]];
         self.themeElementsPlist = [themeDict objectForKey:@"ThemeItems"];
 
+        self.primaryThemeElements = [themeDict objectForKey:@"Meta"];
+
         NSDictionary *projectDict = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]
                                                                                pathForResource:@"ProjectVariables"
                                                                                ofType:@"plist"]];
@@ -90,6 +94,10 @@ static ProjectSettings *sharedThemeManager = nil;
 
 
     ThemeContainer *themeContainer = [NSEntityDescription insertNewObjectForEntityForName:@"ThemeContainer" inManagedObjectContext:moc];
+    themeContainer.fontColor = self.primaryThemeElements[@"fontColor"];
+    themeContainer.fontFamily = self.primaryThemeElements[@"fontFamily"];
+    themeContainer.primaryColor = self.primaryThemeElements[@"primaryColor"];
+    themeContainer.secondaryColor = self.primaryThemeElements[@"secondaryColor"];
 
     [themeContainer setThemeItem:[self returnThemeItemSet:moc]];
 
@@ -285,6 +293,17 @@ static ProjectSettings *sharedThemeManager = nil;
     return [results[0] valueForKey:property];
 }
 
+- (NSString *)fetchMetaThemeItemWithProperty:(NSString *)property {
+
+    NSFetchRequest *themeFetch = [[NSFetchRequest alloc] initWithEntityName:@"ThemeContainer"];
+
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+    NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:themeFetch error:nil];
+
+    return [results[0] valueForKey:property];
+}
+
 - (NSArray *)fetchMenuItemsAndHeaders {
 
     NSFetchRequest *menuItemFetch = [[NSFetchRequest alloc] initWithEntityName:@"MenuHeader"];
@@ -328,6 +347,31 @@ static ProjectSettings *sharedThemeManager = nil;
     NSSortDescriptor *shareSort = [[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES];
 
     [shareItems sortUsingDescriptors:@[shareSort]];
+
+    return [NSArray arrayWithArray:shareItems];
+}
+
+- (NSArray *)shareItemsWithoutInstagram {
+
+    NSFetchRequest *socialFetch = [[NSFetchRequest alloc] initWithEntityName:@"SocialContainer"];
+
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+    NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:socialFetch error:nil];
+
+    SocialContainer *socialContainer = results[0];
+
+    NSMutableArray *shareItems = [[socialContainer.socialItems allObjects] mutableCopy];
+
+    NSSortDescriptor *shareSort = [[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES];
+
+    [shareItems sortUsingDescriptors:@[shareSort]];
+
+    [shareItems enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(SocialItem *item, NSUInteger index, BOOL *stop) {
+        if (item.id.intValue == INSTAGRAM) {
+            [shareItems removeObjectAtIndex:index];
+        }
+    }];
 
     return [NSArray arrayWithArray:shareItems];
 }

@@ -14,6 +14,8 @@
 
 @property (nonatomic, retain) NSString * primaryColor;
 @property (nonatomic, retain) NSString * secondaryColor;
+@property (nonatomic, retain) NSString * fontColor;
+@property (nonatomic, retain) NSString * fontFamily;
 @property (nonatomic, retain) NSSet *themeItem;
 @end
 

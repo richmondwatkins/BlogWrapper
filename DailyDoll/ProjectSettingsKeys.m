@@ -15,9 +15,13 @@ NSString *const kBackgroundColor = @"backgroundColor";
 
 NSString *const kTintColor = @"TintColor";
 
-NSString *const kFontFamily = @"FontFamily";
+NSString *const kFontFamily = @"fontFamily";
 
-NSString *const kFontColor = @"FontColor";
+NSString *const kFontColor = @"fontColor";
+
+NSString *const kPrimaryColor = @"primaryColor";
+
+NSString *const kSecondaryColor = @"secondaryColor";
 
 NSString *const kTitle = @"Title";
 

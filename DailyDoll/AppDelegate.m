@@ -76,6 +76,7 @@
     ShareViewController *rightDrawer = [[ShareViewController alloc] init];
     CenterViewController *mainVC = [[CenterViewController alloc] init];
     UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:mainVC];
+    [mainVC setRightNavigationItem];
 
     self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:navigationController leftDrawerViewController:leftDrawer rightDrawerViewController:rightDrawer];
     self.drawerController.maximumLeftDrawerWidth = [leftDrawer returnWidthForMenuViewController];

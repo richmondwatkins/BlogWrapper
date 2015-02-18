@@ -26,4 +26,8 @@
 
 - (BOOL)shareToGooglePlus:(NSString *)shareContent;
 
+- (void)shareViaEmail:(NSDictionary *)messageComponents;
+
+- (void)shareViaSMS:(NSDictionary *)messageComponents;
+
 @end

@@ -145,7 +145,9 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    [self.delegate selectedSideMenuItem:[self.dataSource[indexPath.section] valueForKey:@"menuItems"][indexPath.row]];
+    MenuItem *menuItem = [[self.dataSource[indexPath.section] valueForKey:@"menuItems"] allObjects][indexPath.row];
+
+    [self.delegate selectedSideMenuItem:menuItem];
 
     MMDrawerController *drawController = (MMDrawerController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
 
@@ -155,15 +157,6 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-//    // this formula is admittedly complicated - the objective is to return a float that is a round number when multiplied by the device screen scale ...
-//    // ... includes separator height
-//    static CGFloat separatorHeight = 1.0;
-//    CGFloat defaultHeight = (ceilf((self.tableView.frame.size.height / (CGFloat)self.dataSource.count) * [UIScreen mainScreen].scale) - separatorHeight) / [UIScreen mainScreen].scale;
-//
-//    CGFloat rowHeight = defaultHeight;
-//    self.tableView.estimatedRowHeight = rowHeight;
-//
-//    return rowHeight;
     return (self.tableView.frame.size.height / 4) / self.dataSource.count;
 }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14B25" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14C109" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Button" representedClassName="Button" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="socialItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SocialItem" inverseName="buttons" inverseEntity="SocialItem" syncable="YES"/>
     </entity>
@@ -50,6 +50,8 @@
         <relationship name="socialContainer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SocialContainer" inverseName="socialItems" inverseEntity="SocialContainer" syncable="YES"/>
     </entity>
     <entity name="ThemeContainer" representedClassName="ThemeContainer" syncable="YES">
+        <attribute name="fontColor" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fontFamily" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="primaryColor" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="secondaryColor" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="themeItem" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ThemeItem" inverseName="themeContainer" inverseEntity="ThemeItem" syncable="YES"/>
@@ -62,15 +64,15 @@
         <relationship name="themeContainer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeContainer" inverseName="themeItem" inverseEntity="ThemeContainer" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Button" positionX="0" positionY="0" width="128" height="88"/>
+        <element name="Button" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="MenuContainer" positionX="9" positionY="153" width="128" height="58"/>
+        <element name="MenuHeader" positionX="18" positionY="162" width="128" height="103"/>
+        <element name="MenuItem" positionX="27" positionY="171" width="128" height="103"/>
         <element name="MetaData" positionX="0" positionY="0" width="128" height="105"/>
         <element name="ProjectVariable" positionX="0" positionY="0" width="128" height="73"/>
         <element name="SocialContainer" positionX="9" positionY="90" width="128" height="73"/>
         <element name="SocialItem" positionX="18" positionY="99" width="128" height="240"/>
-        <element name="ThemeContainer" positionX="0" positionY="0" width="128" height="88"/>
+        <element name="ThemeContainer" positionX="0" positionY="0" width="128" height="118"/>
         <element name="ThemeItem" positionX="27" positionY="162" width="128" height="118"/>
-        <element name="MenuContainer" positionX="9" positionY="153" width="128" height="58"/>
-        <element name="MenuHeader" positionX="18" positionY="162" width="128" height="103"/>
-        <element name="MenuItem" positionX="27" positionY="171" width="128" height="103"/>
     </elements>
 </model>

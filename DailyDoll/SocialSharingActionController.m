@@ -469,6 +469,8 @@
 
 - (void) googlePlusView:(UIButton *)button {
 
+    NSURL *webURL = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kURLString]];
+    [self.delegate socialWebView:webURL];
 }
 
 

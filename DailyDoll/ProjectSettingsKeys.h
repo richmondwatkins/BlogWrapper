@@ -13,7 +13,9 @@ typedef enum {
     PINTEREST,
     TWIITER,
     INSTAGRAM,
-    GOOGLEPLUS
+    GOOGLEPLUS,
+    EMAIL,
+    SMS
 } SocialType;
 
 typedef enum {
@@ -92,6 +94,10 @@ extern NSString *const kShareView;
 extern NSString *const kActivityIndicator;
 
 extern NSString *const kShareTableView;
+
+extern NSString *const kPrimaryColor;
+
+extern NSString *const kSecondaryColor;
 
 //Meta Data
 
