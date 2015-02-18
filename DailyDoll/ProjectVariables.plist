@@ -73,12 +73,6 @@
 				<array>
 					<dict>
 						<key>Id</key>
-						<integer>2</integer>
-						<key>Title</key>
-						<string>Tweet</string>
-					</dict>
-					<dict>
-						<key>Id</key>
 						<integer>0</integer>
 						<key>Title</key>
 						<string>Follow</string>
@@ -88,6 +82,12 @@
 						<integer>1</integer>
 						<key>Title</key>
 						<string>View</string>
+					</dict>
+					<dict>
+						<key>Id</key>
+						<integer>2</integer>
+						<key>Title</key>
+						<string>Tweet</string>
 					</dict>
 				</array>
 				<key>image</key>

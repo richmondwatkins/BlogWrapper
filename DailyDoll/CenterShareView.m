@@ -105,6 +105,15 @@ CGFloat const kButtonHeightAndWidth = 40;
             [shareButton addTarget:self action:@selector(tweet:) forControlEvents:UIControlEventTouchUpInside];
         break;
 
+        case 3:
+
+        break;
+
+        case 4:
+
+            [shareButton addTarget:self action:@selector(googlePlusShare:) forControlEvents:UIControlEventTouchUpInside];
+        break;
+
         default:
             break;
     }
@@ -120,7 +129,7 @@ CGFloat const kButtonHeightAndWidth = 40;
 
     NSString *accountPage = [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:kURLString];
 
-    BOOL didShare = [SocialShareMethods shareToFaceBookWithURL:params];
+    BOOL didShare = [[SocialShareMethods sharedManager] shareToFaceBookWithURL:params];
 
     if (!didShare) {
 
@@ -138,7 +147,7 @@ CGFloat const kButtonHeightAndWidth = 40;
 
     NSString *accountPage = [[ProjectSettings sharedManager] fetchSocialItem:PINTEREST withProperty:kURLString];
 
-    BOOL didShare = [SocialShareMethods pinToPinterest:imageURL andSource:sourceURL];
+    BOOL didShare = [[SocialShareMethods sharedManager] pinToPinterest:imageURL andSource:sourceURL];
 
     if (!didShare) {
 
@@ -153,15 +162,29 @@ CGFloat const kButtonHeightAndWidth = 40;
 
     NSString *blogName = [[ProjectSettings sharedManager] metaDataVariables:kSiteName];
 
-    NSString *accountPage = [[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:kURLString];
+//    NSString *accountPage = [[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:kURLString];
 
-    BOOL didShare = [SocialShareMethods shareToTwitter:[NSString stringWithFormat:@"%@ - %@", blogName, currentPage]];
+    BOOL didShare = [[SocialShareMethods sharedManager] shareToTwitter:[NSString stringWithFormat:@"%@ - %@", blogName, currentPage]];
 
     if (!didShare) {
 
-        [self.delegate socialWebView:[NSURL URLWithString:accountPage]];
+        [self.delegate oAuthSetUpDelegate:TWIITER];
+//        [self.delegate socialWebView:[NSURL URLWithString:accountPage]];
     }
 
+}
+
+- (void) googlePlusShare:(UIButton *)button {
+
+
+    NSURL *sourceURL = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kURLString]];
+
+    BOOL didShare = [[SocialShareMethods sharedManager] shareToGooglePlus:sourceURL.absoluteString];
+
+    if (!didShare) {
+
+        [self.delegate oAuthSetUpDelegate:GOOGLEPLUS];
+    }
 }
 
 

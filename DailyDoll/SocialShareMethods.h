@@ -16,13 +16,14 @@
 
 @interface SocialShareMethods : NSObject
 
++ (SocialShareMethods *)sharedManager;
 
-+ (BOOL)shareToFaceBookWithURL:(FBLinkShareParams *)params;
+- (BOOL)shareToFaceBookWithURL:(FBLinkShareParams *)params;
 
-+ (BOOL)pinToPinterest:(NSURL *)imageURL andSource:(NSURL *)sourceURL;
+- (BOOL)pinToPinterest:(NSURL *)imageURL andSource:(NSURL *)sourceURL;
 
-+ (BOOL)shareToTwitter:(NSString *)shareContent;
+- (BOOL)shareToTwitter:(NSString *)shareContent;
 
-+ (BOOL)shareToGooglePlus:(NSString *)shareContent;
+- (BOOL)shareToGooglePlus:(NSString *)shareContent;
 
 @end

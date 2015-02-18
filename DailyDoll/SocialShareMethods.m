@@ -11,8 +11,32 @@
 
 @implementation SocialShareMethods
 
+
+static SocialShareMethods *sharedSocialManager = nil;
+
++ (SocialShareMethods *)sharedManager {
+    @synchronized([SocialShareMethods class]){
+        if (sharedSocialManager == nil) {
+            sharedSocialManager = [[self alloc] init];
+        }
+
+        return sharedSocialManager;
+    }
+    return nil;
+}
+
++(id)alloc {
+    @synchronized([SocialShareMethods class])
+    {
+        NSAssert(sharedSocialManager == nil, @"Singleton already initialized.");
+        sharedSocialManager = [super alloc];
+        return sharedSocialManager;
+    }
+    return nil;
+}
+
 //========== FACEBOOK =========
-+(BOOL)shareToFaceBookWithURL:(FBLinkShareParams *)params {
+- (BOOL)shareToFaceBookWithURL:(FBLinkShareParams *)params {
 
     if ([FBDialogs canPresentShareDialogWithParams:params]) {
 
@@ -38,7 +62,7 @@
 
 }
 
-+ (void)shareToFacebookExternal:(FBLinkShareParams *) params {
+- (void)shareToFacebookExternal:(FBLinkShareParams *) params {
 
     [FBDialogs presentShareDialogWithLink:params.link
                                   handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
@@ -54,7 +78,7 @@
 
 }
 
-+ (void)shareToFacebookInternal:(NSString *)shareContent {
+- (void)shareToFacebookInternal:(NSString *)shareContent {
 
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
         SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
@@ -68,7 +92,7 @@
 //========== PINTEREST =========
 
 
-+(BOOL)pinToPinterest:(NSURL *)imageURL andSource:(NSURL *)sourceURL {
+- (BOOL)pinToPinterest:(NSURL *)imageURL andSource:(NSURL *)sourceURL {
 
     Pinterest *pinterest = [[Pinterest alloc] initWithClientId:@"1442952"];
 
@@ -88,7 +112,7 @@
 
 //========== TWITTER =========
 
-+ (BOOL)shareToTwitter:(NSString *)shareContent {
+- (BOOL)shareToTwitter:(NSString *)shareContent {
     //TODO add text and images to share...the title of the post
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
         SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
@@ -101,6 +125,65 @@
         //TODO ask to sign into twitter
         return NO;
     }
+}
+
+//TODO remove hard coded page id
+-(void)createFollowRelationshipWithTwitter:(TWTRSession *)twitterSession withFollowButton:(UIButton *)button {
+
+    NSString *statusesShowEndpoint;
+
+    BOOL isFollowing = [[ProjectSettings sharedManager] hasInteractedWithSocialItem:TWIITER];
+
+    if (!isFollowing) {
+
+        statusesShowEndpoint = @"https://api.twitter.com/1.1/friendships/create.json?follow=true";
+
+        [button setTitle:@"Following" forState:UIControlStateNormal];
+    }else {
+
+        statusesShowEndpoint = @"https://api.twitter.com/1.1/friendships/destroy.json?";
+
+        [button setTitle:@"Follow" forState:UIControlStateNormal];
+    }
+
+    [[ProjectSettings sharedManager] saveSocialInteraction:TWIITER withStatus:!isFollowing];
+
+    //TODO add activity indicator in button to show request
+
+    NSDictionary *params = @{@"user_id" : @"1630611914"};
+
+    NSError *clientError;
+    NSURLRequest *request = [[[Twitter sharedInstance] APIClient]
+                             URLRequestWithMethod:@"POST"
+                             URL:statusesShowEndpoint
+                             parameters:params
+                             error:&clientError];
+
+    if (request) {
+        [[[Twitter sharedInstance] APIClient]
+         sendTwitterRequest:request
+         completion:^(NSURLResponse *response,
+                      NSData *data,
+                      NSError *connectionError) {
+             if (data) {
+                 // handle the response data e.g.
+                 NSError *jsonError;
+                 NSDictionary *json = [NSJSONSerialization
+                                       JSONObjectWithData:data
+                                       options:0
+                                       error:&jsonError];
+
+                 NSLog(@"RESPONSE: %@",json);
+             }
+             else {
+                 NSLog(@"Error: %@", connectionError);
+             }
+         }];
+    }
+    else {
+        NSLog(@"Error: %@", clientError);
+    }
+    
 }
 
 //+ (TWTRLogInButton *)returnTwitterLoginButton {
@@ -134,7 +217,7 @@
 
 //========= GOOGLE PLUS ======
 
-+ (BOOL)shareToGooglePlus:(NSString *)shareContent {
+- (BOOL)shareToGooglePlus:(NSString *)shareContent {
 
     if ([[GPPSignIn sharedInstance] authentication]) {
 
@@ -156,6 +239,10 @@
     }
 
 }
+
+
+
+
 
 
 @end

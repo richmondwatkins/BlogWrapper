@@ -84,7 +84,7 @@
     
     params.link = [NSURL URLWithString:[NSString stringWithFormat:@"https://www.facebook.com/%@",
                                         [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:@"pageId"]]];
-    BOOL didShare = [SocialShareMethods shareToFaceBookWithURL:params];
+    BOOL didShare = [[SocialShareMethods sharedManager] shareToFaceBookWithURL:params];
 
     if (!didShare) {
 
@@ -176,7 +176,7 @@
     NSURL *imageURL = [NSURL URLWithString:@"http://placekitten.com/g/200/300"];
     NSURL *sourceURL = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:PINTEREST withProperty:kURLString]];
 
-    BOOL didShare = [SocialShareMethods pinToPinterest:imageURL andSource:sourceURL];
+    BOOL didShare = [[SocialShareMethods sharedManager] pinToPinterest:imageURL andSource:sourceURL];
 
     if (!didShare) {
 
@@ -290,6 +290,7 @@
                            action:@selector(openOnTwitter:)
                  forControlEvents:UIControlEventTouchUpInside];
 
+                break;
             case 2:
 
                 [button addTarget:self
@@ -321,7 +322,7 @@
 
     NSString *blogName = [[ProjectSettings sharedManager] fetchSocialItem:INSTAGRAM withProperty:kAccountName];
 
-    BOOL didShare = [SocialShareMethods shareToTwitter:[NSString stringWithFormat:@"%@ - %@", blogName, accountURLString]];
+    BOOL didShare = [[SocialShareMethods sharedManager] shareToTwitter:[NSString stringWithFormat:@"%@ - %@", blogName, accountURLString]];
 
     if (!didShare) {
 
@@ -348,55 +349,6 @@
 
     [self openWithAppOrWebView:[NSString stringWithFormat:@"twitter://user?id=%@", [[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:@"pageId"]]
                      andWebURL:[[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:kURLString]];
-}
-
-//TODO remove hard coded page id
-- (void)checkForCurrentTwitterRelationshipWithCompletion:(void(^)(BOOL))isFollowing {
-
-    NSString *statusesShowEndpoint = @"https://api.twitter.com/1.1/friendships/create.json?";
-
-    NSDictionary *params = @{@"user_id" : @"1630611914"};
-
-    NSError *clientError;
-    NSURLRequest *request = [[[Twitter sharedInstance] APIClient]
-                             URLRequestWithMethod:@"POST"
-                             URL:statusesShowEndpoint
-                             parameters:params
-                             error:&clientError];
-
-    if (request) {
-        [[[Twitter sharedInstance] APIClient]
-         sendTwitterRequest:request
-         completion:^(NSURLResponse *response,
-                      NSData *data,
-                      NSError *connectionError) {
-             if (data) {
-                 // handle the response data e.g.
-                 NSError *jsonError;
-                 NSDictionary *json = [NSJSONSerialization
-                                       JSONObjectWithData:data
-                                       options:0
-                                       error:&jsonError];
-
-                 NSLog(@"RESPONSE: %@",json);
-
-                 if (json[@"following"]) {
-
-                     isFollowing(YES);
-                 }else {
-
-                     isFollowing(NO);
-                 }
-                 
-             }
-             else {
-                 NSLog(@"Error: %@", connectionError);
-             }
-         }];
-    }
-    else {
-        NSLog(@"Error: %@", clientError);
-    }
 }
 
 
@@ -507,7 +459,7 @@
 
     NSURL *sourceURL = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kURLString]];
 
-    BOOL didShare = [SocialShareMethods shareToGooglePlus:sourceURL.absoluteString];
+    BOOL didShare = [[SocialShareMethods sharedManager] shareToGooglePlus:sourceURL.absoluteString];
 
     if (!didShare) {
 

@@ -195,12 +195,13 @@ CGFloat const kButtonHeight = 40;
 
 }
 
+//TODO Handle facebook like text
 - (void)handleFacebookLike:(UIButton *)button {
 
     if (self.facebookLikeStatus) {
-       [button setTitle:@"Liked" forState:UIControlStateNormal];
+//       [button setTitle:@"Liked" forState:UIControlStateNormal];
     }else {
-        [button setTitle:@"Liked" forState:UIControlStateNormal];
+//        [button setTitle:@"Liked" forState:UIControlStateNormal];
     }
 
     [[ProjectSettings sharedManager] saveSocialInteraction:TWIITER withStatus:!self.facebookLikeStatus];

@@ -40,6 +40,7 @@
     [self setUpDrawControllerAndButton];
 
     self.shareSlideUp = [[CenterShareView alloc] initWithFrameAndStyle:self.view.frame];
+    
     self.shareSlideUp.delegate = self;
 
     [self.view addSubview:self.shareSlideUp];
@@ -177,6 +178,13 @@
 
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:navigationObject.urlString]]];
 }
+
+- (void)oAuthSetUpDelegate:(int)socialOAuth {
+
+    [self instantiateOAuthLoginView:socialOAuth];
+}
+
+
 
 
 @end

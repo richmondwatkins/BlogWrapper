@@ -44,8 +44,5 @@
 
 -(void)createFollowRelationshipWithTwitter:(TWTRSession *)twitterSession withFollowButton:(UIButton *)button;
 
-- (void)checkForCurrentTwitterRelationshipWithCompletion:(void(^)(BOOL))isFollowing;
-
-
 
 @end
