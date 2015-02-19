@@ -18,24 +18,37 @@
 
 CGFloat const kButtonPadding = 20;
 CGFloat const kButtonHeight = 40;
+CGFloat const kTitleHeight = 40;
 
 @implementation SocialSharePopoverView {
 }
 
-- (instancetype)initWithParentFrame:(CGRect)windowFrame andButtons:(NSArray *)buttons {
+- (instancetype)initWithParentFrame:(CGRect)windowFrame andButtons:(NSArray *)buttons andSocialSiteName:(NSString *)socialSite {
 
     if (self = [super init]) {
         self.frame = CGRectMake(0, 0, windowFrame.size.width, windowFrame.size.height);
         self.backgroundColor = [UIColor blackColor];
         self.alpha = 0;
 
-        UIView *popUp = [[UIView alloc] initWithFrame:CGRectMake(0, windowFrame.size.height * 2, windowFrame.size.width * 0.8, (buttons.count * kButtonHeight) + (buttons.count + 1) * kButtonPadding)];
+        UIView *popUp = [[UIView alloc] initWithFrame:CGRectMake(0, windowFrame.size.height * 2, windowFrame.size.width * 0.8, (buttons.count * kButtonHeight) + (buttons.count + 1) * kButtonPadding + kTitleHeight)];
 
         popUp.alpha = 0;
         popUp.backgroundColor = [UIColor whiteColor];
         popUp.layer.cornerRadius = 5;
         popUp.layer.shadowOpacity = 0.8;
-        popUp.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+        popUp.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
+
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, popUp.frame.size.width, kTitleHeight)];
+
+        NSString *blogName = [[ProjectSettings sharedManager] metaDataVariables:kBlogName];
+
+        titleLabel.text = [NSString stringWithFormat:@"%@ on %@", blogName, socialSite];
+        [titleLabel sizeToFit];
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+
+        [popUp addSubview:titleLabel];
+
+        [titleLabel setCenter:CGPointMake(popUp.frame.size.width /2, titleLabel.frame.size.height)];
 
         for (UIButton *button in buttons) {
             if ([button.titleLabel.text isEqualToString:@"Like"]) {
@@ -50,7 +63,7 @@ CGFloat const kButtonHeight = 40;
 
                 [popUp addSubview:button];
 
-                if (lastSubView) {
+                if (lastSubView && ![lastSubView isKindOfClass:[UILabel class]]) {
 
                     [button setCenter:CGPointMake(popUp.frame.size.width / 2,
                                                   lastSubView.center.y + button.frame.size.height + kButtonPadding)];
@@ -74,7 +87,7 @@ CGFloat const kButtonHeight = 40;
 - (void)setFirstButton:(UIControl *)button withPopUp:(UIView *)popUp {
 
      [button setCenter:CGPointMake(popUp.frame.size.width / 2,
-                                 kButtonPadding + (kButtonHeight / 2))];
+                                 (kButtonPadding + kTitleHeight) + kTitleHeight / 3)];
 }
 
 - (void)animateOnToScreen {
@@ -180,7 +193,8 @@ CGFloat const kButtonHeight = 40;
     like.likeControlAuxiliaryPosition = FBLikeControlHorizontalAlignmentCenter;
 
     UIView *lastSubView = [[popUp subviews] lastObject];
-    if (lastSubView) {
+
+    if (lastSubView && ![lastSubView isKindOfClass:[UILabel class]]) {
         
         [like setCenter:CGPointMake(popUp.frame.size.width / 2,
                                       lastSubView.center.y + button.frame.size.height + kButtonPadding)];

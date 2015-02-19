@@ -12,7 +12,7 @@
 
 @protocol SideMenuProtocol <NSObject>
 
-- (void)selectedSideMenuItem:(MenuItem *)navigationObject;
+- (void)selectedSideMenuItem:(NSString *)urlString;
 
 @end
 

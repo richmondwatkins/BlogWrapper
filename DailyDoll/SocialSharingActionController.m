@@ -65,7 +65,7 @@
 
     }
 
-    self.popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
+    self.popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons] andSocialSiteName:kFacebook ];
 
     return self.popUpView;
 }
@@ -164,7 +164,7 @@
         
     }
 
-    SocialSharePopoverView *popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
+    SocialSharePopoverView *popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons] andSocialSiteName:kPintrest];
 
     return popUpView;
 
@@ -239,7 +239,7 @@
 
     }
 
-    SocialSharePopoverView *popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
+    SocialSharePopoverView *popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons] andSocialSiteName:kInstagram];
 
     return popUpView;
 
@@ -310,7 +310,7 @@
 
     }
 
-    self.popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
+    self.popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons] andSocialSiteName:@"Twitter"];
     
     return self.popUpView;
     
@@ -447,7 +447,7 @@
 
     }
     
-    self.popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons]];
+    self.popUpView = [[SocialSharePopoverView alloc] initWithParentFrame:windowFrame andButtons:[NSArray arrayWithArray:buttons] andSocialSiteName:kGooglePlus];
     
     return self.popUpView;
 

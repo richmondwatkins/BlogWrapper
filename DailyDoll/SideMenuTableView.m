@@ -14,13 +14,13 @@
 
 -(void)removeInsetsAndStyle {
 
-    if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
-        [self setSeparatorInset:UIEdgeInsetsZero];
-    }
-
-    if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
-        [self setLayoutMargins:UIEdgeInsetsZero];
-    }
+//    if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
+//        [self setSeparatorInset:UIEdgeInsetsZero];
+//    }
+//
+//    if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
+//        [self setLayoutMargins:UIEdgeInsetsZero];
+//    }
 
     self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:SIDEMENUTABLEVIEW withProperty:kBackgroundColor]];
     self.showsVerticalScrollIndicator = NO;
@@ -30,4 +30,9 @@
 
 }
 
+
+- (UIEdgeInsets)layoutMargins
+{
+    return UIEdgeInsetsZero;
+}
 @end

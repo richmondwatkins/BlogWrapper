@@ -19,13 +19,13 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DailyDoll/SocialSharePopoverView.m"
-            timestampString = "445560605.080322"
+            filePath = "DailyDoll/ProjectSettings.m"
+            timestampString = "445999590.942947"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
-            landmarkName = "-animateOffScreen"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
+            landmarkName = "-fetchThemeItem:withProperty:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

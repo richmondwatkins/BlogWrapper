@@ -11,6 +11,8 @@
 #import "SocialItem.h"
 #import "SocialShareMethods.h"
 
+#import <QuartzCore/QuartzCore.h>
+
 @import Social;
 
 @interface CenterShareView ()
@@ -25,6 +27,8 @@
 
 CGFloat const kButtonHeightAndWidth = 40;
 
+CGFloat const kTitleLabelHeight= 15;
+
 @implementation CenterShareView
 
 - (instancetype)initWithFrameAndStyle:(CGRect)parentFrame {
@@ -35,9 +39,9 @@ CGFloat const kButtonHeightAndWidth = 40;
 
         CGFloat height = parentFrame.size.height * 0.1;
 
-        self.frame = CGRectMake(0, 0, parentFrame.size.width, height);
+        self.frame = CGRectMake(0, 0, parentFrame.size.width, height + kTitleLabelHeight);
 
-        self.originalCenter = CGPointMake(parentFrame.size.width / 2, parentFrame.size.height + height / 2);
+        self.originalCenter = CGPointMake(parentFrame.size.width / 2, (parentFrame.size.height + height / 2) + kTitleLabelHeight/2);
 
         [self setCenter:self.originalCenter];
 
@@ -45,11 +49,28 @@ CGFloat const kButtonHeightAndWidth = 40;
 
         self.maxTopYPostition = self.originalCenter.y - self.frame.size.height;
 
+        [self addTitleLabel];
+
         [self addShareButtonsToView];
 
     }
 
     return self;
+}
+
+- (void) addTitleLabel {
+
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, kTitleLabelHeight)];
+
+    titleLabel.text = @"Share this page via...";
+
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+
+    [titleLabel setFont:[UIFont fontWithName:@"Arial" size:12]];
+
+    [self addSubview:titleLabel];
+
+    [titleLabel setCenter:CGPointMake(self.frame.size.width /2, self.frame.size.height / titleLabel.frame.size.height + 2)];
 }
 
 - (void)addShareButtonsToView {
@@ -74,12 +95,12 @@ CGFloat const kButtonHeightAndWidth = 40;
 
         [self addSubview:socialButton];
 
-        if (lastSubView) {
+        if (lastSubView && ![lastSubView isKindOfClass:[UILabel class]]) {
 
-            [socialButton setCenter:CGPointMake(lastSubView.center.x + (buttonPadding+ kButtonHeightAndWidth/2), self.frame.size.height / 2)];
+            [socialButton setCenter:CGPointMake(lastSubView.center.x + (buttonPadding+ kButtonHeightAndWidth/2) , (self.frame.size.height / 2) + kTitleLabelHeight/2    )];
         }else {
 
-            [socialButton setCenter:CGPointMake(buttonPadding + (kButtonHeightAndWidth/2), self.frame.size.height / 2)];
+            [socialButton setCenter:CGPointMake(buttonPadding + (kButtonHeightAndWidth/2), (self.frame.size.height / 2) + kTitleLabelHeight/2)];
         }
 
     }
@@ -109,9 +130,11 @@ CGFloat const kButtonHeightAndWidth = 40;
             //instagram
         break;
 
-        case 4:
+        case 4: {
 
             [shareButton addTarget:self action:@selector(googlePlusShare:) forControlEvents:UIControlEventTouchUpInside];
+
+        }
         break;
 
         case 5:

@@ -18,7 +18,9 @@
 
         self.contentMode = UIViewContentModeScaleAspectFill;
 
-        self.frame = CGRectMake(0, 0, menuWidth / 2, self.image.size.height);
+        CGFloat height = self.image.size.height;
+
+        self.frame = CGRectMake(0, 0, menuWidth / 2, height);
 
     }
 

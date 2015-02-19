@@ -16,6 +16,10 @@
 
     self.textLabel.text = [menuItem.title uppercaseString];
     self.textLabel.textAlignment = NSTextAlignmentCenter;
+
+//    NSString *fontName = [[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kFontFamily];
+
+    [self.textLabel setFont:[UIFont fontWithName:@"Arial" size:18]];
 }
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
@@ -24,17 +28,9 @@
 
 
         self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:SIDEMENUCELL withProperty:kBackgroundColor]];
-
-        if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
-            [self setSeparatorInset:UIEdgeInsetsZero];
-        }
-
-        if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
-            [self setLayoutMargins:UIEdgeInsetsZero];
-        }
-        
     }
-    
+
+
     return self;
 }
 
@@ -47,6 +43,25 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)layoutSubviews {
+
+    [super layoutSubviews];
+
+    //prevents label line from showing up on iPhone 5
+    self.textLabel.frame = self.contentView.frame;
+
+    if ([self respondsToSelector:@selector(setSeparatorInset:)])
+        [self setSeparatorInset:UIEdgeInsetsZero];
+
+    if ([self respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
+        [self setPreservesSuperviewLayoutMargins:NO];;
+    }
+
+    if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
+        [self setLayoutMargins:UIEdgeInsetsZero];
+    }
 }
 
 @end

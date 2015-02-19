@@ -44,6 +44,8 @@
     self.shareSlideUp.delegate = self;
 
     [self.view addSubview:self.shareSlideUp];
+
+    [[ProjectSettings sharedManager] listFonts];
 }
 
 - (void)setUpDrawControllerAndButton {
@@ -53,7 +55,16 @@
     SideMenuViewController *sideMenuVC = (SideMenuViewController *) self.drawerController.leftDrawerViewController;
     sideMenuVC.delegate = self;
 
-    self.navigationItem.leftBarButtonItem = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(showSideMenu)];
+    [self setLeftNavigationItem];
+}
+
+- (void)setLeftNavigationItem {
+
+    UIBarButtonItem *leftBarButton = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"left-menu"]
+                                                                    style:UIBarButtonItemStylePlain
+                                                                   target:self
+                                                                   action:@selector(showSideMenu)];
+    self.navigationItem.leftBarButtonItem = leftBarButton;
     self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithHexString: [[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kSecondaryColor]];
 }
 
@@ -183,9 +194,9 @@
     [self.drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
 }
 
-- (void)selectedSideMenuItem:(MenuItem *)navigationObject {
+- (void)selectedSideMenuItem:(NSString *)urlString {
 
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:navigationObject.urlString]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
 }
 
 - (void)oAuthSetUpDelegate:(int)socialOAuth {

@@ -41,4 +41,6 @@
 
 - (NSArray *)shareItemsWithoutInstagram;
 
+- (void)listFonts;
+
 @end

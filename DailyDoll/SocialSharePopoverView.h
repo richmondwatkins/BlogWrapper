@@ -19,7 +19,7 @@
 
 @property id<SocialPopUp> delegate;
 
-- (instancetype)initWithParentFrame:(CGRect)windowFrame andButtons:(NSArray *)buttons;
+- (instancetype)initWithParentFrame:(CGRect)windowFrame andButtons:(NSArray *)buttons andSocialSiteName:(NSString *)socialSite;
 
 - (void)animateOffScreen;
 

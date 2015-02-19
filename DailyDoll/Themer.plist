@@ -5,7 +5,7 @@
 	<key>Meta</key>
 	<dict>
 		<key>fontFamily</key>
-		<string></string>
+		<string>LibreBaskerville-Bold</string>
 		<key>secondaryColor</key>
 		<string>ffffff</string>
 		<key>primaryColor</key>
@@ -27,7 +27,7 @@
 			<key>fontFamily</key>
 			<string></string>
 			<key>fontColor</key>
-			<string></string>
+			<string>f4f7fc</string>
 			<key>id</key>
 			<integer>7</integer>
 			<key>backgroundColor</key>

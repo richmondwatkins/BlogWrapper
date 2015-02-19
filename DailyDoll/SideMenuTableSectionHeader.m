@@ -15,7 +15,7 @@
 
     if (self = [super init]) {
         
-        self.frame = CGRectMake(0, 0, parentFrame.size.width, 15);
+        self.frame = CGRectMake(0, 0, parentFrame.size.width, 20);
 
         self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:SIDEMENUSECTIONHEADER withProperty:kBackgroundColor]];
     }

@@ -80,6 +80,8 @@
 		5DDA3DC91A867F7E00FD085A /* ShareTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DC81A867F7E00FD085A /* ShareTableView.m */; };
 		5DDA3DCC1A8681EF00FD085A /* ProjectSettingsKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DCB1A8681EF00FD085A /* ProjectSettingsKeys.m */; };
 		5DDA3DCF1A8685A200FD085A /* ShareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DCE1A8685A200FD085A /* ShareTableViewCell.m */; };
+		5DF7A6441A955FFC009BA5EE /* GreatVibes-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5DF7A6431A955FFC009BA5EE /* GreatVibes-Regular.otf */; };
+		5DF7A6461A95650E009BA5EE /* LibreBaskerville-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5DF7A6451A95650E009BA5EE /* LibreBaskerville-Bold.otf */; };
 		BDF89CC8C066F8FFE29F7BC1 /* libPods-DailyDoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 579988490B7E0E905A16D25A /* libPods-DailyDoll.a */; };
 /* End PBXBuildFile section */
 
@@ -210,6 +212,8 @@
 		5DDA3DCB1A8681EF00FD085A /* ProjectSettingsKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectSettingsKeys.m; sourceTree = "<group>"; };
 		5DDA3DCD1A8685A200FD085A /* ShareTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareTableViewCell.h; sourceTree = "<group>"; };
 		5DDA3DCE1A8685A200FD085A /* ShareTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareTableViewCell.m; sourceTree = "<group>"; };
+		5DF7A6431A955FFC009BA5EE /* GreatVibes-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GreatVibes-Regular.otf"; sourceTree = "<group>"; };
+		5DF7A6451A95650E009BA5EE /* LibreBaskerville-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LibreBaskerville-Bold.otf"; sourceTree = "<group>"; };
 		680B8C91B0508131C24B223C /* Pods-DailyDoll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDoll.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DailyDoll/Pods-DailyDoll.debug.xcconfig"; sourceTree = "<group>"; };
 		AA7FAADA7B793178F851DF47 /* Pods-DailyDoll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDoll.release.xcconfig"; path = "Pods/Target Support Files/Pods-DailyDoll/Pods-DailyDoll.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -447,6 +451,7 @@
 		5DDA1B1C1A7F383C00914761 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5DF7A6421A955FE8009BA5EE /* Fonts */,
 				5D9F58BE1A8E77DD00A53BB7 /* GooglePlus */,
 				5D9F58BD1A8E77C900A53BB7 /* Twitter */,
 				5D9F58BC1A8E77BF00A53BB7 /* PInterest */,
@@ -607,6 +612,15 @@
 			name = TableView;
 			sourceTree = "<group>";
 		};
+		5DF7A6421A955FE8009BA5EE /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5DF7A6451A95650E009BA5EE /* LibreBaskerville-Bold.otf */,
+				5DF7A6431A955FFC009BA5EE /* GreatVibes-Regular.otf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -730,10 +744,12 @@
 				5D9F59DB1A8E781D00A53BB7 /* README in Resources */,
 				5D7F6B3F1A898EC600A207CD /* PinterestSDKResources.bundle in Resources */,
 				5DDA3DAC1A85E67700FD085A /* ProjectVariables.plist in Resources */,
+				5DF7A6461A95650E009BA5EE /* LibreBaskerville-Bold.otf in Resources */,
 				5D6C98631A8D01AE00EB408E /* Themer.plist in Resources */,
 				5D0EDAB61A830290007DE68D /* MenuItems.plist in Resources */,
 				5DA64CD51A847A7A004F08A8 /* HeaderView.xib in Resources */,
 				5DDA1B2D1A7F383C00914761 /* LaunchScreen.xib in Resources */,
+				5DF7A6441A955FFC009BA5EE /* GreatVibes-Regular.otf in Resources */,
 				5DDA3DBC1A86053200FD085A /* post.js in Resources */,
 				5DDA3DB11A85F27F00FD085A /* webViewJS.js in Resources */,
 				5D7F6B5D1A8A893800A207CD /* TwitterKitResources.bundle in Resources */,

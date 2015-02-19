@@ -96,22 +96,37 @@
         case 0:
 
            self.socialPopUp = [self.actionController facebookPopConfig:mainWindow.frame];
+
+            [self displaySocialPoUp];
+
             break;
         case 1:
 
             self.socialPopUp = [self.actionController pintrestPopConfig:mainWindow.frame];
+
+            [self displaySocialPoUp];
+
             break;
         case 2:
 
             self.socialPopUp = [self.actionController twitterPopConfig:mainWindow.frame];
+
+            [self displaySocialPoUp];
+
             break;
         case 3:
             
             self.socialPopUp = [self.actionController instagramPopConfig:mainWindow.frame];
+
+            [self displaySocialPoUp];
+
             break;
         case 4:
             
             self.socialPopUp = [self.actionController googlePlusPopConfig:mainWindow.frame];
+
+            [self displaySocialPoUp];
+
             break;
 
         case 5: {
@@ -137,9 +152,6 @@
         default:
             break;
     }
-
-    [self displaySocialPoUp];
-
 }
 
 - (int)returnWidthForShareVC {

@@ -64,15 +64,15 @@ NSString *const kActivityIndicator = @"activityIndicator";
 
 //Social
 
-NSString *const kInstagram = @"instagram";
+NSString *const kInstagram = @"Instagram";
 
-NSString *const kFacebook = @"facebook";
+NSString *const kFacebook = @"Facebook";
 
-NSString *const kTwitter = @"twitter";
+NSString *const kTwitter = @"Twitter";
 
-NSString *const kPintrest= @"pinterest";
+NSString *const kPintrest= @"Pinterest";
 
-NSString *const kGooglePlus = @"googlePlus";
+NSString *const kGooglePlus = @"Google +";
 
 NSString *const kButtons = @"buttons";
 

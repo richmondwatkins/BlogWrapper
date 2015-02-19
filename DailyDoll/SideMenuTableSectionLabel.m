@@ -7,6 +7,7 @@
 //
 
 #import "SideMenuTableSectionLabel.h"
+#import "ProjectSettings.h"
 
 @implementation SideMenuTableSectionLabel
 
@@ -14,11 +15,19 @@
 
     if (self = [super init]) {
 
-        self.frame = CGRectMake(0, height / 2, width, 15);
+        self.frame = CGRectMake(0, height / 2, width, 20);
 
         self.textAlignment = NSTextAlignmentCenter;
 
         self.text = [text uppercaseString];
+
+        NSString *fontName = [[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kFontFamily];
+
+        [self setFont:[UIFont fontWithName:fontName size:18]];
+
+        self.textColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kSecondaryColor]];
+
+        [self setCenter:CGPointMake(width / 2, 15)];
     }
 
     return self;

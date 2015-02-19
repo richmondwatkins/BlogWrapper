@@ -147,7 +147,7 @@
 
     MenuItem *menuItem = [[self.dataSource[indexPath.section] valueForKey:@"menuItems"] allObjects][indexPath.row];
 
-    [self.delegate selectedSideMenuItem:menuItem];
+    [self.delegate selectedSideMenuItem:menuItem.urlString];
 
     MMDrawerController *drawController = (MMDrawerController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
 
@@ -159,6 +159,7 @@
 
     return (self.tableView.frame.size.height / 4) / self.dataSource.count;
 }
+
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 
@@ -177,12 +178,9 @@
 
 - (void)displayHomePage:(id)sender {
 
-    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle]
-                                                                           pathForResource:@"MenuItems"
-                                                                           ofType:@"plist"]];
+    NSString *homeUrl = [[ProjectSettings sharedManager] metaDataVariables:kURLString];
 
-    //TODO add Home url and menu variables to core data
-    [self.delegate selectedSideMenuItem:[dictionary objectForKey:@"Home"][@"URL"]];
+    [self.delegate selectedSideMenuItem:homeUrl];
 
 
     MMDrawerController *drawController = (MMDrawerController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
