@@ -11,11 +11,11 @@
 
 @implementation SideMenuTableSectionLabel
 
-- (instancetype)initWithHeight:(CGFloat)height andWidth:(CGFloat)width andText:(NSString *)text {
+- (instancetype)initWithParentFrame:(CGRect)parentFrame andText:(NSString *)text {
 
     if (self = [super init]) {
 
-        self.frame = CGRectMake(0, height / 2, width, 20);
+        self.frame = CGRectMake(0, parentFrame.size.height / 2, parentFrame.size.width, 20);
 
         self.textAlignment = NSTextAlignmentCenter;
 
@@ -27,7 +27,7 @@
 
         self.textColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kSecondaryColor]];
 
-        [self setCenter:CGPointMake(width / 2, 15)];
+        [self setCenter:CGPointMake(parentFrame.size.width / 2, 15)];
     }
 
     return self;

@@ -10,6 +10,6 @@
 
 @interface SideMenuTableSectionLabel : UILabel
 
-- (instancetype)initWithHeight:(CGFloat)height andWidth:(CGFloat)width andText:(NSString *)text;
+- (instancetype)initWithParentFrame:(CGRect)parentFrame andText:(NSString *)text;
 
 @end

@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MenuItem.h"
 
 @interface SideMenuTableSectionHeader : UIView
 
-- (instancetype)initWithParentFrame:(CGRect)parentFrame;
+- (instancetype)initWithParentFrame:(CGRect)parentFrame andMenuItem:(MenuItem *)menuItem;
 
 @end

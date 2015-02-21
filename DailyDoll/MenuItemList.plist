@@ -20,17 +20,26 @@
 					<key>position</key>
 					<integer>1</integer>
 					<key>urlString</key>
-					<string>http://thedailydoll.com/category/beauty/i-love-the-drugstore-beauty/</string>
+					<string>http://thedailydoll.com/videos/</string>
 					<key>title</key>
-					<string>i love the drugstore</string>
+					<string>videos</string>
 				</dict>
+			</array>
+			<key>title</key>
+			<string>videos</string>
+		</dict>
+		<dict>
+			<key>position</key>
+			<integer>2</integer>
+			<key>menuItems</key>
+			<array>
 				<dict>
 					<key>position</key>
-					<integer>2</integer>
+					<integer>1</integer>
 					<key>urlString</key>
-					<string>http://thedailydoll.com/category/beauty/hidden-jewels-beauty/</string>
+					<string>http://thedailydoll.com/category/beauty/i-love-the-drugstore-beauty/</string>
 					<key>title</key>
-					<string>hidden jewels</string>
+					<string>i adore the drugstore</string>
 				</dict>
 				<dict>
 					<key>position</key>
@@ -54,7 +63,7 @@
 		</dict>
 		<dict>
 			<key>position</key>
-			<integer>1</integer>
+			<integer>0</integer>
 			<key>menuItems</key>
 			<array>
 				<dict>
@@ -87,7 +96,7 @@
 		</dict>
 		<dict>
 			<key>position</key>
-			<integer>2</integer>
+			<integer>1</integer>
 			<key>menuItems</key>
 			<array>
 				<dict>

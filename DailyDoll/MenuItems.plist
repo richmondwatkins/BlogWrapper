@@ -11,10 +11,14 @@
 	</dict>
 	<key>Menu</key>
 	<array>
-		<array>
+		<dict>
+			<key>position</key>
+			<integer>0</integer>
+			<key>title</key>
 			<array>
 				<string>THE LIFE STUFF</string>
 			</array>
+			<key>menuItems</key>
 			<array>
 				<dict>
 					<key>URL</key>
@@ -35,11 +39,15 @@
 					<string>INSPIRATION BITS</string>
 				</dict>
 			</array>
-		</array>
-		<array>
+		</dict>
+		<dict>
+			<key>position</key>
+			<integer>1</integer>
+			<key>title</key>
 			<array>
 				<string>THE WELLNESS STUFF</string>
 			</array>
+			<key>menuItems</key>
 			<array>
 				<dict>
 					<key>URL</key>
@@ -48,23 +56,27 @@
 					<string>HAVE A HAPPY BODY</string>
 				</dict>
 			</array>
-		</array>
-		<array>
+		</dict>
+		<dict>
+			<key>position</key>
+			<integer>2</integer>
+			<key>title</key>
 			<array>
 				<string>THE BEAUTY STUFF</string>
 			</array>
+			<key>menuItems</key>
 			<array>
+				<dict>
+					<key>URL</key>
+					<string>http://thedailydoll.com/category/beauty/beauty-talk/</string>
+					<key>Title</key>
+					<string>BEAUTY TALK &amp; REVIEWS</string>
+				</dict>
 				<dict>
 					<key>URL</key>
 					<string>http://thedailydoll.com/category/beauty/i-love-the-drugstore-beauty/</string>
 					<key>Title</key>
-					<string>I LOVE THE DRUGSTORE</string>
-				</dict>
-				<dict>
-					<key>URL</key>
-					<string>http://thedailydoll.com/category/beauty/hidden-jewels-beauty/</string>
-					<key>Title</key>
-					<string>HIDDEN JEWELS</string>
+					<string>I ADORE THE DRUGSTORE</string>
 				</dict>
 				<dict>
 					<key>URL</key>
@@ -72,14 +84,8 @@
 					<key>Title</key>
 					<string>DIY BEAUTY</string>
 				</dict>
-				<dict>
-					<key>URL</key>
-					<string>http://thedailydoll.com/category/beauty/beauty-talk/</string>
-					<key>Title</key>
-					<string>BEAUTY TALK &amp; REVIEWS</string>
-				</dict>
 			</array>
-		</array>
+		</dict>
 	</array>
 </dict>
 </plist>

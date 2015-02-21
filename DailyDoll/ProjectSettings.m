@@ -352,9 +352,13 @@ static ProjectSettings *sharedThemeManager = nil;
 
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
-    NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:menuItemFetch error:nil];
+    NSMutableArray *results = [[appDelegate.managedObjectContext executeFetchRequest:menuItemFetch error:nil] mutableCopy];
 
-    return results;
+    NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"position" ascending:YES];
+
+    [results sortUsingDescriptors:@[sortDescriptor]];
+
+    return [NSArray arrayWithArray:results];
 }
 
 // META DATA

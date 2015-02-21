@@ -134,13 +134,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
 
-    SideMenuTableSectionHeader *view = [[SideMenuTableSectionHeader alloc] initWithParentFrame:self.view.frame];
-
-    SideMenuTableSectionLabel *label = [[SideMenuTableSectionLabel alloc] initWithHeight:view.frame.size.height
-                                                                                andWidth:tableView.frame.size.width
-                                                                                 andText:[self.dataSource[section] valueForKey: @"title"]];
-
-    [view addSubview:label];
+    SideMenuTableSectionHeader *view = [[SideMenuTableSectionHeader alloc] initWithParentFrame:self.view.frame andMenuItem:self.dataSource[section]];
 
     return view;
 }

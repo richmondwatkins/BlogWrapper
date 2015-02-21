@@ -186,7 +186,7 @@ CGFloat const kTitleHeight = 40;
 
 
     FBLikeControl *like = [[FBLikeControl alloc] initWithFrame:CGRectMake(0, 0, popUp.frame.size.width * 0.8, kButtonHeight) andTitle:buttonTitle];
-   
+
     like.objectID = [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:kURLString];
     like.preferredMaxLayoutWidth = 300;
     like.likeControlStyle = FBLikeControlStyleButton;
