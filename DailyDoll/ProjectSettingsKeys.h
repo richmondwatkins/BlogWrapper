@@ -9,13 +9,13 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    FACEBOOK,
-    PINTEREST,
-    TWIITER,
-    INSTAGRAM,
-    GOOGLEPLUS,
-    EMAIL,
-    SMS
+    FACEBOOK = 0,
+    PINTEREST = 1,
+    TWIITER = 2,
+    INSTAGRAM = 3,
+    GOOGLEPLUS = 4,
+    EMAIL = 5,
+    SMS = 6
 } SocialType;
 
 typedef enum {
@@ -105,6 +105,11 @@ extern NSString *const kDomainString;
 
 extern NSString *const kSiteName;
 
+extern NSString *const kMetaData;
+
+extern NSString *const kAccessoryPages;
+
+extern NSString *const kEmail;
 
 // Key Chain
 

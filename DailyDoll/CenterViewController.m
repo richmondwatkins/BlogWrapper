@@ -19,20 +19,23 @@
 #import "CenterShareView.h"
 
 @interface CenterViewController () <UIWebViewDelegate, SideMenuProtocol, UIScrollViewDelegate, CenterShare>
-@property UIWebView *webView;
+
+@property (nonatomic, strong)  UIWebView *webView;
 @property NSURLRequest *externalRequest;
 @property MMDrawerController *drawerController;
 @property BlurActivityOverlay *blurOverlay;
 @property CenterVCActivityIndicator *acitivityIndicator;
 @property CGPoint lastScrollPosition;
-@property BOOL isScrollingDown;
+@property (nonatomic)  BOOL isScrollingDown;
 @property CenterShareView *shareSlideUp;
 
 @end
 
 @implementation CenterViewController
 
+
 - (void)viewDidLoad {
+
     [super viewDidLoad];
 
     [self setUpWebView];
@@ -69,7 +72,6 @@
 }
 
 - (void)setRightNavigationItem {
-    //TODO move colors to theme manager and find share imag
 
     UIBarButtonItem *rightBarButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"share"]
                                                           style:UIBarButtonItemStylePlain
@@ -108,6 +110,8 @@
     }
 
     [self.shareSlideUp animateOffScreen];
+
+    [self removeWindowViews];
 
     return YES;
 }
@@ -186,10 +190,14 @@
 
 - (void)showSideMenu {
 
+    [self.shareSlideUp animateOffScreen];
+
     [self.drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
 - (void)presentShareVC:(id)sender {
+
+    [self.shareSlideUp animateOffScreen];
 
     [self.drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
 }
@@ -204,7 +212,10 @@
     [self instantiateOAuthLoginView:socialOAuth];
 }
 
+- (void)removeWindowViews {
 
+    [self removeViewsFromWindow];
+}
 
 
 @end

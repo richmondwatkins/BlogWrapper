@@ -28,5 +28,6 @@
 
 - (void)instantiateOAuthLoginView:(int)socialType;
 
+- (void)removeViewsFromWindow;
 
 @end

@@ -18,6 +18,7 @@
 - (void)facebookShareExternal:(FBLinkShareParams *)shareContent;
 - (NSURL *)returnCurrentURL;
 - (void)oAuthSetUpDelegate:(int)socialOAuth;
+- (void)removeWindowViews;
 
 @end
 

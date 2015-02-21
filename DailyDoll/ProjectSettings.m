@@ -16,6 +16,7 @@
 #import "MetaData.h"
 #import "Button.h"
 #import "ProjectVariable.h"
+#import "AccessoryPage.h"
 #import "SocialContainer.h"
 #import "SocialItem.h"
 
@@ -44,7 +45,7 @@ static ProjectSettings *sharedThemeManager = nil;
 + (ProjectSettings *)sharedManager {
     @synchronized([ProjectSettings class]){
         if (sharedThemeManager == nil) {
-            sharedThemeManager = [[self alloc] initFromPlist];
+            sharedThemeManager = [[self alloc] init];
         }
 
         return sharedThemeManager;
@@ -83,9 +84,26 @@ static ProjectSettings *sharedThemeManager = nil;
                                                                                ofType:@"plist"]];
         self.menuItems = [dictionary objectForKey:@"Menu"];
 
+        
+        [self addImagesToFileSystem];
     }
 
     return self;
+}
+
+- (void)addImagesToFileSystem {
+
+    UIImage *logo = [UIImage imageNamed:@"logo"];
+
+    NSData *logoData = UIImagePNGRepresentation(logo);
+
+    NSArray *docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+
+    NSString *path = [docPaths objectAtIndex:0];
+
+    NSString *filePath = [path stringByAppendingPathComponent:@"logo.png"]; //Add the file name
+
+    [logoData writeToFile:filePath atomically:YES]; //Write the file
 }
 
 // Theme Set - Core Data
@@ -133,12 +151,37 @@ static ProjectSettings *sharedThemeManager = nil;
 
 - (MetaData *)setMetaData:(NSManagedObjectContext *)moc {
 
-    MetaData *metaData = [NSEntityDescription insertNewObjectForEntityForName:@"MetaData" inManagedObjectContext:moc];
-    metaData.domain = self.projectVariables[@"MetaData"][@"DomainString"];
-    metaData.name = self.projectVariables[@"MetaData"][@"Name"];
-    metaData.urlString = self.projectVariables[@"MetaData"][kURLString];
+    MetaData *metaData = [NSEntityDescription insertNewObjectForEntityForName:kMetaData inManagedObjectContext:moc];
+    metaData.domain = self.projectVariables[kMetaData][kDomainString];
+    metaData.name = self.projectVariables[kMetaData][kSiteName];
+    metaData.urlString = self.projectVariables[kMetaData][kURLString];
+    metaData.email = self.projectVariables[kMetaData][kEmail];
+    
+    [metaData addAccessoryPages:[self returnAccesorryPages:moc]];
 
     return metaData;
+}
+
+- (NSSet *)returnAccesorryPages:(NSManagedObjectContext *)moc {
+
+    NSArray *accessoryPages = self.projectVariables[kMetaData][kAccessoryPages];
+
+    NSMutableArray *accessPageMutablearray = [NSMutableArray array];
+
+    for (NSDictionary *accessoryPage in accessoryPages) {
+
+        AccessoryPage *accPage = [NSEntityDescription insertNewObjectForEntityForName:@"AccessoryPage" inManagedObjectContext:moc];
+
+        for (NSString *key in [accessoryPage allKeys]) {
+
+            [accPage setValue:accessoryPage[key] forKey:key];
+        }
+
+        [accessPageMutablearray addObject:accPage];
+    }
+
+    return [NSSet setWithArray:accessPageMutablearray];
+
 }
 
 - (NSSet *)returnSocialItemSet:(NSManagedObjectContext *)moc {
@@ -211,7 +254,6 @@ static ProjectSettings *sharedThemeManager = nil;
     return [NSSet setWithArray:menuItemsArray];
 }
 
-//TODO setup primary and secondary colors
 //TODO add option for email news letter sign up
 
 - (NSSet *)createButtons:(NSArray *)buttons withManagedObject:(NSManagedObjectContext *)moc {
@@ -315,8 +357,20 @@ static ProjectSettings *sharedThemeManager = nil;
     return results;
 }
 
-
 // META DATA
+
+- (NSArray *)fetchMetaDataAccessoryPages {
+
+    NSFetchRequest *metaDataFetch = [[NSFetchRequest alloc] initWithEntityName:@"MetaData"];
+
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+    NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:metaDataFetch error:nil];
+
+    MetaData *metaData = results[0];
+
+    return [metaData.accessoryPages allObjects];
+}
 
 - (NSString *)metaDataVariables:(NSString *)property {
 

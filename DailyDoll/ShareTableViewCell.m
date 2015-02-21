@@ -34,6 +34,22 @@
     [cellImageView setCenter:CGPointMake(self.frame.size.width / 2,
                                          self.frame.size.height / 2)];
 
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(addVibratAnimation)];
+
+    tapGesture.numberOfTapsRequired = 1;
+
+    [cellImageView addGestureRecognizer:tapGesture];
+
 }
 
+
+-(void)addVibratAnimation {
+
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position.x"];
+    animation.duration = 0.1;
+    animation.byValue = @(20);
+    animation.autoreverses = YES;
+    animation.repeatCount = 10;
+//    [imageView.layer addAnimation:animation forKey:@"Shake"];
+}
 @end

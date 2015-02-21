@@ -68,8 +68,6 @@
 
     switch (socialType) {
         case TWIITER:
-            //TODO make call back for animation to ensure it is complete before performin anything else
-            //            [self.socialPopUp animateOffScreen];
 
             self.signInView = [[OAuthSignInView alloc] initWithSubview:[self returnTwitterLoginButton] andParentFrame:mainWindow.frame];
 

@@ -17,7 +17,6 @@
 		5D27CB721A91A248006958F3 /* MenuHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27CB711A91A248006958F3 /* MenuHeader.m */; };
 		5D27CB751A91B65B006958F3 /* CenterShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27CB741A91B65B006958F3 /* CenterShareView.m */; };
 		5D2D40751A83282D000A84B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2D40741A83282D000A84B1 /* Main.storyboard */; };
-		5D617B721A8C19FC009063D0 /* MetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D617B711A8C19FC009063D0 /* MetaData.m */; };
 		5D62FD651A8AF1230022671F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D62FD641A8AF1230022671F /* CoreData.framework */; };
 		5D62FD681A8AF1680022671F /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD661A8AF1680022671F /* DataModel.xcdatamodeld */; };
 		5D6C98561A8C5D8000EB408E /* SocialContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6C98551A8C5D8000EB408E /* SocialContainer.m */; };
@@ -82,6 +81,11 @@
 		5DDA3DCF1A8685A200FD085A /* ShareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DCE1A8685A200FD085A /* ShareTableViewCell.m */; };
 		5DF7A6441A955FFC009BA5EE /* GreatVibes-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5DF7A6431A955FFC009BA5EE /* GreatVibes-Regular.otf */; };
 		5DF7A6461A95650E009BA5EE /* LibreBaskerville-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5DF7A6451A95650E009BA5EE /* LibreBaskerville-Bold.otf */; };
+		5DFD4B8B1A96FE5D002A2D19 /* LillyBelle_2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD4B8A1A96FE5D002A2D19 /* LillyBelle_2.ttf */; };
+		5DFD4B8D1A970003002A2D19 /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD4B8C1A970003002A2D19 /* SourceSansPro-Regular.otf */; };
+		5DFD4BA21A97FD9D002A2D19 /* AccessoryPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFD4BA11A97FD9D002A2D19 /* AccessoryPage.m */; };
+		5DFD4BA51A97FD9E002A2D19 /* MetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFD4BA41A97FD9E002A2D19 /* MetaData.m */; };
+		5DFD4BA81A980705002A2D19 /* AccessoryPagesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DFD4BA71A980705002A2D19 /* AccessoryPagesView.m */; };
 		BDF89CC8C066F8FFE29F7BC1 /* libPods-DailyDoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 579988490B7E0E905A16D25A /* libPods-DailyDoll.a */; };
 /* End PBXBuildFile section */
 
@@ -114,8 +118,6 @@
 		5D27CB731A91B65B006958F3 /* CenterShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterShareView.h; sourceTree = "<group>"; };
 		5D27CB741A91B65B006958F3 /* CenterShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterShareView.m; sourceTree = "<group>"; };
 		5D2D40741A83282D000A84B1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		5D617B701A8C19FC009063D0 /* MetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaData.h; sourceTree = "<group>"; };
-		5D617B711A8C19FC009063D0 /* MetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaData.m; sourceTree = "<group>"; };
 		5D62FD641A8AF1230022671F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5D62FD671A8AF1680022671F /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		5D6C98541A8C5D8000EB408E /* SocialContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialContainer.h; sourceTree = "<group>"; };
@@ -214,6 +216,14 @@
 		5DDA3DCE1A8685A200FD085A /* ShareTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareTableViewCell.m; sourceTree = "<group>"; };
 		5DF7A6431A955FFC009BA5EE /* GreatVibes-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GreatVibes-Regular.otf"; sourceTree = "<group>"; };
 		5DF7A6451A95650E009BA5EE /* LibreBaskerville-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LibreBaskerville-Bold.otf"; sourceTree = "<group>"; };
+		5DFD4B8A1A96FE5D002A2D19 /* LillyBelle_2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LillyBelle_2.ttf; sourceTree = "<group>"; };
+		5DFD4B8C1A970003002A2D19 /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
+		5DFD4BA01A97FD9D002A2D19 /* AccessoryPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoryPage.h; sourceTree = "<group>"; };
+		5DFD4BA11A97FD9D002A2D19 /* AccessoryPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoryPage.m; sourceTree = "<group>"; };
+		5DFD4BA31A97FD9E002A2D19 /* MetaData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MetaData.h; sourceTree = "<group>"; };
+		5DFD4BA41A97FD9E002A2D19 /* MetaData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetaData.m; sourceTree = "<group>"; };
+		5DFD4BA61A980705002A2D19 /* AccessoryPagesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccessoryPagesView.h; sourceTree = "<group>"; };
+		5DFD4BA71A980705002A2D19 /* AccessoryPagesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccessoryPagesView.m; sourceTree = "<group>"; };
 		680B8C91B0508131C24B223C /* Pods-DailyDoll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDoll.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DailyDoll/Pods-DailyDoll.debug.xcconfig"; sourceTree = "<group>"; };
 		AA7FAADA7B793178F851DF47 /* Pods-DailyDoll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDoll.release.xcconfig"; path = "Pods/Target Support Files/Pods-DailyDoll/Pods-DailyDoll.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -294,13 +304,12 @@
 				5D27CB6B1A91A247006958F3 /* MenuContainer.m */,
 			);
 			name = MenuItems;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		5D617B661A8C18CA009063D0 /* ProjectVariablesModel */ = {
 			isa = PBXGroup;
 			children = (
-				5D617B701A8C19FC009063D0 /* MetaData.h */,
-				5D617B711A8C19FC009063D0 /* MetaData.m */,
 				5D6C985A1A8C5D8000EB408E /* ProjectVariable.h */,
 				5D6C985B1A8C5D8000EB408E /* ProjectVariable.m */,
 				5D6C98571A8C5D8000EB408E /* Button.h */,
@@ -309,8 +318,13 @@
 				5D6C98551A8C5D8000EB408E /* SocialContainer.m */,
 				5D6C985D1A8C636500EB408E /* SocialItem.h */,
 				5D6C985E1A8C636500EB408E /* SocialItem.m */,
+				5DFD4BA31A97FD9E002A2D19 /* MetaData.h */,
+				5DFD4BA41A97FD9E002A2D19 /* MetaData.m */,
+				5DFD4BA01A97FD9D002A2D19 /* AccessoryPage.h */,
+				5DFD4BA11A97FD9D002A2D19 /* AccessoryPage.m */,
 			);
 			name = ProjectVariablesModel;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		5D62FD871A8AFAF10022671F /* ThemeModel */ = {
@@ -322,6 +336,7 @@
 				5D6C98651A8D059700EB408E /* ThemeContainer.m */,
 			);
 			name = ThemeModel;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		5D7F6B3A1A898EC600A207CD /* Pinterest.embeddedframework */ = {
@@ -347,6 +362,7 @@
 			children = (
 			);
 			name = CustomTransitions;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		5D9F58BC1A8E77BF00A53BB7 /* PInterest */ = {
@@ -386,6 +402,8 @@
 				5DDA3D9F1A85CF4A00FD085A /* SectionHeader */,
 				5D0EDAB21A830196007DE68D /* SideMenuViewController.h */,
 				5D0EDAB31A830196007DE68D /* SideMenuViewController.m */,
+				5DFD4BA61A980705002A2D19 /* AccessoryPagesView.h */,
+				5DFD4BA71A980705002A2D19 /* AccessoryPagesView.m */,
 			);
 			name = SideMenu;
 			sourceTree = "<group>";
@@ -402,10 +420,6 @@
 		5DDA1B101A7F383C00914761 = {
 			isa = PBXGroup;
 			children = (
-				5D617B661A8C18CA009063D0 /* ProjectVariablesModel */,
-				5D27CB581A9192FC006958F3 /* MenuItems */,
-				5D62FD871A8AFAF10022671F /* ThemeModel */,
-				5D7F6B471A89C9EC00A207CD /* CustomTransitions */,
 				5DDA3DBB1A86053200FD085A /* post.js */,
 				5DDA3DB01A85F27F00FD085A /* webViewJS.js */,
 				5DDA1B1B1A7F383C00914761 /* DailyDoll */,
@@ -428,6 +442,10 @@
 		5DDA1B1B1A7F383C00914761 /* DailyDoll */ = {
 			isa = PBXGroup;
 			children = (
+				5D617B661A8C18CA009063D0 /* ProjectVariablesModel */,
+				5D27CB581A9192FC006958F3 /* MenuItems */,
+				5D62FD871A8AFAF10022671F /* ThemeModel */,
+				5D7F6B471A89C9EC00A207CD /* CustomTransitions */,
 				5DDA3DBF1A8670F700FD085A /* AppDelegate */,
 				5DC2F5581A85BB9600ED1969 /* Categories */,
 				5DDA3DBD1A8670AE00FD085A /* ParentViewControllerClass */,
@@ -615,6 +633,8 @@
 		5DF7A6421A955FE8009BA5EE /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				5DFD4B8C1A970003002A2D19 /* SourceSansPro-Regular.otf */,
+				5DFD4B8A1A96FE5D002A2D19 /* LillyBelle_2.ttf */,
 				5DF7A6451A95650E009BA5EE /* LibreBaskerville-Bold.otf */,
 				5DF7A6431A955FFC009BA5EE /* GreatVibes-Regular.otf */,
 			);
@@ -741,10 +761,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				5DC2F5561A85B49300ED1969 /* Theme.plist in Resources */,
+				5DFD4B8B1A96FE5D002A2D19 /* LillyBelle_2.ttf in Resources */,
 				5D9F59DB1A8E781D00A53BB7 /* README in Resources */,
 				5D7F6B3F1A898EC600A207CD /* PinterestSDKResources.bundle in Resources */,
 				5DDA3DAC1A85E67700FD085A /* ProjectVariables.plist in Resources */,
 				5DF7A6461A95650E009BA5EE /* LibreBaskerville-Bold.otf in Resources */,
+				5DFD4B8D1A970003002A2D19 /* SourceSansPro-Regular.otf in Resources */,
 				5D6C98631A8D01AE00EB408E /* Themer.plist in Resources */,
 				5D0EDAB61A830290007DE68D /* MenuItems.plist in Resources */,
 				5DA64CD51A847A7A004F08A8 /* HeaderView.xib in Resources */,
@@ -821,18 +843,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DFD4BA51A97FD9E002A2D19 /* MetaData.m in Sources */,
 				5D0B704E1A8D44CF008AF923 /* OAuthSignInView.m in Sources */,
 				5D0EDAB41A830196007DE68D /* SideMenuViewController.m in Sources */,
 				5D27CB6F1A91A248006958F3 /* MenuItem.m in Sources */,
 				5D6C98661A8D059700EB408E /* ThemeContainer.m in Sources */,
 				5DDA3D9B1A85CC0500FD085A /* SideMenuTableSectionLabel.m in Sources */,
+				5DFD4BA81A980705002A2D19 /* AccessoryPagesView.m in Sources */,
 				5D86005C1A87C45A00AA8971 /* SocialSharePopoverView.m in Sources */,
 				5DDA3DA51A85D39500FD085A /* ProjectSettings.m in Sources */,
 				5D0F177E1A86A1FC00AAE285 /* SocialSharingActionController.m in Sources */,
 				5D6C98591A8C5D8000EB408E /* Button.m in Sources */,
 				5D27CB751A91B65B006958F3 /* CenterShareView.m in Sources */,
 				5DC2F55E1A85BF8000ED1969 /* SideMenuHeaderImageView.m in Sources */,
-				5D617B721A8C19FC009063D0 /* MetaData.m in Sources */,
 				5D9F58A51A8DCBA400A53BB7 /* OAuthWebView.m in Sources */,
 				5D6C98691A8D059700EB408E /* ThemeItem.m in Sources */,
 				5DDA3D981A85CA8A00FD085A /* SideMenuTableSectionHeader.m in Sources */,
@@ -857,6 +880,7 @@
 				5DAB92251A92C82E006D3D4F /* SocialShareMethods.m in Sources */,
 				5D27CB6C1A91A247006958F3 /* MenuContainer.m in Sources */,
 				5DDA3DCC1A8681EF00FD085A /* ProjectSettingsKeys.m in Sources */,
+				5DFD4BA21A97FD9D002A2D19 /* AccessoryPage.m in Sources */,
 				5DDA3DC91A867F7E00FD085A /* ShareTableView.m in Sources */,
 				5D62FD681A8AF1680022671F /* DataModel.xcdatamodeld in Sources */,
 				5DC2F5511A85A91A00ED1969 /* SideMenuTableView.m in Sources */,
@@ -979,8 +1003,8 @@
 			baseConfigurationReference = 680B8C91B0508131C24B223C /* Pods-DailyDoll.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pinterest.embeddedframework",
@@ -992,7 +1016,7 @@
 				INFOPLIST_FILE = DailyDoll/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ed9b127d-6277-4ad1-a923-9320a911b93d";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1002,8 +1026,8 @@
 			baseConfigurationReference = AA7FAADA7B793178F851DF47 /* Pods-DailyDoll.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Pinterest.embeddedframework",
@@ -1015,7 +1039,7 @@
 				INFOPLIST_FILE = DailyDoll/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ed9b127d-6277-4ad1-a923-9320a911b93d";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

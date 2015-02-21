@@ -53,6 +53,7 @@ CGFloat const kTitleLabelHeight= 15;
 
         [self addShareButtonsToView];
 
+        //TODO make this work in landscape
     }
 
     return self;
@@ -151,10 +152,13 @@ CGFloat const kTitleLabelHeight= 15;
             break;
     }
 
+    [shareButton addTarget:self action:@selector(addSpinAnimation:) forControlEvents:UIControlEventTouchUpInside];
 
 }
 
 - (void)facebookShareDelegate:(UIButton *)button {
+
+    [self.delegate removeWindowViews];
 
     FBLinkShareParams *params = [[FBLinkShareParams alloc] init];
 
@@ -174,6 +178,8 @@ CGFloat const kTitleLabelHeight= 15;
 
 - (void)pinIt:(UIButton *)button {
 
+    [self.delegate removeWindowViews];
+
     //TODO create algorithm to pull image off of page
     NSURL *imageURL = [NSURL URLWithString:@"http://placekitten.com/g/200/300"];
     NSURL *sourceURL = [self.delegate returnCurrentURL];
@@ -190,6 +196,8 @@ CGFloat const kTitleLabelHeight= 15;
 }
 
 - (void)tweet:(UIButton *)button {
+
+    [self.delegate removeWindowViews];
 
     NSString *currentPage = [[self.delegate returnCurrentURL] absoluteString];
 
@@ -208,6 +216,7 @@ CGFloat const kTitleLabelHeight= 15;
 
 - (void) googlePlusShare:(UIButton *)button {
 
+    [self.delegate removeWindowViews];
 
     NSURL *sourceURL = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kURLString]];
 
@@ -221,6 +230,8 @@ CGFloat const kTitleLabelHeight= 15;
 
 - (void)shareViaEmail:(UIButton *)button {
 
+    [self.delegate removeWindowViews];
+
     NSURL *sourceURL = [self.delegate returnCurrentURL];
 
     NSString *blogName = [[ProjectSettings sharedManager] metaDataVariables:kBlogName];
@@ -230,6 +241,8 @@ CGFloat const kTitleLabelHeight= 15;
 }
 
 - (void)shareViaSMS:(UIButton *)button {
+
+    [self.delegate removeWindowViews];
 
     NSURL *sourceURL = [self.delegate returnCurrentURL];
 
@@ -277,6 +290,18 @@ CGFloat const kTitleLabelHeight= 15;
 
         self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y + pixels, self.frame.size.width, self.frame.size.height);
     }
+}
+
+- (void)addSpinAnimation:(UIButton *) button {
+
+    CABasicAnimation* rotationAnimation;
+    rotationAnimation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    rotationAnimation.toValue = [NSNumber numberWithFloat: M_PI * 1.0 * 1 * 5 ];
+    rotationAnimation.duration = 1;
+    rotationAnimation.cumulative = YES;
+    rotationAnimation.repeatCount = 1;
+
+    [button.layer addAnimation:rotationAnimation forKey:@"rotationAnimation"];
 }
 
 @end

@@ -16,8 +16,9 @@
 #import "SideMenuTableSectionHeader.h"
 #import "SideMenuTableSectionLabel.h"
 #import "ProjectSettings.h"
+#import "AccessoryPagesView.h"
 
-@interface SideMenuViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface SideMenuViewController () <UITableViewDataSource, UITableViewDelegate, AccessoryPageProtocol>
 
 @property NSArray *dataSource;
 @property SideMenuTableView *tableView;
@@ -25,7 +26,8 @@
 @property CGRect cachedImageViewSize;
 @property SideMenuTableHeaderView *headerView;
 @property CGPoint imageViewCenter;
-
+@property UIButton *aboutButton;
+@property AccessoryPagesView *accessoryPageView;
 @end
 
 @implementation SideMenuViewController
@@ -36,7 +38,7 @@
 
     self.tableView = [[SideMenuTableView alloc] initWithFrame:CGRectMake(0,
                                                                          self.headerImageView.frame.origin.y + self.headerImageView.frame.size.height + 20,
-                                                                         [self returnWidthForMenuViewController] + 20,
+                                                                         [self returnWidthForMenuViewController],
                                                                          self.view.frame.size.height)
                                                         style:UITableViewStylePlain];
 
@@ -62,7 +64,7 @@
                                  [self returnWidthForMenuViewController],
                                  self.view.frame.size.height);
 
-    CGPoint headerCenter = CGPointMake(self.view.frame.size.width / 2,
+    CGPoint headerCenter = CGPointMake(self.tableView.frame.size.width / 2,
                                        self.headerView.frame.size.height / 2);
 
     [self.headerImageView setCenter:headerCenter];
@@ -92,6 +94,27 @@
     [self.headerView addGestureRecognizer:tapGesture];
 
     self.tableView.tableHeaderView = self.headerView;
+
+    CGSize accessoryButtonSize = CGSizeMake(40, 40);
+
+    self.aboutButton = [[UIButton alloc] initWithFrame:CGRectMake(4, 4, accessoryButtonSize.width - 10, accessoryButtonSize.height - 10)];
+
+    [self.aboutButton setImage:[UIImage imageNamed:@"about"] forState:UIControlStateNormal];
+
+    [self.aboutButton addTarget:self action:@selector(displayAboutPagePopOut) forControlEvents:UIControlEventTouchUpInside];
+
+    [self.headerView addSubview:self.aboutButton];
+}
+
+- (void)displayAboutPagePopOut {
+
+    self.accessoryPageView = [[AccessoryPagesView alloc] initWithFrameAndButtons:self.view.frame];
+
+    self.accessoryPageView.delegate = self;
+
+    [self.view addSubview:self.accessoryPageView];
+
+    [self.accessoryPageView animateOnToScreen:self.view.frame];
 }
 
 
@@ -149,9 +172,7 @@
 
     [self.delegate selectedSideMenuItem:menuItem.urlString];
 
-    MMDrawerController *drawController = (MMDrawerController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
-
-    [drawController closeDrawerAnimated:YES completion:nil];
+    [self closeDrawController];
 
 }
 
@@ -173,6 +194,8 @@
 
         self.headerImageView.center = CGPointMake(self.imageViewCenter.x,
                                                   self.imageViewCenter.y - (y/2));
+
+        self.aboutButton.frame = CGRectMake(self.aboutButton.frame.origin.x, 4 + scrollView.contentOffset.y, self.aboutButton.frame.size.width, self.aboutButton.frame.size.height);
     }
 }
 
@@ -182,15 +205,26 @@
 
     [self.delegate selectedSideMenuItem:homeUrl];
 
+    [self closeDrawController];
+}
 
-    MMDrawerController *drawController = (MMDrawerController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
+- (void)showAccessoryPage:(NSString *)urlString {
 
-    [drawController closeDrawerAnimated:YES completion:nil];
+    [self.delegate selectedSideMenuItem:urlString];
+
+    [self closeDrawController];
 }
 
 - (int)returnWidthForMenuViewController {
 
     return [[UIScreen mainScreen] bounds].size.width - [[UIScreen mainScreen] bounds].size.width * 0.2;
+}
+
+- (void)closeDrawController {
+
+    MMDrawerController *drawController = (MMDrawerController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
+
+    [drawController closeDrawerAnimated:YES completion:nil];
 }
 
 @end

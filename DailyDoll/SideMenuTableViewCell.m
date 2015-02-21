@@ -15,11 +15,12 @@
 - (void)addTextToMenu:(MenuItem *)menuItem {
 
     self.textLabel.text = [menuItem.title uppercaseString];
+
     self.textLabel.textAlignment = NSTextAlignmentCenter;
 
-//    NSString *fontName = [[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kFontFamily];
+    NSString *fontName = [[ProjectSettings sharedManager] fetchThemeItem:SIDEMENUCELL withProperty:kFontFamily];
 
-    [self.textLabel setFont:[UIFont fontWithName:@"Arial" size:18]];
+    [self.textLabel setFont:[UIFont fontWithName:fontName size:18]];
 }
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {

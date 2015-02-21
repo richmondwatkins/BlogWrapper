@@ -208,11 +208,28 @@
 		</array>
 		<key>MetaData</key>
 		<dict>
+			<key>email</key>
+			<string>Lacey@thedailydoll.com</string>
+			<key>AccessoryPages</key>
+			<array>
+				<dict>
+					<key>urlString</key>
+					<string>http://thedailydoll.com/about-the-daily-doll/</string>
+					<key>title</key>
+					<string>About The Daily Doll</string>
+				</dict>
+				<dict>
+					<key>urlString</key>
+					<string>http://thedailydoll.com/about-me/</string>
+					<key>title</key>
+					<string>About Me</string>
+				</dict>
+			</array>
 			<key>BundleId</key>
 			<string>scheme://com-greekconnect.DailyDoll</string>
-			<key>DomainString</key>
+			<key>domain</key>
 			<string>dailydoll</string>
-			<key>Name</key>
+			<key>name</key>
 			<string>The Daily Doll</string>
 			<key>urlString</key>
 			<string>http://www.thedailydoll.com</string>

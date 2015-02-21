@@ -85,6 +85,12 @@ NSString *const kDomainString = @"domain";
 
 NSString *const kSiteName = @"name";
 
+NSString *const kMetaData = @"MetaData";
+
+NSString *const kAccessoryPages = @"AccessoryPages";
+
+NSString *const kEmail = @"email";
+
 //Key Chain
 
 NSString *const kTwitterAuthToken = @"authToken";

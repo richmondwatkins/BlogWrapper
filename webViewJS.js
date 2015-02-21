@@ -6,3 +6,9 @@ if(document.getElementsByClassName('archive-description')[0]){
     document.getElementsByClassName('content')[0].style.marginTop = '-0px';
 }
 
+
+if(document.getElementsByClassName('comment-respond')[0]){
+    document.getElementsByClassName('content')[0].style.marginTop = '-80px';
+}
+
+document.getElementById('wdpu-text').style.display = 'none';

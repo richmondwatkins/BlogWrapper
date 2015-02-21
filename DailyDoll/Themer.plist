@@ -9,7 +9,7 @@
 		<key>secondaryColor</key>
 		<string>ffffff</string>
 		<key>primaryColor</key>
-		<string>f4f7fc</string>
+		<string>e2c675</string>
 	</dict>
 	<key>ThemeItems</key>
 	<array>
@@ -65,7 +65,7 @@
 		</dict>
 		<dict>
 			<key>fontFamily</key>
-			<string></string>
+			<string>SourceSansPro-Regular</string>
 			<key>fontColor</key>
 			<string></string>
 			<key>id</key>

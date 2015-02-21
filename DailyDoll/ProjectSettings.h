@@ -41,6 +41,8 @@
 
 - (NSArray *)shareItemsWithoutInstagram;
 
+- (NSArray *)fetchMetaDataAccessoryPages;
+
 - (void)listFonts;
 
 @end

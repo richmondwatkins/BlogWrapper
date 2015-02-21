@@ -227,9 +227,23 @@ static SocialShareMethods *sharedSocialManager = nil;
 
         controller.mailComposeDelegate = self;
 
-        [controller setSubject:messageComponents[@"subject"]];
-        //TODO figure out message
-        [controller setMessageBody:messageComponents[@"message"] isHTML:NO];
+
+        if ([messageComponents objectForKey:@"recipient"]) {
+
+            [controller setToRecipients:@[messageComponents[@"recipient"]]];
+        }
+
+
+        if ([messageComponents objectForKey:@"subject"]) {
+
+            [controller setSubject:messageComponents[@"subject"]];
+        }
+
+        if ([messageComponents objectForKey:@"message"]) {
+            //TODO figure out message
+
+            [controller setMessageBody:messageComponents[@"message"] isHTML:NO];
+        }
 
         if (controller) [[[[UIApplication sharedApplication] keyWindow] rootViewController] presentViewController:controller animated:YES completion:nil];
     } else {

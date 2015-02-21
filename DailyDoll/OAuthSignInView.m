@@ -24,6 +24,8 @@
 
         [subView setCenter:CGPointMake(self.frame.size.width / 2, self.frame.size.height - (subView.frame.size.height / 2))];
 
+        self.autoresizingMask = UIViewAutoresizingFlexibleWidth ;
+        subView.autoresizingMask = UIViewAutoresizingFlexibleWidth ;
     }
 
     return self;
