@@ -37,8 +37,8 @@
     CGFloat buttonWidth = 20;
     CGFloat buttonPadding = 5;
 
-    UIButton *closeButton = [[UIButton alloc] initWithFrame:CGRectMake(customNav.frame.size.width -  (buttonWidth + buttonPadding), 25, buttonWidth, buttonWidth)];
-    [closeButton setTitle:@"X" forState:UIControlStateNormal];
+    UIButton *closeButton = [[UIButton alloc] initWithFrame:CGRectMake(customNav.frame.size.width -  (buttonWidth + buttonPadding), 20, buttonWidth, buttonWidth)];
+    [closeButton setImage:[UIImage imageNamed:@"exit"] forState:UIControlStateNormal];
     [closeButton addTarget:self action:@selector(dissmissModal:) forControlEvents:UIControlEventTouchUpInside];
 
     [customNav addSubview:closeButton];

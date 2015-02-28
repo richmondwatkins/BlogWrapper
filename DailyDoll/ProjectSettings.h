@@ -43,6 +43,10 @@
 
 - (NSArray *)fetchMetaDataAccessoryPages;
 
+- (BOOL)projectHasSocialAccounts;
+
+- (UIImage *)fetchLogoImage;
+
 - (void)listFonts;
 
 @end

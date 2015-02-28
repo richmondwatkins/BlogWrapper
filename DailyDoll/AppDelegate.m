@@ -24,7 +24,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-    if (![[NSUserDefaults standardUserDefaults] boolForKey:kFirstStartUp]) {
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:kSeedApp]) {
         ProjectSettings *projectSettings = [[ProjectSettings sharedManager] initFromPlist];
         [projectSettings populateCoreData:self.managedObjectContext withCompletion:^(BOOL completion) {
             if (completion) {
@@ -45,10 +45,6 @@
     }
 
 
-    [Fabric with:@[TwitterKit]];
-
-
-
     return YES;
 }
 
@@ -56,33 +52,56 @@
 
     BOOL hasTwitter = [[ProjectSettings sharedManager] siteHasSocialAccount:TWIITER withMoc:self.managedObjectContext];
 
-    NSLog(@"Social %@",hasTwitter ? @"true" : @"fals");
-
+    if (hasTwitter) {
+         [Fabric with:@[TwitterKit]];
+    }
 }
 
 
 - (void) setUpGooglePlus {
 
-    [GPPSignIn sharedInstance].clientID = [[ProjectSettings sharedManager]fetchSocialItem:GOOGLEPLUS withProperty:kSocialClientId];;
-    ;
-    [GPPDeepLink setDelegate:self];
+    BOOL hasGooglePlus = [[ProjectSettings sharedManager] siteHasSocialAccount:GOOGLEPLUS withMoc:self.managedObjectContext];
 
-    [GPPDeepLink readDeepLinkAfterInstall];
+    if (hasGooglePlus) {
+
+        [GPPSignIn sharedInstance].clientID = [[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kSocialClientId];;
+        ;
+        [GPPDeepLink setDelegate:self];
+
+        [GPPDeepLink readDeepLinkAfterInstall];
+    }
+
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+  NSLog(@"Registered for push");
 }
 
 - (void) setUpDrawerController {
 
+    BOOL hasSocialAccounts = [[ProjectSettings sharedManager] projectHasSocialAccounts];
+
     SideMenuViewController * leftDrawer = [[SideMenuViewController alloc] init];
-    ShareViewController *rightDrawer = [[ShareViewController alloc] init];
     CenterViewController *mainVC = [[CenterViewController alloc] init];
     UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:mainVC];
-    [mainVC setRightNavigationItem];
 
-    self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:navigationController leftDrawerViewController:leftDrawer rightDrawerViewController:rightDrawer];
+    if (hasSocialAccounts) {
+         ShareViewController *rightDrawer = [[ShareViewController alloc] init];
+
+        self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:navigationController leftDrawerViewController:leftDrawer rightDrawerViewController:rightDrawer];
+
+        [mainVC setRightNavigationItem];
+
+         self.drawerController.maximumRightDrawerWidth = [rightDrawer returnWidthForShareVC];
+    }else {
+
+        self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:navigationController leftDrawerViewController:leftDrawer];
+    }
+
+
     self.drawerController.maximumLeftDrawerWidth = [leftDrawer returnWidthForMenuViewController];
 
-    //TODO only create the right drawer if their are social items
-    self.drawerController.maximumRightDrawerWidth = [rightDrawer returnWidthForShareVC];
+
     self.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
     self.drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
     self.drawerController.shouldStretchDrawer = NO;

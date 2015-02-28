@@ -34,7 +34,6 @@ CGFloat const kAccessoryButtonHeight = 40;
 
         self.popUp = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width * 0.9, parentFrame.size.height / 2)];
 
-
         [self.popUp setCenter:CGPointMake(-parentFrame.size.width / 2, parentFrame.size.height / 2)];
 
         self.popUp.layer.cornerRadius = 5;
@@ -119,6 +118,7 @@ CGFloat const kAccessoryButtonHeight = 40;
 }
 
 - (void)displayContactView {
+
     NSString *email = [[ProjectSettings sharedManager] metaDataVariables:kEmail];
 
     NSString *blogTitle = [[ProjectSettings sharedManager] metaDataVariables:kBlogName];

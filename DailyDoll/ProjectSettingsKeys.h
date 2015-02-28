@@ -57,6 +57,8 @@ extern NSString *const kInstagramAppRedirectURL;
 
 extern NSString *const kSocialClientId;
 
+extern NSString *const kSeedApp;
+
 extern NSString *const kFirstStartUp;
 
 //Social
@@ -74,6 +76,8 @@ extern NSString *const kGooglePlus;
 extern NSString *const kButtons;
 
 extern NSString *const kAccountName;
+
+extern NSString *const kPageID;
 
 //Theme Elements
 

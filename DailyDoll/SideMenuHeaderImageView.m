@@ -7,6 +7,7 @@
 //
 
 #import "SideMenuHeaderImageView.h"
+#import "ProjectSettings.h"
 
 @implementation SideMenuHeaderImageView
 
@@ -14,13 +15,7 @@
 
     if (self = [super init]) {
 
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-        NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
-        NSString *filePath = [documentsPath stringByAppendingPathComponent:@"logo.png"]; //Add the file name
-
-        NSData *pngData = [NSData dataWithContentsOfFile:filePath];
-
-        self.image = [UIImage imageWithData:pngData];
+        self.image = [[ProjectSettings sharedManager] fetchLogoImage];
 
         self.frame = CGRectMake(0, 0, self.image.size.width/2, self.image.size.height/2);
 

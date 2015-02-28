@@ -218,7 +218,7 @@ CGFloat const kTitleHeight = 40;
 //        [button setTitle:@"Liked" forState:UIControlStateNormal];
     }
 
-    [[ProjectSettings sharedManager] saveSocialInteraction:TWIITER withStatus:!self.facebookLikeStatus];
+    [[ProjectSettings sharedManager] saveSocialInteraction:FACEBOOK withStatus:!self.facebookLikeStatus];
 
 
 }

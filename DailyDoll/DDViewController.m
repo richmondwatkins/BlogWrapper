@@ -40,7 +40,10 @@
 
     self.view.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:NAVBAR withProperty:kBackgroundColor]];
 
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
 }
+
 
 -(void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
 
@@ -97,7 +100,7 @@
             //signIn.shouldFetchGoogleUserEmail = YES;  // Uncomment to get the user's email
 
             // You previously set kClientId in the "Initialize the Google+ client" step
-            signIn.clientID = [[ProjectSettings sharedManager]fetchSocialItem:GOOGLEPLUS withProperty:kSocialClientId];;
+            signIn.clientID = [[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kSocialClientId];;
 
             // Uncomment one of these two statements for the scope you chose in the previous step
             signIn.scopes = @[ kGTLAuthScopePlusLogin ];  // "https://www.googleapis.com/auth/plus.login" scope
@@ -194,9 +197,19 @@
 
 - (void)removeViewsFromWindow {
 
-    [self.socialPopUp animateOffScreen];
+    NSArray *windowSubViews = [[[UIApplication sharedApplication] keyWindow] subviews];
 
-    [self.signInView animateOffScreen];
+    if (windowSubViews.count) {
+        [self.socialPopUp animateOffScreen];
+
+        [self.signInView animateOffScreen];
+        
+        for (UIView *subView in windowSubViews) {
+            if ([subView isKindOfClass:[OAuthSignInView class]]) {
+                [((OAuthSignInView *)subView) animateOffScreen];
+            }
+        }
+    }
     
 }
 
@@ -260,7 +273,10 @@
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
     
     [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('id_username').select();"];
-}
 
+    if ([webView isKindOfClass:[OAuthWebView class]]) {
+        [((OAuthWebView *) webView).activityIndicator stopAnimating];
+    }
+}
 
 @end

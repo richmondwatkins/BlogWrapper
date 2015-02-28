@@ -39,7 +39,9 @@ NSString *const kInstagramAppRedirectURL = @"authRedirect";
 
 NSString *const kSocialClientId = @"authClientId";
 
-NSString *const kFirstStartUp = @"FirstStartUp";
+NSString *const kSeedApp = @"SeedApp";
+
+NSString *const kFirstStartUp = @"FirstStart";
 
 //Theme Elements
 
@@ -77,6 +79,8 @@ NSString *const kGooglePlus = @"Google +";
 NSString *const kButtons = @"buttons";
 
 NSString *const kAccountName = @"accountName";
+
+NSString *const kPageID = @"pageId";
 
 
 //Meta Data

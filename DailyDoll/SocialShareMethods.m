@@ -51,7 +51,7 @@ static SocialShareMethods *sharedSocialManager = nil;
 
         return YES;
     } else {
-        //TODO add share items ... text and images
+
         if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
 
             NSString *facebookPageName = [[ProjectSettings sharedManager] metaDataVariables:kSiteName];
@@ -89,7 +89,8 @@ static SocialShareMethods *sharedSocialManager = nil;
 
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
         SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
-        //TODO add text and images
+
+        [controller addImage:[[ProjectSettings sharedManager] fetchLogoImage]];
         [controller setInitialText:shareContent];
         [[[[UIApplication sharedApplication] keyWindow] rootViewController]  presentViewController:controller animated:YES completion:Nil];
     }
@@ -123,7 +124,8 @@ static SocialShareMethods *sharedSocialManager = nil;
     //TODO add text and images to share...the title of the post
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
         SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        //TODO add text and images
+
+        [controller addImage:[[ProjectSettings sharedManager] fetchLogoImage]];
         [controller setInitialText:shareContent];
         [[[[UIApplication sharedApplication] keyWindow] rootViewController]  presentViewController:controller animated:YES completion:Nil];
 
@@ -134,7 +136,7 @@ static SocialShareMethods *sharedSocialManager = nil;
     }
 }
 
-//TODO remove hard coded page id
+
 -(void)createFollowRelationshipWithTwitter:(TWTRSession *)twitterSession withFollowButton:(UIButton *)button {
 
     NSString *statusesShowEndpoint;
@@ -157,7 +159,9 @@ static SocialShareMethods *sharedSocialManager = nil;
 
     //TODO add activity indicator in button to show request
 
-    NSDictionary *params = @{@"user_id" : @"1630611914"};
+    NSString *pageid = [[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:kPageID];
+
+    NSDictionary *params = @{@"user_id" : pageid};
 
     NSError *clientError;
     NSURLRequest *request = [[[Twitter sharedInstance] APIClient]
@@ -240,7 +244,6 @@ static SocialShareMethods *sharedSocialManager = nil;
         }
 
         if ([messageComponents objectForKey:@"message"]) {
-            //TODO figure out message
 
             [controller setMessageBody:messageComponents[@"message"] isHTML:NO];
         }

@@ -8,7 +8,6 @@
 
 #import "OAuthWebView.h"
 #import "ProjectSettings.h"
-
 @implementation OAuthWebView
 
 - (instancetype)initForInstagram:(CGRect)parentFrame {
@@ -22,6 +21,15 @@
         self.urlToLoad = [NSURL URLWithString:[NSString stringWithFormat:@"%@?client_id=%@&redirect_uri=%@&response_type=token&scope=relationships", authorizationURLConfigKey, instagramKitAppClientId, instagramKitAppRedirectURL]];
 
         self.frame = CGRectMake(0, 0, parentFrame.size.width, 220);
+
+        [self setBackgroundColor:[UIColor colorWithHexString:@"517fa4"]];
+        [self setOpaque:NO];
+
+        self.activityIndicator = [[CenterVCActivityIndicator alloc] initWithStyle];
+
+        [self addSubview:self.activityIndicator];
+
+        [self.activityIndicator setCenter:CGPointMake(self.frame.size.width/2, self.frame.size.height/2)];
     }
 
     return self;

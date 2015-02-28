@@ -17,6 +17,7 @@
 #import "CenterVCTitleLabel.h"
 #import "ShareViewController.h"
 #import "CenterShareView.h"
+#import "PushRequestViewController.h"
 
 @interface CenterViewController () <UIWebViewDelegate, SideMenuProtocol, UIScrollViewDelegate, CenterShare>
 
@@ -42,13 +43,32 @@
 
     [self setUpDrawControllerAndButton];
 
-    self.shareSlideUp = [[CenterShareView alloc] initWithFrameAndStyle:self.view.frame];
-    
-    self.shareSlideUp.delegate = self;
+    [self setUpShareSlideUpView];
 
-    [self.view addSubview:self.shareSlideUp];
+//    [[ProjectSettings sharedManager] listFonts];
+}
 
-    [[ProjectSettings sharedManager] listFonts];
+- (void)viewDidAppear:(BOOL)animated {
+
+    if (![[NSUserDefaults standardUserDefaults] boolForKey:kFirstStartUp]) {
+        PushRequestViewController *pushVC = [[PushRequestViewController alloc] init];
+        [self presentViewController:pushVC animated:YES completion:nil];
+    }
+
+}
+
+- (void)setUpShareSlideUpView {
+
+    if ([[ProjectSettings sharedManager] projectHasSocialAccounts]) {
+
+        self.shareSlideUp = [[CenterShareView alloc] initWithFrameAndStyle:self.view.frame];
+
+        self.shareSlideUp.delegate = self;
+
+        [self.view addSubview:self.shareSlideUp];
+    }
+
+
 }
 
 - (void)setUpDrawControllerAndButton {
@@ -119,6 +139,7 @@
 -(void)webViewDidStartLoad:(UIWebView *)webView {
 
     self.blurOverlay = [[BlurActivityOverlay alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+    self.blurOverlay.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     self.blurOverlay.frame = webView.bounds;
     [webView addSubview:self.blurOverlay];
 }
@@ -170,10 +191,13 @@
 
         self.isScrollingDown = NO;
     }
-    
 
     self.lastScrollPosition = currentPosition;
+    
+
+    [self removeViewsFromWindow];
 }
+
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
 
@@ -185,7 +209,6 @@
 
         [self.shareSlideUp animateOntoScreen];
     }
-
 }
 
 - (void)showSideMenu {

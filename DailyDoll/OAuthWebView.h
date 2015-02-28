@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CenterVCActivityIndicator.h"
 
 @interface OAuthWebView : UIWebView
+
+@property CenterVCActivityIndicator *activityIndicator;
 
 @property NSURL *urlToLoad;
 

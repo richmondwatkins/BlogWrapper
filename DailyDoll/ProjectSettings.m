@@ -138,7 +138,7 @@ static ProjectSettings *sharedThemeManager = nil;
 
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 
-    [userDefaults setBool:YES forKey:kFirstStartUp];
+    [userDefaults setBool:YES forKey:kSeedApp];
     
     [userDefaults synchronize];
 
@@ -489,6 +489,35 @@ static ProjectSettings *sharedThemeManager = nil;
     socialItem.hasInteracted = [NSNumber numberWithBool:saveStatus];
 
     [appDelegate.managedObjectContext save:nil];
+}
+
+- (UIImage *)fetchLogoImage {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
+    NSString *filePath = [documentsPath stringByAppendingPathComponent:@"logo.png"]; //Add the file name
+
+    NSData *pngData = [NSData dataWithContentsOfFile:filePath];
+
+    return [UIImage imageWithData:pngData];
+}
+
+- (BOOL)projectHasSocialAccounts { 
+
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"SocialItem"];
+
+    fetchRequest.resultType = NSCountResultType;
+
+    NSUInteger itemsCount = [appDelegate.managedObjectContext countForFetchRequest:fetchRequest error:nil];
+
+    if (itemsCount > 0) {
+
+        return YES;
+    }else {
+
+        return NO;
+    }
 }
 
 //Fonts

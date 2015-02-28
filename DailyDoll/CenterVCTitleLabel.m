@@ -23,9 +23,6 @@
 
         [self setFont:[UIFont fontWithName:fontString size:16]];
 
-        NSString *hey = [[ProjectSettings sharedManager] fetchThemeItem:NAVBAR withProperty:kFontColor];
-        NSLog(@"hey %@",hey);
-
         self.textColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:NAVBAR withProperty:kFontColor]];
     }
 
