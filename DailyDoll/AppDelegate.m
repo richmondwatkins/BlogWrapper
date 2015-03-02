@@ -101,8 +101,6 @@
 
     self.drawerController.maximumLeftDrawerWidth = [leftDrawer returnWidthForMenuViewController];
 
-
-    self.drawerController.openDrawerGestureModeMask = MMOpenDrawerGestureModeAll;
     self.drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
     self.drawerController.shouldStretchDrawer = NO;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

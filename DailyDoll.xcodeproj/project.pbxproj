@@ -81,6 +81,7 @@
 		5DDA3DC91A867F7E00FD085A /* ShareTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DC81A867F7E00FD085A /* ShareTableView.m */; };
 		5DDA3DCC1A8681EF00FD085A /* ProjectSettingsKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DCB1A8681EF00FD085A /* ProjectSettingsKeys.m */; };
 		5DDA3DCF1A8685A200FD085A /* ShareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DCE1A8685A200FD085A /* ShareTableViewCell.m */; };
+		5DDE241F1AA40968001CE1AD /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDE241E1AA40968001CE1AD /* DetailViewController.m */; };
 		5DF7A6441A955FFC009BA5EE /* GreatVibes-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5DF7A6431A955FFC009BA5EE /* GreatVibes-Regular.otf */; };
 		5DF7A6461A95650E009BA5EE /* LibreBaskerville-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5DF7A6451A95650E009BA5EE /* LibreBaskerville-Bold.otf */; };
 		5DFD4B8B1A96FE5D002A2D19 /* LillyBelle_2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD4B8A1A96FE5D002A2D19 /* LillyBelle_2.ttf */; };
@@ -220,6 +221,8 @@
 		5DDA3DCB1A8681EF00FD085A /* ProjectSettingsKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectSettingsKeys.m; sourceTree = "<group>"; };
 		5DDA3DCD1A8685A200FD085A /* ShareTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareTableViewCell.h; sourceTree = "<group>"; };
 		5DDA3DCE1A8685A200FD085A /* ShareTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareTableViewCell.m; sourceTree = "<group>"; };
+		5DDE241D1AA40968001CE1AD /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		5DDE241E1AA40968001CE1AD /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		5DF7A6431A955FFC009BA5EE /* GreatVibes-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "GreatVibes-Regular.otf"; sourceTree = "<group>"; };
 		5DF7A6451A95650E009BA5EE /* LibreBaskerville-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LibreBaskerville-Bold.otf"; sourceTree = "<group>"; };
 		5DFD4B8A1A96FE5D002A2D19 /* LillyBelle_2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LillyBelle_2.ttf; sourceTree = "<group>"; };
@@ -583,6 +586,8 @@
 				5DDA3DB71A85FDFE00FD085A /* CenterVCTitleLabel.m */,
 				5D27CB731A91B65B006958F3 /* CenterShareView.h */,
 				5D27CB741A91B65B006958F3 /* CenterShareView.m */,
+				5DDE241D1AA40968001CE1AD /* DetailViewController.h */,
+				5DDE241E1AA40968001CE1AD /* DetailViewController.m */,
 			);
 			name = MainVC;
 			sourceTree = "<group>";
@@ -880,6 +885,7 @@
 				5D80527D1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m in Sources */,
 				5D8052801A8331FD0076A6E8 /* SideMenuTableViewCell.m in Sources */,
 				5DBD74F61AA2646900713D4D /* PushRequestViewController.m in Sources */,
+				5DDE241F1AA40968001CE1AD /* DetailViewController.m in Sources */,
 				5DC2F55B1A85BBEF00ED1969 /* SideMenuTableHeaderView.m in Sources */,
 				5DDA3DAF1A85EE4900FD085A /* CenterVCActivityIndicator.m in Sources */,
 				5DDA3DC31A86714400FD085A /* ShareViewController.m in Sources */,

@@ -53,7 +53,7 @@
 
     self.descriptionLabel.textAlignment = NSTextAlignmentCenter;
 
-    self.descriptionLabel.text = [NSString stringWithFormat:@"To alert you when new content is available, %@ would like to send you push notifications",[[ProjectSettings sharedManager] metaDataVariables:kBlogName]];
+    self.descriptionLabel.text = [NSString stringWithFormat:@"To notify you when new content is available, %@ would like to send push notifications",[[ProjectSettings sharedManager] metaDataVariables:kBlogName]];
 
     NSString *fontName = [[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kFontFamily];
 

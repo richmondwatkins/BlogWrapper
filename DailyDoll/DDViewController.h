@@ -30,4 +30,6 @@
 
 - (void)removeViewsFromWindow;
 
+-(void)webViewDidFinishLoad:(UIWebView *)webView;
+
 @end

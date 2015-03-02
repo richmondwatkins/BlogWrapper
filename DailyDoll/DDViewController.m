@@ -14,6 +14,9 @@
 #import "SocialSharingActionController.h"
 #import "SocialSharePopoverView.h"
 #import "SocialShareMethods.h"
+#import "CenterVCTitleLabel.h"
+#import "BlurActivityOverlay.h"
+#import "CenterVCActivityIndicator.h"
 
 #import <TwitterKit/TwitterKit.h>
 #import <GooglePlus/GooglePlus.h>
@@ -21,6 +24,8 @@
 
 @interface DDViewController () <SocialProtocol, SocialPopUp, UIWebViewDelegate, GPPSignInDelegate>
 
+@property BlurActivityOverlay *blurOverlay;
+@property CenterVCActivityIndicator *acitivityIndicator;
 
 @end
 
@@ -213,6 +218,15 @@
     
 }
 
+-(void)webViewDidStartLoad:(UIWebView *)webView {
+    self.blurOverlay = [[BlurActivityOverlay alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+    self.blurOverlay.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    self.blurOverlay.frame = webView.bounds;
+    [webView addSubview:self.blurOverlay];
+    self.acitivityIndicator = [[CenterVCActivityIndicator alloc] initWithStyle];
+    self.navigationItem.titleView = self.acitivityIndicator;
+}
+
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
 
@@ -271,11 +285,37 @@
 
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
-    
+
+    [self.blurOverlay animateAndRemove];
+
+    [self.acitivityIndicator stopAnimating];
+
     [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('id_username').select();"];
 
     if ([webView isKindOfClass:[OAuthWebView class]]) {
         [((OAuthWebView *) webView).activityIndicator stopAnimating];
+    }
+
+    if ([[webView.request.URL absoluteString] containsString:
+         [[ProjectSettings sharedManager] metaDataVariables:kDomainString]]){
+
+        NSString *jsFile = [[NSBundle mainBundle] pathForResource:@"webViewJS"
+                                                           ofType:@"js"];
+        NSString *javascript = [NSString stringWithContentsOfFile:jsFile encoding:NSUTF8StringEncoding error:NULL];
+
+        [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@", javascript]];
+    }
+
+    CenterVCTitleLabel *titleLabel = [[CenterVCTitleLabel alloc]
+                                      initWithStyleAndTitle:[webView stringByEvaluatingJavaScriptFromString:@"document.title"]];
+
+    self.navigationItem.titleView = titleLabel;
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+
+    if (self.blurOverlay) {
+        [self.blurOverlay animateAndRemove];
     }
 }
 

@@ -12,20 +12,17 @@
 #import <MMDrawerController.h>
 #import <MMDrawerBarButtonItem.h>
 #import "ProjectSettings.h"
-#import "BlurActivityOverlay.h"
-#import "CenterVCActivityIndicator.h"
 #import "CenterVCTitleLabel.h"
 #import "ShareViewController.h"
 #import "CenterShareView.h"
 #import "PushRequestViewController.h"
+#import "DetailViewController.h"
 
 @interface CenterViewController () <UIWebViewDelegate, SideMenuProtocol, UIScrollViewDelegate, CenterShare>
 
 @property (nonatomic, strong)  UIWebView *webView;
 @property NSURLRequest *externalRequest;
 @property MMDrawerController *drawerController;
-@property BlurActivityOverlay *blurOverlay;
-@property CenterVCActivityIndicator *acitivityIndicator;
 @property CGPoint lastScrollPosition;
 @property (nonatomic)  BOOL isScrollingDown;
 @property CenterShareView *shareSlideUp;
@@ -117,14 +114,23 @@
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
 
-    self.acitivityIndicator = [[CenterVCActivityIndicator alloc] initWithStyle];
-    self.navigationItem.titleView = self.acitivityIndicator;
+    NSString *domainString = [[ProjectSettings sharedManager] metaDataVariables:kDomainString];
 
-    if (![[request.URL absoluteString] containsString:[[ProjectSettings sharedManager] metaDataVariables:kDomainString]]) {
+    if (![[request.URL absoluteString] containsString:domainString]) {
         
         ExternalWebModalViewController *externalVC = [[ExternalWebModalViewController alloc] initWithRequest:request];
 
         [self presentViewController:externalVC animated:YES completion:nil];
+
+        return NO;
+    }
+
+    if ([[request.URL absoluteString] containsString:domainString] &&
+         ![[request.URL absoluteString] isEqualToString:[[ProjectSettings sharedManager] metaDataVariables: kURLString]]) {
+
+        DetailViewController *detailVC = [[DetailViewController alloc] initWithRequest:request];
+
+        [self.navigationController pushViewController:detailVC animated:YES];
 
         return NO;
     }
@@ -136,40 +142,14 @@
     return YES;
 }
 
--(void)webViewDidStartLoad:(UIWebView *)webView {
-
-    self.blurOverlay = [[BlurActivityOverlay alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
-    self.blurOverlay.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.blurOverlay.frame = webView.bounds;
-    [webView addSubview:self.blurOverlay];
-}
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
 
-    [self.acitivityIndicator stopAnimating];
-
-    NSString *jsFile = [[NSBundle mainBundle] pathForResource:@"webViewJS"
-                                                     ofType:@"js"];
-    NSString *javascript = [NSString stringWithContentsOfFile:jsFile encoding:NSUTF8StringEncoding error:NULL];
-
-    [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@", javascript]];
-
-    CenterVCTitleLabel *titleLabel = [[CenterVCTitleLabel alloc]
-                                      initWithStyleAndTitle:[webView stringByEvaluatingJavaScriptFromString:@"document.title"]];
-    self.navigationItem.titleView = titleLabel;
-
-
-    [self.blurOverlay animateAndRemove];
+    [super webViewDidFinishLoad:webView];
 
     [self.shareSlideUp animateOntoScreen];
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-
-    if (self.blurOverlay) {
-        [self.blurOverlay animateAndRemove];
-    }
-}
 
 -(NSURL *)returnCurrentURL {
     return self.webView.request.URL;
