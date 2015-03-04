@@ -30,7 +30,12 @@ CGFloat const kTitleHeight = 40;
         self.backgroundColor = [UIColor blackColor];
         self.alpha = 0;
 
-        UIView *popUp = [[UIView alloc] initWithFrame:CGRectMake(0, windowFrame.size.height * 2, windowFrame.size.width * 0.8, (buttons.count * kButtonHeight) + (buttons.count + 1) * kButtonPadding + kTitleHeight)];
+
+        CGFloat popUpWidth = windowFrame.size.width * 0.8;
+
+        UIView *popUp = [[UIView alloc] initWithFrame:CGRectMake(0, windowFrame.size.height * 2, popUpWidth, (buttons.count * kButtonHeight) + (buttons.count + 1) * kButtonPadding + kTitleHeight)];
+
+        [popUp setCenter:CGPointMake(windowFrame.size.width/2, popUp.center.y)];
 
         popUp.alpha = 0;
         popUp.backgroundColor = [UIColor whiteColor];

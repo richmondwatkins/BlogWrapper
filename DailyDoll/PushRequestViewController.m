@@ -20,6 +20,8 @@
 
 @property UIView *contorlSwitchContainer;
 
+@property UISwitch *controlSwitch;
+
 @end
 
 @implementation PushRequestViewController
@@ -32,8 +34,7 @@
     self.scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
     self.scrollView.scrollEnabled=YES;
     self.scrollView.userInteractionEnabled=YES;
-    self.scrollView.contentSize = CGSizeMake(self.view.width, [[UIScreen mainScreen] bounds].size.height + 100);
-
+    
     [self.view addSubview:self.scrollView];
 
     [self setUpImageView];
@@ -85,11 +86,11 @@
     self.contorlSwitchContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width * 0.8, viewHeight)];
     [self.contorlSwitchContainer setCenter:CGPointMake(self.view.frame.size.width / 2, self.descriptionLabel.bottom + 40)];
 
-    UISwitch *controlSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(self.contorlSwitchContainer.width-60, 0, viewHeight, viewHeight)];
+    self.controlSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(self.contorlSwitchContainer.width-60, 0, viewHeight, viewHeight)];
 
-    [controlSwitch addTarget:self action:@selector(askForPushPermission) forControlEvents:UIControlEventValueChanged];
+    [self.controlSwitch setOn:YES];
 
-    [self.contorlSwitchContainer addSubview:controlSwitch];
+    [self.contorlSwitchContainer addSubview:self.controlSwitch];
 
     UILabel *permissionLabel = [[UILabel alloc] init];
 
@@ -147,6 +148,10 @@
 
 
 - (void)dismissVC:(id)sender {
+
+    if ([self.controlSwitch isOn]) {
+        [self askForPushPermission];
+    }
 
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
 

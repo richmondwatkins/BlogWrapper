@@ -74,7 +74,29 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-  NSLog(@"Registered for push");
+  NSLog(@"Registered for push %@", [self deviceTokenFromData:deviceToken]);
+}
+
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
+    NSLog(@"Restiered");
+}
+
+-(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    NSLog(@"%@", error.localizedDescription);
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    NSLog(@"User info %@",[[userInfo valueForKey:@"aps"] valueForKey:@"alert"]);
+}
+
+
+- (NSString *)deviceTokenFromData:(NSData *)tokenData
+{
+    NSString *token = [tokenData description];
+    token = [token stringByReplacingOccurrencesOfString:@"<" withString:@""];
+    token = [token stringByReplacingOccurrencesOfString:@">" withString:@""];
+    token = [token stringByReplacingOccurrencesOfString:@" " withString:@""];
+    return token;
 }
 
 - (void) setUpDrawerController {
@@ -101,7 +123,7 @@
 
     self.drawerController.maximumLeftDrawerWidth = [leftDrawer returnWidthForMenuViewController];
 
-    self.drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
+     self.drawerController.closeDrawerGestureModeMask = MMCloseDrawerGestureModeAll;
     self.drawerController.shouldStretchDrawer = NO;
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self.window setRootViewController:self.drawerController];
