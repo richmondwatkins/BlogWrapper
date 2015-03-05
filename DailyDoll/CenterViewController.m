@@ -109,12 +109,12 @@
     self.webView.delegate = self;
     self.webView.scrollView.delegate = self;
 
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[[ProjectSettings sharedManager] metaDataVariables:kURLString]]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[[ProjectSettings sharedManager] fetchmetaDataVariables:kURLString]]]];
 }
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
 
-    NSString *domainString = [[ProjectSettings sharedManager] metaDataVariables:kDomainString];
+    NSString *domainString = [[ProjectSettings sharedManager] fetchmetaDataVariables:kDomainString];
 
     if (![[request.URL absoluteString] containsString:domainString]) {
         
@@ -126,7 +126,7 @@
     }
 
     if ([[request.URL absoluteString] containsString:domainString] &&
-         ![[request.URL absoluteString] isEqualToString:[[ProjectSettings sharedManager] metaDataVariables: kURLString]]) {
+         ![[request.URL absoluteString] isEqualToString:[[ProjectSettings sharedManager] fetchmetaDataVariables: kURLString]]) {
 
         DetailViewController *detailVC = [[DetailViewController alloc] initWithRequest:request];
 

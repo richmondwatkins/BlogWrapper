@@ -33,6 +33,10 @@
         <relationship name="accessoryPages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AccessoryPage" inverseName="metaData" inverseEntity="AccessoryPage" syncable="YES"/>
         <relationship name="projectVariable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ProjectVariable" inverseName="metaData" inverseEntity="ProjectVariable" syncable="YES"/>
     </entity>
+    <entity name="Notification" representedClassName="Notification" syncable="YES">
+        <attribute name="receivedDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <entity name="ProjectVariable" representedClassName="ProjectVariable" syncable="YES">
         <relationship name="metaData" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MetaData" inverseName="projectVariable" inverseEntity="MetaData" syncable="YES"/>
         <relationship name="socialContainer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SocialContainer" inverseName="projectVariable" inverseEntity="SocialContainer" syncable="YES"/>
@@ -71,6 +75,7 @@
         <relationship name="themeContainer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeContainer" inverseName="themeItem" inverseEntity="ThemeContainer" syncable="YES"/>
     </entity>
     <elements>
+        <element name="AccessoryPage" positionX="9" positionY="153" width="128" height="88"/>
         <element name="Button" positionX="0" positionY="0" width="128" height="90"/>
         <element name="MenuContainer" positionX="9" positionY="153" width="128" height="58"/>
         <element name="MenuHeader" positionX="18" positionY="162" width="128" height="103"/>
@@ -81,6 +86,6 @@
         <element name="SocialItem" positionX="18" positionY="99" width="128" height="240"/>
         <element name="ThemeContainer" positionX="0" positionY="0" width="128" height="118"/>
         <element name="ThemeItem" positionX="27" positionY="162" width="128" height="118"/>
-        <element name="AccessoryPage" positionX="9" positionY="153" width="128" height="88"/>
+        <element name="Notification" positionX="9" positionY="153" width="128" height="75"/>
     </elements>
 </model>

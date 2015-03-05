@@ -45,7 +45,7 @@ CGFloat const kTitleHeight = 40;
 
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, popUp.frame.size.width, kTitleHeight)];
 
-        NSString *blogName = [[ProjectSettings sharedManager] metaDataVariables:kBlogName];
+        NSString *blogName = [[ProjectSettings sharedManager] fetchmetaDataVariables:kBlogName];
 
         titleLabel.text = [NSString stringWithFormat:@"%@ on %@", blogName, socialSite];
         [titleLabel sizeToFit];

@@ -297,7 +297,7 @@
     }
 
     if ([[webView.request.URL absoluteString] containsString:
-         [[ProjectSettings sharedManager] metaDataVariables:kDomainString]]){
+         [[ProjectSettings sharedManager] fetchmetaDataVariables:kDomainString]]){
 
         NSString *jsFile = [[NSBundle mainBundle] pathForResource:@"webViewJS"
                                                            ofType:@"js"];

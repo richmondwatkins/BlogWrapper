@@ -201,7 +201,7 @@ CGFloat const kTitleLabelHeight= 15;
 
     NSString *currentPage = [[self.delegate returnCurrentURL] absoluteString];
 
-    NSString *blogName = [[ProjectSettings sharedManager] metaDataVariables:kSiteName];
+    NSString *blogName = [[ProjectSettings sharedManager] fetchmetaDataVariables:kSiteName];
 
 //    NSString *accountPage = [[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:kURLString];
 
@@ -234,7 +234,7 @@ CGFloat const kTitleLabelHeight= 15;
 
     NSURL *sourceURL = [self.delegate returnCurrentURL];
 
-    NSString *blogName = [[ProjectSettings sharedManager] metaDataVariables:kBlogName];
+    NSString *blogName = [[ProjectSettings sharedManager] fetchmetaDataVariables:kBlogName];
 
     [[SocialShareMethods sharedManager] shareViaEmail:@{@"subject": blogName, @"message":sourceURL.absoluteString}];
 

@@ -25,9 +25,9 @@
 
 - (NSString *)fetchThemeItem:(int)itemId withProperty:(NSString *)property;
 
-- (NSString *)metaDataVariables:(NSString *)property;
+- (NSString *)fetchmetaDataVariables:(NSString *)property;
 
-- (NSArray *)shareItems;
+- (NSArray *)fetchShareItems;
 
 - (NSArray *)fetchMenuItemsAndHeaders;
 
@@ -46,6 +46,12 @@
 - (BOOL)projectHasSocialAccounts;
 
 - (UIImage *)fetchLogoImage;
+
+//Push Notifications
+
+- (void)setNotification:(NSDictionary *)notification withManagedObjectContext:(NSManagedObjectContext *)moc;
+
+- (NSArray *)fetchNotifications;
 
 - (void)listFonts;
 

@@ -9,6 +9,8 @@ pod 'Facebook-iOS-SDK'
 
 pod 'SSKeychain'
 
+pod 'AWSiOSSDKv2'
+
 end
 
 target 'DailyDollTests' do

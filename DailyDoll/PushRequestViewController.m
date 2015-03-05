@@ -54,7 +54,7 @@
 
     self.descriptionLabel.textAlignment = NSTextAlignmentCenter;
 
-    self.descriptionLabel.text = [NSString stringWithFormat:@"To notify you when new content is available, %@ would like to send push notifications",[[ProjectSettings sharedManager] metaDataVariables:kBlogName]];
+    self.descriptionLabel.text = [NSString stringWithFormat:@"To notify you when new content is available, %@ would like to send push notifications",[[ProjectSettings sharedManager] fetchmetaDataVariables:kBlogName]];
 
     NSString *fontName = [[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kFontFamily];
 
@@ -116,7 +116,7 @@
     continueButton.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kPrimaryColor]];
 
     NSString *buttonText = [NSString stringWithFormat:@"Contine on to the %@",
-                            [[ProjectSettings sharedManager] metaDataVariables:kBlogName]];
+                            [[ProjectSettings sharedManager] fetchmetaDataVariables:kBlogName]];
 
     continueButton.layer.cornerRadius = 5;
 
@@ -127,7 +127,7 @@
     [self boldFontForLabel:continueButton.titleLabel];
 
     [self.scrollView addSubview:continueButton];
-
+    
     [continueButton setCenter:CGPointMake(self.view.frame.size.width / 2, self.contorlSwitchContainer.bottom + 40)];
 
     [continueButton addTarget:self action:@selector(dismissVC:) forControlEvents:UIControlEventTouchUpInside];

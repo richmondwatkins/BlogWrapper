@@ -19,6 +19,7 @@
 #import "AccessoryPage.h"
 #import "SocialContainer.h"
 #import "SocialItem.h"
+#import "Notification.h"
 
 #import "MenuContainer.h"
 #import "MenuHeader.h"
@@ -376,7 +377,7 @@ static ProjectSettings *sharedThemeManager = nil;
     return [metaData.accessoryPages allObjects];
 }
 
-- (NSString *)metaDataVariables:(NSString *)property {
+- (NSString *)fetchmetaDataVariables:(NSString *)property {
 
     NSFetchRequest *metaDataFetch = [[NSFetchRequest alloc] initWithEntityName:@"MetaData"];
 
@@ -390,7 +391,7 @@ static ProjectSettings *sharedThemeManager = nil;
 
 // Fetches share items for share tableview
 
-- (NSArray *)shareItems {
+- (NSArray *)fetchShareItems {
 
     NSFetchRequest *themeFetch = [[NSFetchRequest alloc] initWithEntityName:@"SocialContainer"];
 
@@ -518,6 +519,31 @@ static ProjectSettings *sharedThemeManager = nil;
 
         return NO;
     }
+}
+
+//Push Notifications
+
+- (void)setNotification:(NSDictionary *)notification withManagedObjectContext:(NSManagedObjectContext *)moc {
+
+    Notification *newNotification = [NSEntityDescription insertNewObjectForEntityForName:@"Notification" inManagedObjectContext:moc];
+
+    newNotification.text = notification[@"aps"][@"alert"];
+    newNotification.receivedDate = [NSDate date];
+
+    [moc save:nil];
+}
+
+- (NSArray *)fetchNotifications {
+
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+
+    NSFetchRequest *fetch = [[NSFetchRequest alloc] initWithEntityName:@"Notification"];
+
+    NSSortDescriptor *dateSort = [[NSSortDescriptor alloc] initWithKey:@"receivedDate" ascending:YES];
+
+    fetch.sortDescriptors  = @[dateSort];
+
+   return [appDelegate.managedObjectContext executeFetchRequest:fetch error:nil];
 }
 
 //Fonts

@@ -54,7 +54,7 @@ static SocialShareMethods *sharedSocialManager = nil;
 
         if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
 
-            NSString *facebookPageName = [[ProjectSettings sharedManager] metaDataVariables:kSiteName];
+            NSString *facebookPageName = [[ProjectSettings sharedManager] fetchmetaDataVariables:kSiteName];
 
             [self shareToFacebookInternal:[NSString stringWithFormat:@"%@ | %@", facebookPageName, params.link.absoluteString]];
 
@@ -107,7 +107,7 @@ static SocialShareMethods *sharedSocialManager = nil;
     if ([pinterest canPinWithSDK]) {
         [pinterest createPinWithImageURL:imageURL
                                     sourceURL:sourceURL
-                                  description:[[ProjectSettings sharedManager] metaDataVariables:kBlogName]];
+                                  description:[[ProjectSettings sharedManager] fetchmetaDataVariables:kBlogName]];
 
         return YES;
     } else {

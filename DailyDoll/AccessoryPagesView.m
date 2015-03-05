@@ -119,9 +119,9 @@ CGFloat const kAccessoryButtonHeight = 40;
 
 - (void)displayContactView {
 
-    NSString *email = [[ProjectSettings sharedManager] metaDataVariables:kEmail];
+    NSString *email = [[ProjectSettings sharedManager] fetchmetaDataVariables:kEmail];
 
-    NSString *blogTitle = [[ProjectSettings sharedManager] metaDataVariables:kBlogName];
+    NSString *blogTitle = [[ProjectSettings sharedManager] fetchmetaDataVariables:kBlogName];
 
     [[SocialShareMethods sharedManager] shareViaEmail:@{@"subject": blogTitle, @"recipient": email}];
 }

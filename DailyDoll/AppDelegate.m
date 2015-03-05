@@ -15,7 +15,7 @@
 #import "ProjectSettings.h"
 #import <SSKeychain.h>
 #import <GooglePlus/GooglePlus.h>
-
+#import "SNS.h"
 @interface AppDelegate ()
 @end
 
@@ -44,6 +44,28 @@
         [self setUpGooglePlus];
     }
 
+
+    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
+                                                    UIUserNotificationTypeBadge |
+                                                    UIUserNotificationTypeSound);
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
+                                                                             categories:nil];
+    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+
+    [[UIApplication sharedApplication] registerForRemoteNotifications];
+
+
+
+    AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithAccessKey:@"AKIAIUKWO57E3NNLK43Q" secretKey:@"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"];
+
+    AWSServiceConfiguration *defaultServiceConfiguration = [AWSServiceConfiguration configurationWithRegion:AWSRegionUSWest2
+                                                                                        credentialsProvider:credentialsProvider];
+
+    [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = defaultServiceConfiguration;
+
+#if DEBUG
+    [[ProjectSettings sharedManager] setNotification:@{@"aps":@{@"alert":@"woo"}} withManagedObjectContext:self.managedObjectContext];
+#endif
 
     return YES;
 }
@@ -74,11 +96,29 @@
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
-  NSLog(@"Registered for push %@", [self deviceTokenFromData:deviceToken]);
+
+    NSString *deviceTokenString = [self deviceTokenFromData:deviceToken];
+
+    NSLog(@"deviceTokenString: %@", deviceTokenString);
+    [[NSUserDefaults standardUserDefaults] setObject:deviceTokenString forKey:@"deviceToken"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
+    AWSSNS *sns = [AWSSNS defaultSNS];
+    AWSSNSCreatePlatformEndpointInput *request = [AWSSNSCreatePlatformEndpointInput new];
+    request.token = deviceTokenString;
+    request.platformApplicationArn = @"arn:aws:sns:us-west-2:093375523987:app/APNS_SANDBOX/DailyDoll";
+    [[sns createPlatformEndpoint:request] continueWithBlock:^id(BFTask *task) {
+        if (task.error != nil) {
+            NSLog(@"Error: %@",task.error);
+        } else {
+            NSLog(@"Success");
+        }
+
+        return nil;
+    }];
 }
 
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings{
-    NSLog(@"Restiered");
 }
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
@@ -86,7 +126,8 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    NSLog(@"User info %@",[[userInfo valueForKey:@"aps"] valueForKey:@"alert"]);
+
+    [[ProjectSettings sharedManager] setNotification:userInfo withManagedObjectContext:self.managedObjectContext];
 }
 
 

@@ -52,6 +52,7 @@
 		5DA4B98D1A7F3B2D0016476C /* ExternalWebModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA4B98C1A7F3B2D0016476C /* ExternalWebModalViewController.m */; };
 		5DA64CD51A847A7A004F08A8 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DA64CD41A847A7A004F08A8 /* HeaderView.xib */; };
 		5DAB92251A92C82E006D3D4F /* SocialShareMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB92241A92C82E006D3D4F /* SocialShareMethods.m */; };
+		5DB59E701AA7B4F900567D59 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59E6F1AA7B4F900567D59 /* Notification.m */; };
 		5DBD74F61AA2646900713D4D /* PushRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBD74F51AA2646900713D4D /* PushRequestViewController.m */; };
 		5DBD75031AA26F0400713D4D /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBD75021AA26F0400713D4D /* UIView+Additions.m */; };
 		5DC2F5511A85A91A00ED1969 /* SideMenuTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2F5501A85A91A00ED1969 /* SideMenuTableView.m */; };
@@ -168,6 +169,8 @@
 		5DA64CD41A847A7A004F08A8 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		5DAB92231A92C82E006D3D4F /* SocialShareMethods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialShareMethods.h; sourceTree = "<group>"; };
 		5DAB92241A92C82E006D3D4F /* SocialShareMethods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialShareMethods.m; sourceTree = "<group>"; };
+		5DB59E6E1AA7B4F900567D59 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
+		5DB59E6F1AA7B4F900567D59 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		5DBD74F41AA2646900713D4D /* PushRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushRequestViewController.h; sourceTree = "<group>"; };
 		5DBD74F51AA2646900713D4D /* PushRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushRequestViewController.m; sourceTree = "<group>"; };
 		5DBD75011AA26F0400713D4D /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
@@ -302,7 +305,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		5D27CB581A9192FC006958F3 /* MenuItems */ = {
+		5D27CB581A9192FC006958F3 /* MenuItemsModel */ = {
 			isa = PBXGroup;
 			children = (
 				5D27CB701A91A248006958F3 /* MenuHeader.h */,
@@ -312,7 +315,7 @@
 				5D27CB6A1A91A247006958F3 /* MenuContainer.h */,
 				5D27CB6B1A91A247006958F3 /* MenuContainer.m */,
 			);
-			name = MenuItems;
+			name = MenuItemsModel;
 			path = ..;
 			sourceTree = "<group>";
 		};
@@ -395,6 +398,26 @@
 			name = GooglePlus;
 			sourceTree = "<group>";
 		};
+		5DB59E711AA7B51500567D59 /* NotificatoinsModel */ = {
+			isa = PBXGroup;
+			children = (
+				5DB59E6E1AA7B4F900567D59 /* Notification.h */,
+				5DB59E6F1AA7B4F900567D59 /* Notification.m */,
+			);
+			name = NotificatoinsModel;
+			sourceTree = "<group>";
+		};
+		5DB59E721AA7B52D00567D59 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5D62FD871A8AFAF10022671F /* ThemeModel */,
+				5D27CB581A9192FC006958F3 /* MenuItemsModel */,
+				5D617B661A8C18CA009063D0 /* ProjectVariablesModel */,
+				5DB59E711AA7B51500567D59 /* NotificatoinsModel */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		5DBD74F31AA2645000713D4D /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -463,9 +486,7 @@
 			children = (
 				5DBD75001AA26EF800713D4D /* Categories */,
 				5DBD74F31AA2645000713D4D /* Onboarding */,
-				5D617B661A8C18CA009063D0 /* ProjectVariablesModel */,
-				5D27CB581A9192FC006958F3 /* MenuItems */,
-				5D62FD871A8AFAF10022671F /* ThemeModel */,
+				5DB59E721AA7B52D00567D59 /* Models */,
 				5DDA3DBF1A8670F700FD085A /* AppDelegate */,
 				5DC2F5581A85BB9600ED1969 /* Categories */,
 				5DDA3DBD1A8670AE00FD085A /* ParentViewControllerClass */,
@@ -871,6 +892,7 @@
 				5D27CB6F1A91A248006958F3 /* MenuItem.m in Sources */,
 				5D6C98661A8D059700EB408E /* ThemeContainer.m in Sources */,
 				5DDA3D9B1A85CC0500FD085A /* SideMenuTableSectionLabel.m in Sources */,
+				5DB59E701AA7B4F900567D59 /* Notification.m in Sources */,
 				5DFD4BA81A980705002A2D19 /* AccessoryPagesView.m in Sources */,
 				5D86005C1A87C45A00AA8971 /* SocialSharePopoverView.m in Sources */,
 				5DDA3DA51A85D39500FD085A /* ProjectSettings.m in Sources */,

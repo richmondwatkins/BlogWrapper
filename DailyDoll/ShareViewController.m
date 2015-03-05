@@ -49,7 +49,7 @@
 
     self.view = shareView;
 
-    self.dataSource = [[ProjectSettings sharedManager] shareItems];
+    self.dataSource = [[ProjectSettings sharedManager] fetchShareItems];
 
     [self.tableView reloadData];
 
@@ -131,8 +131,8 @@
 
         case 5: {
 
-            NSString *blogName = [[ProjectSettings sharedManager] metaDataVariables:kBlogName];
-            NSString *blogUrl = [[ProjectSettings sharedManager] metaDataVariables:kURLString];
+            NSString *blogName = [[ProjectSettings sharedManager] fetchmetaDataVariables:kBlogName];
+            NSString *blogUrl = [[ProjectSettings sharedManager] fetchmetaDataVariables:kURLString];
 
             [[SocialShareMethods sharedManager] shareViaEmail: @{@"message": blogUrl, @"subject": blogName}];
 
@@ -141,8 +141,8 @@
 
         case 6: {
 
-            NSString *blogName = [[ProjectSettings sharedManager] metaDataVariables:kBlogName];
-            NSString *blogUrl = [[ProjectSettings sharedManager] metaDataVariables:kURLString];
+            NSString *blogName = [[ProjectSettings sharedManager] fetchmetaDataVariables:kBlogName];
+            NSString *blogUrl = [[ProjectSettings sharedManager] fetchmetaDataVariables:kURLString];
 
             [[SocialShareMethods sharedManager] shareViaSMS: @{@"message": blogUrl, @"subject": blogName}];
 

@@ -195,7 +195,7 @@
 
 - (void)displayHomePage:(id)sender {
 
-    NSString *homeUrl = [[ProjectSettings sharedManager] metaDataVariables:kURLString];
+    NSString *homeUrl = [[ProjectSettings sharedManager] fetchmetaDataVariables:kURLString];
 
     [self.delegate selectedSideMenuItem:homeUrl];
 
