@@ -52,4 +52,8 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+-(BOOL)adjustForStatusBar {
+    return NO;
+}
+
 @end

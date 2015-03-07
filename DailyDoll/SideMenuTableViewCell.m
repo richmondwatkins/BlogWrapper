@@ -46,23 +46,6 @@
     // Configure the view for the selected state
 }
 
-- (void)layoutSubviews {
 
-    [super layoutSubviews];
-
-    //prevents label line from showing up on iPhone 5
-    self.textLabel.frame = self.contentView.frame;
-
-    if ([self respondsToSelector:@selector(setSeparatorInset:)])
-        [self setSeparatorInset:UIEdgeInsetsZero];
-
-    if ([self respondsToSelector:@selector(setPreservesSuperviewLayoutMargins:)]) {
-        [self setPreservesSuperviewLayoutMargins:NO];;
-    }
-
-    if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
-        [self setLayoutMargins:UIEdgeInsetsZero];
-    }
-}
 
 @end

@@ -217,4 +217,7 @@
     return self.layer.animationKeys.count > 0;
 }
 
+- (void)holdPositionDuringScroll:(CGFloat)contentOffsetY withOriginalY:(int)originalY {
+    self.frame = CGRectMake(self.frame.origin.x, originalY + contentOffsetY, self.frame.size.width, self.frame.size.height);
+}
 @end

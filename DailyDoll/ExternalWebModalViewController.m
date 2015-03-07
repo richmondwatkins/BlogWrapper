@@ -7,8 +7,8 @@
 //
 
 #import "ExternalWebModalViewController.h"
-#import "ExternalWebNavBar.h"
 #import "ProjectSettings.h"
+#import "DetailNavigationBar.h"
 
 @interface ExternalWebModalViewController () <UIWebViewDelegate>
 
@@ -32,16 +32,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    ExternalWebNavBar *customNav = [[ExternalWebNavBar alloc] initWithCustomFrameAndStyling:self.view.frame.size.width];
+    DetailNavigationBar *customNav = [[DetailNavigationBar alloc] initWithCloseButtonAndFrame:CGRectMake(0, self.statusBarBackground.frame.size.height, self.view.frame.size.width, 40)];
 
-    CGFloat buttonWidth = 20;
-    CGFloat buttonPadding = 5;
-
-    UIButton *closeButton = [[UIButton alloc] initWithFrame:CGRectMake(customNav.frame.size.width -  (buttonWidth + buttonPadding), 20, buttonWidth, buttonWidth)];
-    [closeButton setImage:[UIImage imageNamed:@"exit"] forState:UIControlStateNormal];
-    [closeButton addTarget:self action:@selector(dissmissModal:) forControlEvents:UIControlEventTouchUpInside];
-
-    [customNav addSubview:closeButton];
+    customNav.rightBarButton.target = self;
+    customNav.rightBarButton.action = @selector(dissmissModal:);
 
     [self.view addSubview:customNav];
 

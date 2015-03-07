@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "MenuItem.h"
-
-@interface SideMenuTableViewCell : UITableViewCell
+#import "BATableViewCell.h"
+@interface SideMenuTableViewCell : BATableViewCell
 
 - (void)addTextToMenu:(MenuItem *)menuItem;
 

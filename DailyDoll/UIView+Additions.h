@@ -55,4 +55,6 @@
 - (BOOL)viewAnimating;
 
 
+- (void)holdPositionDuringScroll:(CGFloat)contentOffset withOriginalY:(int)originalY;
+
 @end

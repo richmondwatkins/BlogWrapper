@@ -17,6 +17,9 @@
 #import "SideMenuTableSectionLabel.h"
 #import "ProjectSettings.h"
 #import "AccessoryPagesView.h"
+#import "NotificationViewController.h"
+
+#import "UIView+Additions.h"
 
 @interface SideMenuViewController () <UITableViewDataSource, UITableViewDelegate, AccessoryPageProtocol>
 
@@ -28,13 +31,16 @@
 @property CGPoint imageViewCenter;
 @property UIButton *aboutButton;
 @property AccessoryPagesView *accessoryPageView;
+@property UIButton *notificationButton;
+
 @end
+
+int const kTopButtonPadding = 4;
 
 @implementation SideMenuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
 
     self.tableView = [[SideMenuTableView alloc] initWithFrame:CGRectMake(0,
                                                                          self.headerImageView.frame.origin.y + self.headerImageView.frame.size.height + 20,
@@ -59,11 +65,6 @@
 
 -(void)viewDidLayoutSubviews {
 
-    self.view.frame = CGRectMake(0,
-                                 0,
-                                 [self returnWidthForMenuViewController],
-                                 self.view.frame.size.height);
-
     CGPoint headerCenter = CGPointMake(self.tableView.frame.size.width / 2,
                                        self.headerView.frame.size.height / 2);
 
@@ -76,11 +77,13 @@
 
 - (void)setUpHeaderView {
 
+    int viewControllerWidth = [self returnWidthForMenuViewController];
+
     self.headerImageView = [[SideMenuHeaderImageView alloc] initWithParentFrame:self.view.frame
-                                                                 andMenuVCWidth:[self returnWidthForMenuViewController] + 20];
+                                                                 andMenuVCWidth:viewControllerWidth + 20];
 
     self.headerView = [[SideMenuTableHeaderView alloc] initWithFrame:self.view.frame
-                                                           menuInset:[self returnWidthForMenuViewController]
+                                                           menuInset:viewControllerWidth
                                                         andImageView:self.headerImageView.frame];
 
     [self.headerView addSubview:self.headerImageView];
@@ -95,15 +98,36 @@
 
     self.tableView.tableHeaderView = self.headerView;
 
-    CGSize accessoryButtonSize = CGSizeMake(40, 40);
+    CGSize accessoryButtonSize = CGSizeMake(30, 30);
 
-    self.aboutButton = [[UIButton alloc] initWithFrame:CGRectMake(4, 4, accessoryButtonSize.width - 10, accessoryButtonSize.height - 10)];
+    self.aboutButton = [[UIButton alloc] initWithFrame:CGRectMake(kTopButtonPadding,
+                                                                  kTopButtonPadding,
+                                                                  accessoryButtonSize.width,
+                                                                  accessoryButtonSize.height)];
 
-    [self.aboutButton setImage:[UIImage imageNamed:@"about"] forState:UIControlStateNormal];
+    [self.aboutButton setImage:[UIImage imageNamed:@"about"]
+                      forState:UIControlStateNormal];
 
-    [self.aboutButton addTarget:self action:@selector(displayAboutPagePopOut) forControlEvents:UIControlEventTouchUpInside];
+    [self.aboutButton addTarget:self action:@selector(displayAboutPagePopOut)
+               forControlEvents:UIControlEventTouchUpInside];
 
     [self.headerView addSubview:self.aboutButton];
+
+
+    int notifButtonPadding = 4;
+    self.notificationButton = [[UIButton alloc] initWithFrame:CGRectMake((viewControllerWidth - accessoryButtonSize.width) - notifButtonPadding,
+                                                                         kTopButtonPadding,
+                                                                         accessoryButtonSize.width,
+                                                                         accessoryButtonSize.height)];
+
+    [self.notificationButton setImage:[UIImage imageNamed:@"notification"]
+                             forState:UIControlStateNormal];
+
+    [self.notificationButton addTarget:self action:@selector(displayNotifications:)
+                      forControlEvents:UIControlEventTouchUpInside];
+
+    [self.headerView addSubview:self.notificationButton];
+
 }
 
 - (void)displayAboutPagePopOut {
@@ -115,6 +139,18 @@
     [self.view addSubview:self.accessoryPageView];
 
     [self.accessoryPageView animateOnToScreen:self.view.frame];
+}
+
+- (void)displayNotifications:(UIButton *)sender {
+
+    CGFloat popUpWidth = self.view.width * 0.8;
+
+    NotificationViewController *notifVC = [[NotificationViewController alloc] initWithStyleAndFrame:CGRectMake(sender.center.x - popUpWidth, sender.height + kTopButtonPadding, self.view.width * 0.8, 200) andParentWidth:self.view.width];
+
+    [self addChildViewController:notifVC];
+    [self.view addSubview:notifVC.view];
+
+    [notifVC didMoveToParentViewController:self];
 }
 
 
@@ -189,7 +225,9 @@
         self.headerImageView.center = CGPointMake(self.imageViewCenter.x,
                                                   self.imageViewCenter.y - (y/2));
 
-        self.aboutButton.frame = CGRectMake(self.aboutButton.frame.origin.x, 4 + scrollView.contentOffset.y, self.aboutButton.frame.size.width, self.aboutButton.frame.size.height);
+        [self.aboutButton holdPositionDuringScroll:-y withOriginalY:kTopButtonPadding];
+
+        [self.notificationButton holdPositionDuringScroll:-y withOriginalY:kTopButtonPadding];
     }
 }
 

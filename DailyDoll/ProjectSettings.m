@@ -539,7 +539,9 @@ static ProjectSettings *sharedThemeManager = nil;
 
     NSFetchRequest *fetch = [[NSFetchRequest alloc] initWithEntityName:@"Notification"];
 
-    NSSortDescriptor *dateSort = [[NSSortDescriptor alloc] initWithKey:@"receivedDate" ascending:YES];
+    NSSortDescriptor *dateSort = [[NSSortDescriptor alloc] initWithKey:@"receivedDate" ascending:NO];
+
+    [fetch setPredicate:[NSPredicate predicateWithFormat:@"text != nil"]];
 
     fetch.sortDescriptors  = @[dateSort];
 

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface ExternalWebModalViewController : UIViewController
+#import "DDViewController.h"
+@interface ExternalWebModalViewController : DDViewController
 
 -(instancetype)initWithRequest:(NSURLRequest *)request;
 

@@ -17,6 +17,8 @@
 #import "CenterVCTitleLabel.h"
 #import "BlurActivityOverlay.h"
 #import "CenterVCActivityIndicator.h"
+#import "UIView+Additions.h"
+#import "BAView.h"
 
 #import <TwitterKit/TwitterKit.h>
 #import <GooglePlus/GooglePlus.h>
@@ -34,12 +36,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.statusBarBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
-    self.statusBarBackground.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:STATUSBAR withProperty:kBackgroundColor]];
-    self.statusBarBackground.autoresizingMask =  UIViewAutoresizingFlexibleWidth;
-    [self.view addSubview:self.statusBarBackground];
+    BAView *baView = [[BAView alloc] initWithFrame:self.view.frame];
+    self.view = baView;
 
-    [[[UIApplication sharedApplication] keyWindow] addSubview:self.statusBarBackground];
+    if (self.statusBarBackground == nil) {
+
+        self.statusBarBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
+        self.statusBarBackground.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:STATUSBAR withProperty:kBackgroundColor]];
+        self.statusBarBackground.autoresizingMask =  UIViewAutoresizingFlexibleWidth;
+        [self.view addSubview:self.statusBarBackground];
+        [[[UIApplication sharedApplication] keyWindow] addSubview:self.statusBarBackground];
+    }
+
+    if ([self adjustForStatusBar]) {
+        self.view.top = self.statusBarBackground.bottom;
+    }
 
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:NAVBAR withProperty:kBackgroundColor]];
 
@@ -317,6 +328,10 @@
     if (self.blurOverlay) {
         [self.blurOverlay animateAndRemove];
     }
+}
+
+- (BOOL)adjustForStatusBar {
+    return YES;
 }
 
 @end

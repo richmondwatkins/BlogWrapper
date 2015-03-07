@@ -56,7 +56,7 @@
 
 
 
-    AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithAccessKey:@"AKIAIUKWO57E3NNLK43Q" secretKey:@"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"];
+    AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithAccessKey:@"AKIAIWP6JCHRY25UQ2DA" secretKey:@"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"];
 
     AWSServiceConfiguration *defaultServiceConfiguration = [AWSServiceConfiguration configurationWithRegion:AWSRegionUSWest2
                                                                                         credentialsProvider:credentialsProvider];
@@ -64,7 +64,7 @@
     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = defaultServiceConfiguration;
 
 #if DEBUG
-    [[ProjectSettings sharedManager] setNotification:@{@"aps":@{@"alert":@"woo"}} withManagedObjectContext:self.managedObjectContext];
+    [[ProjectSettings sharedManager] setNotification:@{@"aps":@{@"alert":@"This is a test push notif"}} withManagedObjectContext:self.managedObjectContext];
 #endif
 
     return YES;

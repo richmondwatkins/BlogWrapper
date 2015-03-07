@@ -32,4 +32,6 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView;
 
+- (BOOL)adjustForStatusBar;
+
 @end
