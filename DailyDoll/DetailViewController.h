@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "DDViewController.h"
-@interface DetailViewController : DDViewController
+#import "BASocialShareViewController.h"
+
+@interface DetailViewController : BASocialShareViewController
 
 -(instancetype)initWithRequest:(NSURLRequest *)request;
 

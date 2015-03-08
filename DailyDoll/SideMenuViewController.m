@@ -145,7 +145,7 @@ int const kTopButtonPadding = 4;
 
     CGFloat popUpWidth = self.view.width * 0.8;
 
-    NotificationViewController *notifVC = [[NotificationViewController alloc] initWithStyleAndFrame:CGRectMake(sender.center.x - popUpWidth, sender.height + kTopButtonPadding, self.view.width * 0.8, 200) andParentWidth:self.view.width];
+    NotificationViewController *notifVC = [[NotificationViewController alloc] initWithStyleAndFrame:CGRectMake(sender.center.x - popUpWidth, sender.height + kTopButtonPadding, self.view.width * 0.8, self.view.height * 0.7) andParentWidth:self.view.width];
 
     [self addChildViewController:notifVC];
     [self.view addSubview:notifVC.view];

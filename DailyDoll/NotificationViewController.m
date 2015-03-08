@@ -12,6 +12,9 @@
 #import "NotificationTableViewCell.h"
 #import "NotificationWebView.h"
 #import "UIView+Additions.h"
+#import "NotificationView.h"
+
+#define kArrowHeight 20
 
 @interface NotificationViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -41,13 +44,17 @@
 
     self.view.width = self.parentViewWidth;
 
-    self.view.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
+    self.view.backgroundColor = [UIColor clearColor];
 
-    self.containerView = [[UIView alloc] initWithFrame:self.viewFrame];
+    self.containerView = [[NotificationView alloc] initWithFrame:self.viewFrame andCaretHeight:kArrowHeight];
+    self.containerView.layer.shadowOpacity = 0.9;
+    self.containerView.layer.shadowOffset = CGSizeMake(2.0f, 2.0f);
 
+    self.containerView.backgroundColor = [UIColor clearColor];
+    
     [self.view addSubview:self.containerView];
 
-    self.tableView = [[NotificationTableView alloc] initWithStyleAndFrame:CGRectMake(0, 0, self.containerView.width, self.containerView.height)];
+    self.tableView = [[NotificationTableView alloc] initWithStyleAndFrame:CGRectMake(0, kArrowHeight, self.containerView.width, self.containerView.height-kArrowHeight)];
 
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

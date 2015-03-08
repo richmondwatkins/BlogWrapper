@@ -8,6 +8,7 @@
 
 #import "NotificationTableView.h"
 #import "ProjectSettings.h"
+
 @implementation NotificationTableView
 
 - (instancetype)initWithStyleAndFrame:(CGRect)frame {
@@ -23,5 +24,7 @@
 
     return self;
 }
+
+
 
 @end

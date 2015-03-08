@@ -27,8 +27,6 @@
 
 CGFloat const kButtonHeightAndWidth = 40;
 
-CGFloat const kTitleLabelHeight= 15;
-
 @implementation CenterShareView
 
 - (instancetype)initWithFrameAndStyle:(CGRect)parentFrame {
@@ -39,9 +37,9 @@ CGFloat const kTitleLabelHeight= 15;
 
         CGFloat height = parentFrame.size.height * 0.1;
 
-        self.frame = CGRectMake(0, 0, parentFrame.size.width, height + kTitleLabelHeight);
+        self.frame = CGRectMake(0, 0, parentFrame.size.width, height);
 
-        self.originalCenter = CGPointMake(parentFrame.size.width / 2, (parentFrame.size.height + height / 2) + kTitleLabelHeight/2);
+        self.originalCenter = CGPointMake(parentFrame.size.width / 2, (parentFrame.size.height + height / 2));
 
         [self setCenter:self.originalCenter];
 
@@ -49,29 +47,12 @@ CGFloat const kTitleLabelHeight= 15;
 
         self.maxTopYPostition = self.originalCenter.y - self.frame.size.height;
 
-        [self addTitleLabel];
-
         [self addShareButtonsToView];
 
         //TODO make this work in landscape
     }
 
     return self;
-}
-
-- (void) addTitleLabel {
-
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, kTitleLabelHeight)];
-
-    titleLabel.text = @"Share this page via...";
-
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-
-    [titleLabel setFont:[UIFont fontWithName:@"Arial" size:12]];
-
-    [self addSubview:titleLabel];
-
-    [titleLabel setCenter:CGPointMake(self.frame.size.width /2, self.frame.size.height / titleLabel.frame.size.height + 2)];
 }
 
 - (void)addShareButtonsToView {
@@ -86,7 +67,7 @@ CGFloat const kTitleLabelHeight= 15;
 
         UIButton *socialButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, buttonSize.width, buttonSize.height)];
 
-        UIImage *btnImage = [UIImage imageNamed:socialItem.image];
+        UIImage *btnImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@-main",socialItem.image]];
 
         [socialButton setImage:btnImage forState:UIControlStateNormal];
 
@@ -98,10 +79,10 @@ CGFloat const kTitleLabelHeight= 15;
 
         if (lastSubView && ![lastSubView isKindOfClass:[UILabel class]]) {
 
-            [socialButton setCenter:CGPointMake(lastSubView.center.x + (buttonPadding+ kButtonHeightAndWidth/2) , (self.frame.size.height / 2) + kTitleLabelHeight/2    )];
+            [socialButton setCenter:CGPointMake(lastSubView.center.x + (buttonPadding+ kButtonHeightAndWidth/2) , (self.frame.size.height / 2))];
         }else {
 
-            [socialButton setCenter:CGPointMake(buttonPadding + (kButtonHeightAndWidth/2), (self.frame.size.height / 2) + kTitleLabelHeight/2)];
+            [socialButton setCenter:CGPointMake(buttonPadding + (kButtonHeightAndWidth/2), (self.frame.size.height / 2))];
         }
 
     }
@@ -112,38 +93,38 @@ CGFloat const kTitleLabelHeight= 15;
 - (void)addShareMethodToItem:(UIButton *)shareButton withId:(int)socialId {
 
     switch (socialId) {
-        case 0:
+        case FACEBOOK:
 
             [shareButton addTarget:self action:@selector(facebookShareDelegate:) forControlEvents:UIControlEventTouchUpInside];
         break;
 
-        case 1:
+        case PINTEREST:
 
             [shareButton addTarget:self action:@selector(pinIt:) forControlEvents:UIControlEventTouchUpInside];
         break;
 
-        case 2:
+        case TWIITER:
 
             [shareButton addTarget:self action:@selector(tweet:) forControlEvents:UIControlEventTouchUpInside];
         break;
 
-        case 3:
+        case INSTAGRAM:
             //instagram
         break;
 
-        case 4: {
+        case GOOGLEPLUS: {
 
             [shareButton addTarget:self action:@selector(googlePlusShare:) forControlEvents:UIControlEventTouchUpInside];
 
         }
         break;
 
-        case 5:
+        case EMAIL:
 
             [shareButton addTarget:self action:@selector(shareViaEmail:) forControlEvents:UIControlEventTouchUpInside];
             break;
 
-        case 6:
+        case SMS:
 
             [shareButton addTarget:self action:@selector(shareViaSMS:) forControlEvents:UIControlEventTouchUpInside];
             break;

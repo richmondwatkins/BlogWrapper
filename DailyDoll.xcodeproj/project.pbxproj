@@ -19,7 +19,6 @@
 		5D27CB6F1A91A248006958F3 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27CB6E1A91A248006958F3 /* MenuItem.m */; };
 		5D27CB721A91A248006958F3 /* MenuHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27CB711A91A248006958F3 /* MenuHeader.m */; };
 		5D27CB751A91B65B006958F3 /* CenterShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27CB741A91B65B006958F3 /* CenterShareView.m */; };
-		5D2D40751A83282D000A84B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5D2D40741A83282D000A84B1 /* Main.storyboard */; };
 		5D62FD651A8AF1230022671F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D62FD641A8AF1230022671F /* CoreData.framework */; };
 		5D62FD681A8AF1680022671F /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD661A8AF1680022671F /* DataModel.xcdatamodeld */; };
 		5D6C98561A8C5D8000EB408E /* SocialContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6C98551A8C5D8000EB408E /* SocialContainer.m */; };
@@ -61,6 +60,8 @@
 		5DADA6A21AAB56D0005E4F2C /* NotificationWebViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DADA6A11AAB56D0005E4F2C /* NotificationWebViewHeader.m */; };
 		5DADA6A51AAB6607005E4F2C /* BAView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DADA6A41AAB6607005E4F2C /* BAView.m */; };
 		5DADA6A91AACDE76005E4F2C /* BASocialShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DADA6A81AACDE76005E4F2C /* BASocialShareViewController.m */; };
+		5DADA6AB1AACEB1A005E4F2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DADA6AA1AACEB1A005E4F2C /* Main.storyboard */; };
+		5DADA6AF1AACFE0C005E4F2C /* NotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DADA6AE1AACFE0C005E4F2C /* NotificationView.m */; };
 		5DB59E701AA7B4F900567D59 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59E6F1AA7B4F900567D59 /* Notification.m */; };
 		5DBD74F61AA2646900713D4D /* PushRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBD74F51AA2646900713D4D /* PushRequestViewController.m */; };
 		5DBD75031AA26F0400713D4D /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBD75021AA26F0400713D4D /* UIView+Additions.m */; };
@@ -135,7 +136,6 @@
 		5D27CB711A91A248006958F3 /* MenuHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuHeader.m; sourceTree = "<group>"; };
 		5D27CB731A91B65B006958F3 /* CenterShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterShareView.h; sourceTree = "<group>"; };
 		5D27CB741A91B65B006958F3 /* CenterShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterShareView.m; sourceTree = "<group>"; };
-		5D2D40741A83282D000A84B1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		5D62FD641A8AF1230022671F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5D62FD671A8AF1680022671F /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		5D6C98541A8C5D8000EB408E /* SocialContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialContainer.h; sourceTree = "<group>"; };
@@ -195,6 +195,9 @@
 		5DADA6A41AAB6607005E4F2C /* BAView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAView.m; sourceTree = "<group>"; };
 		5DADA6A71AACDE76005E4F2C /* BASocialShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BASocialShareViewController.h; sourceTree = "<group>"; };
 		5DADA6A81AACDE76005E4F2C /* BASocialShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BASocialShareViewController.m; sourceTree = "<group>"; };
+		5DADA6AA1AACEB1A005E4F2C /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		5DADA6AD1AACFE0C005E4F2C /* NotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationView.h; sourceTree = "<group>"; };
+		5DADA6AE1AACFE0C005E4F2C /* NotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationView.m; sourceTree = "<group>"; };
 		5DB59E6E1AA7B4F900567D59 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		5DB59E6F1AA7B4F900567D59 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		5DBD74F41AA2646900713D4D /* PushRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushRequestViewController.h; sourceTree = "<group>"; };
@@ -342,6 +345,8 @@
 				5D9C59561AA8E6E100E73EF3 /* NotificationWebView.m */,
 				5DADA6A01AAB56D0005E4F2C /* NotificationWebViewHeader.h */,
 				5DADA6A11AAB56D0005E4F2C /* NotificationWebViewHeader.m */,
+				5DADA6AD1AACFE0C005E4F2C /* NotificationView.h */,
+				5DADA6AE1AACFE0C005E4F2C /* NotificationView.m */,
 			);
 			name = NotificationVC;
 			sourceTree = "<group>";
@@ -466,6 +471,15 @@
 			name = SocialSignInVC;
 			sourceTree = "<group>";
 		};
+		5DADA6AC1AACF626005E4F2C /* DetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5DDE241D1AA40968001CE1AD /* DetailViewController.h */,
+				5DDE241E1AA40968001CE1AD /* DetailViewController.m */,
+			);
+			name = DetailViewController;
+			sourceTree = "<group>";
+		};
 		5DB59E711AA7B51500567D59 /* NotificatoinsModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -574,7 +588,6 @@
 				5DDA1B1C1A7F383C00914761 /* Supporting Files */,
 				5DDA1B291A7F383C00914761 /* Images.xcassets */,
 				5D62FD661A8AF1680022671F /* DataModel.xcdatamodeld */,
-				5D2D40741A83282D000A84B1 /* Main.storyboard */,
 				5DDA1B2B1A7F383C00914761 /* LaunchScreen.xib */,
 				5DA64CD41A847A7A004F08A8 /* HeaderView.xib */,
 			);
@@ -584,6 +597,7 @@
 		5DDA1B1C1A7F383C00914761 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5DADA6AA1AACEB1A005E4F2C /* Main.storyboard */,
 				5DF7A6421A955FE8009BA5EE /* Fonts */,
 				5D9F58BE1A8E77DD00A53BB7 /* GooglePlus */,
 				5D9F58BD1A8E77C900A53BB7 /* Twitter */,
@@ -669,6 +683,7 @@
 		5DDA3DB21A85F4A800FD085A /* MainVC */ = {
 			isa = PBXGroup;
 			children = (
+				5DADA6AC1AACF626005E4F2C /* DetailViewController */,
 				5DDA1B231A7F383C00914761 /* CenterViewController.h */,
 				5DDA1B241A7F383C00914761 /* CenterViewController.m */,
 				5DDA3DAD1A85EE4900FD085A /* CenterVCActivityIndicator.h */,
@@ -679,8 +694,6 @@
 				5DDA3DB71A85FDFE00FD085A /* CenterVCTitleLabel.m */,
 				5D27CB731A91B65B006958F3 /* CenterShareView.h */,
 				5D27CB741A91B65B006958F3 /* CenterShareView.m */,
-				5DDE241D1AA40968001CE1AD /* DetailViewController.h */,
-				5DDE241E1AA40968001CE1AD /* DetailViewController.m */,
 			);
 			name = MainVC;
 			sourceTree = "<group>";
@@ -891,8 +904,8 @@
 				5DDA3DB11A85F27F00FD085A /* webViewJS.js in Resources */,
 				5D7F6B5D1A8A893800A207CD /* TwitterKitResources.bundle in Resources */,
 				5D27CB631A91945E006958F3 /* MenuItemList.plist in Resources */,
-				5D2D40751A83282D000A84B1 /* Main.storyboard in Resources */,
 				5DDA1B2A1A7F383C00914761 /* Images.xcassets in Resources */,
+				5DADA6AB1AACEB1A005E4F2C /* Main.storyboard in Resources */,
 				5D9F5A071A8E781D00A53BB7 /* GooglePlus.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -979,6 +992,7 @@
 				5D27CB751A91B65B006958F3 /* CenterShareView.m in Sources */,
 				5D9C594B1AA8CFF400E73EF3 /* NotificationTableViewCell.m in Sources */,
 				5DC2F55E1A85BF8000ED1969 /* SideMenuHeaderImageView.m in Sources */,
+				5DADA6AF1AACFE0C005E4F2C /* NotificationView.m in Sources */,
 				5D9F58A51A8DCBA400A53BB7 /* OAuthWebView.m in Sources */,
 				5D6C98691A8D059700EB408E /* ThemeItem.m in Sources */,
 				5DDA3D981A85CA8A00FD085A /* SideMenuTableSectionHeader.m in Sources */,

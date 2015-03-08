@@ -18,13 +18,11 @@
 #import "PushRequestViewController.h"
 #import "DetailViewController.h"
 
-@interface CenterViewController () <UIWebViewDelegate, SideMenuProtocol, UIScrollViewDelegate, CenterShare>
+@interface CenterViewController () <UIWebViewDelegate, SideMenuProtocol, CenterShare>
 
 @property (nonatomic, strong)  UIWebView *webView;
 @property NSURLRequest *externalRequest;
 @property MMDrawerController *drawerController;
-@property CGPoint lastScrollPosition;
-@property (nonatomic)  BOOL isScrollingDown;
 @property CenterShareView *shareSlideUp;
 
 @end
@@ -40,7 +38,6 @@
 
     [self setUpDrawControllerAndButton];
 
-    [self setUpShareSlideUpView];
 
 //    [[ProjectSettings sharedManager] listFonts];
 }
@@ -51,20 +48,6 @@
         PushRequestViewController *pushVC = [[PushRequestViewController alloc] init];
         [self presentViewController:pushVC animated:YES completion:nil];
     }
-
-}
-
-- (void)setUpShareSlideUpView {
-
-    if ([[ProjectSettings sharedManager] projectHasSocialAccounts]) {
-
-        self.shareSlideUp = [[CenterShareView alloc] initWithFrameAndStyle:self.view.frame];
-
-        self.shareSlideUp.delegate = self;
-
-        [self.view addSubview:self.shareSlideUp];
-    }
-
 
 }
 
@@ -107,7 +90,6 @@
     [self.view addSubview:self.webView];
 
     self.webView.delegate = self;
-    self.webView.scrollView.delegate = self;
 
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[[ProjectSettings sharedManager] fetchmetaDataVariables:kURLString]]]];
 }
@@ -153,47 +135,6 @@
     [self.shareSlideUp animateOntoScreen];
 }
 
-
--(NSURL *)returnCurrentURL {
-    return self.webView.request.URL;
-}
-
-- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-
-
-    CGPoint currentPosition = scrollView.contentOffset;
-
-    if (currentPosition.y > self.lastScrollPosition.y){
-
-//        [self.shareSlideUp slideDownOnDrag:[scrollView.panGestureRecognizer translationInView:scrollView].y / 10];
-
-        self.isScrollingDown = YES;
-    }else{
-
-//        [self.shareSlideUp slideUpOnDrag:[scrollView.panGestureRecognizer translationInView:scrollView].y / 10];
-
-        self.isScrollingDown = NO;
-    }
-
-    self.lastScrollPosition = currentPosition;
-    
-
-    [self removeViewsFromWindow];
-}
-
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-
-    
-    if (self.isScrollingDown) {
-
-        [self.shareSlideUp animateOffScreen];
-    }else{
-
-        [self.shareSlideUp animateOntoScreen];
-    }
-}
-
 - (void)showSideMenu {
 
     [self.shareSlideUp animateOffScreen];
@@ -211,11 +152,6 @@
 - (void)selectedSideMenuItem:(NSString *)urlString {
 
     [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:urlString]]];
-}
-
-- (void)oAuthSetUpDelegate:(int)socialOAuth {
-
-//    [self instantiateOAuthLoginView:socialOAuth];
 }
 
 - (void)removeWindowViews {

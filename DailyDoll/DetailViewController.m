@@ -7,10 +7,15 @@
 //
 
 #import "DetailViewController.h"
+#import "CenterShareView.h"
 
-@interface DetailViewController () <UIWebViewDelegate>
+@interface DetailViewController () <UIWebViewDelegate, CenterShare, UIScrollViewDelegate>
 
 @property NSURLRequest *request;
+@property CenterShareView *shareSlideUp;
+@property UIWebView *webView;
+@property CGPoint lastScrollPosition;
+@property (nonatomic)  BOOL isScrollingDown;
 
 @end
 
@@ -30,22 +35,54 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    UIWebView *webView = [[UIWebView alloc] initWithFrame:self.view.frame];
 
-    [self.view addSubview:webView];
+    self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
 
-    webView.delegate = self;
+    self.webView.delegate = self;
 
-    [webView loadRequest:self.request];
+    self.webView.scrollView.delegate = self;
+
+    [self.webView loadRequest:self.request];
+
+    [self.view addSubview:self.webView];
+
+    [self setUpShareSlideUpView];
 
     UIButton *backButton = [[UIButton alloc] init];
     UIImage *backImage = [UIImage imageNamed:@"back_arrow"];
     [backButton setBackgroundImage:backImage  forState:UIControlStateNormal];
     [backButton sizeToFit];
     [backButton addTarget:self action:@selector(popVC) forControlEvents:UIControlEventTouchUpInside];
+    
     UIBarButtonItem *backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     self.navigationItem.leftBarButtonItem = backButtonItem;
     self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
+}
+
+- (void)setUpShareSlideUpView {
+
+    if ([[ProjectSettings sharedManager] projectHasSocialAccounts]) {
+
+        self.shareSlideUp = [[CenterShareView alloc] initWithFrameAndStyle:self.view.frame];
+
+        self.shareSlideUp.delegate = self;
+
+        [self.view addSubview:self.shareSlideUp];
+    }
+    
+    
+}
+
+- (void)oAuthSetUpDelegate:(int)socialOAuth {
+
+        [self instantiateOAuthLoginView:socialOAuth];
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView {
+
+    [super webViewDidFinishLoad:webView];
+
+    [self.shareSlideUp animateOntoScreen];
 }
 
 - (void)popVC {
@@ -54,6 +91,51 @@
 
 -(BOOL)adjustForStatusBar {
     return NO;
+}
+
+- (void)removeWindowViews {
+
+    [self removeViewsFromWindow];
+}
+
+-(NSURL *)returnCurrentURL {
+    return self.webView.request.URL;
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+
+
+    CGPoint currentPosition = scrollView.contentOffset;
+
+    if (currentPosition.y > self.lastScrollPosition.y){
+
+        //        [self.shareSlideUp slideDownOnDrag:[scrollView.panGestureRecognizer translationInView:scrollView].y / 10];
+
+        self.isScrollingDown = YES;
+    }else{
+
+        //        [self.shareSlideUp slideUpOnDrag:[scrollView.panGestureRecognizer translationInView:scrollView].y / 10];
+
+        self.isScrollingDown = NO;
+    }
+
+    self.lastScrollPosition = currentPosition;
+
+
+    [self removeViewsFromWindow];
+}
+
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+
+
+    if (self.isScrollingDown) {
+
+        [self.shareSlideUp animateOffScreen];
+    }else{
+        
+        [self.shareSlideUp animateOntoScreen];
+    }
 }
 
 @end
