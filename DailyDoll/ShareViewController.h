@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DDViewController.h"
+#import "BASocialShareViewController.h"
 
-@interface ShareViewController : DDViewController
+@interface ShareViewController : BASocialShareViewController
 
 - (int)returnWidthForShareVC;
 

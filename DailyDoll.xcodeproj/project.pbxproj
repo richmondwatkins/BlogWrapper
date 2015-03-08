@@ -60,6 +60,7 @@
 		5DAB92251A92C82E006D3D4F /* SocialShareMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB92241A92C82E006D3D4F /* SocialShareMethods.m */; };
 		5DADA6A21AAB56D0005E4F2C /* NotificationWebViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DADA6A11AAB56D0005E4F2C /* NotificationWebViewHeader.m */; };
 		5DADA6A51AAB6607005E4F2C /* BAView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DADA6A41AAB6607005E4F2C /* BAView.m */; };
+		5DADA6A91AACDE76005E4F2C /* BASocialShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DADA6A81AACDE76005E4F2C /* BASocialShareViewController.m */; };
 		5DB59E701AA7B4F900567D59 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59E6F1AA7B4F900567D59 /* Notification.m */; };
 		5DBD74F61AA2646900713D4D /* PushRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBD74F51AA2646900713D4D /* PushRequestViewController.m */; };
 		5DBD75031AA26F0400713D4D /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBD75021AA26F0400713D4D /* UIView+Additions.m */; };
@@ -192,6 +193,8 @@
 		5DADA6A11AAB56D0005E4F2C /* NotificationWebViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationWebViewHeader.m; sourceTree = "<group>"; };
 		5DADA6A31AAB6607005E4F2C /* BAView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAView.h; sourceTree = "<group>"; };
 		5DADA6A41AAB6607005E4F2C /* BAView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAView.m; sourceTree = "<group>"; };
+		5DADA6A71AACDE76005E4F2C /* BASocialShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BASocialShareViewController.h; sourceTree = "<group>"; };
+		5DADA6A81AACDE76005E4F2C /* BASocialShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BASocialShareViewController.m; sourceTree = "<group>"; };
 		5DB59E6E1AA7B4F900567D59 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		5DB59E6F1AA7B4F900567D59 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
 		5DBD74F41AA2646900713D4D /* PushRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushRequestViewController.h; sourceTree = "<group>"; };
@@ -454,6 +457,15 @@
 			name = GooglePlus;
 			sourceTree = "<group>";
 		};
+		5DADA6A61AACDE5D005E4F2C /* SocialSignInVC */ = {
+			isa = PBXGroup;
+			children = (
+				5DADA6A71AACDE76005E4F2C /* BASocialShareViewController.h */,
+				5DADA6A81AACDE76005E4F2C /* BASocialShareViewController.m */,
+			);
+			name = SocialSignInVC;
+			sourceTree = "<group>";
+		};
 		5DB59E711AA7B51500567D59 /* NotificatoinsModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -558,6 +570,7 @@
 				5DDA3DC01A86711A00FD085A /* ShareVC */,
 				5DAB92231A92C82E006D3D4F /* SocialShareMethods.h */,
 				5DAB92241A92C82E006D3D4F /* SocialShareMethods.m */,
+				5DADA6A61AACDE5D005E4F2C /* SocialSignInVC */,
 				5DDA1B1C1A7F383C00914761 /* Supporting Files */,
 				5DDA1B291A7F383C00914761 /* Images.xcassets */,
 				5D62FD661A8AF1680022671F /* DataModel.xcdatamodeld */,
@@ -983,6 +996,7 @@
 				5DDA3DC61A86777800FD085A /* ShareView.m in Sources */,
 				5DDA1B251A7F383C00914761 /* CenterViewController.m in Sources */,
 				5DDA1B221A7F383C00914761 /* AppDelegate.m in Sources */,
+				5DADA6A91AACDE76005E4F2C /* BASocialShareViewController.m in Sources */,
 				5DDA1B1F1A7F383C00914761 /* main.m in Sources */,
 				5DDA3DCF1A8685A200FD085A /* ShareTableViewCell.m in Sources */,
 				5D6C985C1A8C5D8000EB408E /* ProjectVariable.m in Sources */,

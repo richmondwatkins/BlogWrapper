@@ -11,6 +11,8 @@
 
 @interface CenterViewController : DDViewController
 
+@property BOOL isFromSideMenu;
+
 - (void)setRightNavigationItem;
 
 @end

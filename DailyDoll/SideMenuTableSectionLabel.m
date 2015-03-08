@@ -19,7 +19,7 @@
 
         self.textAlignment = NSTextAlignmentCenter;
 
-        self.text = [text uppercaseString];
+        self.text = [text uppercaseString]; //TODO remove 
 
         NSString *fontName = [[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kFontFamily];
 

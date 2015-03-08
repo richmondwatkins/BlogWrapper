@@ -32,7 +32,7 @@ CGFloat const kTitleLabelHeight= 15;
 @implementation CenterShareView
 
 - (instancetype)initWithFrameAndStyle:(CGRect)parentFrame {
-
+    //TODO move to detail view...use same social icons throughout. 
     if (self = [super init]) {
 
         self.backgroundColor = [[UIColor whiteColor] colorWithAlphaComponent:0.9];

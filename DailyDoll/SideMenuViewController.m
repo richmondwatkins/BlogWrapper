@@ -150,6 +150,7 @@ int const kTopButtonPadding = 4;
     [self addChildViewController:notifVC];
     [self.view addSubview:notifVC.view];
 
+
     [notifVC didMoveToParentViewController:self];
 }
 
@@ -205,7 +206,7 @@ int const kTopButtonPadding = 4;
     [self closeDrawController];
 
 }
-
+//TODO resize based on view height down to certain point then use min height
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     return (self.tableView.frame.size.height / 4) / self.dataSource.count;
@@ -255,6 +256,12 @@ int const kTopButtonPadding = 4;
 - (void)closeDrawController {
 
     MMDrawerController *drawController = (MMDrawerController *)[[UIApplication sharedApplication] keyWindow].rootViewController;
+
+    UINavigationController *navVC = (UINavigationController *)drawController.centerViewController;
+
+    CenterViewController *centerVC = [navVC.viewControllers firstObject];
+
+    centerVC.isFromSideMenu = YES;
 
     [drawController closeDrawerAnimated:YES completion:nil];
 }

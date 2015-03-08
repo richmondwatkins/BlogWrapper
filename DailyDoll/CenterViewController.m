@@ -126,7 +126,8 @@
     }
 
     if ([[request.URL absoluteString] containsString:domainString] &&
-         ![[request.URL absoluteString] isEqualToString:[[ProjectSettings sharedManager] fetchmetaDataVariables: kURLString]]) {
+         ![[request.URL absoluteString] isEqualToString:[[ProjectSettings sharedManager] fetchmetaDataVariables: kURLString]] &&
+        self.isFromSideMenu == NO) {
 
         DetailViewController *detailVC = [[DetailViewController alloc] initWithRequest:request];
 
@@ -134,6 +135,8 @@
 
         return NO;
     }
+
+    self.isFromSideMenu = NO;
 
     [self.shareSlideUp animateOffScreen];
 
@@ -212,7 +215,7 @@
 
 - (void)oAuthSetUpDelegate:(int)socialOAuth {
 
-    [self instantiateOAuthLoginView:socialOAuth];
+//    [self instantiateOAuthLoginView:socialOAuth];
 }
 
 - (void)removeWindowViews {

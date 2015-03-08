@@ -15,23 +15,10 @@
 
 @interface DDViewController : UIViewController
 
-@property SocialSharePopoverView *socialPopUp;
-
 @property UIView *statusBarBackground;
-
-@property OAuthSignInView *signInView;
-
-@property SocialSharingActionController *actionController;
-
-
-- (void)displaySocialPoUp;
-
-- (void)instantiateOAuthLoginView:(int)socialType;
 
 - (void)removeViewsFromWindow;
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView;
-
-- (BOOL)adjustForStatusBar;
 
 @end

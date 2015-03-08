@@ -38,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    ShareView *shareView = [[ShareView alloc] initWithStyleAndFrame:CGRectMake(0, 0, [self returnWidthForShareVC], self.view.frame.size.height)];
+    ShareView *shareView = [[ShareView alloc] initWithStyleAndFrame:CGRectMake(0, self.view.frame.origin.y, [self returnWidthForShareVC], self.view.frame.size.height)];
 
     self.tableView = [[ShareTableView alloc] initWithStyleAndFrame:shareView.frame];
 
