@@ -19,6 +19,8 @@
 		5D27CB6F1A91A248006958F3 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27CB6E1A91A248006958F3 /* MenuItem.m */; };
 		5D27CB721A91A248006958F3 /* MenuHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27CB711A91A248006958F3 /* MenuHeader.m */; };
 		5D27CB751A91B65B006958F3 /* CenterShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27CB741A91B65B006958F3 /* CenterShareView.m */; };
+		5D28D8D01ADB287400841F28 /* NSDate+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D28D8CF1ADB287400841F28 /* NSDate+Additions.m */; };
+		5D28D8D31ADB484600841F28 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D28D8D21ADB484600841F28 /* NSDate+Helper.m */; };
 		5D62FD651A8AF1230022671F /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D62FD641A8AF1230022671F /* CoreData.framework */; };
 		5D62FD681A8AF1680022671F /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5D62FD661A8AF1680022671F /* DataModel.xcdatamodeld */; };
 		5D6C98561A8C5D8000EB408E /* SocialContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6C98551A8C5D8000EB408E /* SocialContainer.m */; };
@@ -136,6 +138,10 @@
 		5D27CB711A91A248006958F3 /* MenuHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuHeader.m; sourceTree = "<group>"; };
 		5D27CB731A91B65B006958F3 /* CenterShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterShareView.h; sourceTree = "<group>"; };
 		5D27CB741A91B65B006958F3 /* CenterShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterShareView.m; sourceTree = "<group>"; };
+		5D28D8CE1ADB287400841F28 /* NSDate+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Additions.h"; sourceTree = "<group>"; };
+		5D28D8CF1ADB287400841F28 /* NSDate+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Additions.m"; sourceTree = "<group>"; };
+		5D28D8D11ADB484600841F28 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
+		5D28D8D21ADB484600841F28 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
 		5D62FD641A8AF1230022671F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5D62FD671A8AF1680022671F /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		5D6C98541A8C5D8000EB408E /* SocialContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialContainer.h; sourceTree = "<group>"; };
@@ -512,6 +518,8 @@
 		5DBD75001AA26EF800713D4D /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				5D28D8D11ADB484600841F28 /* NSDate+Helper.h */,
+				5D28D8D21ADB484600841F28 /* NSDate+Helper.m */,
 				5DBD75011AA26F0400713D4D /* UIView+Additions.h */,
 				5DBD75021AA26F0400713D4D /* UIView+Additions.m */,
 			);
@@ -543,6 +551,8 @@
 		5DDA1B101A7F383C00914761 = {
 			isa = PBXGroup;
 			children = (
+				5D28D8CE1ADB287400841F28 /* NSDate+Additions.h */,
+				5D28D8CF1ADB287400841F28 /* NSDate+Additions.m */,
 				5DDA3DBB1A86053200FD085A /* post.js */,
 				5DDA3DB01A85F27F00FD085A /* webViewJS.js */,
 				5DDA1B1B1A7F383C00914761 /* DailyDoll */,
@@ -1013,10 +1023,12 @@
 				5DADA6A91AACDE76005E4F2C /* BASocialShareViewController.m in Sources */,
 				5DDA1B1F1A7F383C00914761 /* main.m in Sources */,
 				5DDA3DCF1A8685A200FD085A /* ShareTableViewCell.m in Sources */,
+				5D28D8D31ADB484600841F28 /* NSDate+Helper.m in Sources */,
 				5D6C985C1A8C5D8000EB408E /* ProjectVariable.m in Sources */,
 				5DBD75031AA26F0400713D4D /* UIView+Additions.m in Sources */,
 				5D27CB721A91A248006958F3 /* MenuHeader.m in Sources */,
 				5DDA3DB51A85F4F700FD085A /* BlurActivityOverlay.m in Sources */,
+				5D28D8D01ADB287400841F28 /* NSDate+Additions.m in Sources */,
 				5DC2F5541A85AECD00ED1969 /* DDViewController.m in Sources */,
 				5DAB92251A92C82E006D3D4F /* SocialShareMethods.m in Sources */,
 				5D27CB6C1A91A247006958F3 /* MenuContainer.m in Sources */,

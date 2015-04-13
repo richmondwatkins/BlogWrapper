@@ -14,19 +14,14 @@
 
 -(void)removeInsetsAndStyle {
 
-//    if ([self respondsToSelector:@selector(setSeparatorInset:)]) {
-//        [self setSeparatorInset:UIEdgeInsetsZero];
-//    }
-//
-//    if ([self respondsToSelector:@selector(setLayoutMargins:)]) {
-//        [self setLayoutMargins:UIEdgeInsetsZero];
-//    }
-
     self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:SIDEMENUTABLEVIEW withProperty:kBackgroundColor]];
     self.showsVerticalScrollIndicator = NO;
 
     CGFloat bottomInset = 40;
     self.contentInset = UIEdgeInsetsMake(0, 0 , bottomInset, 0);
+    
+    self.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
+
 
 }
 

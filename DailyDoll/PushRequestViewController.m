@@ -115,7 +115,7 @@
 
     continueButton.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kPrimaryColor]];
 
-    NSString *buttonText = [NSString stringWithFormat:@"Contine on to the %@",
+    NSString *buttonText = [NSString stringWithFormat:@"Continue on to the %@",
                             [[ProjectSettings sharedManager] fetchmetaDataVariables:kBlogName]];
 
     continueButton.layer.cornerRadius = 5;

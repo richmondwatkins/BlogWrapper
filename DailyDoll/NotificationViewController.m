@@ -13,6 +13,7 @@
 #import "NotificationWebView.h"
 #import "UIView+Additions.h"
 #import "NotificationView.h"
+#import "NSDate+Helper.h"
 
 #define kArrowHeight 20
 
@@ -54,14 +55,14 @@
     
     [self.view addSubview:self.containerView];
 
+    self.dataSource = [[ProjectSettings sharedManager] fetchNotifications];
+    
     self.tableView = [[NotificationTableView alloc] initWithStyleAndFrame:CGRectMake(0, kArrowHeight, self.containerView.width, self.containerView.height-kArrowHeight)];
 
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
 
     [self.containerView addSubview:self.tableView];
-
-    self.dataSource = [[ProjectSettings sharedManager] fetchNotifications];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -73,7 +74,6 @@
    return self.dataSource.count;
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
@@ -84,10 +84,29 @@
     }
 
 
-    [cell configureCell:self.dataSource[indexPath.row]];
+    [self configureCell:cell withIndexPath:indexPath];
 
     return cell;
+}
 
+- (void)configureCell:(NotificationTableViewCell *)notifCell withIndexPath:(NSIndexPath *)indexPath {
+    
+    Notification *notification = self.dataSource[indexPath.row];
+    
+    if (! notification.isViewed) {
+        notifCell.backgroundColor = [UIColor colorWithHexString:@"edeff5"];
+    } else {
+        notifCell.backgroundColor = [UIColor whiteColor];
+    }
+    
+    notifCell.height = kNotificationCellSize;
+    
+    notifCell.notificationTextLabel.text = notification.text;
+    [notifCell.notificationTextLabel sizeToFit];
+    notifCell.dateLabel.text = [NSDate stringForDisplayFromDate:notification.receivedDate];
+    [notifCell.dateLabel sizeToFit];
+    notifCell.dateLabel.font = [UIFont systemFontOfSize:10];
+    notifCell.dateLabel.top = notifCell.notificationTextLabel.bottom + 2;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -96,9 +115,17 @@
     CGRect rectOfCellInSuperview = [tableView convertRect:rectOfCellInTableView toView:[tableView superview]];
 
     NotificationWebView *notifWebView = [[NotificationWebView alloc] initWithCellRect:rectOfCellInSuperview andParentFrame:self.viewFrame andContent:self.dataSource[indexPath.row]];
-
+    
+    Notification *notification = self.dataSource[indexPath.row];
+    notification.isViewed = [NSNumber numberWithBool:YES];
+    
+    [[ProjectSettings sharedManager] setNotificationAsViewed:notification];
     [self.view addSubview:notifWebView];
 
+    NotificationTableViewCell *cell = (NotificationTableViewCell *) [self.tableView cellForRowAtIndexPath:indexPath];
+    
+    [self configureCell:cell withIndexPath:indexPath];
+    
     [notifWebView animateOpen:self.view.frame withNotification:self.dataSource[indexPath.row]];
 }
 

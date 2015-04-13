@@ -13,5 +13,5 @@
 
 @dynamic receivedDate;
 @dynamic text;
-
+@dynamic isViewed;
 @end

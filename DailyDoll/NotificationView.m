@@ -23,6 +23,11 @@
         self.frame = frame;
 
         self.caretHeight = caretHeight;
+        
+        CAShapeLayer * maskLayer = [CAShapeLayer layer];
+        maskLayer.path = [UIBezierPath bezierPathWithRoundedRect: self.bounds byRoundingCorners: UIRectCornerTopLeft | UIRectCornerTopRight cornerRadii: (CGSize){10.0, 10.}].CGPath;
+        
+        self.layer.mask = maskLayer;
     }
 
     return self;

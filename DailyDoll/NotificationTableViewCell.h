@@ -11,6 +11,8 @@
 #import "Notification.h"
 @interface NotificationTableViewCell : BATableViewCell
 
-- (void)configureCell:(Notification *)cellContents;
+
+@property UILabel *notificationTextLabel;
+@property UILabel *dateLabel;
 
 @end

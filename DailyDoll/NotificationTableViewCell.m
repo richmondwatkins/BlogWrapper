@@ -7,26 +7,35 @@
 //
 
 #import "NotificationTableViewCell.h"
+#import "UIColor+UIColor_Expanded.h"
+#import "UIView+Additions.h"
+#import "ProjectSettingsKeys.h"
+
+@interface NotificationTableViewCell ()
+
+@end
 
 @implementation NotificationTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
+-(id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        
+        self.notificationTextLabel = [[UILabel alloc] init];
+        self.dateLabel = [[UILabel alloc] init];
+        
+        [self addSubview:self.dateLabel];
+        [self addSubview:self.notificationTextLabel];
+        
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+    }
+    
+    return self;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
-}
-
-- (void)configureCell:(Notification *)cellContents {
-
-    UILabel *notificationTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(5, 0, self.frame.size.width * 0.65, self.frame.size.height)];
-
-    [self addSubview:notificationTextLabel];
-
-    notificationTextLabel.text = cellContents.text;
 }
 
 @end

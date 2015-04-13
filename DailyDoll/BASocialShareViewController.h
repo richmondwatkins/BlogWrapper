@@ -13,8 +13,6 @@
 
 @property SocialSharePopoverView *socialPopUp;
 
-@property UIView *statusBarBackground;
-
 @property OAuthSignInView *signInView;
 
 @property SocialSharingActionController *actionController;

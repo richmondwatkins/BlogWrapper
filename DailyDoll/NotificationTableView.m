@@ -19,7 +19,9 @@
 
         self.frame = frame;
 
-        self.layer.cornerRadius = 5;
+        self.layer.cornerRadius = 2;
+        
+        self.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     }
 
     return self;

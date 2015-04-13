@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "UIColor+UIColor_Expanded.h"
 #import "ProjectSettingsKeys.h"
+#import "Notification.h"
 
 @interface ProjectSettings : NSObject
 
@@ -52,6 +53,8 @@
 - (void)setNotification:(NSDictionary *)notification withManagedObjectContext:(NSManagedObjectContext *)moc;
 
 - (NSArray *)fetchNotifications;
+
+- (void)setNotificationAsViewed:(Notification *)notification;
 
 - (void)listFonts;
 

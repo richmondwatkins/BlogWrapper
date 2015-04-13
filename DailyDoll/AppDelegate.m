@@ -53,9 +53,7 @@
     [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
 
     [[UIApplication sharedApplication] registerForRemoteNotifications];
-
-
-
+    
     AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithAccessKey:@"AKIAIWP6JCHRY25UQ2DA" secretKey:@"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"];
 
     AWSServiceConfiguration *defaultServiceConfiguration = [AWSServiceConfiguration configurationWithRegion:AWSRegionUSWest2
@@ -86,8 +84,8 @@
 
     if (hasGooglePlus) {
 
-        [GPPSignIn sharedInstance].clientID = [[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kSocialClientId];;
-        ;
+        [GPPSignIn sharedInstance].clientID = [[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kSocialClientId];
+        
         [GPPDeepLink setDelegate:self];
 
         [GPPDeepLink readDeepLinkAfterInstall];

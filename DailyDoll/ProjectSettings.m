@@ -19,11 +19,12 @@
 #import "AccessoryPage.h"
 #import "SocialContainer.h"
 #import "SocialItem.h"
-#import "Notification.h"
 
 #import "MenuContainer.h"
 #import "MenuHeader.h"
 #import "MenuItem.h"
+
+#import "NSDate+Additions.h"
 
 #import "AppDelegate.h"
 
@@ -525,12 +526,35 @@ static ProjectSettings *sharedThemeManager = nil;
 
 - (void)setNotification:(NSDictionary *)notification withManagedObjectContext:(NSManagedObjectContext *)moc {
 
+    [self refreshNotifications:moc];
+    
     Notification *newNotification = [NSEntityDescription insertNewObjectForEntityForName:@"Notification" inManagedObjectContext:moc];
 
     newNotification.text = notification[@"aps"][@"alert"];
+    
     newNotification.receivedDate = [NSDate date];
 
     [moc save:nil];
+}
+
+- (void)refreshNotifications:(NSManagedObjectContext *)moc {
+    NSFetchRequest *fetch = [[NSFetchRequest alloc] initWithEntityName:@"Notification"];
+    
+    [fetch setSortDescriptors:@[[NSSortDescriptor sortDescriptorWithKey:@"receivedDate" ascending:YES]]];
+    
+    NSArray *notifications = [moc executeFetchRequest:fetch error:nil];
+    
+    if (notifications.count >= 14) {
+        [moc deleteObject:[notifications lastObject]];
+    }
+    
+    for (Notification *notification in notifications) {
+        
+        if ([notification.receivedDate daysBetween:[NSDate date]] > 7) {
+            
+            [moc deleteObject:notification];
+        }
+    }
 }
 
 - (NSArray *)fetchNotifications {
@@ -546,6 +570,15 @@ static ProjectSettings *sharedThemeManager = nil;
     fetch.sortDescriptors  = @[dateSort];
 
    return [appDelegate.managedObjectContext executeFetchRequest:fetch error:nil];
+}
+
+- (void)setNotificationAsViewed:(Notification *)notification {
+    
+    AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    notification.isViewed = [NSNumber numberWithBool:YES];
+
+    [appDelegate.managedObjectContext save:nil];
 }
 
 //Fonts

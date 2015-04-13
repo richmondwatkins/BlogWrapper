@@ -130,4 +130,8 @@ extern NSString *const kTwitteruserId;
 
 extern NSString *const kMenuItem;
 
+// Notification Table
+
+extern int const kNotificationCellSize;
+
 @end

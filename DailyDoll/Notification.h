@@ -14,5 +14,6 @@
 
 @property (nonatomic, retain) NSDate * receivedDate;
 @property (nonatomic, retain) NSString * text;
+@property (nonatomic, retain) NSNumber * isViewed;
 
 @end

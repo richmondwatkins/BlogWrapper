@@ -15,7 +15,7 @@
 
 @interface DDViewController : UIViewController
 
-@property UIView *statusBarBackground;
+@property (nonatomic, strong) UIView *statusBarBackground;
 
 - (void)removeViewsFromWindow;
 

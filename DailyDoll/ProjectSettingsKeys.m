@@ -110,4 +110,8 @@ NSString *const kTwitteruserId = @"userID";
 
 NSString *const kMenuItem = @"menuItems";
 
+// Notification Table
+
+int const kNotificationCellSize = 50;
+
 @end

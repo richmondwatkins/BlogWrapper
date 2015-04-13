@@ -29,14 +29,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    if (self.statusBarBackground == nil) {
-
-        self.statusBarBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
-        self.statusBarBackground.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:STATUSBAR withProperty:kBackgroundColor]];
-        self.statusBarBackground.autoresizingMask =  UIViewAutoresizingFlexibleWidth;
-        [self.view addSubview:self.statusBarBackground];
-        [[[UIApplication sharedApplication] keyWindow] addSubview:self.statusBarBackground];
-    }
+    self.statusBarBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
+    self.statusBarBackground.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:STATUSBAR withProperty:kBackgroundColor]];
+    self.statusBarBackground.autoresizingMask =  UIViewAutoresizingFlexibleWidth;
+    [[[UIApplication sharedApplication] keyWindow] addSubview:self.statusBarBackground];
 
     if ([self adjustForStatusBar]) {
         self.view.top = self.statusBarBackground.bottom;
