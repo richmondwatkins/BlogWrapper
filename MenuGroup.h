@@ -1,8 +1,8 @@
 //
-//  MenuHeader.h
+//  MenuGroup.h
 //  DailyDoll
 //
-//  Created by Richmond on 2/15/15.
+//  Created by Richmond Watkins on 4/25/15.
 //  Copyright (c) 2015 Richmond. All rights reserved.
 //
 
@@ -11,15 +11,17 @@
 
 @class MenuContainer, MenuItem;
 
-@interface MenuHeader : NSManagedObject
+@interface MenuGroup : NSManagedObject
 
-@property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSNumber * position;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSString * urlString;
+@property (nonatomic, retain) NSNumber * isHeader;
 @property (nonatomic, retain) MenuContainer *menuContainer;
 @property (nonatomic, retain) NSSet *menuItems;
 @end
 
-@interface MenuHeader (CoreDataGeneratedAccessors)
+@interface MenuGroup (CoreDataGeneratedAccessors)
 
 - (void)addMenuItemsObject:(MenuItem *)value;
 - (void)removeMenuItemsObject:(MenuItem *)value;

@@ -1,20 +1,22 @@
 //
-//  MenuHeader.m
+//  MenuGroup.m
 //  DailyDoll
 //
-//  Created by Richmond on 2/15/15.
+//  Created by Richmond Watkins on 4/25/15.
 //  Copyright (c) 2015 Richmond. All rights reserved.
 //
 
-#import "MenuHeader.h"
+#import "MenuGroup.h"
 #import "MenuContainer.h"
 #import "MenuItem.h"
 
 
-@implementation MenuHeader
+@implementation MenuGroup
 
-@dynamic title;
 @dynamic position;
+@dynamic title;
+@dynamic urlString;
+@dynamic isHeader;
 @dynamic menuContainer;
 @dynamic menuItems;
 

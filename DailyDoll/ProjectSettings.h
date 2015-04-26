@@ -30,7 +30,7 @@
 
 - (NSArray *)fetchShareItems;
 
-- (NSArray *)fetchMenuItemsAndHeaders;
+- (NSMutableArray *)fetchMenuItemsAndHeaders;
 
 - (BOOL)siteHasSocialAccount:(int)socialAccount withMoc:(NSManagedObjectContext *)moc;
 

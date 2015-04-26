@@ -2,25 +2,25 @@
 //  MenuContainer.h
 //  DailyDoll
 //
-//  Created by Richmond on 2/15/15.
+//  Created by Richmond Watkins on 4/25/15.
 //  Copyright (c) 2015 Richmond. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class MenuHeader;
+@class MenuGroup;
 
 @interface MenuContainer : NSManagedObject
 
-@property (nonatomic, retain) NSSet *menuHeader;
+@property (nonatomic, retain) NSSet *menuGroup;
 @end
 
 @interface MenuContainer (CoreDataGeneratedAccessors)
 
-- (void)addMenuHeaderObject:(MenuHeader *)value;
-- (void)removeMenuHeaderObject:(MenuHeader *)value;
-- (void)addMenuHeader:(NSSet *)values;
-- (void)removeMenuHeader:(NSSet *)values;
+- (void)addMenuGroupObject:(MenuGroup *)value;
+- (void)removeMenuGroupObject:(MenuGroup *)value;
+- (void)addMenuGroup:(NSSet *)values;
+- (void)removeMenuGroup:(NSSet *)values;
 
 @end

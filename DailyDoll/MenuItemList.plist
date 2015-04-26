@@ -12,104 +12,124 @@
 	<key>Menu</key>
 	<array>
 		<dict>
-			<key>position</key>
-			<integer>3</integer>
 			<key>menuItems</key>
 			<array>
 				<dict>
-					<key>position</key>
-					<integer>1</integer>
+					<key>children</key>
+					<array/>
 					<key>urlString</key>
-					<string>http://thedailydoll.com/videos/</string>
-					<key>title</key>
-					<string>videos</string>
+					<string>http://thedailydoll.com/category/wellness/happy-body/</string>
+					<key>Title</key>
+					<string>HAVE A HAPPY BODY</string>
 				</dict>
 			</array>
+			<key>position</key>
+			<integer>1</integer>
+			<key>isHeader</key>
+			<true/>
+			<key>urlString</key>
+			<string></string>
 			<key>title</key>
-			<string>videos</string>
+			<string>THE WELLNESS STUFF</string>
 		</dict>
 		<dict>
-			<key>position</key>
-			<integer>2</integer>
 			<key>menuItems</key>
 			<array>
 				<dict>
-					<key>position</key>
-					<integer>1</integer>
-					<key>urlString</key>
-					<string>http://thedailydoll.com/category/beauty/i-love-the-drugstore-beauty/</string>
-					<key>title</key>
-					<string>i adore the drugstore</string>
-				</dict>
-				<dict>
-					<key>position</key>
-					<integer>3</integer>
-					<key>urlString</key>
-					<string>http://thedailydoll.com/category/beauty/diy-beauty/</string>
-					<key>title</key>
-					<string>diy beauty</string>
-				</dict>
-				<dict>
-					<key>position</key>
-					<integer>4</integer>
+					<key>children</key>
+					<array/>
 					<key>urlString</key>
 					<string>http://thedailydoll.com/category/beauty/beauty-talk/</string>
 					<key>title</key>
-					<string>beauty talk &amp; reviews</string>
+					<string>BEAUTY TALK &amp; REVIEWS</string>
+				</dict>
+				<dict>
+					<key>children</key>
+					<array>
+						<dict>
+							<key>children</key>
+							<array/>
+							<key>urlString</key>
+							<string>http://thedailydoll.com/category/beauty/i-love-the-drugstore-beauty/</string>
+							<key>title</key>
+							<string>Child 3</string>
+						</dict>
+						<dict>
+							<key>children</key>
+							<array/>
+							<key>urlString</key>
+							<string>http://thedailydoll.com/category/beauty/i-love-the-drugstore-beauty/</string>
+							<key>title</key>
+							<string>Child 2</string>
+						</dict>
+						<dict>
+							<key>children</key>
+							<array/>
+							<key>urlString</key>
+							<string>http://thedailydoll.com/category/beauty/i-love-the-drugstore-beauty/</string>
+							<key>title</key>
+							<string>Child 1</string>
+						</dict>
+					</array>
+					<key>urlString</key>
+					<string>http://thedailydoll.com/category/beauty/i-love-the-drugstore-beauty/</string>
+					<key>title</key>
+					<string>I ADORE THE DRUGSTORE</string>
+				</dict>
+				<dict>
+					<key>children</key>
+					<array/>
+					<key>urlString</key>
+					<string>http://thedailydoll.com/category/beauty/diy-beauty/</string>
+					<key>title</key>
+					<string>DIY BEAUTY</string>
 				</dict>
 			</array>
+			<key>position</key>
+			<integer>2</integer>
+			<key>isHeader</key>
+			<true/>
+			<key>urlString</key>
+			<string></string>
 			<key>title</key>
-			<string>the beauty stuff</string>
+			<string>THE BEAUTY STUFF</string>
 		</dict>
 		<dict>
-			<key>position</key>
-			<integer>0</integer>
 			<key>menuItems</key>
 			<array>
 				<dict>
-					<key>position</key>
-					<integer>1</integer>
+					<key>children</key>
+					<array/>
 					<key>urlString</key>
 					<string>http://thedailydoll.com/category/life/what-men-really-think/</string>
 					<key>title</key>
-					<string>a man&apos;s perspective</string>
+					<string>A MAN&apos;S PERSPECTIVE</string>
 				</dict>
 				<dict>
-					<key>position</key>
-					<integer>2</integer>
+					<key>children</key>
+					<array/>
 					<key>urlString</key>
 					<string>http://thedailydoll.com/category/life/real-talk/</string>
 					<key>title</key>
-					<string>i&apos;m just being honest!</string>
+					<string>I&apos;M JUST BEING HONEST!</string>
 				</dict>
 				<dict>
-					<key>position</key>
-					<integer>3</integer>
+					<key>children</key>
+					<array/>
 					<key>urlString</key>
 					<string>http://thedailydoll.com/category/life/inspiration-bits/</string>
 					<key>title</key>
-					<string>inspiration bits</string>
+					<string>INSPIRATION BITS</string>
 				</dict>
 			</array>
-			<key>title</key>
-			<string>the life stuff</string>
-		</dict>
-		<dict>
 			<key>position</key>
-			<integer>1</integer>
-			<key>menuItems</key>
-			<array>
-				<dict>
-					<key>position</key>
-					<integer>1</integer>
-					<key>urlString</key>
-					<string>http://thedailydoll.com/category/wellness/happy-body/</string>
-					<key>title</key>
-					<string>have a happy body</string>
-				</dict>
-			</array>
+			<integer>0</integer>
+			<key>isHeader</key>
+			<true/>
+			<key>urlString</key>
+			<string></string>
 			<key>title</key>
-			<string>the wellness stuff</string>
+			<string>THE LIFE STUFF</string>
 		</dict>
 	</array>
 </dict>

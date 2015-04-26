@@ -2,16 +2,16 @@
 //  MenuContainer.m
 //  DailyDoll
 //
-//  Created by Richmond on 2/15/15.
+//  Created by Richmond Watkins on 4/25/15.
 //  Copyright (c) 2015 Richmond. All rights reserved.
 //
 
 #import "MenuContainer.h"
-#import "MenuHeader.h"
+#import "MenuGroup.h"
 
 
 @implementation MenuContainer
 
-@dynamic menuHeader;
+@dynamic menuGroup;
 
 @end

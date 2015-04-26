@@ -2,19 +2,22 @@
 //  MenuItem.m
 //  DailyDoll
 //
-//  Created by Richmond on 2/15/15.
+//  Created by Richmond Watkins on 4/25/15.
 //  Copyright (c) 2015 Richmond. All rights reserved.
 //
 
 #import "MenuItem.h"
-#import "MenuHeader.h"
+#import "MenuGroup.h"
+#import "MenuItem.h"
 
 
 @implementation MenuItem
 
-@dynamic urlString;
-@dynamic title;
 @dynamic position;
-@dynamic menuHeader;
+@dynamic title;
+@dynamic urlString;
+@dynamic menuGroup;
+@dynamic children;
+@dynamic isExpanded;
 
 @end

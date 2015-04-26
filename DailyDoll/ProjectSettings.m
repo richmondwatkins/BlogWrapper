@@ -21,9 +21,8 @@
 #import "SocialItem.h"
 
 #import "MenuContainer.h"
-#import "MenuHeader.h"
+#import "MenuGroup.h"
 #import "MenuItem.h"
-
 #import "NSDate+Additions.h"
 
 #import "AppDelegate.h"
@@ -133,7 +132,7 @@ static ProjectSettings *sharedThemeManager = nil;
 
     MenuContainer *menuContainer = [NSEntityDescription insertNewObjectForEntityForName:@"MenuContainer" inManagedObjectContext:moc];
 
-    [menuContainer setMenuHeader: [self returnMenuHeaderAndItems:moc]];
+    [menuContainer setMenuGroup: [self returnMenuGroup:moc]];
 
     [moc save:nil];
 
@@ -231,26 +230,26 @@ static ProjectSettings *sharedThemeManager = nil;
     return [NSSet setWithArray:socialItemsArray];
 }
 
-- (NSSet *)returnMenuHeaderAndItems:(NSManagedObjectContext *)moc {
+- (NSSet *)returnMenuGroup:(NSManagedObjectContext *)moc {
 
     NSMutableArray *menuItemsArray = [NSMutableArray array];
 
     for (NSDictionary *menuItemsDict in self.menuItems) {
 
-        MenuHeader *menuHeader =[NSEntityDescription insertNewObjectForEntityForName:@"MenuHeader" inManagedObjectContext:moc];
+        MenuGroup *menuGroup = [NSEntityDescription insertNewObjectForEntityForName:@"MenuGroup" inManagedObjectContext:moc];
 
-        for (NSString *key in [menuItemsDict allKeys]) {
+        for (NSString *key in menuItemsDict.allKeys) {
 
             if ([key isEqualToString:kMenuItem]) {
 
-                [menuHeader addMenuItems:[self createMenuItems:menuItemsDict[key] withManagedObject:moc]];
+                [menuGroup addMenuItems:[self createMenuItems:menuItemsDict[key] withManagedObject:moc]];
             }else {
 
-                [menuHeader setValue:menuItemsDict[key] forKey:key];
+                [menuGroup setValue:menuItemsDict[key] forKey:key];
             }
         }
 
-        [menuItemsArray addObject:menuHeader];
+        [menuItemsArray addObject:menuGroup];
     }
     
     return [NSSet setWithArray:menuItemsArray];
@@ -279,17 +278,58 @@ static ProjectSettings *sharedThemeManager = nil;
     NSMutableArray *menuMutableArray = [NSMutableArray array];
 
     for (NSDictionary *menuDict in menuItems) {
-
-        MenuItem *menuItem = [NSEntityDescription insertNewObjectForEntityForName:@"MenuItem" inManagedObjectContext:moc];
         
-        menuItem.position = menuDict[@"position"];
-        menuItem.title = menuDict[@"title"];
-        menuItem.urlString = menuDict[@"urlString"];
+        MenuItem *menuItem = [NSEntityDescription insertNewObjectForEntityForName:@"MenuItem" inManagedObjectContext:moc];
+
+        for (NSString *key in menuDict.allKeys) {
+            
+            if ([key isEqualToString:@"children"]) {
+                
+                if (((NSArray *) menuDict[@"children"]).count) {
+                    
+                    [menuItem addChildren:[self setChildrenMenuItems:menuDict[key] withMoc:moc]];
+                }
+                
+            } else {
+                
+                 [menuItem setValue:menuDict[key] forKey:key];
+            }
+        }
 
         [menuMutableArray addObject:menuItem];
     }
 
     return [NSSet setWithArray:menuMutableArray];
+}
+
+- (NSSet *)setChildrenMenuItems:(NSArray *)children withMoc:(NSManagedObjectContext *)moc {
+    
+    NSMutableArray *childItemsArr = [NSMutableArray array];
+    
+    for (NSDictionary *child in children) {
+        MenuItem *menuItem =
+        [NSEntityDescription insertNewObjectForEntityForName:@"MenuItem"
+                                      inManagedObjectContext:moc];
+        
+        for (NSString *key in child.allKeys) {
+            
+            if ([key isEqualToString:@"children"]) {
+                
+                if (((NSArray *) child[@"children"]).count) {
+                    
+                    [menuItem addChildren:[self setChildrenMenuItems:child[key] withMoc:moc]];
+                }
+                
+            } else {
+                
+                [menuItem setValue:child[key] forKey:key];
+            }
+        }
+    
+        [childItemsArr addObject:menuItem];
+    }
+    
+    return [NSSet setWithArray:childItemsArr];
 }
 
 - (NSString *)fetchSocialItem:(int)itemId withProperty:(NSString *)property {
@@ -348,9 +388,9 @@ static ProjectSettings *sharedThemeManager = nil;
     return [results[0] valueForKey:property];
 }
 
-- (NSArray *)fetchMenuItemsAndHeaders {
+- (NSMutableArray *)fetchMenuItemsAndHeaders {
 
-    NSFetchRequest *menuItemFetch = [[NSFetchRequest alloc] initWithEntityName:@"MenuHeader"];
+    NSFetchRequest *menuItemFetch = [[NSFetchRequest alloc] initWithEntityName:@"MenuGroup"];
 
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
@@ -359,8 +399,20 @@ static ProjectSettings *sharedThemeManager = nil;
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"position" ascending:YES];
 
     [results sortUsingDescriptors:@[sortDescriptor]];
+    
+    NSMutableArray *dataSourceMutable = [NSMutableArray array];
+    
+    for (MenuGroup *menuGroup in results) {
+        NSMutableArray *groupArray = [NSMutableArray array];
+        
+        [groupArray insertObject:menuGroup atIndex:0];
+    
+        [groupArray insertObject:[NSMutableArray arrayWithArray:menuGroup.menuItems.allObjects] atIndex:1];
+        
+        [dataSourceMutable addObject:groupArray];
+    }
 
-    return [NSArray arrayWithArray:results];
+    return dataSourceMutable;
 }
 
 // META DATA

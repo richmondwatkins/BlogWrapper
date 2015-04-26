@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6751" systemVersion="14C109" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14C109" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="AccessoryPage" representedClassName="AccessoryPage" syncable="YES">
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
@@ -11,19 +11,23 @@
         <relationship name="socialItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SocialItem" inverseName="buttons" inverseEntity="SocialItem" syncable="YES"/>
     </entity>
     <entity name="MenuContainer" representedClassName="MenuContainer" syncable="YES">
-        <relationship name="menuHeader" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MenuHeader" inverseName="menuContainer" inverseEntity="MenuHeader" syncable="YES"/>
+        <relationship name="menuGroup" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MenuGroup" inverseName="menuContainer" inverseEntity="MenuGroup" syncable="YES"/>
     </entity>
-    <entity name="MenuHeader" representedClassName="MenuHeader" syncable="YES">
-        <attribute name="position" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="menuContainer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuContainer" inverseName="menuHeader" inverseEntity="MenuContainer" syncable="YES"/>
-        <relationship name="menuItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="menuHeader" inverseEntity="MenuItem" syncable="YES"/>
-    </entity>
-    <entity name="MenuItem" representedClassName="MenuItem" syncable="YES">
+    <entity name="MenuGroup" representedClassName="MenuGroup" syncable="YES">
+        <attribute name="isHeader" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="position" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="menuHeader" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuHeader" inverseName="menuItems" inverseEntity="MenuHeader" syncable="YES"/>
+        <relationship name="menuContainer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuContainer" inverseName="menuGroup" inverseEntity="MenuContainer" syncable="YES"/>
+        <relationship name="menuItems" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MenuItem" inverseName="menuGroup" inverseEntity="MenuItem" syncable="YES"/>
+    </entity>
+    <entity name="MenuItem" representedClassName="MenuItem" syncable="YES">
+        <attribute name="isExpanded" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="urlString" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="children" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MenuItem" inverseName="children" inverseEntity="MenuItem" syncable="YES"/>
+        <relationship name="menuGroup" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuGroup" inverseName="menuItems" inverseEntity="MenuGroup" syncable="YES"/>
     </entity>
     <entity name="MetaData" representedClassName="MetaData" syncable="YES">
         <attribute name="domain" optional="YES" attributeType="String" syncable="YES"/>
@@ -76,17 +80,17 @@
         <relationship name="themeContainer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ThemeContainer" inverseName="themeItem" inverseEntity="ThemeContainer" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AccessoryPage" positionX="9" positionY="153" width="128" height="88"/>
+        <element name="AccessoryPage" positionX="0" positionY="0" width="128" height="90"/>
         <element name="Button" positionX="0" positionY="0" width="128" height="90"/>
-        <element name="MenuContainer" positionX="9" positionY="153" width="128" height="58"/>
-        <element name="MenuHeader" positionX="18" positionY="162" width="128" height="103"/>
-        <element name="MenuItem" positionX="27" positionY="171" width="128" height="103"/>
-        <element name="MetaData" positionX="0" positionY="0" width="128" height="133"/>
-        <element name="Notification" positionX="9" positionY="153" width="128" height="90"/>
-        <element name="ProjectVariable" positionX="0" positionY="0" width="128" height="73"/>
-        <element name="SocialContainer" positionX="9" positionY="90" width="128" height="73"/>
-        <element name="SocialItem" positionX="18" positionY="99" width="128" height="240"/>
-        <element name="ThemeContainer" positionX="0" positionY="0" width="128" height="118"/>
-        <element name="ThemeItem" positionX="27" positionY="162" width="128" height="118"/>
+        <element name="MenuContainer" positionX="0" positionY="0" width="128" height="60"/>
+        <element name="MenuGroup" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="MenuItem" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="MetaData" positionX="0" positionY="0" width="128" height="135"/>
+        <element name="Notification" positionX="0" positionY="0" width="128" height="90"/>
+        <element name="ProjectVariable" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="SocialContainer" positionX="0" positionY="0" width="128" height="75"/>
+        <element name="SocialItem" positionX="0" positionY="0" width="128" height="240"/>
+        <element name="ThemeContainer" positionX="0" positionY="0" width="128" height="120"/>
+        <element name="ThemeItem" positionX="0" positionY="0" width="128" height="120"/>
     </elements>
 </model>

@@ -14,28 +14,39 @@
 		<dict>
 			<key>position</key>
 			<integer>0</integer>
-			<key>title</key>
-			<array>
+			<key>header</key>
+			<dict>
+				<key>isHeader</key>
+				<true/>
+				<key>url</key>
+				<string></string>
+				<key>title</key>
 				<string>THE LIFE STUFF</string>
-			</array>
+			</dict>
 			<key>menuItems</key>
 			<array>
 				<dict>
-					<key>URL</key>
+					<key>children</key>
+					<array/>
+					<key>url</key>
 					<string>http://thedailydoll.com/category/life/what-men-really-think/</string>
-					<key>Title</key>
+					<key>title</key>
 					<string>A MAN&apos;S PERSPECTIVE</string>
 				</dict>
 				<dict>
-					<key>URL</key>
+					<key>children</key>
+					<array/>
+					<key>url</key>
 					<string>http://thedailydoll.com/category/life/real-talk/</string>
-					<key>Title</key>
+					<key>title</key>
 					<string>I&apos;M JUST BEING HONEST!</string>
 				</dict>
 				<dict>
-					<key>URL</key>
+					<key>children</key>
+					<array/>
+					<key>url</key>
 					<string>http://thedailydoll.com/category/life/inspiration-bits/</string>
-					<key>Title</key>
+					<key>title</key>
 					<string>INSPIRATION BITS</string>
 				</dict>
 			</array>
@@ -43,13 +54,20 @@
 		<dict>
 			<key>position</key>
 			<integer>1</integer>
-			<key>title</key>
-			<array>
+			<key>header</key>
+			<dict>
+				<key>isHeader</key>
+				<true/>
+				<key>url</key>
+				<string></string>
+				<key>title</key>
 				<string>THE WELLNESS STUFF</string>
-			</array>
+			</dict>
 			<key>menuItems</key>
 			<array>
 				<dict>
+					<key>children</key>
+					<array/>
 					<key>URL</key>
 					<string>http://thedailydoll.com/category/wellness/happy-body/</string>
 					<key>Title</key>
@@ -60,28 +78,64 @@
 		<dict>
 			<key>position</key>
 			<integer>2</integer>
-			<key>title</key>
-			<array>
+			<key>header</key>
+			<dict>
+				<key>isHeader</key>
+				<true/>
+				<key>url</key>
+				<string></string>
+				<key>title</key>
 				<string>THE BEAUTY STUFF</string>
-			</array>
+			</dict>
 			<key>menuItems</key>
 			<array>
 				<dict>
-					<key>URL</key>
+					<key>children</key>
+					<array/>
+					<key>url</key>
 					<string>http://thedailydoll.com/category/beauty/beauty-talk/</string>
-					<key>Title</key>
+					<key>title</key>
 					<string>BEAUTY TALK &amp; REVIEWS</string>
 				</dict>
 				<dict>
-					<key>URL</key>
+					<key>children</key>
+					<array>
+						<dict>
+							<key>children</key>
+							<array/>
+							<key>url</key>
+							<string>http://thedailydoll.com/category/beauty/i-love-the-drugstore-beauty/</string>
+							<key>title</key>
+							<string>Child 3</string>
+						</dict>
+						<dict>
+							<key>children</key>
+							<array/>
+							<key>url</key>
+							<string>http://thedailydoll.com/category/beauty/i-love-the-drugstore-beauty/</string>
+							<key>title</key>
+							<string>Child 2</string>
+						</dict>
+						<dict>
+							<key>children</key>
+							<array/>
+							<key>url</key>
+							<string>http://thedailydoll.com/category/beauty/i-love-the-drugstore-beauty/</string>
+							<key>title</key>
+							<string>Child 1</string>
+						</dict>
+					</array>
+					<key>url</key>
 					<string>http://thedailydoll.com/category/beauty/i-love-the-drugstore-beauty/</string>
-					<key>Title</key>
+					<key>title</key>
 					<string>I ADORE THE DRUGSTORE</string>
 				</dict>
 				<dict>
-					<key>URL</key>
+					<key>children</key>
+					<array/>
+					<key>url</key>
 					<string>http://thedailydoll.com/category/beauty/diy-beauty/</string>
-					<key>Title</key>
+					<key>title</key>
 					<string>DIY BEAUTY</string>
 				</dict>
 			</array>

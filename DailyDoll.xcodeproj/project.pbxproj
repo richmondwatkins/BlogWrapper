@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D06F8551AEC528B00E80A01 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D06F8541AEC528B00E80A01 /* MenuItem.m */; };
+		5D06F8581AEC528C00E80A01 /* MenuContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D06F8571AEC528C00E80A01 /* MenuContainer.m */; };
+		5D06F85B1AEC528C00E80A01 /* MenuGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D06F85A1AEC528C00E80A01 /* MenuGroup.m */; };
 		5D0B704E1A8D44CF008AF923 /* OAuthSignInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0B704D1A8D44CF008AF923 /* OAuthSignInView.m */; };
 		5D0EDAB41A830196007DE68D /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0EDAB31A830196007DE68D /* SideMenuViewController.m */; };
 		5D0EDAB61A830290007DE68D /* MenuItems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D0EDAB51A830290007DE68D /* MenuItems.plist */; };
@@ -15,9 +18,6 @@
 		5D1754DA1AA8714F003A66D1 /* NotificationTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1754D91AA8714F003A66D1 /* NotificationTableView.m */; };
 		5D1754DE1AA87C94003A66D1 /* DetailNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1754DD1AA87C94003A66D1 /* DetailNavigationBar.m */; };
 		5D27CB631A91945E006958F3 /* MenuItemList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D27CB621A91945E006958F3 /* MenuItemList.plist */; };
-		5D27CB6C1A91A247006958F3 /* MenuContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27CB6B1A91A247006958F3 /* MenuContainer.m */; };
-		5D27CB6F1A91A248006958F3 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27CB6E1A91A248006958F3 /* MenuItem.m */; };
-		5D27CB721A91A248006958F3 /* MenuHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27CB711A91A248006958F3 /* MenuHeader.m */; };
 		5D27CB751A91B65B006958F3 /* CenterShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27CB741A91B65B006958F3 /* CenterShareView.m */; };
 		5D28D8D01ADB287400841F28 /* NSDate+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D28D8CF1ADB287400841F28 /* NSDate+Additions.m */; };
 		5D28D8D31ADB484600841F28 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D28D8D21ADB484600841F28 /* NSDate+Helper.m */; };
@@ -116,6 +116,12 @@
 
 /* Begin PBXFileReference section */
 		579988490B7E0E905A16D25A /* libPods-DailyDoll.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DailyDoll.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D06F8531AEC528B00E80A01 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
+		5D06F8541AEC528B00E80A01 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
+		5D06F8561AEC528C00E80A01 /* MenuContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuContainer.h; sourceTree = "<group>"; };
+		5D06F8571AEC528C00E80A01 /* MenuContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuContainer.m; sourceTree = "<group>"; };
+		5D06F8591AEC528C00E80A01 /* MenuGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuGroup.h; sourceTree = "<group>"; };
+		5D06F85A1AEC528C00E80A01 /* MenuGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuGroup.m; sourceTree = "<group>"; };
 		5D0B704C1A8D44CF008AF923 /* OAuthSignInView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthSignInView.h; sourceTree = "<group>"; };
 		5D0B704D1A8D44CF008AF923 /* OAuthSignInView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthSignInView.m; sourceTree = "<group>"; };
 		5D0EDAB21A830196007DE68D /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
@@ -130,12 +136,6 @@
 		5D1754DC1AA87C94003A66D1 /* DetailNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailNavigationBar.h; sourceTree = "<group>"; };
 		5D1754DD1AA87C94003A66D1 /* DetailNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailNavigationBar.m; sourceTree = "<group>"; };
 		5D27CB621A91945E006958F3 /* MenuItemList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MenuItemList.plist; sourceTree = "<group>"; };
-		5D27CB6A1A91A247006958F3 /* MenuContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuContainer.h; sourceTree = "<group>"; };
-		5D27CB6B1A91A247006958F3 /* MenuContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuContainer.m; sourceTree = "<group>"; };
-		5D27CB6D1A91A248006958F3 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
-		5D27CB6E1A91A248006958F3 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
-		5D27CB701A91A248006958F3 /* MenuHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuHeader.h; sourceTree = "<group>"; };
-		5D27CB711A91A248006958F3 /* MenuHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuHeader.m; sourceTree = "<group>"; };
 		5D27CB731A91B65B006958F3 /* CenterShareView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterShareView.h; sourceTree = "<group>"; };
 		5D27CB741A91B65B006958F3 /* CenterShareView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterShareView.m; sourceTree = "<group>"; };
 		5D28D8CE1ADB287400841F28 /* NSDate+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Additions.h"; sourceTree = "<group>"; };
@@ -378,12 +378,12 @@
 		5D27CB581A9192FC006958F3 /* MenuItemsModel */ = {
 			isa = PBXGroup;
 			children = (
-				5D27CB701A91A248006958F3 /* MenuHeader.h */,
-				5D27CB711A91A248006958F3 /* MenuHeader.m */,
-				5D27CB6D1A91A248006958F3 /* MenuItem.h */,
-				5D27CB6E1A91A248006958F3 /* MenuItem.m */,
-				5D27CB6A1A91A247006958F3 /* MenuContainer.h */,
-				5D27CB6B1A91A247006958F3 /* MenuContainer.m */,
+				5D06F8591AEC528C00E80A01 /* MenuGroup.h */,
+				5D06F85A1AEC528C00E80A01 /* MenuGroup.m */,
+				5D06F8561AEC528C00E80A01 /* MenuContainer.h */,
+				5D06F8571AEC528C00E80A01 /* MenuContainer.m */,
+				5D06F8531AEC528B00E80A01 /* MenuItem.h */,
+				5D06F8541AEC528B00E80A01 /* MenuItem.m */,
 			);
 			name = MenuItemsModel;
 			path = ..;
@@ -509,8 +509,8 @@
 		5DBD74F31AA2645000713D4D /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
-				5DBD74F41AA2646900713D4D /* PushRequestViewController.h */,
 				5DBD74F51AA2646900713D4D /* PushRequestViewController.m */,
+				5DBD74F41AA2646900713D4D /* PushRequestViewController.h */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -985,13 +985,13 @@
 				5DFD4BA51A97FD9E002A2D19 /* MetaData.m in Sources */,
 				5D0B704E1A8D44CF008AF923 /* OAuthSignInView.m in Sources */,
 				5D0EDAB41A830196007DE68D /* SideMenuViewController.m in Sources */,
-				5D27CB6F1A91A248006958F3 /* MenuItem.m in Sources */,
 				5D1754DE1AA87C94003A66D1 /* DetailNavigationBar.m in Sources */,
 				5D6C98661A8D059700EB408E /* ThemeContainer.m in Sources */,
 				5DADA6A51AAB6607005E4F2C /* BAView.m in Sources */,
 				5DDA3D9B1A85CC0500FD085A /* SideMenuTableSectionLabel.m in Sources */,
 				5DB59E701AA7B4F900567D59 /* Notification.m in Sources */,
 				5DFD4BA81A980705002A2D19 /* AccessoryPagesView.m in Sources */,
+				5D06F85B1AEC528C00E80A01 /* MenuGroup.m in Sources */,
 				5D86005C1A87C45A00AA8971 /* SocialSharePopoverView.m in Sources */,
 				5DADA6A21AAB56D0005E4F2C /* NotificationWebViewHeader.m in Sources */,
 				5D1754D41AA86F7E003A66D1 /* NotificationViewController.m in Sources */,
@@ -1008,6 +1008,7 @@
 				5DDA3D981A85CA8A00FD085A /* SideMenuTableSectionHeader.m in Sources */,
 				5DA4B98D1A7F3B2D0016476C /* ExternalWebModalViewController.m in Sources */,
 				5D80527D1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m in Sources */,
+				5D06F8581AEC528C00E80A01 /* MenuContainer.m in Sources */,
 				5D8052801A8331FD0076A6E8 /* SideMenuTableViewCell.m in Sources */,
 				5DBD74F61AA2646900713D4D /* PushRequestViewController.m in Sources */,
 				5DDE241F1AA40968001CE1AD /* DetailViewController.m in Sources */,
@@ -1016,6 +1017,7 @@
 				5DDA3DC31A86714400FD085A /* ShareViewController.m in Sources */,
 				5D6C985F1A8C636500EB408E /* SocialItem.m in Sources */,
 				5D9C59571AA8E6E100E73EF3 /* NotificationWebView.m in Sources */,
+				5D06F8551AEC528B00E80A01 /* MenuItem.m in Sources */,
 				5D6C98561A8C5D8000EB408E /* SocialContainer.m in Sources */,
 				5DDA3DC61A86777800FD085A /* ShareView.m in Sources */,
 				5DDA1B251A7F383C00914761 /* CenterViewController.m in Sources */,
@@ -1026,12 +1028,10 @@
 				5D28D8D31ADB484600841F28 /* NSDate+Helper.m in Sources */,
 				5D6C985C1A8C5D8000EB408E /* ProjectVariable.m in Sources */,
 				5DBD75031AA26F0400713D4D /* UIView+Additions.m in Sources */,
-				5D27CB721A91A248006958F3 /* MenuHeader.m in Sources */,
 				5DDA3DB51A85F4F700FD085A /* BlurActivityOverlay.m in Sources */,
 				5D28D8D01ADB287400841F28 /* NSDate+Additions.m in Sources */,
 				5DC2F5541A85AECD00ED1969 /* DDViewController.m in Sources */,
 				5DAB92251A92C82E006D3D4F /* SocialShareMethods.m in Sources */,
-				5D27CB6C1A91A247006958F3 /* MenuContainer.m in Sources */,
 				5DDA3DCC1A8681EF00FD085A /* ProjectSettingsKeys.m in Sources */,
 				5DFD4BA21A97FD9D002A2D19 /* AccessoryPage.m in Sources */,
 				5DDA3DC91A867F7E00FD085A /* ShareTableView.m in Sources */,

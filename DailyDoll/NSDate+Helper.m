@@ -81,7 +81,7 @@ static NSDateFormatter *_displayFormatter = nil;
  */
 - (NSUInteger)daysAgo {
     NSCalendar *calendar = [[self class] sharedCalendar];
-    NSDateComponents *components = [calendar components:(NSDayCalendarUnit)
+    NSDateComponents *components = [calendar components:(NSCalendarUnitDay)
                                                fromDate:self
                                                  toDate:[NSDate date]
                                                 options:0];
@@ -118,19 +118,19 @@ static NSDateFormatter *_displayFormatter = nil;
 
 - (NSUInteger)hour {
     NSCalendar *calendar = [[self class] sharedCalendar];
-    NSDateComponents *weekdayComponents = [calendar components:(NSHourCalendarUnit) fromDate:self];
+    NSDateComponents *weekdayComponents = [calendar components:(NSCalendarUnitHour) fromDate:self];
 	return [weekdayComponents hour];
 }
 
 - (NSUInteger)minute {
     NSCalendar *calendar = [[self class] sharedCalendar];
-    NSDateComponents *weekdayComponents = [calendar components:(NSMinuteCalendarUnit) fromDate:self];
+    NSDateComponents *weekdayComponents = [calendar components:(NSCalendarUnitMinute) fromDate:self];
 	return [weekdayComponents minute];
 }
 
 - (NSUInteger)year {
     NSCalendar *calendar = [[self class] sharedCalendar];
-    NSDateComponents *weekdayComponents = [calendar components:(NSYearCalendarUnit) fromDate:self];
+    NSDateComponents *weekdayComponents = [calendar components:(NSCalendarUnitYear) fromDate:self];
 	return [weekdayComponents year];
 }
 
@@ -139,13 +139,13 @@ static NSDateFormatter *_displayFormatter = nil;
 }
 
 - (NSUInteger)weekday {
-    NSDateComponents *weekdayComponents = [[[self class] sharedCalendar] components:(NSWeekdayCalendarUnit) fromDate:self];
+    NSDateComponents *weekdayComponents = [[[self class] sharedCalendar] components:(NSCalendarUnitWeekday) fromDate:self];
 	return [weekdayComponents weekday];
 }
 
 - (NSUInteger)weekNumber {
     NSCalendar *calendar = [[self class] sharedCalendar];
-    NSDateComponents *dateComponents = [calendar components:(NSWeekCalendarUnit) fromDate:self];
+    NSDateComponents *dateComponents = [calendar components:(NSCalendarUnitDay) fromDate:self];
     return [dateComponents week];
 }
 
@@ -176,7 +176,7 @@ static NSDateFormatter *_displayFormatter = nil;
 	 * else display as Nov 11, 2008
 	 */
 	NSDate *today = [NSDate date];
-    NSDateComponents *offsetComponents = [[self sharedCalendar] components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit)
+    NSDateComponents *offsetComponents = [[self sharedCalendar] components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay)
                                                                   fromDate:today];
 	NSDate *midnight = [[self sharedCalendar] dateFromComponents:offsetComponents];
 	NSString *displayString = nil;
@@ -206,7 +206,7 @@ static NSDateFormatter *_displayFormatter = nil;
 		} else {
 			// check if same calendar year
 			NSInteger thisYear = [offsetComponents year];
-			NSDateComponents *dateComponents = [[self sharedCalendar] components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit)
+			NSDateComponents *dateComponents = [[self sharedCalendar] components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay)
                                                             fromDate:date];
 			NSInteger thatYear = [dateComponents year];
 			if (thatYear >= thisYear) {
@@ -267,7 +267,7 @@ static NSDateFormatter *_displayFormatter = nil;
 	// we'll use the default calendar and hope for the best
 	NSCalendar *calendar = [[self class] sharedCalendar];
     NSDate *beginningOfWeek = nil;
-	BOOL ok = [calendar rangeOfUnit:NSWeekCalendarUnit startDate:&beginningOfWeek
+	BOOL ok = [calendar rangeOfUnit:NSCalendarUnitDay startDate:&beginningOfWeek
 						   interval:NULL forDate:self];
 	if (ok) {
 		return beginningOfWeek;
@@ -287,7 +287,7 @@ static NSDateFormatter *_displayFormatter = nil;
 	[componentsToSubtract release];
 #endif
 	//normalize to midnight, extract the year, month, and day components and create a new date from those components.
-	NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit)
+	NSDateComponents *components = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay)
 											   fromDate:beginningOfWeek];
 	return [calendar dateFromComponents:components];
 }
@@ -295,7 +295,7 @@ static NSDateFormatter *_displayFormatter = nil;
 - (NSDate *)beginningOfDay {
     NSCalendar *calendar = [[self class] sharedCalendar];
     // Get the weekday component of the current date
-	NSDateComponents *components = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit)
+	NSDateComponents *components = [calendar components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay)
 											   fromDate:self];
 	return [calendar dateFromComponents:components];
 }
