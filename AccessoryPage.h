@@ -13,7 +13,7 @@
 
 @interface AccessoryPage : NSManagedObject
 
-@property (nonatomic, retain) NSString * urlString;
+@property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) MetaData *metaData;
 

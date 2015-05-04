@@ -12,16 +12,16 @@
 #import "OAuthWebView.h"
 #import "OAuthSignInView.h"
 #import "CenterVCTitleLabel.h"
-#import "BlurActivityOverlay.h"
 #import "CenterVCActivityIndicator.h"
 #import "UIView+Additions.h"
 
 
 @interface DDViewController () < UIWebViewDelegate>
 
-@property BlurActivityOverlay *blurOverlay;
 @property CenterVCActivityIndicator *acitivityIndicator;
-
+@property NSString *javascript;
+@property NSString *domainString;
+@property NSInteger webViewLoads;
 @end
 
 @implementation DDViewController
@@ -43,7 +43,12 @@
     self.view.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:NAVBAR withProperty:kBackgroundColor]];
 
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-
+    
+    NSString *jsFile = [[NSBundle mainBundle] pathForResource:@"webViewJS"
+                                                       ofType:@"js"];
+    self.javascript = [NSString stringWithContentsOfFile:jsFile encoding:NSUTF8StringEncoding error:NULL];
+    
+    self.domainString = [[ProjectSettings sharedManager] fetchmetaDataVariables:kDomainString];
 }
 
 
@@ -64,10 +69,6 @@
     NSArray *windowSubViews = [[[UIApplication sharedApplication] keyWindow] subviews];
 
     if (windowSubViews.count) {
-//        [self.socialPopUp animateOffScreen];
-//
-//        [self.signInView animateOffScreen];
-//        
         for (UIView *subView in windowSubViews) {
             if ([subView isKindOfClass:[OAuthSignInView class]]) {
                 [((OAuthSignInView *)subView) animateOffScreen];
@@ -80,35 +81,46 @@
 }
 
 -(void)webViewDidStartLoad:(UIWebView *)webView {
-    self.blurOverlay = [[BlurActivityOverlay alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
-    self.blurOverlay.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-    self.blurOverlay.frame = webView.bounds;
-    [webView addSubview:self.blurOverlay];
-    self.acitivityIndicator = [[CenterVCActivityIndicator alloc] initWithStyle];
-    self.navigationItem.titleView = self.acitivityIndicator;
+    
+    self.webViewLoads ++;
+    
+    if (self.blurOverlay == nil) {
+        self.blurOverlay = [[BlurActivityOverlay alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+        self.blurOverlay.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+        self.blurOverlay.frame = webView.bounds;
+        self.acitivityIndicator = [[CenterVCActivityIndicator alloc] initWithStyle];
+        self.navigationItem.titleView = self.acitivityIndicator;
+        
+        [webView addSubview:self.blurOverlay];
+    }
 }
-
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
 
+    if ([[webView.request.URL absoluteString] containsString:
+         self.domainString]){
+        
+        [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@", self.javascript]];
+        [self.blurOverlay animateAndRemove];
+        self.blurOverlay = nil;
+    }
+    
+    self.webViewLoads --;
+    
+    if (self.webViewLoads > 0) {
+        return;
+    }
+    
     [self.blurOverlay animateAndRemove];
-
+    
+    self.blurOverlay = nil;
+    
     [self.acitivityIndicator stopAnimating];
 
     [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('id_username').select();"];
 
     if ([webView isKindOfClass:[OAuthWebView class]]) {
         [((OAuthWebView *) webView).activityIndicator stopAnimating];
-    }
-
-    if ([[webView.request.URL absoluteString] containsString:
-         [[ProjectSettings sharedManager] fetchmetaDataVariables:kDomainString]]){
-
-        NSString *jsFile = [[NSBundle mainBundle] pathForResource:@"webViewJS"
-                                                           ofType:@"js"];
-        NSString *javascript = [NSString stringWithContentsOfFile:jsFile encoding:NSUTF8StringEncoding error:NULL];
-
-        [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@", javascript]];
     }
 
     //TODO check if meta title exists. If not check for h1 or h2
@@ -119,9 +131,17 @@
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
-
+    
+    [self.acitivityIndicator stopAnimating];
+    
+    CenterVCTitleLabel *titleLabel = [[CenterVCTitleLabel alloc]
+                                      initWithStyleAndTitle:[webView stringByEvaluatingJavaScriptFromString:@"document.title"]];
+    
+    self.navigationItem.titleView = titleLabel;
+    
     if (self.blurOverlay) {
         [self.blurOverlay animateAndRemove];
+        self.blurOverlay = nil;
     }
 }
 

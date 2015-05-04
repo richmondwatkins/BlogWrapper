@@ -15,7 +15,7 @@
 
 @dynamic position;
 @dynamic title;
-@dynamic urlString;
+@dynamic url;
 @dynamic isHeader;
 @dynamic menuContainer;
 @dynamic menuItems;

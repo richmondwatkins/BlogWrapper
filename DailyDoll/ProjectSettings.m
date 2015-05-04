@@ -92,6 +92,43 @@ static ProjectSettings *sharedThemeManager = nil;
     return self;
 }
 
+- (void)requestAppData:(NSManagedObjectContext *)moc {
+    
+    NSURL *url = [NSURL URLWithString:@"http://appify.dev/api/1"];
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        
+        if (! connectionError) {
+            [self deleteMenuContainer:moc];
+            
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            
+            MenuContainer *menuContainer = [NSEntityDescription insertNewObjectForEntityForName:@"MenuContainer" inManagedObjectContext:moc];
+            
+            [menuContainer setMenuGroup: [self returnMenuGroup:[json objectForKey:@"menu"] withMoc:moc]];
+            
+            [moc save:nil];
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"menuUpdated" object:nil];
+        }
+    }];
+}
+
+- (void)deleteMenuContainer:(NSManagedObjectContext *)moc {
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"MenuContainer"];
+  
+    NSError *error = nil;
+    NSArray *fetchedObjects = [moc executeFetchRequest:fetchRequest error:&error];
+    
+    if (fetchedObjects.count > 0) {
+        
+        [moc deleteObject:fetchedObjects.firstObject];
+    }
+}
+
 - (void)addImagesToFileSystem {
 
     UIImage *logo = [UIImage imageNamed:@"logo"];
@@ -132,8 +169,8 @@ static ProjectSettings *sharedThemeManager = nil;
 
     MenuContainer *menuContainer = [NSEntityDescription insertNewObjectForEntityForName:@"MenuContainer" inManagedObjectContext:moc];
 
-    [menuContainer setMenuGroup: [self returnMenuGroup:moc]];
-
+    [menuContainer setMenuGroup: [self returnMenuGroup:self.menuItems withMoc:moc]];
+    
     [moc save:nil];
 
 
@@ -155,7 +192,7 @@ static ProjectSettings *sharedThemeManager = nil;
     MetaData *metaData = [NSEntityDescription insertNewObjectForEntityForName:kMetaData inManagedObjectContext:moc];
     metaData.domain = self.projectVariables[kMetaData][kDomainString];
     metaData.name = self.projectVariables[kMetaData][kSiteName];
-    metaData.urlString = self.projectVariables[kMetaData][kURLString];
+    metaData.url = self.projectVariables[kMetaData][kURLString];
     metaData.email = self.projectVariables[kMetaData][kEmail];
     
     [metaData addAccessoryPages:[self returnAccesorryPages:moc]];
@@ -230,22 +267,24 @@ static ProjectSettings *sharedThemeManager = nil;
     return [NSSet setWithArray:socialItemsArray];
 }
 
-- (NSSet *)returnMenuGroup:(NSManagedObjectContext *)moc {
+- (NSSet *)returnMenuGroup:(NSArray *)menuItems withMoc:(NSManagedObjectContext *)moc {
 
     NSMutableArray *menuItemsArray = [NSMutableArray array];
 
-    for (NSDictionary *menuItemsDict in self.menuItems) {
+    for (NSDictionary *menuItemsDict in menuItems) {
 
         MenuGroup *menuGroup = [NSEntityDescription insertNewObjectForEntityForName:@"MenuGroup" inManagedObjectContext:moc];
 
         for (NSString *key in menuItemsDict.allKeys) {
-
-            if ([key isEqualToString:kMenuItem]) {
-
-                [menuGroup addMenuItems:[self createMenuItems:menuItemsDict[key] withManagedObject:moc]];
-            }else {
-
-                [menuGroup setValue:menuItemsDict[key] forKey:key];
+            
+            if (! [key isEqualToString:@"id"]) {
+                if ([key isEqualToString:@"children"]) {
+                    
+                    [menuGroup addMenuItems:[self createMenuItems:menuItemsDict[key] withManagedObject:moc]];
+                }else {
+                    
+                    [menuGroup setValue:menuItemsDict[key] forKey:key];
+                }
             }
         }
 
@@ -280,19 +319,20 @@ static ProjectSettings *sharedThemeManager = nil;
     for (NSDictionary *menuDict in menuItems) {
         
         MenuItem *menuItem = [NSEntityDescription insertNewObjectForEntityForName:@"MenuItem" inManagedObjectContext:moc];
-
+        
         for (NSString *key in menuDict.allKeys) {
             
-            if ([key isEqualToString:@"children"]) {
-                
-                if (((NSArray *) menuDict[@"children"]).count) {
+            if (![key isEqualToString:@"id"]) {
+                if ([key isEqualToString:@"children"]) {
                     
-                    [menuItem addChildren:[self setChildrenMenuItems:menuDict[key] withMoc:moc]];
+                    if (((NSArray *) menuDict[@"children"]).count > 0) {
+                        
+                        [menuItem addChildren:[self setChildrenMenuItems:menuDict[key] withMoc:moc]];
+                    }
+                    
+                } else {
+                    [menuItem setValue:menuDict[key] forKey:key];
                 }
-                
-            } else {
-                
-                 [menuItem setValue:menuDict[key] forKey:key];
             }
         }
 
@@ -307,24 +347,26 @@ static ProjectSettings *sharedThemeManager = nil;
     NSMutableArray *childItemsArr = [NSMutableArray array];
     
     for (NSDictionary *child in children) {
-        MenuItem *menuItem =
-        [NSEntityDescription insertNewObjectForEntityForName:@"MenuItem"
-                                      inManagedObjectContext:moc];
+        MenuItem *menuItem = [NSEntityDescription insertNewObjectForEntityForName:@"MenuItem"
+                                                           inManagedObjectContext:moc];
         
         for (NSString *key in child.allKeys) {
             
-            if ([key isEqualToString:@"children"]) {
-                
-                if (((NSArray *) child[@"children"]).count) {
-                    
-                    [menuItem addChildren:[self setChildrenMenuItems:child[key] withMoc:moc]];
-                }
-                
-            } else {
-                
-                [menuItem setValue:child[key] forKey:key];
-            }
+             if (![key isEqualToString:@"id"]) {
+                 if ([key isEqualToString:@"children"]) {
+                     
+                     if (((NSArray *) child[@"children"]).count > 0) {
+                         
+                         [menuItem addChildren:[self setChildrenMenuItems:child[key] withMoc:moc]];
+                     }
+                 } else {
+                     
+                     [menuItem setValue:child[key] forKey:key];
+                 }
+             }
         }
+        
+        [moc save:nil];
     
         [childItemsArr addObject:menuItem];
     }
@@ -506,7 +548,6 @@ static ProjectSettings *sharedThemeManager = nil;
     }
 }
 
-
 - (BOOL)hasInteractedWithSocialItem:(int)socialId {
 
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
@@ -527,7 +568,6 @@ static ProjectSettings *sharedThemeManager = nil;
         return NO;
     }
 }
-
 
 - (void)saveSocialInteraction:(int)socialId withStatus:(BOOL)saveStatus {
 

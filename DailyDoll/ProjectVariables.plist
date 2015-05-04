@@ -26,7 +26,7 @@
 				</array>
 				<key>image</key>
 				<string>sms</string>
-				<key>urlString</key>
+				<key>url</key>
 				<string></string>
 				<key>id</key>
 				<integer>6</integer>
@@ -51,7 +51,7 @@
 				</array>
 				<key>image</key>
 				<string>mail</string>
-				<key>urlString</key>
+				<key>url</key>
 				<string></string>
 				<key>id</key>
 				<integer>5</integer>
@@ -84,7 +84,7 @@
 				</array>
 				<key>image</key>
 				<string>facebook</string>
-				<key>urlString</key>
+				<key>url</key>
 				<string>https://www.facebook.com/thedailydollblog</string>
 				<key>id</key>
 				<integer>0</integer>
@@ -111,7 +111,7 @@
 				<string>1442952</string>
 				<key>image</key>
 				<string>pintrest</string>
-				<key>urlString</key>
+				<key>url</key>
 				<string>https://www.pinterest.com/thelaceyjohnson/pins/</string>
 				<key>id</key>
 				<integer>1</integer>
@@ -142,7 +142,7 @@
 				</array>
 				<key>image</key>
 				<string>twitter</string>
-				<key>urlString</key>
+				<key>url</key>
 				<string>https://twitter.com/the_daily_doll</string>
 				<key>id</key>
 				<integer>2</integer>
@@ -175,7 +175,7 @@
 				<string>thedailydollblog</string>
 				<key>image</key>
 				<string>instagram</string>
-				<key>urlString</key>
+				<key>url</key>
 				<string>http://instagram.com/thedailydollblog</string>
 				<key>id</key>
 				<integer>3</integer>
@@ -200,7 +200,7 @@
 				</array>
 				<key>image</key>
 				<string>googlePlus</string>
-				<key>urlString</key>
+				<key>url</key>
 				<string>https://plus.google.com/u/0/+Thedailydoll/posts</string>
 				<key>id</key>
 				<integer>4</integer>
@@ -208,18 +208,20 @@
 		</array>
 		<key>MetaData</key>
 		<dict>
+			<key>appId</key>
+			<integer>1</integer>
 			<key>email</key>
 			<string>Lacey@thedailydoll.com</string>
 			<key>AccessoryPages</key>
 			<array>
 				<dict>
-					<key>urlString</key>
+					<key>url</key>
 					<string>http://thedailydoll.com/about-the-daily-doll/</string>
 					<key>title</key>
 					<string>About The Daily Doll</string>
 				</dict>
 				<dict>
-					<key>urlString</key>
+					<key>url</key>
 					<string>http://thedailydoll.com/about-me/</string>
 					<key>title</key>
 					<string>About Me</string>
@@ -231,7 +233,7 @@
 			<string>dailydoll</string>
 			<key>name</key>
 			<string>The Daily Doll</string>
-			<key>urlString</key>
+			<key>url</key>
 			<string>http://thedailydoll.com/</string>
 		</dict>
 	</dict>

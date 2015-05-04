@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 
-@protocol CenterShare
+@protocol ShareSliderProtocol
 
 @optional
 
@@ -22,9 +22,9 @@
 
 @end
 
-@interface CenterShareView : UIView
+@interface ShareViewSlider : UIView
 
-@property id<CenterShare> delegate;
+@property id<ShareSliderProtocol> delegate;
 
 - (instancetype)initWithFrameAndStyle:(CGRect)parentFrame;
 

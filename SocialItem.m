@@ -17,7 +17,7 @@
 @dynamic pageId;
 @dynamic appId;
 @dynamic image;
-@dynamic urlString;
+@dynamic url;
 @dynamic authURL;
 @dynamic authBaseURL;
 @dynamic authRedirect;

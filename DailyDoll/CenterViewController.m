@@ -14,16 +14,16 @@
 #import "ProjectSettings.h"
 #import "CenterVCTitleLabel.h"
 #import "ShareViewController.h"
-#import "CenterShareView.h"
+#import "ShareViewSlider.h"
 #import "PushRequestViewController.h"
 #import "DetailViewController.h"
 
-@interface CenterViewController () <UIWebViewDelegate, SideMenuProtocol, CenterShare>
+@interface CenterViewController () <UIWebViewDelegate, SideMenuProtocol, ShareSliderProtocol>
 
 @property (nonatomic, strong)  UIWebView *webView;
 @property NSURLRequest *externalRequest;
 @property MMDrawerController *drawerController;
-@property CenterShareView *shareSlideUp;
+@property ShareViewSlider *shareSlideUp;
 
 @end
 
@@ -112,15 +112,15 @@
         self.isFromSideMenu == NO) {
 
         DetailViewController *detailVC = [[DetailViewController alloc] initWithRequest:request];
-
+        
         [self.navigationController pushViewController:detailVC animated:YES];
 
+        [self.blurOverlay animateAndRemove];
+        
         return NO;
     }
 
     self.isFromSideMenu = NO;
-
-    [self.shareSlideUp animateOffScreen];
 
     [self removeWindowViews];
 
@@ -131,20 +131,15 @@
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
 
     [super webViewDidFinishLoad:webView];
-
-    [self.shareSlideUp animateOntoScreen];
+    
 }
 
 - (void)showSideMenu {
-
-    [self.shareSlideUp animateOffScreen];
 
     [self.drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
 }
 
 - (void)presentShareVC:(id)sender {
-
-    [self.shareSlideUp animateOffScreen];
 
     [self.drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
 }
@@ -157,6 +152,10 @@
 - (void)removeWindowViews {
 
     [self removeViewsFromWindow];
+}
+
+-(void)didReceiveMemoryWarning {
+    [[NSURLCache sharedURLCache] removeAllCachedResponses];
 }
 
 

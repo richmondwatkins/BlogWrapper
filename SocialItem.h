@@ -17,7 +17,7 @@
 @property (nonatomic, retain) NSString * pageId;
 @property (nonatomic, retain) NSString * appId;
 @property (nonatomic, retain) NSString * image;
-@property (nonatomic, retain) NSString * urlString;
+@property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSString * authURL;
 @property (nonatomic, retain) NSString * authBaseURL;
 @property (nonatomic, retain) NSString * authRedirect;

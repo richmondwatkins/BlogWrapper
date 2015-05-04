@@ -61,6 +61,16 @@ int const kTopButtonPadding = 4;
     self.dataSource = [[ProjectSettings sharedManager] fetchMenuItemsAndHeaders];
 
     [self.tableView reloadData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateMenu)
+                                                 name:@"menuUpdated" object:nil];
+}
+
+- (void)updateMenu {
+    self.dataSource = [[ProjectSettings sharedManager] fetchMenuItemsAndHeaders];
+    
+    [self.tableView reloadData];
 }
 
 -(void)viewDidLayoutSubviews {
@@ -189,11 +199,7 @@ int const kTopButtonPadding = 4;
     }
 
     MenuItem *menuItem = ((NSMutableArray*) self.dataSource[indexPath.section])[1][indexPath.row];
-    
-    if (menuItem.children.count) {
-        NSLog(@"%@", menuItem.children.allObjects[0]);
-    }
-    
+
     [cell addTextToMenu: menuItem];
 
     return cell;
@@ -205,8 +211,7 @@ int const kTopButtonPadding = 4;
     
     NSMutableArray *menuItemArray = ((NSMutableArray*) self.dataSource[indexPath.section])[1];
     
-    if (menuItem.children.count > 1) {
-        
+    if (menuItem.children.count > 0) {
         if (menuItem.isExpanded.boolValue) {
             [self collapseCellsFromIndexOf:menuItem indexPath:indexPath tableView:tableView itemArray:menuItemArray];
         } else {
@@ -214,7 +219,7 @@ int const kTopButtonPadding = 4;
         }
     } else {
         
-        [self.delegate selectedSideMenuItem:menuItem.urlString];
+        [self.delegate selectedSideMenuItem:menuItem.url];
         
         [self closeDrawController];
     }
@@ -244,7 +249,7 @@ int const kTopButtonPadding = 4;
     [tableView insertRowsAtIndexPaths:indexPaths
                      withRowAnimation:UITableViewRowAnimationLeft];
     
-    menuItem.isExpanded = [NSNumber numberWithBool:YES];
+    menuItem.isExpanded = [NSNumber numberWithBool:YES];    
 }
 
 - (void)collapseCellsFromIndexOf:(MenuItem *)menuItem indexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView itemArray:(NSMutableArray *)menuItems
@@ -259,14 +264,16 @@ int const kTopButtonPadding = 4;
     
     // Create index paths for the number of rows to be removed
     NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
-    for (int i = 0; i<collapseRange.length; i++) {
-        [indexPaths addObject:[NSIndexPath indexPathForRow:collapseRange.location+i inSection:indexPath.section]];
+    
+    for (int i = 0; i < collapseRange.length; i++) {
+        
+        [indexPaths addObject:[NSIndexPath indexPathForRow:collapseRange.location + i inSection:indexPath.section]];
     }
 
     [tableView deleteRowsAtIndexPaths:indexPaths
                      withRowAnimation:UITableViewRowAnimationLeft];
     
-      menuItem.isExpanded = [NSNumber numberWithBool:NO];
+      menuItem.isExpanded = [NSNumber numberWithBool:NO];    
 }
 
 //TODO resize based on view height down to certain point then use min height

@@ -16,9 +16,10 @@
 @property (nonatomic, retain) NSString * domain;
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * urlString;
+@property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) ProjectVariable *projectVariable;
 @property (nonatomic, retain) NSSet *accessoryPages;
+@property (nonatomic, retain) NSNumber *appId;
 @end
 
 @interface MetaData (CoreDataGeneratedAccessors)

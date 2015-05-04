@@ -15,9 +15,10 @@
 
 @dynamic position;
 @dynamic title;
-@dynamic urlString;
+@dynamic url;
 @dynamic menuGroup;
 @dynamic children;
 @dynamic isExpanded;
+@dynamic isHeader;
 
 @end

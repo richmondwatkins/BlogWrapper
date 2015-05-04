@@ -12,7 +12,7 @@
 
 @implementation AccessoryPage
 
-@dynamic urlString;
+@dynamic url;
 @dynamic title;
 @dynamic metaData;
 

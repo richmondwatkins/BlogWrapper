@@ -7,15 +7,17 @@
 //
 
 #import "DetailViewController.h"
-#import "CenterShareView.h"
+#import "ShareViewSlider.h"
+#import "BlurActivityOverlay.h"
 
-@interface DetailViewController () <UIWebViewDelegate, CenterShare, UIScrollViewDelegate>
+@interface DetailViewController () <UIWebViewDelegate, ShareSliderProtocol, UIScrollViewDelegate>
 
 @property NSURLRequest *request;
-@property CenterShareView *shareSlideUp;
+@property ShareViewSlider *shareSlideUp;
 @property UIWebView *webView;
 @property CGPoint lastScrollPosition;
 @property (nonatomic)  BOOL isScrollingDown;
+@property BlurActivityOverlay *detailBlurOverlay;
 
 @end
 
@@ -35,8 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-
-    self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
+     self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
 
     self.webView.delegate = self;
 
@@ -63,7 +64,7 @@
 
     if ([[ProjectSettings sharedManager] projectHasSocialAccounts]) {
 
-        self.shareSlideUp = [[CenterShareView alloc] initWithFrameAndStyle:self.view.frame];
+        self.shareSlideUp = [[ShareViewSlider alloc] initWithFrameAndStyle:self.view.frame];
 
         self.shareSlideUp.delegate = self;
 
@@ -81,8 +82,13 @@
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
 
     [super webViewDidFinishLoad:webView];
-
+    
     [self.shareSlideUp animateOntoScreen];
+    
+}
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    [super webView:webView didFailLoadWithError:error];
 }
 
 - (void)popVC {
@@ -99,6 +105,7 @@
 }
 
 -(NSURL *)returnCurrentURL {
+    
     return self.webView.request.URL;
 }
 

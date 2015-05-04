@@ -4,7 +4,7 @@
 <dict>
 	<key>Home</key>
 	<dict>
-		<key>urlString</key>
+		<key>url</key>
 		<string>http://thedailydoll.com</string>
 		<key>title</key>
 		<string>HOME</string>
@@ -12,12 +12,12 @@
 	<key>Menu</key>
 	<array>
 		<dict>
-			<key>menuItems</key>
+			<key>children</key>
 			<array>
 				<dict>
 					<key>children</key>
 					<array/>
-					<key>urlString</key>
+					<key>url</key>
 					<string>http://thedailydoll.com/category/wellness/happy-body/</string>
 					<key>Title</key>
 					<string>HAVE A HAPPY BODY</string>
@@ -27,18 +27,18 @@
 			<integer>1</integer>
 			<key>isHeader</key>
 			<true/>
-			<key>urlString</key>
+			<key>url</key>
 			<string></string>
 			<key>title</key>
 			<string>THE WELLNESS STUFF</string>
 		</dict>
 		<dict>
-			<key>menuItems</key>
+			<key>children</key>
 			<array>
 				<dict>
 					<key>children</key>
 					<array/>
-					<key>urlString</key>
+					<key>url</key>
 					<string>http://thedailydoll.com/category/beauty/beauty-talk/</string>
 					<key>title</key>
 					<string>BEAUTY TALK &amp; REVIEWS</string>
@@ -49,7 +49,7 @@
 						<dict>
 							<key>children</key>
 							<array/>
-							<key>urlString</key>
+							<key>url</key>
 							<string>http://thedailydoll.com/category/beauty/i-love-the-drugstore-beauty/</string>
 							<key>title</key>
 							<string>Child 3</string>
@@ -57,7 +57,7 @@
 						<dict>
 							<key>children</key>
 							<array/>
-							<key>urlString</key>
+							<key>url</key>
 							<string>http://thedailydoll.com/category/beauty/i-love-the-drugstore-beauty/</string>
 							<key>title</key>
 							<string>Child 2</string>
@@ -65,13 +65,13 @@
 						<dict>
 							<key>children</key>
 							<array/>
-							<key>urlString</key>
+							<key>url</key>
 							<string>http://thedailydoll.com/category/beauty/i-love-the-drugstore-beauty/</string>
 							<key>title</key>
 							<string>Child 1</string>
 						</dict>
 					</array>
-					<key>urlString</key>
+					<key>url</key>
 					<string>http://thedailydoll.com/category/beauty/i-love-the-drugstore-beauty/</string>
 					<key>title</key>
 					<string>I ADORE THE DRUGSTORE</string>
@@ -79,7 +79,7 @@
 				<dict>
 					<key>children</key>
 					<array/>
-					<key>urlString</key>
+					<key>url</key>
 					<string>http://thedailydoll.com/category/beauty/diy-beauty/</string>
 					<key>title</key>
 					<string>DIY BEAUTY</string>
@@ -89,18 +89,18 @@
 			<integer>2</integer>
 			<key>isHeader</key>
 			<true/>
-			<key>urlString</key>
+			<key>url</key>
 			<string></string>
 			<key>title</key>
 			<string>THE BEAUTY STUFF</string>
 		</dict>
 		<dict>
-			<key>menuItems</key>
+			<key>children</key>
 			<array>
 				<dict>
 					<key>children</key>
 					<array/>
-					<key>urlString</key>
+					<key>url</key>
 					<string>http://thedailydoll.com/category/life/what-men-really-think/</string>
 					<key>title</key>
 					<string>A MAN&apos;S PERSPECTIVE</string>
@@ -108,7 +108,7 @@
 				<dict>
 					<key>children</key>
 					<array/>
-					<key>urlString</key>
+					<key>url</key>
 					<string>http://thedailydoll.com/category/life/real-talk/</string>
 					<key>title</key>
 					<string>I&apos;M JUST BEING HONEST!</string>
@@ -116,7 +116,7 @@
 				<dict>
 					<key>children</key>
 					<array/>
-					<key>urlString</key>
+					<key>url</key>
 					<string>http://thedailydoll.com/category/life/inspiration-bits/</string>
 					<key>title</key>
 					<string>INSPIRATION BITS</string>
@@ -126,7 +126,7 @@
 			<integer>0</integer>
 			<key>isHeader</key>
 			<true/>
-			<key>urlString</key>
+			<key>url</key>
 			<string></string>
 			<key>title</key>
 			<string>THE LIFE STUFF</string>

@@ -18,6 +18,8 @@
 
 - (id)initFromPlist;
 
+- (void)requestAppData:(NSManagedObjectContext *)moc;
+
 -(void)populateCoreData:(NSManagedObjectContext *)moc withCompletion:(void(^)(BOOL))completion;
 
 - (NSString *)fetchSocialItem:(int)itemId withProperty:(NSString *)property;

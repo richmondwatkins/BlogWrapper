@@ -15,7 +15,7 @@
 
 @property (nonatomic, retain) NSNumber * position;
 @property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSString * urlString;
+@property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) NSNumber * isHeader;
 @property (nonatomic, retain) MenuContainer *menuContainer;
 @property (nonatomic, retain) NSSet *menuItems;

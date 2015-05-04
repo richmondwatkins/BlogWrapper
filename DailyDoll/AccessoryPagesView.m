@@ -136,7 +136,7 @@ CGFloat const kAccessoryButtonHeight = 40;
 
     AccessoryPage *accPage = [self.accessoryPages objectAtIndex:(int)button.tag];
 
-    [self.delegate showAccessoryPage:accPage.urlString];
+    [self.delegate showAccessoryPage:accPage.url];
 }
 
 - (CGRect)adjustPopUpFrame {

@@ -12,13 +12,18 @@
 #import "SocialSharePopoverView.h"
 #import "SocialShareMethods.h"
 #import "OAuthSignInView.h"
+#import "BlurActivityOverlay.h"
 
 @interface DDViewController : UIViewController
 
 @property (nonatomic, strong) UIView *statusBarBackground;
+@property BlurActivityOverlay *blurOverlay;
+
 
 - (void)removeViewsFromWindow;
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView;
+
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error;
 
 @end

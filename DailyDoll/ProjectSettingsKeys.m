@@ -25,7 +25,7 @@ NSString *const kSecondaryColor = @"secondaryColor";
 
 NSString *const kTitle = @"Title";
 
-NSString *const kURLString = @"urlString";
+NSString *const kURLString = @"url";
 
 NSString *const kImage = @"Image";
 

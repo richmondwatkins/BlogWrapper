@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Richmond. All rights reserved.
 //
 
-#import "CenterShareView.h"
+#import "ShareViewSlider.h"
 #import "ProjectSettings.h"
 #import "SocialItem.h"
 #import "SocialShareMethods.h"
@@ -15,7 +15,7 @@
 
 @import Social;
 
-@interface CenterShareView ()
+@interface ShareViewSlider ()
 
 @property CGPoint originalCenter;
 
@@ -27,7 +27,7 @@
 
 CGFloat const kButtonHeightAndWidth = 40;
 
-@implementation CenterShareView
+@implementation ShareViewSlider
 
 - (instancetype)initWithFrameAndStyle:(CGRect)parentFrame {
     //TODO move to detail view...use same social icons throughout. 
@@ -153,8 +153,6 @@ CGFloat const kButtonHeightAndWidth = 40;
 
         [self.delegate socialWebView:[NSURL URLWithString:accountPage]];
     }
-
-    
 }
 
 - (void)pinIt:(UIButton *)button {
@@ -183,8 +181,6 @@ CGFloat const kButtonHeightAndWidth = 40;
     NSString *currentPage = [[self.delegate returnCurrentURL] absoluteString];
 
     NSString *blogName = [[ProjectSettings sharedManager] fetchmetaDataVariables:kSiteName];
-
-//    NSString *accountPage = [[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:kURLString];
 
     BOOL didShare = [[SocialShareMethods sharedManager] shareToTwitter:[NSString stringWithFormat:@"%@ - %@", blogName, currentPage]];
 

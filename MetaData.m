@@ -15,9 +15,10 @@
 
 @dynamic domain;
 @dynamic name;
-@dynamic urlString;
+@dynamic url;
 @dynamic projectVariable;
 @dynamic accessoryPages;
 @dynamic email;
+@dynamic appId;
 
 @end

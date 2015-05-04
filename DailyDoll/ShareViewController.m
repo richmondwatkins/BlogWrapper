@@ -27,9 +27,6 @@
 
 @property ShareTableView *tableView;
 @property NSArray *dataSource;
-@property SocialSharingActionController *actionController;
-
-@property OAuthSignInView *signInView;
 
 @end
 
@@ -52,7 +49,6 @@
     self.dataSource = [[ProjectSettings sharedManager] fetchShareItems];
 
     [self.tableView reloadData];
-
 }
 
 
@@ -93,35 +89,36 @@
     self.actionController.delegate = self;
 
     switch ([[self.dataSource[indexPath.row] valueForKey:@"id" ] intValue]) {
-        case 0:
+            
+        case FACEBOOK:
 
            self.socialPopUp = [self.actionController facebookPopConfig:mainWindow.frame];
 
             [self displaySocialPoUp];
 
             break;
-        case 1:
+        case PINTEREST:
 
             self.socialPopUp = [self.actionController pintrestPopConfig:mainWindow.frame];
 
             [self displaySocialPoUp];
 
             break;
-        case 2:
+        case TWIITER:
 
             self.socialPopUp = [self.actionController twitterPopConfig:mainWindow.frame];
 
             [self displaySocialPoUp];
 
             break;
-        case 3:
+        case INSTAGRAM:
             
             self.socialPopUp = [self.actionController instagramPopConfig:mainWindow.frame];
 
             [self displaySocialPoUp];
 
             break;
-        case 4:
+        case GOOGLEPLUS:
             
             self.socialPopUp = [self.actionController googlePlusPopConfig:mainWindow.frame];
 
@@ -129,7 +126,7 @@
 
             break;
 
-        case 5: {
+        case EMAIL: {
 
             NSString *blogName = [[ProjectSettings sharedManager] fetchmetaDataVariables:kBlogName];
             NSString *blogUrl = [[ProjectSettings sharedManager] fetchmetaDataVariables:kURLString];
@@ -139,7 +136,7 @@
         }
             break;
 
-        case 6: {
+        case SMS: {
 
             NSString *blogName = [[ProjectSettings sharedManager] fetchmetaDataVariables:kBlogName];
             NSString *blogUrl = [[ProjectSettings sharedManager] fetchmetaDataVariables:kURLString];

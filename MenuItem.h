@@ -14,9 +14,10 @@
 @interface MenuItem : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * position;
+@property (nonatomic, retain) NSNumber * isHeader;
 @property (nonatomic, retain) NSNumber * isExpanded;
 @property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSString * urlString;
+@property (nonatomic, retain) NSString * url;
 @property (nonatomic, retain) MenuGroup *menuGroup;
 @property (nonatomic, retain) NSSet *children;
 

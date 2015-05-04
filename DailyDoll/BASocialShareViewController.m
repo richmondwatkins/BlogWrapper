@@ -97,7 +97,7 @@
 
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-
+    
     NSString *URLString = [request.URL absoluteString];
     if ([URLString hasPrefix:@"scheme"]) {
 
@@ -158,6 +158,8 @@
     if ([webView isKindOfClass:[OAuthWebView class]]) {
         [((OAuthWebView *) webView).activityIndicator stopAnimating];
     }
+    
+    [self.blurOverlay removeFromSuperview];
 }
 
 - (void)finishedWithAuth: (GTMOAuth2Authentication *)auth
@@ -233,7 +235,6 @@
 
     [self presentViewController:externalVC animated:YES completion:nil];
 }
-
 
 
 
