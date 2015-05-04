@@ -21,7 +21,8 @@
 @property CenterVCActivityIndicator *acitivityIndicator;
 @property NSString *javascript;
 @property NSString *domainString;
-@property NSInteger webViewLoads;
+@property NSInteger webRequests;
+@property NSInteger webResponses;
 @end
 
 @implementation DDViewController
@@ -82,9 +83,9 @@
 
 -(void)webViewDidStartLoad:(UIWebView *)webView {
     
-    self.webViewLoads ++;
+    self.webRequests ++;
     
-    if (self.blurOverlay == nil) {
+    if (self.blurOverlay == nil && self.webRequests <= 1) {
         self.blurOverlay = [[BlurActivityOverlay alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
         self.blurOverlay.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.blurOverlay.frame = webView.bounds;
@@ -97,23 +98,19 @@
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
 
+    self.webResponses++;
+    
     if ([[webView.request.URL absoluteString] containsString:
          self.domainString]){
         
         [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@", self.javascript]];
+    }
+    
+    if (self.webResponses == self.webRequests) {
         [self.blurOverlay animateAndRemove];
         self.blurOverlay = nil;
     }
-    
-    self.webViewLoads --;
-    
-    if (self.webViewLoads > 0) {
-        return;
-    }
-    
-    [self.blurOverlay animateAndRemove];
-    
-    self.blurOverlay = nil;
+
     
     [self.acitivityIndicator stopAnimating];
 
@@ -132,6 +129,7 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     
+    self.webResponses++;
     [self.acitivityIndicator stopAnimating];
     
     CenterVCTitleLabel *titleLabel = [[CenterVCTitleLabel alloc]

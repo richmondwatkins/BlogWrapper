@@ -154,12 +154,10 @@
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
 
     [super webViewDidFinishLoad:webView];
-
+    NSLog(@"%@", [webView.request.URL absoluteString]);
     if ([webView isKindOfClass:[OAuthWebView class]]) {
         [((OAuthWebView *) webView).activityIndicator stopAnimating];
     }
-    
-    [self.blurOverlay removeFromSuperview];
 }
 
 - (void)finishedWithAuth: (GTMOAuth2Authentication *)auth
