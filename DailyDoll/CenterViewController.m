@@ -17,6 +17,7 @@
 #import "ShareViewSlider.h"
 #import "PushRequestViewController.h"
 #import "DetailViewController.h"
+#import "SocialStreamViewController.h"
 
 @interface CenterViewController () <UIWebViewDelegate, SideMenuProtocol, ShareSliderProtocol>
 
@@ -37,9 +38,6 @@
     [self setUpWebView];
 
     [self setUpDrawControllerAndButton];
-
-
-//    [[ProjectSettings sharedManager] listFonts];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -141,7 +139,9 @@
 
 - (void)presentShareVC:(id)sender {
 
-    [self.drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
+//    [self.drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
+    
+    [self presentViewController:[[SocialStreamViewController alloc] init] animated:YES completion:nil];
 }
 
 - (void)selectedSideMenuItem:(NSString *)urlString {

@@ -64,7 +64,7 @@ int const kTopButtonPadding = 4;
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateMenu)
-                                                 name:@"menuUpdated" object:nil];
+                                                 name:@"coreDataUpdated" object:nil];
 }
 
 - (void)updateMenu {
@@ -247,9 +247,13 @@ int const kTopButtonPadding = 4;
     }
     // Insert the rows
     [tableView insertRowsAtIndexPaths:indexPaths
-                     withRowAnimation:UITableViewRowAnimationLeft];
+                     withRowAnimation:UITableViewRowAnimationMiddle];
     
-    menuItem.isExpanded = [NSNumber numberWithBool:YES];    
+    menuItem.isExpanded = [NSNumber numberWithBool:YES];
+
+    NSArray *sectionArray = self.dataSource[indexPath.section];
+    
+    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:sectionArray.count + menuItems.count - 3 inSection:indexPath.section] atScrollPosition:UITableViewScrollPositionTop animated:true];
 }
 
 - (void)collapseCellsFromIndexOf:(MenuItem *)menuItem indexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView itemArray:(NSMutableArray *)menuItems
@@ -258,7 +262,7 @@ int const kTopButtonPadding = 4;
     int collapseCol = (int) menuItem.children.count;
     
     // Find the range from the parent index and the length to be removed.
-    NSRange collapseRange = NSMakeRange(indexPath.row+1, collapseCol);
+    NSRange collapseRange = NSMakeRange(indexPath.row + 1, collapseCol);
     // Remove all the objects in that range from the main array so that number of rows are maintained properly
     [menuItems removeObjectsInRange:collapseRange];
     
@@ -271,7 +275,7 @@ int const kTopButtonPadding = 4;
     }
 
     [tableView deleteRowsAtIndexPaths:indexPaths
-                     withRowAnimation:UITableViewRowAnimationLeft];
+                     withRowAnimation:UITableViewRowAnimationTop];
     
       menuItem.isExpanded = [NSNumber numberWithBool:NO];    
 }

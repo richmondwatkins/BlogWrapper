@@ -8,7 +8,7 @@
 
 #import "SocialSharePopoverView.h"
 #import "ProjectSettings.h"
-#import <FacebookSDK/FacebookSDK.h>
+#import <FacebookSDK.h>
 #import <TwitterKit/TwitterKit.h>
 
 @interface SocialSharePopoverView () <UIGestureRecognizerDelegate>
@@ -192,7 +192,7 @@ CGFloat const kTitleHeight = 40;
 
     FBLikeControl *like = [[FBLikeControl alloc] initWithFrame:CGRectMake(0, 0, popUp.frame.size.width * 0.8, kButtonHeight) andTitle:buttonTitle];
 
-    like.objectID = [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:kURLString];
+    like.objectID = [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:kSocialAccountURL];
     like.preferredMaxLayoutWidth = 300;
     like.likeControlStyle = FBLikeControlStyleButton;
     like.likeControlAuxiliaryPosition = FBLikeControlHorizontalAlignmentCenter;

@@ -37,10 +37,7 @@
 
         switch ([buttonItem.id intValue]) {
             case 0:  //Like
-
-                [button addTarget:self action:@selector(faceBookLikeDelegate:)
-                 forControlEvents:UIControlEventTouchUpInside];
-
+                // The button handles itself
                 break;
             case 1:  //View
 
@@ -73,9 +70,9 @@
 - (void)facebookViewDelegate:(UIButton *)button {
 
     [self openWithAppOrWebView:[NSString stringWithFormat:@"fb://profile/%@",
-                                [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:@"pageId"]]
+                                [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:@"accountId"]]
                      andWebURL:[NSString stringWithFormat:@"https://www.facebook.com/%@",
-                                                           [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:@"pageId"]]];
+                                                           [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:@"accountId"]]];
 }
 
 - (void)facebookShareDelegate:(UIButton *)button {
@@ -83,7 +80,7 @@
     FBLinkShareParams *params = [[FBLinkShareParams alloc] init];
     
     params.link = [NSURL URLWithString:[NSString stringWithFormat:@"https://www.facebook.com/%@",
-                                        [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:@"pageId"]]];
+                                        [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:@"accountId"]]];
     BOOL didShare = [[SocialShareMethods sharedManager] shareToFaceBookWithURL:params];
 
     if (!didShare) {
@@ -93,36 +90,6 @@
 
     [self.popUpView animateOffScreen];
 }
-
-
-
-- (void)faceBookLikeDelegate:(UIButton *)button {
-
-
-    [self.delegate facebookLike];
-}
-
-- (void)handleLikeButtonTap:(UIButton *)likeButton
-{
-
-    [self handleLikeButtonTouchUp:likeButton];
-
-}
-
-- (void)handleLikeButtonTouchDown:(UIButton *)likeButton
-{
-    [UIView animateWithDuration:0.1 animations:^{
-        likeButton.transform = CGAffineTransformMakeScale(0.8, 0.8);
-    }];
-}
-
-- (void)handleLikeButtonTouchUp:(UIButton *)likeButton
-{
-    [UIView animateWithDuration:0.05 animations:^{
-        likeButton.transform = CGAffineTransformIdentity;
-    }];
-}
-
 
 //==== Pintrest =====
 
@@ -174,7 +141,7 @@
 
     //TODO setup s3 to host images
     NSURL *imageURL = [NSURL URLWithString:@"http://placekitten.com/g/200/300"];
-    NSURL *sourceURL = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:PINTEREST withProperty:kURLString]];
+    NSURL *sourceURL = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:PINTEREST withProperty:kSocialAccountURL]];
 
     BOOL didShare = [[SocialShareMethods sharedManager] pinToPinterest:imageURL andSource:sourceURL];
 
@@ -318,7 +285,7 @@
 
 - (void)tweet:(UIButton *)button {
 
-    NSString *accountURLString = [[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:kURLString];
+    NSString *accountURLString = [[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:kSocialAccountURL];
 
     NSString *blogName = [[ProjectSettings sharedManager] fetchSocialItem:INSTAGRAM withProperty:kAccountName];
 
@@ -347,8 +314,8 @@
 
 - (void)openOnTwitter:(UIButton *)button {
 
-    [self openWithAppOrWebView:[NSString stringWithFormat:@"twitter://user?id=%@", [[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:@"pageId"]]
-                     andWebURL:[[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:kURLString]];
+    [self openWithAppOrWebView:[NSString stringWithFormat:@"twitter://user?id=%@", [[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:@"accountId"]]
+                     andWebURL:[[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:kSocialAccountURL]];
 }
 
 
@@ -457,7 +424,7 @@
 - (void) googlePlusShare:(UIButton *)button {
 
 
-    NSURL *sourceURL = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kURLString]];
+    NSURL *sourceURL = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kSocialAccountURL]];
 
     BOOL didShare = [[SocialShareMethods sharedManager] shareToGooglePlus:sourceURL.absoluteString];
 
@@ -469,7 +436,7 @@
 
 - (void) googlePlusView:(UIButton *)button {
 
-    NSURL *webURL = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kURLString]];
+    NSURL *webURL = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kSocialAccountURL]];
     [self.delegate socialWebView:webURL];
 }
 
@@ -497,7 +464,22 @@
                action:@selector(handleLikeButtonTouchUp:)
      forControlEvents:(UIControlEventTouchCancel |
                        //UIControlEventTouchDragExit |
+      
                        UIControlEventTouchUpOutside)];
+}
+
+- (void)handleLikeButtonTouchDown:(UIButton *)likeButton
+{
+    [UIView animateWithDuration:0.1 animations:^{
+        likeButton.transform = CGAffineTransformMakeScale(0.8, 0.8);
+    }];
+}
+
+- (void)handleLikeButtonTouchUp:(UIButton *)likeButton
+{
+    [UIView animateWithDuration:0.05 animations:^{
+        likeButton.transform = CGAffineTransformIdentity;
+    }];
 }
 
 - (void)openWithAppOrWebView:(NSString *)deepLinkURLString andWebURL:(NSString *)webURLString {

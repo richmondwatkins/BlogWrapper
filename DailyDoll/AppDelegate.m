@@ -91,7 +91,7 @@
 
     if (hasGooglePlus) {
 
-        [GPPSignIn sharedInstance].clientID = [[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kSocialClientId];
+        [GPPSignIn sharedInstance].clientID = [[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:@"accountId"];
         
         [GPPDeepLink setDelegate:self];
 

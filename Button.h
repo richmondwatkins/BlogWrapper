@@ -13,7 +13,7 @@
 
 @interface Button : NSManagedObject
 
-@property (nonatomic, retain) NSString * id;
+@property (nonatomic, retain) NSNumber * id;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) SocialItem *socialItem;
 

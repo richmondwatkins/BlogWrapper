@@ -94,9 +94,10 @@ static ProjectSettings *sharedThemeManager = nil;
 
 - (void)requestAppData:(NSManagedObjectContext *)moc {
     
-    NSURL *url = [NSURL URLWithString:@"http://appify.dev/api/1"];
+    NSURL *url = [NSURL URLWithString:@"http://apptly.us/apps/1"];
     
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         
@@ -109,9 +110,15 @@ static ProjectSettings *sharedThemeManager = nil;
             
             [menuContainer setMenuGroup: [self returnMenuGroup:[json objectForKey:@"menu"] withMoc:moc]];
             
+            ProjectVariable *projectVariable = [NSEntityDescription insertNewObjectForEntityForName:@"ProjectVariable" inManagedObjectContext:moc];
+            
+            projectVariable.socialContainer = [NSEntityDescription insertNewObjectForEntityForName:@"SocialContainer" inManagedObjectContext:moc];
+            
+            [projectVariable.socialContainer  setSocialItems:[self returnSocialItemSet:json[@"socialData"] withMoc:moc]];
+            
             [moc save:nil];
             
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"menuUpdated" object:nil];
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"coreDataUpdated" object:nil];
         }
     }];
 }
@@ -160,9 +167,9 @@ static ProjectSettings *sharedThemeManager = nil;
 
     ProjectVariable *projectVariable = [NSEntityDescription insertNewObjectForEntityForName:@"ProjectVariable" inManagedObjectContext:moc];
 
-    projectVariable.socialContainer = [NSEntityDescription insertNewObjectForEntityForName:@"SocialContainer" inManagedObjectContext:moc];
-
-    [projectVariable.socialContainer  setSocialItems:[self returnSocialItemSet:moc]];
+//    projectVariable.socialContainer = [NSEntityDescription insertNewObjectForEntityForName:@"SocialContainer" inManagedObjectContext:moc];
+//
+//    [projectVariable.socialContainer  setSocialItems:[self returnSocialItemSet:self.projectVariables[@"Social"] withMoc:moc]];
 
     projectVariable.metaData = [self setMetaData:moc];
 
@@ -222,24 +229,20 @@ static ProjectSettings *sharedThemeManager = nil;
 
 }
 
-- (NSSet *)returnSocialItemSet:(NSManagedObjectContext *)moc {
+- (NSSet *)returnSocialItemSet:(NSArray *)socialItems  withMoc:(NSManagedObjectContext *)moc {
 
     NSMutableArray *socialItemsArray = [NSMutableArray array];
 
-    for (NSDictionary *socialItemDict in self.projectVariables[@"Social"]) {
+    for (NSDictionary *socialItemDict in socialItems) {
 
         SocialItem *socialItem =[NSEntityDescription insertNewObjectForEntityForName:@"SocialItem" inManagedObjectContext:moc];
     
         for (NSString *key in [socialItemDict allKeys]) {
 
-            if ([key isEqualToString:kButtons]) {
-
-                [socialItem setButtons:[self createButtons:socialItemDict[key] withManagedObject:moc]];
-            }else {
-                
-                [socialItem setValue:socialItemDict[key] forKey:key];
-            }
+            [socialItem setValue:socialItemDict[key] forKey:key];
         }
+        
+        [socialItem setButtons:[self createButtons:socialItemDict[kPlatformId] withManagedObject:moc]];
 
         [socialItemsArray addObject:socialItem];
     }
@@ -296,20 +299,98 @@ static ProjectSettings *sharedThemeManager = nil;
 
 //TODO add option for email news letter sign up
 
-- (NSSet *)createButtons:(NSArray *)buttons withManagedObject:(NSManagedObjectContext *)moc {
-
-    NSMutableArray *buttonMutableArray = [NSMutableArray array];
-
-    for (NSDictionary *buttonDict in buttons) {
-
-        Button *buttonCD = [NSEntityDescription insertNewObjectForEntityForName:@"Button" inManagedObjectContext:moc];
-        buttonCD.id = buttonDict[@"Id"];
-        buttonCD.title = buttonDict[@"Title"];
-
-        [buttonMutableArray addObject:buttonCD];
+- (NSSet *)createButtons:(NSNumber *)platformId withManagedObject:(NSManagedObjectContext *)moc {
+    
+    switch (platformId.integerValue) {
+        case FACEBOOK:
+            return  [self returnFacebookButtonSet:moc];
+            break;
+        case PINTEREST:
+            return [self returnPinterestButtonSet:moc];
+            
+        case TWIITER:
+            return [self returnTwitterButtonSet:moc];
+            break;
+            
+        case INSTAGRAM:
+            return [self returnInstagramButtonSet:moc];
+            break;
+        case GOOGLEPLUS:
+            return [self returnGooglePlusButtonSet:moc];
+            break;
+        default:
+             return [NSSet set];
+            break;
     }
+}
 
-    return [NSSet setWithArray:buttonMutableArray];
+- (NSSet *)returnFacebookButtonSet:(NSManagedObjectContext * )moc {
+    
+    Button *buttonLike = [NSEntityDescription insertNewObjectForEntityForName:@"Button" inManagedObjectContext:moc];
+    buttonLike.id = @0;
+    buttonLike.title = @"Like";
+    
+    Button *buttonView = [NSEntityDescription insertNewObjectForEntityForName:@"Button" inManagedObjectContext:moc];
+    buttonView.id = @1;
+    buttonView.title = @"View";
+    
+    Button *buttonShare = [NSEntityDescription insertNewObjectForEntityForName:@"Button" inManagedObjectContext:moc];
+    buttonShare.id = @2;
+    buttonShare.title = @"Share";
+    
+    return  [NSSet setWithObjects:buttonLike, buttonView, buttonShare, nil];
+}
+
+- (NSSet *)returnPinterestButtonSet:(NSManagedObjectContext * )moc {
+    
+    Button *buttonPin = [NSEntityDescription insertNewObjectForEntityForName:@"Button" inManagedObjectContext:moc];
+    buttonPin.id = @0;
+    buttonPin.title = @"Pin";
+    
+    Button *buttonView = [NSEntityDescription insertNewObjectForEntityForName:@"Button" inManagedObjectContext:moc];
+    buttonView.id = @1;
+    buttonView.title = @"View Boards";
+    
+    return  [NSSet setWithObjects:buttonPin, buttonView, nil];
+}
+
+- (NSSet *)returnTwitterButtonSet:(NSManagedObjectContext * )moc {
+    
+    Button *buttonFollow = [NSEntityDescription insertNewObjectForEntityForName:@"Button" inManagedObjectContext:moc];
+    buttonFollow.id = @0;
+    buttonFollow.title = @"Follow";
+    
+    Button *buttonView = [NSEntityDescription insertNewObjectForEntityForName:@"Button" inManagedObjectContext:moc];
+    buttonView.id = @1;
+    buttonView.title = @"View";
+    
+    Button *buttonTweet = [NSEntityDescription insertNewObjectForEntityForName:@"Button" inManagedObjectContext:moc];
+    buttonTweet.id = @2;
+    buttonTweet.title = @"Tweet";
+    
+    return  [NSSet setWithObjects:buttonFollow, buttonView, buttonTweet, nil];
+}
+
+- (NSSet *)returnInstagramButtonSet:(NSManagedObjectContext * )moc {
+
+    Button *buttonView = [NSEntityDescription insertNewObjectForEntityForName:@"Button" inManagedObjectContext:moc];
+    buttonView.id = @0;
+    buttonView.title = @"View";
+    
+    return  [NSSet setWithObjects:buttonView, nil];
+}
+
+- (NSSet *)returnGooglePlusButtonSet:(NSManagedObjectContext * )moc {
+    
+    Button *buttonView = [NSEntityDescription insertNewObjectForEntityForName:@"Button" inManagedObjectContext:moc];
+    buttonView.id = @0;
+    buttonView.title = @"View";
+    
+    Button *buttonShare = [NSEntityDescription insertNewObjectForEntityForName:@"Button" inManagedObjectContext:moc];
+    buttonShare.id = @1;
+    buttonShare.title = @"+1 Share";
+    
+    return  [NSSet setWithObjects:buttonView, buttonShare, nil];
 }
 
 - (NSSet *)createMenuItems:(NSArray *)menuItems withManagedObject:(NSManagedObjectContext *)moc {
@@ -380,7 +461,7 @@ static ProjectSettings *sharedThemeManager = nil;
 
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
-    [socialFetch setPredicate:[NSPredicate predicateWithFormat:@"id == %@", [NSNumber numberWithInt:itemId]]];
+    [socialFetch setPredicate:[NSPredicate predicateWithFormat:@"platformId == %@", [NSNumber numberWithInt:itemId]]];
 
     NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:socialFetch error:nil];
 
@@ -393,7 +474,7 @@ static ProjectSettings *sharedThemeManager = nil;
 
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
-    [buttonFetch setPredicate:[NSPredicate predicateWithFormat:@"id == %@", [NSNumber numberWithInt:itemId]]];
+    [buttonFetch setPredicate:[NSPredicate predicateWithFormat:@"platformId == %@", [NSNumber numberWithInt:itemId]]];
 
     NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:buttonFetch error:nil];
 
@@ -488,17 +569,17 @@ static ProjectSettings *sharedThemeManager = nil;
 
 - (NSArray *)fetchShareItems {
 
-    NSFetchRequest *themeFetch = [[NSFetchRequest alloc] initWithEntityName:@"SocialContainer"];
+    NSFetchRequest *shareFetch = [[NSFetchRequest alloc] initWithEntityName:@"SocialContainer"];
 
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
-    NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:themeFetch error:nil];
+    NSArray *results = [appDelegate.managedObjectContext executeFetchRequest:shareFetch error:nil];
 
     SocialContainer *socialContainer = results[0];
 
     NSMutableArray *shareItems = [[socialContainer.socialItems allObjects] mutableCopy];
 
-    NSSortDescriptor *shareSort = [[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES];
+    NSSortDescriptor *shareSort = [[NSSortDescriptor alloc] initWithKey:@"platformId" ascending:YES];
 
     [shareItems sortUsingDescriptors:@[shareSort]];
 
@@ -517,12 +598,12 @@ static ProjectSettings *sharedThemeManager = nil;
 
     NSMutableArray *shareItems = [[socialContainer.socialItems allObjects] mutableCopy];
 
-    NSSortDescriptor *shareSort = [[NSSortDescriptor alloc] initWithKey:@"id" ascending:YES];
+    NSSortDescriptor *shareSort = [[NSSortDescriptor alloc] initWithKey:kPlatformId ascending:YES];
 
     [shareItems sortUsingDescriptors:@[shareSort]];
 
     [shareItems enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(SocialItem *item, NSUInteger index, BOOL *stop) {
-        if (item.id.intValue == INSTAGRAM) {
+        if (item.platformId.intValue == INSTAGRAM) {
             [shareItems removeObjectAtIndex:index];
         }
     }];
@@ -535,7 +616,7 @@ static ProjectSettings *sharedThemeManager = nil;
 
     NSFetchRequest *accountCheck = [[NSFetchRequest alloc] initWithEntityName:@"SocialItem"];
 
-    [accountCheck setPredicate:[NSPredicate predicateWithFormat:@"id == %@", [NSNumber numberWithInt:socialAccount]]];
+    [accountCheck setPredicate:[NSPredicate predicateWithFormat:@"%@ == %@", kPlatformId, [NSNumber numberWithInt:socialAccount]]];
 
     NSInteger hasAccount = [moc countForFetchRequest:accountCheck error:nil];
 
@@ -554,7 +635,7 @@ static ProjectSettings *sharedThemeManager = nil;
 
     NSFetchRequest *socialFetch = [[NSFetchRequest alloc] initWithEntityName:@"SocialItem"];
 
-    [socialFetch setPredicate:[NSPredicate predicateWithFormat:@"id == %@", [NSNumber numberWithInt:socialId]]];
+    [socialFetch setPredicate:[NSPredicate predicateWithFormat:@"platformId == %@", [NSNumber numberWithInt:socialId]]];
 
     NSArray *socialAccountResult = [appDelegate.managedObjectContext executeFetchRequest:socialFetch error:nil];
 
@@ -575,7 +656,7 @@ static ProjectSettings *sharedThemeManager = nil;
 
     NSFetchRequest *socialFetch = [[NSFetchRequest alloc] initWithEntityName:@"SocialItem"];
 
-    [socialFetch setPredicate:[NSPredicate predicateWithFormat:@"id == %@", [NSNumber numberWithInt:socialId]]];
+    [socialFetch setPredicate:[NSPredicate predicateWithFormat:@"platformId == %@", [NSNumber numberWithInt:socialId]]];
 
     NSArray *socialAccountResult = [appDelegate.managedObjectContext executeFetchRequest:socialFetch error:nil];
 

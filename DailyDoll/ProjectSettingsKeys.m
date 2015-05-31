@@ -27,6 +27,8 @@ NSString *const kTitle = @"Title";
 
 NSString *const kURLString = @"url";
 
+NSString *const kSocialAccountURL = @"accountUrl";
+
 NSString *const kImage = @"Image";
 
 NSString *const kBlogName = @"name";
@@ -37,7 +39,9 @@ NSString *const kInstagramBaseUrl = @"authBaseURL";
 
 NSString *const kInstagramAppRedirectURL = @"authRedirect";
 
-NSString *const kSocialClientId = @"authClientId";
+NSString *const kSocialClientId = @"accountId";
+
+NSString *const kPlatformId = @"platformId";
 
 NSString *const kSeedApp = @"SeedApp";
 

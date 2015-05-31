@@ -30,15 +30,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.statusBarBackground = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
-    self.statusBarBackground.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:STATUSBAR withProperty:kBackgroundColor]];
-    self.statusBarBackground.autoresizingMask =  UIViewAutoresizingFlexibleWidth;
-    [[[UIApplication sharedApplication] keyWindow] addSubview:self.statusBarBackground];
-
-    if ([self adjustForStatusBar]) {
-        self.view.top = self.statusBarBackground.bottom;
-    }
-
     self.navigationController.navigationBar.barTintColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:NAVBAR withProperty:kBackgroundColor]];
 
     self.view.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:NAVBAR withProperty:kBackgroundColor]];
@@ -51,19 +42,6 @@
     
     self.domainString = [[ProjectSettings sharedManager] fetchmetaDataVariables:kDomainString];
 }
-
-
--(void)willTransitionToTraitCollection:(UITraitCollection *)newCollection withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-
-    if (self.view.frame.size.height > self.view.frame.size.width) {
-        //view is in portrait about to transtion to landscape
-        self.statusBarBackground.hidden = YES;
-    }else {
-
-        self.statusBarBackground.hidden = NO;
-    }
-}
-
 
 - (void)removeViewsFromWindow {
 
@@ -109,6 +87,8 @@
     if (self.webResponses == self.webRequests) {
         [self.blurOverlay animateAndRemove];
         self.blurOverlay = nil;
+        self.webRequests = 0;
+        self.webResponses = 0;
     }
 
     
@@ -130,6 +110,7 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     
     self.webResponses++;
+    
     [self.acitivityIndicator stopAnimating];
     
     CenterVCTitleLabel *titleLabel = [[CenterVCTitleLabel alloc]
@@ -137,10 +118,10 @@
     
     self.navigationItem.titleView = titleLabel;
     
-    if (self.blurOverlay) {
-        [self.blurOverlay animateAndRemove];
-        self.blurOverlay = nil;
-    }
+    [self.blurOverlay animateAndRemove];
+    self.blurOverlay = nil;
+    self.webRequests = 0;
+    self.webResponses = 0;
 }
 
 - (BOOL)adjustForStatusBar {

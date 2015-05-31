@@ -2,7 +2,7 @@
 //  SocialItem.m
 //  DailyDoll
 //
-//  Created by Richmond on 2/11/15.
+//  Created by Richmond Watkins on 5/23/15.
 //  Copyright (c) 2015 Richmond. All rights reserved.
 //
 
@@ -13,18 +13,13 @@
 
 @implementation SocialItem
 
-@dynamic id;
-@dynamic pageId;
-@dynamic appId;
-@dynamic image;
-@dynamic url;
-@dynamic authURL;
-@dynamic authBaseURL;
-@dynamic authRedirect;
-@dynamic authClientId;
 @dynamic accountName;
-@dynamic socialContainer;
-@dynamic buttons;
+@dynamic accountId;
 @dynamic hasInteracted;
+@dynamic platformId;
+@dynamic image;
+@dynamic accountUrl;
+@dynamic buttons;
+@dynamic socialContainer;
 
 @end

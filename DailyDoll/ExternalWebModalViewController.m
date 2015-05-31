@@ -32,7 +32,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    DetailNavigationBar *customNav = [[DetailNavigationBar alloc] initWithCloseButtonAndFrame:CGRectMake(0, self.statusBarBackground.frame.size.height, self.view.frame.size.width, 40)];
+    DetailNavigationBar *customNav = [[DetailNavigationBar alloc] initWithCloseButtonAndFrame:CGRectMake(0, 0, self.view.frame.size.width, 65)];
 
     customNav.rightBarButton.target = self;
     customNav.rightBarButton.action = @selector(dissmissModal:);

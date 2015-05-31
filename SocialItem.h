@@ -2,7 +2,7 @@
 //  SocialItem.h
 //  DailyDoll
 //
-//  Created by Richmond on 2/11/15.
+//  Created by Richmond Watkins on 5/23/15.
 //  Copyright (c) 2015 Richmond. All rights reserved.
 //
 
@@ -13,19 +13,14 @@
 
 @interface SocialItem : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * id;
-@property (nonatomic, retain) NSString * pageId;
-@property (nonatomic, retain) NSString * appId;
-@property (nonatomic, retain) NSString * image;
-@property (nonatomic, retain) NSString * url;
-@property (nonatomic, retain) NSString * authURL;
-@property (nonatomic, retain) NSString * authBaseURL;
-@property (nonatomic, retain) NSString * authRedirect;
-@property (nonatomic, retain) NSString * authClientId;
 @property (nonatomic, retain) NSString * accountName;
+@property (nonatomic, retain) NSString * accountId;
 @property (nonatomic, retain) NSNumber * hasInteracted;
-@property (nonatomic, retain) SocialContainer *socialContainer;
+@property (nonatomic, retain) NSNumber * platformId;
+@property (nonatomic, retain) NSString * image;
+@property (nonatomic, retain) NSString * accountUrl;
 @property (nonatomic, retain) NSSet *buttons;
+@property (nonatomic, retain) SocialContainer *socialContainer;
 @end
 
 @interface SocialItem (CoreDataGeneratedAccessors)

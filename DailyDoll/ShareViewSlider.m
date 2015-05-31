@@ -71,7 +71,7 @@ CGFloat const kButtonHeightAndWidth = 40;
 
         [socialButton setImage:btnImage forState:UIControlStateNormal];
 
-        [self addShareMethodToItem:socialButton withId:[socialItem.id intValue]];
+        [self addShareMethodToItem:socialButton withId:[socialItem.platformId intValue]];
 
         UIView *lastSubView = [[self subviews] lastObject];
 
@@ -195,7 +195,7 @@ CGFloat const kButtonHeightAndWidth = 40;
 
     [self.delegate removeWindowViews];
 
-    NSURL *sourceURL = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kURLString]];
+    NSURL *sourceURL = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kSocialAccountURL]];
 
     BOOL didShare = [[SocialShareMethods sharedManager] shareToGooglePlus:sourceURL.absoluteString];
 

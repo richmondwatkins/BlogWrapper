@@ -20,6 +20,8 @@
 #import <GooglePlus/GooglePlus.h>
 #import <GoogleOpenSource/GoogleOpenSource.h>
 
+#import "UIView+Additions.h"
+
 @import Social;
 @class GPPSignInButton;
 
@@ -34,23 +36,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.view setTop:20];
 
-    ShareView *shareView = [[ShareView alloc] initWithStyleAndFrame:CGRectMake(0, self.view.frame.origin.y, [self returnWidthForShareVC], self.view.frame.size.height)];
+    self.tableView = [[ShareTableView alloc] initWithStyleAndFrame:self.view.frame];
 
-    self.tableView = [[ShareTableView alloc] initWithStyleAndFrame:shareView.frame];
-
-    [shareView addSubview:self.tableView];
+    [self.view addSubview:self.tableView];
 
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    [self reloadTableView];
 
-    self.view = shareView;
-
-    self.dataSource = [[ProjectSettings sharedManager] fetchShareItems];
-
-    [self.tableView reloadData];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(reloadTableView)
+                                                 name:@"coreDataUpdated" object:nil];
 }
 
+- (void) reloadTableView {
+    self.dataSource = [[ProjectSettings sharedManager] fetchShareItems];
+    
+    [self.tableView reloadData];
+}
 
 #pragma mark - TableView
 
@@ -88,7 +95,7 @@
 
     self.actionController.delegate = self;
 
-    switch ([[self.dataSource[indexPath.row] valueForKey:@"id" ] intValue]) {
+    switch ([[self.dataSource[indexPath.row] valueForKey:kPlatformId] intValue]) {
             
         case FACEBOOK:
 

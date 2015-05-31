@@ -19,7 +19,6 @@
 
 - (void)facebookShareInternal:(NSString *)shareContent;
 - (void)facebookShareExternal:(FBLinkShareParams *)shareContent;
-- (void)facebookLike;
 - (void)socialWebView:(NSURL *)facebookURL;
 - (void)instagramAuthWebView:(NSURL *)instagramURL;
 - (void)instantiateOAuthLoginView:(int)socialType;

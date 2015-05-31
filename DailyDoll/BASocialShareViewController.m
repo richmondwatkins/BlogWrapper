@@ -20,13 +20,6 @@
 
 @implementation BASocialShareViewController
 
-
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-}
-
 - (void)instantiateOAuthLoginView:(int)socialType {
 
     UIWindow* mainWindow = [[UIApplication sharedApplication] keyWindow];
@@ -80,7 +73,6 @@
                 [self.signInView animateOntoScreen:mainWindow.frame];
 
             }
-
         }
 
             break;
@@ -97,64 +89,14 @@
 
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    
-    NSString *URLString = [request.URL absoluteString];
-    if ([URLString hasPrefix:@"scheme"]) {
-
-        NSString *delimiter = @"access_token=";
-
-        NSArray *components = [URLString componentsSeparatedByString:delimiter];
-
-        if (components.count > 1) {
-
-            NSString *accessToken = [components lastObject];
-
-            NSLog(@"ACCESS TOKEN = %@",accessToken);
-
-            NSString *urlString=[NSString stringWithFormat:@"https://api.instagram.com/v1/users/%@/relationship?access_token=%@",@"486292136",accessToken];
-
-            NSURL* url = [NSURL URLWithString:urlString];
-
-            NSMutableURLRequest *theRequest = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:1000.0];
-
-            NSString *parameters;
-
-            BOOL isFollowing = [[ProjectSettings sharedManager] hasInteractedWithSocialItem:INSTAGRAM];
-
-            if (isFollowing) {
-                parameters=@"action=unfollow";
-            }else {
-                parameters=@"action=follow";
-            }
-
-            [[ProjectSettings sharedManager] saveSocialInteraction:INSTAGRAM withStatus:!isFollowing];
-
-            [theRequest setHTTPBody:[parameters dataUsingEncoding:NSUTF8StringEncoding]];
-
-            [theRequest setHTTPMethod:@"POST"];
-
-            [NSURLConnection sendAsynchronousRequest:theRequest queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-
-                UIWindow* mainWindow = [[UIApplication sharedApplication] keyWindow];
-
-                self.socialPopUp = [self.actionController instagramPopConfig:mainWindow.frame];
-
-                [self displaySocialPoUp];
-
-                [self.signInView animateOffScreen];
-
-            }];
-        }
-        return NO;
-    }
-
+  
     return YES;
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
 
     [super webViewDidFinishLoad:webView];
-    NSLog(@"%@", [webView.request.URL absoluteString]);
+
     if ([webView isKindOfClass:[OAuthWebView class]]) {
         [((OAuthWebView *) webView).activityIndicator stopAnimating];
     }

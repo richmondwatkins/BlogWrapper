@@ -16,7 +16,6 @@
 
 @interface DDViewController : UIViewController
 
-@property (nonatomic, strong) UIView *statusBarBackground;
 @property BlurActivityOverlay *blurOverlay;
 
 

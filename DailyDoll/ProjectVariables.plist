@@ -7,202 +7,79 @@
 		<key>Social</key>
 		<array>
 			<dict>
-				<key>authClientId</key>
+				<key>accountName</key>
 				<string></string>
-				<key>buttons</key>
-				<array>
-					<dict>
-						<key>Id</key>
-						<integer>0</integer>
-						<key>Title</key>
-						<string>View</string>
-					</dict>
-					<dict>
-						<key>Id</key>
-						<integer>1</integer>
-						<key>Title</key>
-						<string>+1 Share</string>
-					</dict>
-				</array>
 				<key>image</key>
 				<string>sms</string>
-				<key>url</key>
+				<key>accountUrl</key>
 				<string></string>
-				<key>id</key>
+				<key>platformId</key>
 				<integer>6</integer>
 			</dict>
 			<dict>
-				<key>authClientId</key>
+				<key>accountName</key>
 				<string></string>
-				<key>buttons</key>
-				<array>
-					<dict>
-						<key>Id</key>
-						<integer>0</integer>
-						<key>Title</key>
-						<string>View</string>
-					</dict>
-					<dict>
-						<key>Id</key>
-						<integer>1</integer>
-						<key>Title</key>
-						<string>+1 Share</string>
-					</dict>
-				</array>
 				<key>image</key>
 				<string>mail</string>
-				<key>url</key>
+				<key>accountUrl</key>
 				<string></string>
-				<key>id</key>
+				<key>platformId</key>
 				<integer>5</integer>
 			</dict>
 			<dict>
 				<key>accountName</key>
 				<string>thedailydollblog</string>
-				<key>pageId</key>
+				<key>accountId</key>
 				<string>1375752596010969</string>
-				<key>buttons</key>
-				<array>
-					<dict>
-						<key>Id</key>
-						<integer>0</integer>
-						<key>Title</key>
-						<string>Like</string>
-					</dict>
-					<dict>
-						<key>Id</key>
-						<integer>2</integer>
-						<key>Title</key>
-						<string>Share</string>
-					</dict>
-					<dict>
-						<key>Id</key>
-						<integer>1</integer>
-						<key>Title</key>
-						<string>View</string>
-					</dict>
-				</array>
 				<key>image</key>
 				<string>facebook</string>
-				<key>url</key>
+				<key>accountUrl</key>
 				<string>https://www.facebook.com/thedailydollblog</string>
-				<key>id</key>
+				<key>platformId</key>
 				<integer>0</integer>
 			</dict>
 			<dict>
 				<key>accountName</key>
 				<string>thelaceyjohnson</string>
-				<key>buttons</key>
-				<array>
-					<dict>
-						<key>Id</key>
-						<integer>0</integer>
-						<key>Title</key>
-						<string>Pin</string>
-					</dict>
-					<dict>
-						<key>Id</key>
-						<integer>1</integer>
-						<key>Title</key>
-						<string>View Boards</string>
-					</dict>
-				</array>
-				<key>appId</key>
+				<key>accountId</key>
 				<string>1442952</string>
 				<key>image</key>
 				<string>pintrest</string>
-				<key>url</key>
+				<key>accountUrl</key>
 				<string>https://www.pinterest.com/thelaceyjohnson/pins/</string>
-				<key>id</key>
+				<key>platformId</key>
 				<integer>1</integer>
 			</dict>
 			<dict>
-				<key>pageId</key>
+				<key>accountId</key>
 				<string>1630611914</string>
-				<key>buttons</key>
-				<array>
-					<dict>
-						<key>Id</key>
-						<integer>0</integer>
-						<key>Title</key>
-						<string>Follow</string>
-					</dict>
-					<dict>
-						<key>Id</key>
-						<integer>1</integer>
-						<key>Title</key>
-						<string>View</string>
-					</dict>
-					<dict>
-						<key>Id</key>
-						<integer>2</integer>
-						<key>Title</key>
-						<string>Tweet</string>
-					</dict>
-				</array>
 				<key>image</key>
 				<string>twitter</string>
-				<key>url</key>
+				<key>accountUrl</key>
 				<string>https://twitter.com/the_daily_doll</string>
-				<key>id</key>
+				<key>platformId</key>
 				<integer>2</integer>
 			</dict>
 			<dict>
-				<key>authClientId</key>
-				<string>cf47463b546b4f879ff9e13c69092018</string>
-				<key>authRedirect</key>
-				<string>scheme://com-greekconnect.DailyDoll</string>
-				<key>authBaseURL</key>
-				<string>https://api.instagram.com/v1/</string>
-				<key>authURL</key>
-				<string>https://api.instagram.com/oauth/authorize/</string>
-				<key>buttons</key>
-				<array>
-					<dict>
-						<key>Id</key>
-						<integer>0</integer>
-						<key>Title</key>
-						<string>View</string>
-					</dict>
-					<dict>
-						<key>Id</key>
-						<integer>1</integer>
-						<key>Title</key>
-						<string>Follow</string>
-					</dict>
-				</array>
+				<key>accountId</key>
+				<string>1375752596010969</string>
 				<key>accountName</key>
 				<string>thedailydollblog</string>
 				<key>image</key>
 				<string>instagram</string>
-				<key>url</key>
+				<key>accountUrl</key>
 				<string>http://instagram.com/thedailydollblog</string>
-				<key>id</key>
+				<key>platformId</key>
 				<integer>3</integer>
 			</dict>
 			<dict>
-				<key>authClientId</key>
+				<key>accountId</key>
 				<string>221581957001-l5lv9h11jtpf1g978n7fc9jqjul0oir1.apps.googleusercontent.com</string>
-				<key>buttons</key>
-				<array>
-					<dict>
-						<key>Id</key>
-						<integer>0</integer>
-						<key>Title</key>
-						<string>View</string>
-					</dict>
-					<dict>
-						<key>Id</key>
-						<integer>1</integer>
-						<key>Title</key>
-						<string>+1 Share</string>
-					</dict>
-				</array>
 				<key>image</key>
 				<string>googlePlus</string>
-				<key>url</key>
+				<key>accountUrl</key>
 				<string>https://plus.google.com/u/0/+Thedailydoll/posts</string>
-				<key>id</key>
+				<key>platformId</key>
 				<integer>4</integer>
 			</dict>
 		</array>
@@ -228,7 +105,7 @@
 				</dict>
 			</array>
 			<key>BundleId</key>
-			<string>scheme://com-greekconnect.DailyDoll</string>
+			<string>com.apptly.DailyDoll-1</string>
 			<key>domain</key>
 			<string>dailydoll</string>
 			<key>name</key>
