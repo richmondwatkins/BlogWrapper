@@ -12,7 +12,7 @@
 #import "ShareViewController.h"
 #import <Fabric/Fabric.h>
 #import <TwitterKit/TwitterKit.h>
-#import "ProjectSettings.h"
+#import "APIManager.h"
 #import <SSKeychain.h>
 #import <GooglePlus/GooglePlus.h>
 #import "SNS.h"
@@ -25,9 +25,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
     if (![[NSUserDefaults standardUserDefaults] boolForKey:kSeedApp]) {
-        ProjectSettings *projectSettings = [[ProjectSettings sharedManager] initFromPlist];
+        APIManager *projectSettings = [[APIManager sharedManager] initFromPlist];
         [projectSettings populateCoreData:self.managedObjectContext withCompletion:^(BOOL completion) {
             if (completion) {
+                [[APIManager sharedManager] requestAppData:self.managedObjectContext];
+
                 [self setUpDrawerController];
 
                 [self checkForTwitter];
@@ -36,8 +38,7 @@
             }
         }];
     } else {
-    
-        [[ProjectSettings sharedManager] requestAppData:self.managedObjectContext];
+        [[APIManager sharedManager] requestAppData:self.managedObjectContext];
 
         [self checkForTwitter];
 
@@ -64,20 +65,29 @@
     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = defaultServiceConfiguration;
 
 #if DEBUG
-    [[ProjectSettings sharedManager] setNotification:@{@"aps":@{@"alert":@"This is a test push notif"}} withManagedObjectContext:self.managedObjectContext];
+    [[APIManager sharedManager] setNotification:@{@"aps":@{@"alert":@"This is a test push notif"}} withManagedObjectContext:self.managedObjectContext];
 #endif
     
     int cacheSizeMemory = 4*1024*1024; // 4MB
     int cacheSizeDisk = 32*1024*1024; // 32MB
     NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:cacheSizeMemory diskCapacity:cacheSizeDisk diskPath:@"nsurlcache"];
     [NSURLCache setSharedURLCache:sharedCache];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(checkForAndInitializeSocialAccounts)
+                                                 name:@"coreDataUpdated" object:nil];
 
     return YES;
 }
 
+- (void)checkForAndInitializeSocialAccounts {
+    [self checkForTwitter];
+    [self setUpGooglePlus];
+}
+
 - (void) checkForTwitter {
 
-    BOOL hasTwitter = [[ProjectSettings sharedManager] siteHasSocialAccount:TWIITER withMoc:self.managedObjectContext];
+    BOOL hasTwitter = [[APIManager sharedManager] siteHasSocialAccount:TWIITER withMoc:self.managedObjectContext];
 
     if (hasTwitter) {
          [Fabric with:@[TwitterKit]];
@@ -87,11 +97,11 @@
 
 - (void) setUpGooglePlus {
 
-    BOOL hasGooglePlus = [[ProjectSettings sharedManager] siteHasSocialAccount:GOOGLEPLUS withMoc:self.managedObjectContext];
+    BOOL hasGooglePlus = [[APIManager sharedManager] siteHasSocialAccount:GOOGLEPLUS withMoc:self.managedObjectContext];
 
     if (hasGooglePlus) {
 
-        [GPPSignIn sharedInstance].clientID = [[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:@"accountId"];
+        [GPPSignIn sharedInstance].clientID = [[APIManager sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:@"accountId"];
         
         [GPPDeepLink setDelegate:self];
 
@@ -137,7 +147,7 @@
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
 
-    [[ProjectSettings sharedManager] setNotification:userInfo withManagedObjectContext:self.managedObjectContext];
+    [[APIManager sharedManager] setNotification:userInfo withManagedObjectContext:self.managedObjectContext];
 }
 
 
@@ -152,22 +162,18 @@
 
 - (void) setUpDrawerController {
 
-    BOOL hasSocialAccounts = [[ProjectSettings sharedManager] projectHasSocialAccounts];
+    BOOL hasSocialAccounts = [[APIManager sharedManager] projectHasSocialAccounts];
 
     SideMenuViewController * leftDrawer = [[SideMenuViewController alloc] init];
     CenterViewController *mainVC = [[CenterViewController alloc] init];
     UINavigationController * navigationController = [[UINavigationController alloc] initWithRootViewController:mainVC];
 
     if (hasSocialAccounts) {
-         ShareViewController *rightDrawer = [[ShareViewController alloc] init];
-
-        self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:navigationController leftDrawerViewController:leftDrawer rightDrawerViewController:rightDrawer];
+        self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:navigationController leftDrawerViewController:leftDrawer];
 
         [mainVC setRightNavigationItem];
 
-         self.drawerController.maximumRightDrawerWidth = [rightDrawer returnWidthForShareVC];
     }else {
-
         self.drawerController = [[MMDrawerController alloc] initWithCenterViewController:navigationController leftDrawerViewController:leftDrawer];
     }
 

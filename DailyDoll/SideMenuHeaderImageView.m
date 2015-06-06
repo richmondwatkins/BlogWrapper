@@ -7,7 +7,7 @@
 //
 
 #import "SideMenuHeaderImageView.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 
 @implementation SideMenuHeaderImageView
 
@@ -15,7 +15,7 @@
 
     if (self = [super init]) {
 
-        self.image = [[ProjectSettings sharedManager] fetchLogoImage];
+        self.image = [[APIManager sharedManager] fetchLogoImage];
 
         self.frame = CGRectMake(0, 0, self.image.size.width/2, self.image.size.height/2);
 

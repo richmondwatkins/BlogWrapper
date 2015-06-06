@@ -55,7 +55,7 @@
     
     [self.view addSubview:self.containerView];
 
-    self.dataSource = [[ProjectSettings sharedManager] fetchNotifications];
+    self.dataSource = [[APIManager sharedManager] fetchNotifications];
     
     self.tableView = [[NotificationTableView alloc] initWithStyleAndFrame:CGRectMake(0, kArrowHeight, self.containerView.width, self.containerView.height-kArrowHeight)];
 
@@ -119,7 +119,7 @@
     Notification *notification = self.dataSource[indexPath.row];
     notification.isViewed = [NSNumber numberWithBool:YES];
     
-    [[ProjectSettings sharedManager] setNotificationAsViewed:notification];
+    [[APIManager sharedManager] setNotificationAsViewed:notification];
     [self.view addSubview:notifWebView];
 
     NotificationTableViewCell *cell = (NotificationTableViewCell *) [self.tableView cellForRowAtIndexPath:indexPath];

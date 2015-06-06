@@ -7,7 +7,7 @@
 //
 
 #import "NotificationTableView.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 
 @implementation NotificationTableView
 
@@ -15,7 +15,7 @@
 
     if (self= [super init]) {
 
-        self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kSecondaryColor]];
+        self.backgroundColor = [UIColor colorWithHexString:[[APIManager sharedManager] fetchMetaThemeItemWithProperty:kSecondaryColor]];
 
         self.frame = frame;
 

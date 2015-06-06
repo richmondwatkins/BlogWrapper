@@ -7,7 +7,7 @@
 //
 
 #import "DDViewController.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 #import "ExternalWebModalViewController.h"
 #import "OAuthWebView.h"
 #import "OAuthSignInView.h"
@@ -30,9 +30,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.navigationController.navigationBar.barTintColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:NAVBAR withProperty:kBackgroundColor]];
+    self.navigationController.navigationBar.barTintColor = [UIColor colorWithHexString:[[APIManager sharedManager] fetchThemeItem:NAVBAR withProperty:kBackgroundColor]];
 
-    self.view.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:NAVBAR withProperty:kBackgroundColor]];
+    self.view.backgroundColor = [UIColor colorWithHexString:[[APIManager sharedManager] fetchThemeItem:NAVBAR withProperty:kBackgroundColor]];
 
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
@@ -40,7 +40,7 @@
                                                        ofType:@"js"];
     self.javascript = [NSString stringWithContentsOfFile:jsFile encoding:NSUTF8StringEncoding error:NULL];
     
-    self.domainString = [[ProjectSettings sharedManager] fetchmetaDataVariables:kDomainString];
+    self.domainString = [[APIManager sharedManager] fetchmetaDataVariables:kDomainString];
 }
 
 - (void)removeViewsFromWindow {
@@ -57,6 +57,17 @@
         }
     }
     
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+    NSLog(@"==============");
+    NSLog(request.URL.absoluteString);
+    NSLog(@"==============");
+    if ([request.URL.absoluteString containsString:@"googleads"] || [request.URL.absoluteString containsString:@"about:blank"]) {
+        return NO;
+    } else {
+        return YES;
+    }
 }
 
 -(void)webViewDidStartLoad:(UIWebView *)webView {

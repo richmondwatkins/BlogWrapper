@@ -7,7 +7,7 @@
 //
 
 #import "ShareViewSlider.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 #import "SocialItem.h"
 #import "SocialShareMethods.h"
 
@@ -57,7 +57,7 @@ CGFloat const kButtonHeightAndWidth = 40;
 
 - (void)addShareButtonsToView {
 
-    NSArray *socialShareItems = [[ProjectSettings sharedManager] shareItemsWithoutInstagram];
+    NSArray *socialShareItems = [[APIManager sharedManager] shareItemsWithoutInstagram];
 
     CGFloat buttonPadding = [self calculateButtonPadding:socialShareItems.count];
 
@@ -145,7 +145,7 @@ CGFloat const kButtonHeightAndWidth = 40;
 
     params.link = [self.delegate returnCurrentURL];
 
-    NSString *accountPage = [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:kURLString];
+    NSString *accountPage = [[APIManager sharedManager] fetchSocialItem:FACEBOOK withProperty:kSocialAccountURL];
 
     BOOL didShare = [[SocialShareMethods sharedManager] shareToFaceBookWithURL:params];
 
@@ -163,7 +163,7 @@ CGFloat const kButtonHeightAndWidth = 40;
     NSURL *imageURL = [NSURL URLWithString:@"http://placekitten.com/g/200/300"];
     NSURL *sourceURL = [self.delegate returnCurrentURL];
 
-    NSString *accountPage = [[ProjectSettings sharedManager] fetchSocialItem:PINTEREST withProperty:kURLString];
+    NSString *accountPage = [[APIManager sharedManager] fetchSocialItem:PINTEREST withProperty:kSocialAccountURL];
 
     BOOL didShare = [[SocialShareMethods sharedManager] pinToPinterest:imageURL andSource:sourceURL];
 
@@ -180,7 +180,7 @@ CGFloat const kButtonHeightAndWidth = 40;
 
     NSString *currentPage = [[self.delegate returnCurrentURL] absoluteString];
 
-    NSString *blogName = [[ProjectSettings sharedManager] fetchmetaDataVariables:kSiteName];
+    NSString *blogName = [[APIManager sharedManager] fetchmetaDataVariables:kSiteName];
 
     BOOL didShare = [[SocialShareMethods sharedManager] shareToTwitter:[NSString stringWithFormat:@"%@ - %@", blogName, currentPage]];
 
@@ -195,7 +195,7 @@ CGFloat const kButtonHeightAndWidth = 40;
 
     [self.delegate removeWindowViews];
 
-    NSURL *sourceURL = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kSocialAccountURL]];
+    NSURL *sourceURL = [NSURL URLWithString:[[APIManager sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kSocialAccountURL]];
 
     BOOL didShare = [[SocialShareMethods sharedManager] shareToGooglePlus:sourceURL.absoluteString];
 
@@ -211,7 +211,7 @@ CGFloat const kButtonHeightAndWidth = 40;
 
     NSURL *sourceURL = [self.delegate returnCurrentURL];
 
-    NSString *blogName = [[ProjectSettings sharedManager] fetchmetaDataVariables:kBlogName];
+    NSString *blogName = [[APIManager sharedManager] fetchmetaDataVariables:kBlogName];
 
     [[SocialShareMethods sharedManager] shareViaEmail:@{@"subject": blogName, @"message":sourceURL.absoluteString}];
 

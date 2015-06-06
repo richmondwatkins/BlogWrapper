@@ -7,7 +7,7 @@
 //
 
 #import "DetailNavigationBar.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 
 @implementation DetailNavigationBar
 
@@ -17,7 +17,7 @@
 
         self.frame = frame;
 
-         self.barTintColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:NAVBAR withProperty:kBackgroundColor]];
+         self.barTintColor = [UIColor colorWithHexString:[[APIManager sharedManager] fetchThemeItem:NAVBAR withProperty:kBackgroundColor]];
 
         self.rightBarButton = [[UIBarButtonItem alloc] init];
         self.rightBarButton.image = [UIImage imageNamed:@"exit"];

@@ -54,7 +54,7 @@ static SocialShareMethods *sharedSocialManager = nil;
 
         if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
 
-            NSString *facebookPageName = [[ProjectSettings sharedManager] fetchmetaDataVariables:kSiteName];
+            NSString *facebookPageName = [[APIManager sharedManager] fetchmetaDataVariables:kSiteName];
 
             [self shareToFacebookInternal:[NSString stringWithFormat:@"%@ | %@", facebookPageName, params.link.absoluteString]];
 
@@ -90,7 +90,7 @@ static SocialShareMethods *sharedSocialManager = nil;
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
         SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
 
-        [controller addImage:[[ProjectSettings sharedManager] fetchLogoImage]];
+        [controller addImage:[[APIManager sharedManager] fetchLogoImage]];
         [controller setInitialText:shareContent];
         [[[[UIApplication sharedApplication] keyWindow] rootViewController]  presentViewController:controller animated:YES completion:Nil];
     }
@@ -107,7 +107,7 @@ static SocialShareMethods *sharedSocialManager = nil;
     if ([pinterest canPinWithSDK]) {
         [pinterest createPinWithImageURL:imageURL
                                     sourceURL:sourceURL
-                                  description:[[ProjectSettings sharedManager] fetchmetaDataVariables:kBlogName]];
+                                  description:[[APIManager sharedManager] fetchmetaDataVariables:kBlogName]];
 
         return YES;
     } else {
@@ -125,7 +125,7 @@ static SocialShareMethods *sharedSocialManager = nil;
     if([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook]) {
         SLComposeViewController *controller = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
 
-        [controller addImage:[[ProjectSettings sharedManager] fetchLogoImage]];
+        [controller addImage:[[APIManager sharedManager] fetchLogoImage]];
         [controller setInitialText:shareContent];
         [[[[UIApplication sharedApplication] keyWindow] rootViewController]  presentViewController:controller animated:YES completion:Nil];
 
@@ -141,7 +141,7 @@ static SocialShareMethods *sharedSocialManager = nil;
 
     NSString *statusesShowEndpoint;
 
-    BOOL isFollowing = [[ProjectSettings sharedManager] hasInteractedWithSocialItem:TWIITER];
+    BOOL isFollowing = [[APIManager sharedManager] hasInteractedWithSocialItem:TWIITER];
 
     if (!isFollowing) {
 
@@ -155,11 +155,11 @@ static SocialShareMethods *sharedSocialManager = nil;
         [button setTitle:@"Follow" forState:UIControlStateNormal];
     }
 
-    [[ProjectSettings sharedManager] saveSocialInteraction:TWIITER withStatus:!isFollowing];
+    [[APIManager sharedManager] saveSocialInteraction:TWIITER withStatus:!isFollowing];
 
     //TODO add activity indicator in button to show request
 
-    NSString *pageid = [[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:kPageID];
+    NSString *pageid = [[APIManager sharedManager] fetchSocialItem:TWIITER withProperty:kPageID];
 
     NSDictionary *params = @{@"user_id" : pageid};
 

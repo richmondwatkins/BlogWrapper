@@ -7,7 +7,7 @@
 //
 
 #import "CenterVCActivityIndicator.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 
 @implementation CenterVCActivityIndicator
 
@@ -15,7 +15,7 @@
 
     if (self = [super init]) {
 
-        self.color = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:ACTIVITYINDICATOR withProperty:kBackgroundColor]];
+        self.color = [UIColor colorWithHexString:[[APIManager sharedManager] fetchThemeItem:ACTIVITYINDICATOR withProperty:kBackgroundColor]];
 
         [self startAnimating];
 //        [self hidesWhenStopped];

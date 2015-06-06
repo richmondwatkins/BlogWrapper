@@ -83,6 +83,11 @@ extern NSString *const kAccountName;
 
 extern NSString *const kPageID;
 
+extern NSString *const kFacebookAuthToken;
+
+extern NSString *const kInstagramAuthToken;
+
+
 //Theme Elements
 
 extern NSString *const kNavBar;

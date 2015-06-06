@@ -9,7 +9,7 @@
 #import "NotificationWebView.h"
 #import "UIView+Additions.h"
 #import "NotificationWebViewHeader.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 
 @interface NotificationWebView () <NotifcationHeader>
 
@@ -44,7 +44,7 @@
 
     self.header = [[NotificationWebViewHeader alloc] initWithDate:notification.receivedDate andFrame:self.frame];
     self.header.backgroundColor = [UIColor colorWithHexString:
-                                   [[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kPrimaryColor]];
+                                   [[APIManager sharedManager] fetchMetaThemeItemWithProperty:kPrimaryColor]];
     self.header.delegate = self;
 
     [self addSubview:self.header];

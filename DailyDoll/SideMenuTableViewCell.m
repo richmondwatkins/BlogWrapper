@@ -7,7 +7,7 @@
 //
 
 #import "SideMenuTableViewCell.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 
 @implementation SideMenuTableViewCell
 
@@ -18,7 +18,7 @@
 
     self.textLabel.textAlignment = NSTextAlignmentCenter;
 
-    NSString *fontName = [[ProjectSettings sharedManager] fetchThemeItem:SIDEMENUCELL withProperty:kFontFamily];
+    NSString *fontName = [[APIManager sharedManager] fetchThemeItem:SIDEMENUCELL withProperty:kFontFamily];
 
     [self.textLabel setFont:[UIFont fontWithName:fontName size:18]];
 }
@@ -28,7 +28,7 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
 
 
-        self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:SIDEMENUCELL withProperty:kBackgroundColor]];
+        self.backgroundColor = [UIColor colorWithHexString:[[APIManager sharedManager] fetchThemeItem:SIDEMENUCELL withProperty:kBackgroundColor]];
     }
 
 

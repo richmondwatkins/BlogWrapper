@@ -18,11 +18,9 @@
 
 @property BlurActivityOverlay *blurOverlay;
 
-
 - (void)removeViewsFromWindow;
-
--(void)webViewDidFinishLoad:(UIWebView *)webView;
-
+- (void)webViewDidFinishLoad:(UIWebView *)webView;
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error;
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
 
 @end

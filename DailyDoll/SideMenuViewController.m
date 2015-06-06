@@ -15,7 +15,7 @@
 #import "SideMenuHeaderImageView.h"
 #import "SideMenuTableSectionHeader.h"
 #import "SideMenuTableSectionLabel.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 #import "AccessoryPagesView.h"
 #import "NotificationViewController.h"
 
@@ -58,7 +58,7 @@ int const kTopButtonPadding = 4;
 
     [self.view addSubview:self.tableView];
 
-    self.dataSource = [[ProjectSettings sharedManager] fetchMenuItemsAndHeaders];
+    self.dataSource = [[APIManager sharedManager] fetchMenuItemsAndHeaders];
 
     [self.tableView reloadData];
     
@@ -68,7 +68,7 @@ int const kTopButtonPadding = 4;
 }
 
 - (void)updateMenu {
-    self.dataSource = [[ProjectSettings sharedManager] fetchMenuItemsAndHeaders];
+    self.dataSource = [[APIManager sharedManager] fetchMenuItemsAndHeaders];
     
     [self.tableView reloadData];
 }
@@ -308,7 +308,7 @@ int const kTopButtonPadding = 4;
 
 - (void)displayHomePage:(id)sender {
 
-    NSString *homeUrl = [[ProjectSettings sharedManager] fetchmetaDataVariables:kURLString];
+    NSString *homeUrl = [[APIManager sharedManager] fetchmetaDataVariables:kURLString];
 
     [self.delegate selectedSideMenuItem:homeUrl];
 

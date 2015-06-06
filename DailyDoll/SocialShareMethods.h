@@ -12,7 +12,7 @@
 #import <TwitterKit/TwitterKit.h>
 #import <GooglePlus/GooglePlus.h>
 
-#import "ProjectSettings.h"
+#import "APIManager.h"
 
 @interface SocialShareMethods : NSObject
 

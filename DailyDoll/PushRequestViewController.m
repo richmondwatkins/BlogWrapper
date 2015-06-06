@@ -7,7 +7,7 @@
 //
 
 #import "PushRequestViewController.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 #import "UIView+Additions.h"
 
 @interface PushRequestViewController ()
@@ -54,9 +54,9 @@
 
     self.descriptionLabel.textAlignment = NSTextAlignmentCenter;
 
-    self.descriptionLabel.text = [NSString stringWithFormat:@"To notify you when new content is available, %@ would like to send push notifications",[[ProjectSettings sharedManager] fetchmetaDataVariables:kBlogName]];
+    self.descriptionLabel.text = [NSString stringWithFormat:@"To notify you when new content is available, %@ would like to send push notifications",[[APIManager sharedManager] fetchmetaDataVariables:kBlogName]];
 
-    NSString *fontName = [[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kFontFamily];
+    NSString *fontName = [[APIManager sharedManager] fetchMetaThemeItemWithProperty:kFontFamily];
 
     [self.descriptionLabel setFont:[UIFont fontWithName:fontName size:18]];
 
@@ -69,7 +69,7 @@
 
 - (void)setUpImageView {
 
-    self.logoImageView = [[UIImageView alloc] initWithImage:[[ProjectSettings sharedManager] fetchLogoImage]];
+    self.logoImageView = [[UIImageView alloc] initWithImage:[[APIManager sharedManager] fetchLogoImage]];
 
     self.logoImageView.frame = CGRectMake(0, 0, self.logoImageView.width/2, self.logoImageView.height/2);
 
@@ -100,7 +100,7 @@
 
     permissionLabel.frame = CGRectMake(0, 0, permissionLabel.width, viewHeight);
 
-    NSString *fontName = [[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kFontFamily];
+    NSString *fontName = [[APIManager sharedManager] fetchMetaThemeItemWithProperty:kFontFamily];
 
     [permissionLabel setFont:[UIFont fontWithName:fontName size:16]];
 
@@ -113,10 +113,10 @@
 
     UIButton *continueButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width * 0.8, 40)];
 
-    continueButton.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kPrimaryColor]];
+    continueButton.backgroundColor = [UIColor colorWithHexString:[[APIManager sharedManager] fetchMetaThemeItemWithProperty:kPrimaryColor]];
 
     NSString *buttonText = [NSString stringWithFormat:@"Continue on to the %@",
-                            [[ProjectSettings sharedManager] fetchmetaDataVariables:kBlogName]];
+                            [[APIManager sharedManager] fetchmetaDataVariables:kBlogName]];
 
     continueButton.layer.cornerRadius = 5;
 

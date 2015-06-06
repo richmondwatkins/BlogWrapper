@@ -7,7 +7,7 @@
 //
 
 #import "SideMenuTableSectionHeader.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 #import "SideMenuTableSectionLabel.h"
 
 @implementation SideMenuTableSectionHeader

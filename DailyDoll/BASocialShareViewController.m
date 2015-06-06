@@ -55,7 +55,7 @@
             //signIn.shouldFetchGoogleUserEmail = YES;  // Uncomment to get the user's email
 
             // You previously set kClientId in the "Initialize the Google+ client" step
-            signIn.clientID = [[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kSocialClientId];;
+            signIn.clientID = [[APIManager sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kSocialClientId];;
 
             // Uncomment one of these two statements for the scope you chose in the previous step
             signIn.scopes = @[ kGTLAuthScopePlusLogin ];  // "https://www.googleapis.com/auth/plus.login" scope
@@ -123,7 +123,7 @@
                                          if (session) {
                                              NSLog(@"signed in as %@", session);
 
-                                             [[ProjectSettings sharedManager] saveSocialInteraction:TWIITER withStatus:YES];
+                                             [[APIManager sharedManager] saveSocialInteraction:TWIITER withStatus:YES];
 
                                              UIWindow* mainWindow = [[UIApplication sharedApplication] keyWindow];
 

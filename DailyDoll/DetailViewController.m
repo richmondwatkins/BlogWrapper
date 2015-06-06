@@ -62,7 +62,7 @@
 
 - (void)setUpShareSlideUpView {
 
-    if ([[ProjectSettings sharedManager] projectHasSocialAccounts]) {
+    if ([[APIManager sharedManager] projectHasSocialAccounts]) {
 
         self.shareSlideUp = [[ShareViewSlider alloc] initWithFrameAndStyle:self.view.frame];
 

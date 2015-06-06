@@ -84,7 +84,7 @@
 		5DDA1B391A7F383C00914761 /* DailyDollTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA1B381A7F383C00914761 /* DailyDollTests.m */; };
 		5DDA3D981A85CA8A00FD085A /* SideMenuTableSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3D971A85CA8A00FD085A /* SideMenuTableSectionHeader.m */; };
 		5DDA3D9B1A85CC0500FD085A /* SideMenuTableSectionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3D9A1A85CC0500FD085A /* SideMenuTableSectionLabel.m */; };
-		5DDA3DA51A85D39500FD085A /* ProjectSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DA41A85D39500FD085A /* ProjectSettings.m */; };
+		5DDA3DA51A85D39500FD085A /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DA41A85D39500FD085A /* APIManager.m */; };
 		5DDA3DAC1A85E67700FD085A /* ProjectVariables.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA3DAB1A85E67700FD085A /* ProjectVariables.plist */; };
 		5DDA3DAF1A85EE4900FD085A /* CenterVCActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DAE1A85EE4900FD085A /* CenterVCActivityIndicator.m */; };
 		5DDA3DB11A85F27F00FD085A /* webViewJS.js in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA3DB01A85F27F00FD085A /* webViewJS.js */; };
@@ -245,8 +245,8 @@
 		5DDA3D971A85CA8A00FD085A /* SideMenuTableSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuTableSectionHeader.m; sourceTree = "<group>"; };
 		5DDA3D991A85CC0500FD085A /* SideMenuTableSectionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuTableSectionLabel.h; sourceTree = "<group>"; };
 		5DDA3D9A1A85CC0500FD085A /* SideMenuTableSectionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuTableSectionLabel.m; sourceTree = "<group>"; };
-		5DDA3DA31A85D39500FD085A /* ProjectSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectSettings.h; sourceTree = "<group>"; };
-		5DDA3DA41A85D39500FD085A /* ProjectSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectSettings.m; sourceTree = "<group>"; };
+		5DDA3DA31A85D39500FD085A /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		5DDA3DA41A85D39500FD085A /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		5DDA3DAB1A85E67700FD085A /* ProjectVariables.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ProjectVariables.plist; sourceTree = "<group>"; };
 		5DDA3DAD1A85EE4900FD085A /* CenterVCActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterVCActivityIndicator.h; sourceTree = "<group>"; };
 		5DDA3DAE1A85EE4900FD085A /* CenterVCActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterVCActivityIndicator.m; sourceTree = "<group>"; };
@@ -743,8 +743,8 @@
 		5DDA3DBE1A8670C400FD085A /* ProjectSettings */ = {
 			isa = PBXGroup;
 			children = (
-				5DDA3DA31A85D39500FD085A /* ProjectSettings.h */,
-				5DDA3DA41A85D39500FD085A /* ProjectSettings.m */,
+				5DDA3DA31A85D39500FD085A /* APIManager.h */,
+				5DDA3DA41A85D39500FD085A /* APIManager.m */,
 				5DDA3DCA1A8681EF00FD085A /* ProjectSettingsKeys.h */,
 				5DDA3DCB1A8681EF00FD085A /* ProjectSettingsKeys.m */,
 			);
@@ -1019,7 +1019,7 @@
 				5D86005C1A87C45A00AA8971 /* SocialSharePopoverView.m in Sources */,
 				5DADA6A21AAB56D0005E4F2C /* NotificationWebViewHeader.m in Sources */,
 				5D1754D41AA86F7E003A66D1 /* NotificationViewController.m in Sources */,
-				5DDA3DA51A85D39500FD085A /* ProjectSettings.m in Sources */,
+				5DDA3DA51A85D39500FD085A /* APIManager.m in Sources */,
 				5D0F177E1A86A1FC00AAE285 /* SocialSharingActionController.m in Sources */,
 				5D1754DA1AA8714F003A66D1 /* NotificationTableView.m in Sources */,
 				5D6C98591A8C5D8000EB408E /* Button.m in Sources */,

@@ -7,7 +7,7 @@
 //
 
 #import "AccessoryPagesView.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 #import "AccessoryPage.h"
 #import "SocialShareMethods.h"
 
@@ -62,7 +62,7 @@ CGFloat const kAccessoryButtonHeight = 40;
 
 - (void)addButtons {
 
-    self.accessoryPages = [[ProjectSettings sharedManager] fetchMetaDataAccessoryPages];
+    self.accessoryPages = [[APIManager sharedManager] fetchMetaDataAccessoryPages];
 
     for (int i = 0; i < self.accessoryPages.count; i++) {
 
@@ -110,7 +110,7 @@ CGFloat const kAccessoryButtonHeight = 40;
 
     [button addTarget:self action:@selector(animateOffOfScreen) forControlEvents:UIControlEventTouchUpInside];
 
-    button.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kPrimaryColor]];
+    button.backgroundColor = [UIColor colorWithHexString:[[APIManager sharedManager] fetchMetaThemeItemWithProperty:kPrimaryColor]];
 
     button.layer.cornerRadius = 3;
 
@@ -119,9 +119,9 @@ CGFloat const kAccessoryButtonHeight = 40;
 
 - (void)displayContactView {
 
-    NSString *email = [[ProjectSettings sharedManager] fetchmetaDataVariables:kEmail];
+    NSString *email = [[APIManager sharedManager] fetchmetaDataVariables:kEmail];
 
-    NSString *blogTitle = [[ProjectSettings sharedManager] fetchmetaDataVariables:kBlogName];
+    NSString *blogTitle = [[APIManager sharedManager] fetchmetaDataVariables:kBlogName];
 
     [[SocialShareMethods sharedManager] shareViaEmail:@{@"subject": blogTitle, @"recipient": email}];
 }

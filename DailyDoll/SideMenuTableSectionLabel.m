@@ -7,7 +7,7 @@
 //
 
 #import "SideMenuTableSectionLabel.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 
 @implementation SideMenuTableSectionLabel
 
@@ -21,11 +21,11 @@
 
         self.text = [text uppercaseString]; //TODO remove 
 
-        NSString *fontName = [[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kFontFamily];
+        NSString *fontName = [[APIManager sharedManager] fetchMetaThemeItemWithProperty:kFontFamily];
 
         [self setFont:[UIFont fontWithName:fontName size:18]];
 
-        self.textColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kSecondaryColor]];
+        self.textColor = [UIColor colorWithHexString:[[APIManager sharedManager] fetchMetaThemeItemWithProperty:kSecondaryColor]];
 
         [self setCenter:CGPointMake(parentFrame.size.width / 2, 15)];
     }

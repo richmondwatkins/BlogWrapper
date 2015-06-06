@@ -10,7 +10,7 @@
 #import "ShareView.h"
 #import "ShareTableView.h"
 #import "ShareTableViewCell.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 #import "SocialSharingActionController.h"
 #import "SocialSharePopoverView.h"
 #import "ExternalWebModalViewController.h"
@@ -54,7 +54,7 @@
 }
 
 - (void) reloadTableView {
-    self.dataSource = [[ProjectSettings sharedManager] fetchShareItems];
+    self.dataSource = [[APIManager sharedManager] fetchShareItems];
     
     [self.tableView reloadData];
 }
@@ -135,8 +135,8 @@
 
         case EMAIL: {
 
-            NSString *blogName = [[ProjectSettings sharedManager] fetchmetaDataVariables:kBlogName];
-            NSString *blogUrl = [[ProjectSettings sharedManager] fetchmetaDataVariables:kURLString];
+            NSString *blogName = [[APIManager sharedManager] fetchmetaDataVariables:kBlogName];
+            NSString *blogUrl = [[APIManager sharedManager] fetchmetaDataVariables:kURLString];
 
             [[SocialShareMethods sharedManager] shareViaEmail: @{@"message": blogUrl, @"subject": blogName}];
 
@@ -145,8 +145,8 @@
 
         case SMS: {
 
-            NSString *blogName = [[ProjectSettings sharedManager] fetchmetaDataVariables:kBlogName];
-            NSString *blogUrl = [[ProjectSettings sharedManager] fetchmetaDataVariables:kURLString];
+            NSString *blogName = [[APIManager sharedManager] fetchmetaDataVariables:kBlogName];
+            NSString *blogUrl = [[APIManager sharedManager] fetchmetaDataVariables:kURLString];
 
             [[SocialShareMethods sharedManager] shareViaSMS: @{@"message": blogUrl, @"subject": blogName}];
 

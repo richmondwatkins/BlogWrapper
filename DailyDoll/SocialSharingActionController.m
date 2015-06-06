@@ -7,7 +7,7 @@
 //
 
 #import "SocialSharingActionController.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 #import "SocialSharePopoverView.h"
 #import "UIColor+UIColor_Expanded.h"
 #import "Button.h"
@@ -26,7 +26,7 @@
 
 - (SocialSharePopoverView *)facebookPopConfig:(CGRect)windowFrame {
 
-    NSArray *buttonItems = [[ProjectSettings sharedManager] fetchSocialButtonsForItem:FACEBOOK];
+    NSArray *buttonItems = [[APIManager sharedManager] fetchSocialButtonsForItem:FACEBOOK];
 
     NSMutableArray *buttons = [NSMutableArray array];
 
@@ -70,9 +70,9 @@
 - (void)facebookViewDelegate:(UIButton *)button {
 
     [self openWithAppOrWebView:[NSString stringWithFormat:@"fb://profile/%@",
-                                [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:@"accountId"]]
+                                [[APIManager sharedManager] fetchSocialItem:FACEBOOK withProperty:@"accountId"]]
                      andWebURL:[NSString stringWithFormat:@"https://www.facebook.com/%@",
-                                                           [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:@"accountId"]]];
+                                                           [[APIManager sharedManager] fetchSocialItem:FACEBOOK withProperty:@"accountId"]]];
 }
 
 - (void)facebookShareDelegate:(UIButton *)button {
@@ -80,7 +80,7 @@
     FBLinkShareParams *params = [[FBLinkShareParams alloc] init];
     
     params.link = [NSURL URLWithString:[NSString stringWithFormat:@"https://www.facebook.com/%@",
-                                        [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:@"accountId"]]];
+                                        [[APIManager sharedManager] fetchSocialItem:FACEBOOK withProperty:@"accountId"]]];
     BOOL didShare = [[SocialShareMethods sharedManager] shareToFaceBookWithURL:params];
 
     if (!didShare) {
@@ -95,7 +95,7 @@
 
 -(SocialSharePopoverView *)pintrestPopConfig:(CGRect)windowFrame {
 
-    NSArray *buttonItems = [[ProjectSettings sharedManager] fetchSocialButtonsForItem:PINTEREST];
+    NSArray *buttonItems = [[APIManager sharedManager] fetchSocialButtonsForItem:PINTEREST];
 
     NSMutableArray *buttons = [NSMutableArray array];
 
@@ -141,7 +141,7 @@
 
     //TODO setup s3 to host images
     NSURL *imageURL = [NSURL URLWithString:@"http://placekitten.com/g/200/300"];
-    NSURL *sourceURL = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:PINTEREST withProperty:kSocialAccountURL]];
+    NSURL *sourceURL = [NSURL URLWithString:[[APIManager sharedManager] fetchSocialItem:PINTEREST withProperty:kSocialAccountURL]];
 
     BOOL didShare = [[SocialShareMethods sharedManager] pinToPinterest:imageURL andSource:sourceURL];
 
@@ -154,7 +154,7 @@
 
 - (void)viewBoards:(UIButton *)button {
 
-    NSString *pintrestAccountName = [[ProjectSettings sharedManager] fetchSocialItem:PINTEREST withProperty:kAccountName];
+    NSString *pintrestAccountName = [[APIManager sharedManager] fetchSocialItem:PINTEREST withProperty:kAccountName];
 
     [self openWithAppOrWebView:[NSString stringWithFormat:@"pinterest://user/%@/", pintrestAccountName]
                      andWebURL:[NSString stringWithFormat:@"https://www.pinterest.com/%@/pins/", pintrestAccountName]];
@@ -167,7 +167,7 @@
 
 -(SocialSharePopoverView *)instagramPopConfig:(CGRect)windowFrame {
 
-    NSArray *buttonItems = [[ProjectSettings sharedManager] fetchSocialButtonsForItem:INSTAGRAM];
+    NSArray *buttonItems = [[APIManager sharedManager] fetchSocialButtonsForItem:INSTAGRAM];
 
     NSMutableArray *buttons = [NSMutableArray array];
 
@@ -186,7 +186,7 @@
             }   break;
             case 1: //
 
-                if ([[ProjectSettings sharedManager] hasInteractedWithSocialItem:INSTAGRAM]) {
+                if ([[APIManager sharedManager] hasInteractedWithSocialItem:INSTAGRAM]) {
                     [button setTitle:@"Following" forState:UIControlStateNormal];
                 }
 
@@ -214,7 +214,7 @@
 
 - (void)viewOnInstagram:(UIButton *)button {
 
-    NSString *instagramAccountName = [[ProjectSettings sharedManager] fetchSocialItem:INSTAGRAM withProperty:kAccountName];
+    NSString *instagramAccountName = [[APIManager sharedManager] fetchSocialItem:INSTAGRAM withProperty:kAccountName];
 
     [self openWithAppOrWebView:[NSString stringWithFormat:@"instagram://user?username=%@", instagramAccountName]
                      andWebURL:[NSString stringWithFormat:@"http://instagram.com/%@", instagramAccountName]];
@@ -230,7 +230,7 @@
 
 -(SocialSharePopoverView *)twitterPopConfig:(CGRect)windowFrame {
 
-    NSArray *buttonItems = [[ProjectSettings sharedManager] fetchSocialButtonsForItem:TWIITER];
+    NSArray *buttonItems = [[APIManager sharedManager] fetchSocialButtonsForItem:TWIITER];
 
     NSMutableArray *buttons = [NSMutableArray array];
 
@@ -242,7 +242,7 @@
         switch ([buttonItem.id intValue]) {
             case 0: { //Follow
 
-                if ([[ProjectSettings sharedManager] hasInteractedWithSocialItem:TWIITER]) {
+                if ([[APIManager sharedManager] hasInteractedWithSocialItem:TWIITER]) {
                     [button setTitle:@"Following" forState:UIControlStateNormal];
                 }
 
@@ -285,9 +285,9 @@
 
 - (void)tweet:(UIButton *)button {
 
-    NSString *accountURLString = [[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:kSocialAccountURL];
+    NSString *accountURLString = [[APIManager sharedManager] fetchSocialItem:TWIITER withProperty:kSocialAccountURL];
 
-    NSString *blogName = [[ProjectSettings sharedManager] fetchSocialItem:INSTAGRAM withProperty:kAccountName];
+    NSString *blogName = [[APIManager sharedManager] fetchSocialItem:INSTAGRAM withProperty:kAccountName];
 
     BOOL didShare = [[SocialShareMethods sharedManager] shareToTwitter:[NSString stringWithFormat:@"%@ - %@", blogName, accountURLString]];
 
@@ -314,8 +314,8 @@
 
 - (void)openOnTwitter:(UIButton *)button {
 
-    [self openWithAppOrWebView:[NSString stringWithFormat:@"twitter://user?id=%@", [[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:@"accountId"]]
-                     andWebURL:[[ProjectSettings sharedManager] fetchSocialItem:TWIITER withProperty:kSocialAccountURL]];
+    [self openWithAppOrWebView:[NSString stringWithFormat:@"twitter://user?id=%@", [[APIManager sharedManager] fetchSocialItem:TWIITER withProperty:@"accountId"]]
+                     andWebURL:[[APIManager sharedManager] fetchSocialItem:TWIITER withProperty:kSocialAccountURL]];
 }
 
 
@@ -323,7 +323,7 @@
 
     NSString *statusesShowEndpoint;
 
-    BOOL isFollowing = [[ProjectSettings sharedManager] hasInteractedWithSocialItem:TWIITER];
+    BOOL isFollowing = [[APIManager sharedManager] hasInteractedWithSocialItem:TWIITER];
 
     if (!isFollowing) {
 
@@ -337,7 +337,7 @@
         [button setTitle:@"Follow" forState:UIControlStateNormal];
     }
 
-    [[ProjectSettings sharedManager] saveSocialInteraction:TWIITER withStatus:!isFollowing];
+    [[APIManager sharedManager] saveSocialInteraction:TWIITER withStatus:!isFollowing];
 
  //TODO add activity indicator in button to show request
 
@@ -382,7 +382,7 @@
 
 - (SocialSharePopoverView *) googlePlusPopConfig:(CGRect)windowFrame {
 
-    NSArray *buttonItems = [[ProjectSettings sharedManager] fetchSocialButtonsForItem:GOOGLEPLUS];
+    NSArray *buttonItems = [[APIManager sharedManager] fetchSocialButtonsForItem:GOOGLEPLUS];
 
     NSMutableArray *buttons = [NSMutableArray array];
 
@@ -424,7 +424,7 @@
 - (void) googlePlusShare:(UIButton *)button {
 
 
-    NSURL *sourceURL = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kSocialAccountURL]];
+    NSURL *sourceURL = [NSURL URLWithString:[[APIManager sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kSocialAccountURL]];
 
     BOOL didShare = [[SocialShareMethods sharedManager] shareToGooglePlus:sourceURL.absoluteString];
 
@@ -436,7 +436,7 @@
 
 - (void) googlePlusView:(UIButton *)button {
 
-    NSURL *webURL = [NSURL URLWithString:[[ProjectSettings sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kSocialAccountURL]];
+    NSURL *webURL = [NSURL URLWithString:[[APIManager sharedManager] fetchSocialItem:GOOGLEPLUS withProperty:kSocialAccountURL]];
     [self.delegate socialWebView:webURL];
 }
 

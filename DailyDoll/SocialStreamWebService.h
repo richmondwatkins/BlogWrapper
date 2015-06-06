@@ -11,5 +11,6 @@
 @interface SocialStreamWebService : NSObject
 
 + (void)requestTweets:(void (^)(NSArray *results))complete;
-
++ (void)requestFacebookPosts:(void (^)(NSArray *results))callback;
++ (void)requestInstagramPosts:(void (^)(NSArray *results))callback;
 @end

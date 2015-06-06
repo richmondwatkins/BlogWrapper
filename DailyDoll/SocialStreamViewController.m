@@ -7,7 +7,7 @@
 //
 
 #import "SocialStreamViewController.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 #import "SocialStreamViewModel.h"
 @interface SocialStreamViewController ()
 

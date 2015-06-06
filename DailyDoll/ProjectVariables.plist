@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>InstagramAuthToken</key>
+	<string>401224799.1677ed0.24f7ddf7928f49e1b08bffa7b79c9ea1</string>
+	<key>FacebookAuthToken</key>
+	<string>352521494954785|hXoNpraF9qIZaZ6jJljGLsxydtI</string>
 	<key>Project</key>
 	<dict>
 		<key>Social</key>

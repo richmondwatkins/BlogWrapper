@@ -8,7 +8,7 @@
 
 #import "NotificationWebViewHeader.h"
 #import "UIView+Additions.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 
 @implementation NotificationWebViewHeader
 
@@ -28,7 +28,7 @@
 
         self.dateLabel.text = [self converDateToString:date];
 
-        self.dateLabel.textColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kSecondaryColor]];
+        self.dateLabel.textColor = [UIColor colorWithHexString:[[APIManager sharedManager] fetchMetaThemeItemWithProperty:kSecondaryColor]];
 
         [self.dateLabel sizeToFit];
 

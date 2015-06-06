@@ -7,7 +7,7 @@
 //
 
 #import "CenterVCTitleLabel.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 
 @implementation CenterVCTitleLabel
 
@@ -19,11 +19,11 @@
 
         [self sizeToFit];
 
-        NSString *fontString = [[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kFontFamily];
+        NSString *fontString = [[APIManager sharedManager] fetchMetaThemeItemWithProperty:kFontFamily];
 
         [self setFont:[UIFont fontWithName:fontString size:16]];
 
-        self.textColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:NAVBAR withProperty:kFontColor]];
+        self.textColor = [UIColor colorWithHexString:[[APIManager sharedManager] fetchThemeItem:NAVBAR withProperty:kFontColor]];
     }
 
     return self;

@@ -7,7 +7,7 @@
 //
 
 #import "ExternalWebModalViewController.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 #import "DetailNavigationBar.h"
 
 @interface ExternalWebModalViewController () <UIWebViewDelegate>

@@ -11,9 +11,9 @@
 #import "SideMenuViewController.h"
 #import <MMDrawerController.h>
 #import <MMDrawerBarButtonItem.h>
-#import "ProjectSettings.h"
-#import "CenterVCTitleLabel.h"
+#import "APIManager.h"
 #import "ShareViewController.h"
+#import "CenterVCTitleLabel.h"
 #import "ShareViewSlider.h"
 #import "PushRequestViewController.h"
 #import "DetailViewController.h"
@@ -38,15 +38,18 @@
     [self setUpWebView];
 
     [self setUpDrawControllerAndButton];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(setRightNavigationItem)
+                                                 name:@"coreDataUpdated" object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-
+    
     if (![[NSUserDefaults standardUserDefaults] boolForKey:kFirstStartUp]) {
         PushRequestViewController *pushVC = [[PushRequestViewController alloc] init];
         [self presentViewController:pushVC animated:YES completion:nil];
     }
-
 }
 
 - (void)setUpDrawControllerAndButton {
@@ -66,11 +69,16 @@
                                                                    target:self
                                                                    action:@selector(showSideMenu)];
     self.navigationItem.leftBarButtonItem = leftBarButton;
-    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithHexString: [[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kSecondaryColor]];
+    self.navigationItem.leftBarButtonItem.tintColor = [UIColor colorWithHexString: [[APIManager sharedManager] fetchMetaThemeItemWithProperty:kSecondaryColor]];
 }
 
 - (void)setRightNavigationItem {
 
+    ShareViewController *shareViewController = [[ShareViewController alloc] init];
+    
+    self.drawerController.rightDrawerViewController = shareViewController;
+    self.drawerController.maximumRightDrawerWidth = [shareViewController returnWidthForShareVC];
+    
     UIBarButtonItem *rightBarButton=[[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"share"]
                                                           style:UIBarButtonItemStylePlain
                                                          target:self
@@ -78,7 +86,7 @@
 
     self.navigationItem.rightBarButtonItem= rightBarButton;
 
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithHexString: [[ProjectSettings sharedManager] fetchMetaThemeItemWithProperty:kSecondaryColor]];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor colorWithHexString: [[APIManager sharedManager] fetchMetaThemeItemWithProperty:kSecondaryColor]];
 }
 
 - (void)setUpWebView {
@@ -89,12 +97,18 @@
 
     self.webView.delegate = self;
 
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[[ProjectSettings sharedManager] fetchmetaDataVariables:kURLString]]]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[[APIManager sharedManager] fetchmetaDataVariables:kURLString]]]];
 }
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-
-    NSString *domainString = [[ProjectSettings sharedManager] fetchmetaDataVariables:kDomainString];
+    [super webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
+    
+    NSString *domainString = [[APIManager sharedManager] fetchmetaDataVariables:kDomainString];
+    
+    if ([request.URL.absoluteString containsString:@"googleads"] ||
+        [request.URL.absoluteString containsString:@"about:blank"]) {
+        return NO;
+    }
 
     if (![[request.URL absoluteString] containsString:domainString]) {
         
@@ -106,7 +120,7 @@
     }
 
     if ([[request.URL absoluteString] containsString:domainString] &&
-         ![[request.URL absoluteString] isEqualToString:[[ProjectSettings sharedManager] fetchmetaDataVariables: kURLString]] &&
+         ![[request.URL absoluteString] isEqualToString:[[APIManager sharedManager] fetchmetaDataVariables: kURLString]] &&
         self.isFromSideMenu == NO) {
 
         DetailViewController *detailVC = [[DetailViewController alloc] initWithRequest:request];
@@ -129,7 +143,6 @@
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
 
     [super webViewDidFinishLoad:webView];
-    
 }
 
 - (void)showSideMenu {
@@ -139,9 +152,9 @@
 
 - (void)presentShareVC:(id)sender {
 
-//    [self.drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
+    [self.drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
     
-    [self presentViewController:[[SocialStreamViewController alloc] init] animated:YES completion:nil];
+//    [self presentViewController:[[SocialStreamViewController alloc] init] animated:YES completion:nil];
 }
 
 - (void)selectedSideMenuItem:(NSString *)urlString {

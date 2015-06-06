@@ -7,14 +7,14 @@
 //
 
 #import "SideMenuTableView.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 
 @implementation SideMenuTableView
 
 
 -(void)removeInsetsAndStyle {
 
-    self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:SIDEMENUTABLEVIEW withProperty:kBackgroundColor]];
+    self.backgroundColor = [UIColor colorWithHexString:[[APIManager sharedManager] fetchThemeItem:SIDEMENUTABLEVIEW withProperty:kBackgroundColor]];
     self.showsVerticalScrollIndicator = NO;
 
     CGFloat bottomInset = 40;

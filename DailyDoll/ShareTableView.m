@@ -7,7 +7,7 @@
 //
 
 #import "ShareTableView.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 
 @implementation ShareTableView
 
@@ -15,7 +15,7 @@
 
     if (self = [super init]) {
 
-        self.backgroundColor = [UIColor colorWithHexString:[[ProjectSettings sharedManager] fetchThemeItem:SHARETABLEVIEW withProperty:kBackgroundColor]];
+        self.backgroundColor = [UIColor colorWithHexString:[[APIManager sharedManager] fetchThemeItem:SHARETABLEVIEW withProperty:kBackgroundColor]];
 
         self.frame = parentFrame;
 

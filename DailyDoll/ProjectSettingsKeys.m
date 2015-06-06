@@ -86,6 +86,9 @@ NSString *const kAccountName = @"accountName";
 
 NSString *const kPageID = @"pageId";
 
+NSString *const kFacebookAuthToken = @"FacebookAuthToken";
+
+NSString *const kInstagramAuthToken = @"InstagramAuthToken";
 
 //Meta Data
 

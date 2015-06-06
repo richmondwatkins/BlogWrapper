@@ -7,7 +7,7 @@
 //
 
 #import "ShareView.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 
 @implementation ShareView
 

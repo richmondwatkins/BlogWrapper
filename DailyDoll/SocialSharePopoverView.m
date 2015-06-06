@@ -7,7 +7,7 @@
 //
 
 #import "SocialSharePopoverView.h"
-#import "ProjectSettings.h"
+#import "APIManager.h"
 #import <FacebookSDK.h>
 #import <TwitterKit/TwitterKit.h>
 
@@ -45,7 +45,7 @@ CGFloat const kTitleHeight = 40;
 
         UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, popUp.frame.size.width, kTitleHeight)];
 
-        NSString *blogName = [[ProjectSettings sharedManager] fetchmetaDataVariables:kBlogName];
+        NSString *blogName = [[APIManager sharedManager] fetchmetaDataVariables:kBlogName];
 
         titleLabel.text = [NSString stringWithFormat:@"%@ on %@", blogName, socialSite];
         [titleLabel sizeToFit];
@@ -181,7 +181,7 @@ CGFloat const kTitleHeight = 40;
 
     NSString *buttonTitle;
 
-   self.facebookLikeStatus = [[ProjectSettings sharedManager] hasInteractedWithSocialItem:FACEBOOK];
+   self.facebookLikeStatus = [[APIManager sharedManager] hasInteractedWithSocialItem:FACEBOOK];
 
     if (self.facebookLikeStatus) {
         buttonTitle = @"Liked";
@@ -192,7 +192,7 @@ CGFloat const kTitleHeight = 40;
 
     FBLikeControl *like = [[FBLikeControl alloc] initWithFrame:CGRectMake(0, 0, popUp.frame.size.width * 0.8, kButtonHeight) andTitle:buttonTitle];
 
-    like.objectID = [[ProjectSettings sharedManager] fetchSocialItem:FACEBOOK withProperty:kSocialAccountURL];
+    like.objectID = [[APIManager sharedManager] fetchSocialItem:FACEBOOK withProperty:kSocialAccountURL];
     like.preferredMaxLayoutWidth = 300;
     like.likeControlStyle = FBLikeControlStyleButton;
     like.likeControlAuxiliaryPosition = FBLikeControlHorizontalAlignmentCenter;
@@ -223,7 +223,7 @@ CGFloat const kTitleHeight = 40;
 //        [button setTitle:@"Liked" forState:UIControlStateNormal];
     }
 
-    [[ProjectSettings sharedManager] saveSocialInteraction:FACEBOOK withStatus:!self.facebookLikeStatus];
+    [[APIManager sharedManager] saveSocialInteraction:FACEBOOK withStatus:!self.facebookLikeStatus];
 
 
 }
