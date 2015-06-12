@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "SocialSharePopoverView.h"
-#import <FacebookSDK/FacebookSDK.h>
+#import "FacebookSDK.h"
 #import <Pinterest/Pinterest.h>
 #import <TwitterKit/TwitterKit.h>
 

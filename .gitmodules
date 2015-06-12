@@ -1,0 +1,3 @@
+[submodule "FacebookSDKiOS"]
+	path = FacebookSDKiOS
+	url = https://github.com/richmondwatkins/FacebookiOSSDK

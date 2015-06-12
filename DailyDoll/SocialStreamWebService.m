@@ -10,13 +10,11 @@
 #import <TwitterKit/TwitterKit.h>
 #import <Fabric/Fabric.h>
 #import "APIManager.h"
-#import <FacebookSDK.h>
+#import "FacebookSDK.h"
 
 @implementation SocialStreamWebService
 
 + (void)requestTweets:(void (^)(NSArray *results))callback {
-    
-    __weak typeof(self) weakSelf = self;
     
     [TwitterKit logInGuestWithCompletion:^(TWTRGuestSession *guestSession, NSError *error) {
         if (guestSession) {

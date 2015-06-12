@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4F20C87BCD212EBF6CFF62DC"
+               BlueprintIdentifier = "B29FFD94271CFC9DE97A4922"
                BuildableName = "libPods-DailyDoll-AWSEC2.a"
                BlueprintName = "Pods-DailyDoll-AWSEC2"
                ReferencedContainer = "container:Pods.xcodeproj">

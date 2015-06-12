@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <FacebookSDK/FacebookSDK.h>
+#import "FacebookSDK.h"
 #import <Pinterest/Pinterest.h>
 #import <TwitterKit/TwitterKit.h>
 #import <GooglePlus/GooglePlus.h>

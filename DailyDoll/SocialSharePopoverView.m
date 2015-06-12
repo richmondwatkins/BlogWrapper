@@ -8,7 +8,7 @@
 
 #import "SocialSharePopoverView.h"
 #import "APIManager.h"
-#import <FacebookSDK.h>
+#import "FacebookSDK.h"
 #import <TwitterKit/TwitterKit.h>
 
 @interface SocialSharePopoverView () <UIGestureRecognizerDelegate>

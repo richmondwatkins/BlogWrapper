@@ -5,11 +5,9 @@ target 'DailyDoll' do
 
 pod 'MMDrawerController', '~> 0.5.7'
 
-pod 'Facebook-iOS-SDK’, ‘~> 3.23’
-
 pod 'SSKeychain'
 
-pod 'AWSiOSSDKv2'
+pod 'AWSiOSSDKv2', '~> 2.0.16'
 
 end
 

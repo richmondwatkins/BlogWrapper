@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8D851E70CC47ED4C059B60B7"
+               BlueprintIdentifier = "A05D10C18718186DCD12A038"
                BuildableName = "libPods-DailyDoll-AWSDynamoDB.a"
                BlueprintName = "Pods-DailyDoll-AWSDynamoDB"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0630"
+   LastUpgradeVersion = "0510"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C0EE601AA23F9E03CD36CDE0"
+               BlueprintIdentifier = "0FBA1FBCA1B2D38747CC3B5B"
                BuildableName = "libPods-DailyDoll-SSKeychain.a"
                BlueprintName = "Pods-DailyDoll-SSKeychain"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -39,15 +39,6 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C0EE601AA23F9E03CD36CDE0"
-            BuildableName = "libPods-DailyDoll-SSKeychain.a"
-            BlueprintName = "Pods-DailyDoll-SSKeychain"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>

@@ -1,147 +1,101 @@
 PODS:
-  - AWSiOSSDKv2 (2.0.16):
-    - AWSiOSSDKv2/AutoScaling (= 2.0.16)
-    - AWSiOSSDKv2/AWSCore (= 2.0.16)
-    - AWSiOSSDKv2/CloudWatch (= 2.0.16)
-    - AWSiOSSDKv2/DynamoDB (= 2.0.16)
-    - AWSiOSSDKv2/EC2 (= 2.0.16)
-    - AWSiOSSDKv2/ElasticLoadBalancing (= 2.0.16)
-    - AWSiOSSDKv2/Kinesis (= 2.0.16)
-    - AWSiOSSDKv2/S3 (= 2.0.16)
-    - AWSiOSSDKv2/SES (= 2.0.16)
-    - AWSiOSSDKv2/SimpleDB (= 2.0.16)
-    - AWSiOSSDKv2/SNS (= 2.0.16)
-    - AWSiOSSDKv2/SQS (= 2.0.16)
+  - AWSAutoScaling (2.1.2):
+    - AWSCore (= 2.1.2)
     - Bolts (~> 1.1.0)
-    - FMDB (~> 2.4)
+    - Mantle (~> 1.4)
+  - AWSCloudWatch (2.1.2):
+    - AWSCore (= 2.1.2)
+    - Bolts (~> 1.1.0)
+    - Mantle (~> 1.4)
+  - AWSCore (2.1.2):
+    - Bolts (~> 1.1.0)
     - GZIP (~> 1.0.3)
     - Mantle (~> 1.4)
     - Reachability (~> 3.1)
-    - TMCache (~> 1.2.1)
-    - UICKeyChainStore (< 3.0)
+    - UICKeyChainStore (~> 2.0)
     - XMLDictionary (~> 1.4.0)
-  - AWSiOSSDKv2/AutoScaling (2.0.16):
-    - AWSiOSSDKv2/AWSCore
+  - AWSDynamoDB (2.1.2):
+    - AWSCore (= 2.1.2)
+    - Bolts (~> 1.1.0)
+    - Mantle (~> 1.4)
+  - AWSEC2 (2.1.2):
+    - AWSCore (= 2.1.2)
+    - Bolts (~> 1.1.0)
+    - Mantle (~> 1.4)
+  - AWSElasticLoadBalancing (2.1.2):
+    - AWSCore (= 2.1.2)
+    - Bolts (~> 1.1.0)
+    - Mantle (~> 1.4)
+  - AWSiOSSDKv2 (2.1.2):
+    - AWSiOSSDKv2/AutoScaling (= 2.1.2)
+    - AWSiOSSDKv2/AWSCore (= 2.1.2)
+    - AWSiOSSDKv2/CloudWatch (= 2.1.2)
+    - AWSiOSSDKv2/DynamoDB (= 2.1.2)
+    - AWSiOSSDKv2/EC2 (= 2.1.2)
+    - AWSiOSSDKv2/ElasticLoadBalancing (= 2.1.2)
+    - AWSiOSSDKv2/Kinesis (= 2.1.2)
+    - AWSiOSSDKv2/S3 (= 2.1.2)
+    - AWSiOSSDKv2/SES (= 2.1.2)
+    - AWSiOSSDKv2/SimpleDB (= 2.1.2)
+    - AWSiOSSDKv2/SNS (= 2.1.2)
+    - AWSiOSSDKv2/SQS (= 2.1.2)
+  - AWSiOSSDKv2/AutoScaling (2.1.2):
+    - AWSAutoScaling (= 2.1.2)
+  - AWSiOSSDKv2/AWSCore (2.1.2):
+    - AWSCore (= 2.1.2)
+  - AWSiOSSDKv2/CloudWatch (2.1.2):
+    - AWSCloudWatch (= 2.1.2)
+  - AWSiOSSDKv2/DynamoDB (2.1.2):
+    - AWSDynamoDB (= 2.1.2)
+  - AWSiOSSDKv2/EC2 (2.1.2):
+    - AWSEC2 (= 2.1.2)
+  - AWSiOSSDKv2/ElasticLoadBalancing (2.1.2):
+    - AWSElasticLoadBalancing (= 2.1.2)
+  - AWSiOSSDKv2/Kinesis (2.1.2):
+    - AWSKinesis (= 2.1.2)
+  - AWSiOSSDKv2/S3 (2.1.2):
+    - AWSS3 (= 2.1.2)
+  - AWSiOSSDKv2/SES (2.1.2):
+    - AWSSES (= 2.1.2)
+  - AWSiOSSDKv2/SimpleDB (2.1.2):
+    - AWSSimpleDB (= 2.1.2)
+  - AWSiOSSDKv2/SNS (2.1.2):
+    - AWSSNS (= 2.1.2)
+  - AWSiOSSDKv2/SQS (2.1.2):
+    - AWSSQS (= 2.1.2)
+  - AWSKinesis (2.1.2):
+    - AWSCore (= 2.1.2)
     - Bolts (~> 1.1.0)
     - FMDB (~> 2.4)
-    - GZIP (~> 1.0.3)
     - Mantle (~> 1.4)
-    - Reachability (~> 3.1)
     - TMCache (~> 1.2.1)
-    - UICKeyChainStore (< 3.0)
-    - XMLDictionary (~> 1.4.0)
-  - AWSiOSSDKv2/AWSCore (2.0.16):
+  - AWSS3 (2.1.2):
+    - AWSCore (= 2.1.2)
     - Bolts (~> 1.1.0)
-    - FMDB (~> 2.4)
-    - GZIP (~> 1.0.3)
     - Mantle (~> 1.4)
-    - Reachability (~> 3.1)
     - TMCache (~> 1.2.1)
-    - UICKeyChainStore (< 3.0)
-    - XMLDictionary (~> 1.4.0)
-  - AWSiOSSDKv2/CloudWatch (2.0.16):
-    - AWSiOSSDKv2/AWSCore
+  - AWSSES (2.1.2):
+    - AWSCore (= 2.1.2)
     - Bolts (~> 1.1.0)
-    - FMDB (~> 2.4)
-    - GZIP (~> 1.0.3)
     - Mantle (~> 1.4)
-    - Reachability (~> 3.1)
-    - TMCache (~> 1.2.1)
-    - UICKeyChainStore (< 3.0)
-    - XMLDictionary (~> 1.4.0)
-  - AWSiOSSDKv2/DynamoDB (2.0.16):
-    - AWSiOSSDKv2/AWSCore
+  - AWSSimpleDB (2.1.2):
+    - AWSCore (= 2.1.2)
     - Bolts (~> 1.1.0)
-    - FMDB (~> 2.4)
-    - GZIP (~> 1.0.3)
     - Mantle (~> 1.4)
-    - Reachability (~> 3.1)
-    - TMCache (~> 1.2.1)
-    - UICKeyChainStore (< 3.0)
-    - XMLDictionary (~> 1.4.0)
-  - AWSiOSSDKv2/EC2 (2.0.16):
-    - AWSiOSSDKv2/AWSCore
+  - AWSSNS (2.1.2):
+    - AWSCore (= 2.1.2)
     - Bolts (~> 1.1.0)
-    - FMDB (~> 2.4)
-    - GZIP (~> 1.0.3)
     - Mantle (~> 1.4)
-    - Reachability (~> 3.1)
-    - TMCache (~> 1.2.1)
-    - UICKeyChainStore (< 3.0)
-    - XMLDictionary (~> 1.4.0)
-  - AWSiOSSDKv2/ElasticLoadBalancing (2.0.16):
-    - AWSiOSSDKv2/AWSCore
+  - AWSSQS (2.1.2):
+    - AWSCore (= 2.1.2)
     - Bolts (~> 1.1.0)
-    - FMDB (~> 2.4)
-    - GZIP (~> 1.0.3)
     - Mantle (~> 1.4)
-    - Reachability (~> 3.1)
-    - TMCache (~> 1.2.1)
-    - UICKeyChainStore (< 3.0)
-    - XMLDictionary (~> 1.4.0)
-  - AWSiOSSDKv2/Kinesis (2.0.16):
-    - AWSiOSSDKv2/AWSCore
-    - Bolts (~> 1.1.0)
-    - FMDB (~> 2.4)
-    - GZIP (~> 1.0.3)
-    - Mantle (~> 1.4)
-    - Reachability (~> 3.1)
-    - TMCache (~> 1.2.1)
-    - UICKeyChainStore (< 3.0)
-    - XMLDictionary (~> 1.4.0)
-  - AWSiOSSDKv2/S3 (2.0.16):
-    - AWSiOSSDKv2/AWSCore
-    - Bolts (~> 1.1.0)
-    - FMDB (~> 2.4)
-    - GZIP (~> 1.0.3)
-    - Mantle (~> 1.4)
-    - Reachability (~> 3.1)
-    - TMCache (~> 1.2.1)
-    - UICKeyChainStore (< 3.0)
-    - XMLDictionary (~> 1.4.0)
-  - AWSiOSSDKv2/SES (2.0.16):
-    - AWSiOSSDKv2/AWSCore
-    - Bolts (~> 1.1.0)
-    - FMDB (~> 2.4)
-    - GZIP (~> 1.0.3)
-    - Mantle (~> 1.4)
-    - Reachability (~> 3.1)
-    - TMCache (~> 1.2.1)
-    - UICKeyChainStore (< 3.0)
-    - XMLDictionary (~> 1.4.0)
-  - AWSiOSSDKv2/SimpleDB (2.0.16):
-    - AWSiOSSDKv2/AWSCore
-    - Bolts (~> 1.1.0)
-    - FMDB (~> 2.4)
-    - GZIP (~> 1.0.3)
-    - Mantle (~> 1.4)
-    - Reachability (~> 3.1)
-    - TMCache (~> 1.2.1)
-    - UICKeyChainStore (< 3.0)
-    - XMLDictionary (~> 1.4.0)
-  - AWSiOSSDKv2/SNS (2.0.16):
-    - AWSiOSSDKv2/AWSCore
-    - Bolts (~> 1.1.0)
-    - FMDB (~> 2.4)
-    - GZIP (~> 1.0.3)
-    - Mantle (~> 1.4)
-    - Reachability (~> 3.1)
-    - TMCache (~> 1.2.1)
-    - UICKeyChainStore (< 3.0)
-    - XMLDictionary (~> 1.4.0)
-  - AWSiOSSDKv2/SQS (2.0.16):
-    - AWSiOSSDKv2/AWSCore
-    - Bolts (~> 1.1.0)
-    - FMDB (~> 2.4)
-    - GZIP (~> 1.0.3)
-    - Mantle (~> 1.4)
-    - Reachability (~> 3.1)
-    - TMCache (~> 1.2.1)
-    - UICKeyChainStore (< 3.0)
-    - XMLDictionary (~> 1.4.0)
-  - Bolts (1.1.3)
-  - Facebook-iOS-SDK (3.23.0):
-    - Bolts (~> 1.0)
+  - Bolts (1.1.5):
+    - Bolts/AppLinks (= 1.1.5)
+    - Bolts/Tasks (= 1.1.5)
+  - Bolts/AppLinks (1.1.5):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.1.5)
   - FMDB (2.5):
     - FMDB/standard (= 2.5)
   - FMDB/common (2.5)
@@ -164,29 +118,39 @@ PODS:
   - MMDrawerController/Subclass (0.5.7):
     - MMDrawerController/Core
   - Reachability (3.2)
-  - SSKeychain (1.2.2)
-  - TMCache (1.2.3)
-  - UICKeyChainStore (2.0.4)
+  - SSKeychain (1.2.3)
+  - TMCache (1.2.4)
+  - UICKeyChainStore (2.0.5)
   - XMLDictionary (1.4)
 
 DEPENDENCIES:
   - AWSiOSSDKv2
-  - Facebook-iOS-SDK
   - MMDrawerController (~> 0.5.7)
   - SSKeychain
 
 SPEC CHECKSUMS:
-  AWSiOSSDKv2: bcf17afda187f45901b07369f1f59bfbc68922bc
-  Bolts: 3db0a875235e0c9042b013af13af0f00f79b102c
-  Facebook-iOS-SDK: 3d65f685348b789e46a9aacf92bfa85b60b63755
-  FMDB: 0efa188cf0dd1ce82c27a478cd5f5fa245308677
-  GZIP: f27c434ffee5e9a9b34f4e9c19e91350fa8bbde1
-  Mantle: d5fbaf30fbc58031223af13812c060e15934a1fe
-  MMDrawerController: c3ab7a318ddc7e2bcd133139c3161af08c6e1197
-  Reachability: 1ef8adf5c4e3d362f96515d4278f68dad3c26930
-  SSKeychain: cc48bd3ad24fcd9125adb9e0d23dd50b8bbd08b9
-  TMCache: 11589ef8c40909114a5e60132711c9a559e01d97
-  UICKeyChainStore: 2399076d0950e20fe859b8f817548cf6ca542dd7
-  XMLDictionary: 735e81b9a043e220b0d24e9d4f16719606f2e0fc
+  AWSAutoScaling: 5df11d8236950248a01353981a371c858c77988c
+  AWSCloudWatch: 709c2afcd51cd3051b2d21a54f3ed6914f698315
+  AWSCore: c8f48b48a8d5ab3c35171908695cea9a17e6dc82
+  AWSDynamoDB: 1f137de42333fe090e3e6056faad4b6fe7c64496
+  AWSEC2: f4b12a2b8856b186723b65348d26160be8b7ed14
+  AWSElasticLoadBalancing: 9582c102b362d77a0f8d32359bd81c67f1643ce7
+  AWSiOSSDKv2: a9a12fdf09780a51b6443286d55034210f029615
+  AWSKinesis: cddca04f5c17bd4f6058018e2caa5bdd8d0ea9a4
+  AWSS3: 7cb2a3922bd4472f3e4d95a7788d0f2d72bb5e64
+  AWSSES: a575d5b361a6fae5ad0c0b4ca642a6f6577ea9db
+  AWSSimpleDB: ecc253a1285db744f26de1cdf3d3dfd4234be5c0
+  AWSSNS: c5f5bab85da604f937014ddedf2635244f6c382b
+  AWSSQS: a8981633c414d4083cebba2453cd9f2766a611cf
+  Bolts: aac24961496d504aa56fc267cde95162a71bac39
+  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
+  GZIP: f0863fda354e8f83316508c0a2c7bbe385e39129
+  Mantle: 60acd0cd363e27d945bda0a6b8e90577112d28f3
+  MMDrawerController: 7a4cf8e25596bf2434e03ce50d22a8608ddee6a1
+  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
+  SSKeychain: 3f42991739c6c60a9cf1bbd4dff6c0d3694bcf3d
+  TMCache: a93984b045a5ee84bd8941bd5e0b54296059cc52
+  UICKeyChainStore: a389515ca090d4d49780fd563fec961571caa92b
+  XMLDictionary: f9f51601ba76678b594ab485f2b00ec1fed23724
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.36.3
