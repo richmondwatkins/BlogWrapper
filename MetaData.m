@@ -2,7 +2,7 @@
 //  MetaData.m
 //  DailyDoll
 //
-//  Created by Richmond on 2/20/15.
+//  Created by Richmond Watkins on 6/8/15.
 //  Copyright (c) 2015 Richmond. All rights reserved.
 //
 
@@ -13,12 +13,13 @@
 
 @implementation MetaData
 
-@dynamic domain;
-@dynamic name;
-@dynamic url;
-@dynamic projectVariable;
-@dynamic accessoryPages;
-@dynamic email;
 @dynamic appId;
+@dynamic domain;
+@dynamic siteEmail;
+@dynamic siteName;
+@dynamic url;
+@dynamic version;
+@dynamic accessoryPages;
+@dynamic projectVariable;
 
 @end

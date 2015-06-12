@@ -52,11 +52,6 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-
-    return YES;
-}
-
 -(void)webViewDidStartLoad:(UIWebView *)webView {
     NSLog(@"REQUEST %@",webView.request.URL);
 }

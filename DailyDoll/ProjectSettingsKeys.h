@@ -122,7 +122,7 @@ extern NSString *const kMetaData;
 
 extern NSString *const kAccessoryPages;
 
-extern NSString *const kEmail;
+extern NSString *const kSiteEmail;
 
 // Key Chain
 

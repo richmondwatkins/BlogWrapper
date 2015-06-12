@@ -31,7 +31,7 @@ NSString *const kSocialAccountURL = @"accountUrl";
 
 NSString *const kImage = @"Image";
 
-NSString *const kBlogName = @"name";
+NSString *const kBlogName = @"siteName";
 
 NSString *const kInstagramAuthorizationUrl = @"authURL";
 
@@ -94,13 +94,13 @@ NSString *const kInstagramAuthToken = @"InstagramAuthToken";
 
 NSString *const kDomainString = @"domain";
 
-NSString *const kSiteName = @"name";
+NSString *const kSiteName = @"siteName";
 
 NSString *const kMetaData = @"MetaData";
 
 NSString *const kAccessoryPages = @"AccessoryPages";
 
-NSString *const kEmail = @"email";
+NSString *const kSiteEmail = @"siteEmail";
 
 //Key Chain
 

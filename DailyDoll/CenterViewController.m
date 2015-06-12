@@ -102,14 +102,14 @@
 
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
     [super webView:webView shouldStartLoadWithRequest:request navigationType:navigationType];
-    
+
     NSString *domainString = [[APIManager sharedManager] fetchmetaDataVariables:kDomainString];
     
     if ([request.URL.absoluteString containsString:@"googleads"] ||
         [request.URL.absoluteString containsString:@"about:blank"]) {
         return NO;
     }
-
+    
     if (![[request.URL absoluteString] containsString:domainString]) {
         
         ExternalWebModalViewController *externalVC = [[ExternalWebModalViewController alloc] initWithRequest:request];
@@ -139,12 +139,6 @@
     return YES;
 }
 
-
--(void)webViewDidFinishLoad:(UIWebView *)webView {
-
-    [super webViewDidFinishLoad:webView];
-}
-
 - (void)showSideMenu {
 
     [self.drawerController toggleDrawerSide:MMDrawerSideLeft animated:YES completion:nil];
@@ -152,9 +146,9 @@
 
 - (void)presentShareVC:(id)sender {
 
-    [self.drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
+//    [self.drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
     
-//    [self presentViewController:[[SocialStreamViewController alloc] init] animated:YES completion:nil];
+    [self presentViewController:[[SocialStreamViewController alloc] init] animated:YES completion:nil];
 }
 
 - (void)selectedSideMenuItem:(NSString *)urlString {

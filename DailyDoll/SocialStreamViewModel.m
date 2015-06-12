@@ -12,7 +12,6 @@
 @interface SocialStreamViewModel()
 
 @property int promiseCount;
-@property NSMutableArray *socialItems;
 
 @end
 
@@ -33,21 +32,35 @@
     self.socialItems = [NSMutableArray array];
     
     [SocialStreamWebService requestTweets:^(NSArray *results) {
-        for (NSDictionary *post in results) {
-            [self.socialItems addObject:[self formatTwitterPosts:post]];
+        if (results != nil) {
+            for (NSDictionary *post in results) {
+                [self.socialItems addObject:[self formatTwitterPosts:post]];
+            }
         }
+        self.promiseCount += 1;
+        [self reloadTableView];
     }];
     
     [SocialStreamWebService requestFacebookPosts:^(NSArray *results) {
-        for (NSDictionary *post in results) {
-            [self.socialItems addObject:[self formatFacebookPosts:post]];
+        if (results != nil) {
+            for (NSDictionary *post in results) {
+                if (post[@"description"] != nil || post[@"picture"] != nil || post[@"link"] != nil || post[@"message"] != nil) {
+                    [self.socialItems addObject:[self formatFacebookPosts:post]];
+                }
+            }
         }
+        self.promiseCount += 1;
+        [self reloadTableView];
     }];
     
     [SocialStreamWebService requestInstagramPosts:^(NSArray *results) {
-        for (NSDictionary *post in results) {
-           [self.socialItems addObject:[self formatInstagramPosts:post]];
+        if (results != nil) {
+            for (NSDictionary *post in results) {
+                [self.socialItems addObject:[self formatInstagramPosts:post]];
+            }
         }
+        self.promiseCount += 1;
+        [self reloadTableView];
     }];
 }
 
@@ -56,20 +69,28 @@
     NSDictionary *post = [[NSDictionary alloc] initWithObjectsAndKeys:
                           postData[@"caption"][@"text"], @"body",
                           postData[@"images"][@"standard_resolution"][@"url"], @"post-image",
-                          postData[@"caption"][@"created_time"], @"time",
+                          @([postData[@"caption"][@"created_time"]integerValue]), @"time",
                           postData[@"link"], @"link",
+                          @(NO), @"isTwitter",
+                          @(NO), @"isFacebook",
+                          @(YES), @"isInstagram",
                           nil];
     return post;
 }
 
 - (NSDictionary *)formatFacebookPosts:(NSDictionary *)postData {
-    
+    NSLog(@"==============");
+    NSLog(@"%@", postData);
+    NSLog(@"==============");
     NSDictionary *post = [[NSDictionary alloc] initWithObjectsAndKeys:
-                          postData[@"description"], @"body",
+                          @(NO), @"isTwitter",
+                          @(YES), @"isFacebook",
+                          @(NO), @"isInstagram",
+                          postData[@"message"], @"message",
                           postData[@"picture"], @"post-image",
-                          postData[@"created_time"], @"time",
+                          @([postData[@"created_time"] integerValue]), @"time",
                           postData[@"link"], @"link",
-                          postData[@"message"], @"link-message",
+                          postData[@"description"], @"link-description",
                           postData[@"images"][@"picture"], @"link-image",
                           nil];
     
@@ -79,15 +100,35 @@
 - (NSDictionary *)formatTwitterPosts:(NSDictionary *)postData {
     
     NSDictionary *post = [[NSDictionary alloc] initWithObjectsAndKeys:
+                          @(YES), @"isTwitter",
+                          @(NO), @"isFacebook",
+                          @(NO), @"isInstagram",
                           postData[@"text"], @"body",
-                          postData[@"created_at"], @"time",
+                          [self twitterTimeStampToUnix:postData[@"created_at"]], @"time",
                           nil];
+    
     
     return  post;
 }
 
-- (void)reloadTableView {
+- (NSNumber *)twitterTimeStampToUnix:(NSString *)dateString {
     
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"EE LLLL d HH:mm:ss Z yyyy"];
+    double date = [dateFormat dateFromString:dateString].timeIntervalSince1970;
+    
+    return @(date);
+}
+
+- (void)reloadTableView {
+    if (self.promiseCount == 3) {
+        
+        NSSortDescriptor *timeSort = [NSSortDescriptor sortDescriptorWithKey:@"time" ascending:NO];
+        
+        [self.socialItems sortUsingDescriptors:@[timeSort]];
+        
+        [self.delegate reloadTableView];
+    }
 }
 
 @end

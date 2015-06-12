@@ -119,7 +119,7 @@ CGFloat const kAccessoryButtonHeight = 40;
 
 - (void)displayContactView {
 
-    NSString *email = [[APIManager sharedManager] fetchmetaDataVariables:kEmail];
+    NSString *email = [[APIManager sharedManager] fetchmetaDataVariables:kSiteEmail];
 
     NSString *blogTitle = [[APIManager sharedManager] fetchmetaDataVariables:kBlogName];
 

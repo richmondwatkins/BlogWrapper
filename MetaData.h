@@ -2,7 +2,7 @@
 //  MetaData.h
 //  DailyDoll
 //
-//  Created by Richmond on 2/20/15.
+//  Created by Richmond Watkins on 6/8/15.
 //  Copyright (c) 2015 Richmond. All rights reserved.
 //
 
@@ -13,13 +13,14 @@
 
 @interface MetaData : NSManagedObject
 
+@property (nonatomic, retain) NSNumber * appId;
 @property (nonatomic, retain) NSString * domain;
-@property (nonatomic, retain) NSString * email;
-@property (nonatomic, retain) NSString * name;
+@property (nonatomic, retain) NSString * siteEmail;
+@property (nonatomic, retain) NSString * siteName;
 @property (nonatomic, retain) NSString * url;
-@property (nonatomic, retain) ProjectVariable *projectVariable;
+@property (nonatomic, retain) NSNumber * version;
 @property (nonatomic, retain) NSSet *accessoryPages;
-@property (nonatomic, retain) NSNumber *appId;
+@property (nonatomic, retain) ProjectVariable *projectVariable;
 @end
 
 @interface MetaData (CoreDataGeneratedAccessors)

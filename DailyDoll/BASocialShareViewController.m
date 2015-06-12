@@ -87,14 +87,7 @@
 
 }
 
-
--(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-  
-    return YES;
-}
-
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
-
     [super webViewDidFinishLoad:webView];
 
     if ([webView isKindOfClass:[OAuthWebView class]]) {

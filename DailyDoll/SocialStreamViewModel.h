@@ -8,7 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+@protocol SocialStreamProtocol <NSObject>
+
+- (void)reloadTableView;
+
+@end
+
 @interface SocialStreamViewModel : NSObject
 
+@property id<SocialStreamProtocol> delegate;
+@property NSMutableArray *socialItems;
+
 - (instancetype)init;
+
 @end

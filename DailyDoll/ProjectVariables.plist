@@ -91,7 +91,7 @@
 		<dict>
 			<key>appId</key>
 			<integer>1</integer>
-			<key>email</key>
+			<key>siteEmail</key>
 			<string>Lacey@thedailydoll.com</string>
 			<key>AccessoryPages</key>
 			<array>
@@ -108,14 +108,12 @@
 					<string>About Me</string>
 				</dict>
 			</array>
-			<key>BundleId</key>
-			<string>com.apptly.DailyDoll-1</string>
 			<key>domain</key>
 			<string>dailydoll</string>
-			<key>name</key>
+			<key>siteName</key>
 			<string>The Daily Doll</string>
 			<key>url</key>
-			<string>http://thedailydoll.com/</string>
+			<string>http://thedailydoll.com</string>
 		</dict>
 	</dict>
 </dict>

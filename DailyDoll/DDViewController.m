@@ -43,6 +43,10 @@
     self.domainString = [[APIManager sharedManager] fetchmetaDataVariables:kDomainString];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [self.acitivityIndicator stopAnimating];
+}
+
 - (void)removeViewsFromWindow {
 
     NSArray *windowSubViews = [[[UIApplication sharedApplication] keyWindow] subviews];
@@ -60,29 +64,45 @@
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    NSLog(@"==============");
-    NSLog(request.URL.absoluteString);
-    NSLog(@"==============");
-    if ([request.URL.absoluteString containsString:@"googleads"] || [request.URL.absoluteString containsString:@"about:blank"]) {
+    
+    if ([request.URL.absoluteString containsString:@"googleads"] ||
+        [request.URL.absoluteString containsString:@"about:blank"]) {
         return NO;
-    } else {
-        return YES;
     }
+    
+    if ([[request.URL absoluteString] containsString:
+         self.domainString]){
+        if (self.blurOverlay == nil && self.webRequests <= 1) {
+            self.blurOverlay = [[BlurActivityOverlay alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+            self.blurOverlay.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            self.blurOverlay.frame = webView.frame;
+            self.acitivityIndicator = [[CenterVCActivityIndicator alloc] initWithStyle];
+            self.navigationItem.titleView = self.acitivityIndicator;
+            
+            [webView addSubview:self.blurOverlay];
+        }
+    }
+
+    return YES;
 }
 
 -(void)webViewDidStartLoad:(UIWebView *)webView {
     
     self.webRequests ++;
     
-    if (self.blurOverlay == nil && self.webRequests <= 1) {
-        self.blurOverlay = [[BlurActivityOverlay alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
-        self.blurOverlay.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-        self.blurOverlay.frame = webView.bounds;
-        self.acitivityIndicator = [[CenterVCActivityIndicator alloc] initWithStyle];
-        self.navigationItem.titleView = self.acitivityIndicator;
-        
-        [webView addSubview:self.blurOverlay];
+    if ([[webView.request.URL absoluteString] containsString:
+         self.domainString]){
+        if (self.blurOverlay == nil && self.webRequests <= 1) {
+            self.blurOverlay = [[BlurActivityOverlay alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
+            self.blurOverlay.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+            self.blurOverlay.frame = webView.frame;
+            self.acitivityIndicator = [[CenterVCActivityIndicator alloc] initWithStyle];
+            self.navigationItem.titleView = self.acitivityIndicator;
+            
+            [webView addSubview:self.blurOverlay];
+        }
     }
+    
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
@@ -93,15 +113,14 @@
          self.domainString]){
         
         [webView stringByEvaluatingJavaScriptFromString:[NSString stringWithFormat:@"%@", self.javascript]];
+        
+        if (self.webResponses == self.webRequests) {
+            [self.blurOverlay animateAndRemove];
+            self.blurOverlay = nil;
+            self.webRequests = 0;
+            self.webResponses = 0;
+        }
     }
-    
-    if (self.webResponses == self.webRequests) {
-        [self.blurOverlay animateAndRemove];
-        self.blurOverlay = nil;
-        self.webRequests = 0;
-        self.webResponses = 0;
-    }
-
     
     [self.acitivityIndicator stopAnimating];
 

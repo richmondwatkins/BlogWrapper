@@ -12,6 +12,7 @@
 #import "ShareViewController.h"
 #import <Fabric/Fabric.h>
 #import <TwitterKit/TwitterKit.h>
+#import <Crashlytics/Crashlytics.h>
 #import "APIManager.h"
 #import <SSKeychain.h>
 #import <GooglePlus/GooglePlus.h>
@@ -77,6 +78,8 @@
                                              selector:@selector(checkForAndInitializeSocialAccounts)
                                                  name:@"coreDataUpdated" object:nil];
 
+    [Fabric with:@[CrashlyticsKit]];
+    
     return YES;
 }
 
@@ -85,12 +88,13 @@
     [self setUpGooglePlus];
 }
 
-- (void) checkForTwitter {
+- (void)checkForTwitter {
 
     BOOL hasTwitter = [[APIManager sharedManager] siteHasSocialAccount:TWIITER withMoc:self.managedObjectContext];
 
     if (hasTwitter) {
-         [Fabric with:@[TwitterKit]];
+        [[Twitter sharedInstance] startWithConsumerKey:@"lvxOObQTS9IZZu3ta9mRFRtsG" consumerSecret:@"JjNYcpN5eTnIiRxxc9IMfrF9X6yEgubCsNotQWfr6fkdoJnSKj"];
+        [Fabric with:@[[Twitter sharedInstance]]];
     }
 }
 

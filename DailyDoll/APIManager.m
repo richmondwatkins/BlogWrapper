@@ -94,7 +94,8 @@ static APIManager *sharedThemeManager = nil;
 
 - (void)requestAppData:(NSManagedObjectContext *)moc {
     
-    NSURL *url = [NSURL URLWithString:@"http://apptly.us/apps/1"];
+//    NSURL *url = [NSURL URLWithString:@"http://apptly.us/apps/1"];
+    NSURL *url = [NSURL URLWithString:@"http://appify.dev/apps/1"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
@@ -103,7 +104,7 @@ static APIManager *sharedThemeManager = nil;
         
         if (! connectionError) {
             [self deleteMenuContainer:moc];
-            [self deleteSocialContainer:moc];
+            [self deleteProjectContainer:moc];
             
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
             
@@ -117,6 +118,8 @@ static APIManager *sharedThemeManager = nil;
             
             [projectVariable.socialContainer  setSocialItems:[self returnSocialItemSet:json[@"socialData"] withMoc:moc]];
             
+            projectVariable.metaData = [self setMetaData:json[@"metaData"] withMoc:moc];
+            
             [moc save:nil];
             
             [[NSNotificationCenter defaultCenter] postNotificationName:@"coreDataUpdated" object:nil];
@@ -124,15 +127,14 @@ static APIManager *sharedThemeManager = nil;
     }];
 }
 
-- (void)deleteSocialContainer:(NSManagedObjectContext *)moc {
-    
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"SocialContainer"];
+- (void)deleteProjectContainer:(NSManagedObjectContext *)moc {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"ProjectVariable"];
     
     NSError *error = nil;
     NSArray *fetchedObjects = [moc executeFetchRequest:fetchRequest error:&error];
     
     if (fetchedObjects.count > 0) {
-                
+        
         [moc deleteObject:fetchedObjects.firstObject];
     }
 }
@@ -179,7 +181,7 @@ static APIManager *sharedThemeManager = nil;
 
     ProjectVariable *projectVariable = [NSEntityDescription insertNewObjectForEntityForName:@"ProjectVariable" inManagedObjectContext:moc];
 
-    projectVariable.metaData = [self setMetaData:moc];
+    projectVariable.metaData = [self setMetaData:self.projectVariables[kMetaData] withMoc:moc];
 
 
     MenuContainer *menuContainer = [NSEntityDescription insertNewObjectForEntityForName:@"MenuContainer" inManagedObjectContext:moc];
@@ -202,13 +204,18 @@ static APIManager *sharedThemeManager = nil;
     self.themeElementsPlist = nil;
 }
 
-- (MetaData *)setMetaData:(NSManagedObjectContext *)moc {
+- (MetaData *)setMetaData:(NSDictionary *)data withMoc:(NSManagedObjectContext *)moc {
 
     MetaData *metaData = [NSEntityDescription insertNewObjectForEntityForName:kMetaData inManagedObjectContext:moc];
-    metaData.domain = self.projectVariables[kMetaData][kDomainString];
-    metaData.name = self.projectVariables[kMetaData][kSiteName];
-    metaData.url = self.projectVariables[kMetaData][kURLString];
-    metaData.email = self.projectVariables[kMetaData][kEmail];
+    metaData.siteName = data[kSiteName];
+    metaData.url = data[kDomainString];
+    metaData.siteEmail = data[kSiteEmail];
+    metaData.version = data[@"version"];
+    metaData.appId = data[@"appId"];
+    
+    NSURL *siteURL = [NSURL URLWithString:metaData.url];
+    
+    metaData.domain = siteURL.host;
     
     [metaData addAccessoryPages:[self returnAccesorryPages:moc]];
 
@@ -655,7 +662,7 @@ static APIManager *sharedThemeManager = nil;
 
     NSFetchRequest *accountCheck = [[NSFetchRequest alloc] initWithEntityName:@"SocialItem"];
 
-    [accountCheck setPredicate:[NSPredicate predicateWithFormat:@"%@ == %@", kPlatformId, [NSNumber numberWithInt:socialAccount]]];
+    [accountCheck setPredicate:[NSPredicate predicateWithFormat:@"platformId == %@", [NSNumber numberWithInt:socialAccount]]];
 
     NSInteger hasAccount = [moc countForFetchRequest:accountCheck error:nil];
 

@@ -37,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-     self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
+    self.webView = [[UIWebView alloc] initWithFrame:self.view.frame];
 
     self.webView.delegate = self;
 
@@ -61,7 +61,6 @@
 }
 
 - (void)setUpShareSlideUpView {
-
     if ([[APIManager sharedManager] projectHasSocialAccounts]) {
 
         self.shareSlideUp = [[ShareViewSlider alloc] initWithFrameAndStyle:self.view.frame];
@@ -70,8 +69,6 @@
 
         [self.view addSubview:self.shareSlideUp];
     }
-    
-    
 }
 
 - (void)oAuthSetUpDelegate:(int)socialOAuth {
@@ -80,7 +77,6 @@
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
-
     [super webViewDidFinishLoad:webView];
     
     [self.shareSlideUp animateOntoScreen];

@@ -16,8 +16,8 @@
 
 + (void)requestTweets:(void (^)(NSArray *results))callback {
     
-    [Fabric with:@[TwitterKit]];
     __weak typeof(self) weakSelf = self;
+    
     [TwitterKit logInGuestWithCompletion:^(TWTRGuestSession *guestSession, NSError *error) {
         if (guestSession) {
             
@@ -42,6 +42,7 @@
             }];
             
         } else {
+            callback(nil);
             NSLog(@"Unable to log in as guest: %@", [error localizedDescription]);
         }
     }];
@@ -54,17 +55,21 @@
                                                                           ofType:@"plist"]][kFacebookAuthToken];
     
     NSString *facebookID = [[APIManager sharedManager] fetchSocialItem:FACEBOOK withProperty:kSocialClientId];
-    NSString *urlString = [NSString stringWithFormat:@"https://graph.facebook.com/%@/feed?access_token=%@", facebookID, facebookAuthToken];
+    NSString *urlString = [NSString stringWithFormat:@"https://graph.facebook.com/%@/feed?date_format=U&access_token=%@", facebookID, facebookAuthToken];
     NSString *encodedUrlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 
     NSURL *url = [NSURL URLWithString:encodedUrlString];
     
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:url] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
-                                                             options:NSJSONReadingAllowFragments error:nil];
-        
-        callback(json[@"data"]);
+        if (!connectionError) {
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                                 options:NSJSONReadingAllowFragments error:nil];
+            
+            callback(json[@"data"]);
+        } else {
+            callback(nil);
+        }
     }];
 
 }
@@ -84,12 +89,15 @@
     
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:url] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
-                                                             options:NSJSONReadingAllowFragments error:nil];
-        
-        callback(json[@"data"]);
+        if (!connectionError) {
+            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data
+                                                                 options:NSJSONReadingAllowFragments error:nil];
+            
+            callback(json[@"data"]);
+        } else {
+            callback(nil);
+        }
     }];
-    
 }
 
 @end
