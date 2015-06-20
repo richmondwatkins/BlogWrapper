@@ -67,7 +67,7 @@
 - (NSDictionary *)formatInstagramPosts:(NSDictionary *)postData {
     
     NSDictionary *post = [[NSDictionary alloc] initWithObjectsAndKeys:
-                          postData[@"caption"][@"text"], @"body",
+                          postData[@"caption"][@"text"], @"message",
                           postData[@"images"][@"standard_resolution"][@"url"], @"post-image",
                           @([postData[@"caption"][@"created_time"]integerValue]), @"time",
                           postData[@"link"], @"link",
@@ -79,9 +79,7 @@
 }
 
 - (NSDictionary *)formatFacebookPosts:(NSDictionary *)postData {
-    NSLog(@"==============");
-    NSLog(@"%@", postData);
-    NSLog(@"==============");
+
     NSDictionary *post = [[NSDictionary alloc] initWithObjectsAndKeys:
                           @(NO), @"isTwitter",
                           @(YES), @"isFacebook",
@@ -103,7 +101,7 @@
                           @(YES), @"isTwitter",
                           @(NO), @"isFacebook",
                           @(NO), @"isInstagram",
-                          postData[@"text"], @"body",
+                          postData[@"text"], @"message",
                           [self twitterTimeStampToUnix:postData[@"created_at"]], @"time",
                           nil];
     

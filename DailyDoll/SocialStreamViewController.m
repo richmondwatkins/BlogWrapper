@@ -9,6 +9,8 @@
 #import "SocialStreamViewController.h"
 #import "APIManager.h"
 #import "SocialStreamViewModel.h"
+#import "FacebookTableViewCell.h"
+
 @interface SocialStreamViewController () <SocialStreamProtocol, UITableViewDataSource, UITableViewDelegate>
 
 @property SocialStreamViewModel *viewModel;
@@ -48,19 +50,48 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SocialCell"];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] init];
-    }
-    
     NSDictionary *socialItem = self.viewModel.socialItems[indexPath.row];
     
-    if (socialItem[@"isFacebook"]) {
+    UITableViewCell *cell;
+    
+    if ([socialItem[@"isFacebook"] boolValue]) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"FacebookCell"];
+        
+        if (cell == nil) {
+            cell = [[FacebookTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"FacebookCell"];
+            
+            cell.backgroundColor = [UIColor blueColor];
+        }
+
         cell.textLabel.text = socialItem[@"message"];
+    } else {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"SocialCell"];
+        
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"SocialCell"];
+        }
+        
+         cell.textLabel.text = socialItem[@"message"];
+        
+        cell.backgroundColor = [UIColor whiteColor];
     }
     
     return cell;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (self.viewModel.socialItems.count > 0) {
+        NSDictionary *socialItem = self.viewModel.socialItems[indexPath.row];
+        
+        if ([socialItem[@"isFacebook"] boolValue]) {
+            if (socialItem[@"post-image"] != nil) {                
+                return 200;
+            }
+        }
+    }
+    
+    return 30;
 }
 
 @end

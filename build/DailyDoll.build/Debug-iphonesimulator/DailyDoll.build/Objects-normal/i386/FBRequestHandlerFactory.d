@@ -1,0 +1,26 @@
+dependencies: \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Network/FBRequestHandlerFactory.m \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Network/FBRequestHandlerFactory.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBRequestConnection.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBGraphObject.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBSDKMacros.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBAccessTokenData.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBSession.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Insights/FBAppEvents+Internal.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBAppEvents.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKMacros.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBError.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Core/FBErrorUtility+Internal.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBErrorUtility.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Network/FBRequest+Internal.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBRequest.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBOpenGraphAction.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBOpenGraphObject.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Network/FBRequestConnection+Internal.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Network/FBRequestMetadata.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Network/FBRequestConnectionRetryManager.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Login/FBSession+Internal.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Login/FBSessionAppEventsState.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Login/FBSystemAccountStoreAdapter.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBTask/FBTask.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBTask/FBTaskCompletionSource.h

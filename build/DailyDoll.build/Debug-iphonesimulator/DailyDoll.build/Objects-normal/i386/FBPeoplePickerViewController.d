@@ -1,0 +1,25 @@
+dependencies: \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/UI/FBPeoplePickerViewController.m \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBPeoplePickerViewController.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBGraphObjectPickerViewController.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBGraphObject.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBSession.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBSDKMacros.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBViewController.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/UI/FBPeoplePickerViewController+Internal.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBError.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/ImageResources/FBFriendPickerViewDefaultPNG.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/UI/FBGraphObjectPickerViewController+Internal.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Network/FBGraphObjectPagingLoader.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Network/FBGraphObjectTableDataSource.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Network/FBGraphObjectTableCell.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Network/FBGraphObjectTableSelection.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBGraphPerson.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBRequest.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBOpenGraphAction.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBOpenGraphObject.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBRequestConnection.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Core/FBUtility.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Core/FBFetchedAppSettings.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Core/FBLogger.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKMacros.h

@@ -18,6 +18,9 @@
 #import "PushRequestViewController.h"
 #import "DetailViewController.h"
 #import "SocialStreamViewController.h"
+#import <Fabric/Fabric.h>
+#import <TwitterKit/TwitterKit.h>
+#import <Crashlytics/Crashlytics.h>
 
 @interface CenterViewController () <UIWebViewDelegate, SideMenuProtocol, ShareSliderProtocol>
 
@@ -136,6 +139,7 @@
 
     [self removeWindowViews];
 
+    
     return YES;
 }
 
@@ -146,9 +150,9 @@
 
 - (void)presentShareVC:(id)sender {
 
-//    [self.drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
+    [self.drawerController toggleDrawerSide:MMDrawerSideRight animated:YES completion:nil];
     
-    [self presentViewController:[[SocialStreamViewController alloc] init] animated:YES completion:nil];
+//    [self presentViewController:[[SocialStreamViewController alloc] init] animated:YES completion:nil];
 }
 
 - (void)selectedSideMenuItem:(NSString *)urlString {

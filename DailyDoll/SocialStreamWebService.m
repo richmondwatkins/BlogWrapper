@@ -16,6 +16,12 @@
 
 + (void)requestTweets:(void (^)(NSArray *results))callback {
     
+    __weak typeof(self) weakSelf = self;
+    
+    [[Twitter sharedInstance] logInGuestWithCompletion:^(TWTRGuestSession *guestSession, NSError *error) {
+        
+    }];
+    
     [TwitterKit logInGuestWithCompletion:^(TWTRGuestSession *guestSession, NSError *error) {
         if (guestSession) {
             
@@ -26,24 +32,23 @@
             
             NSError *clientError;
             NSURLRequest *request = [[[Twitter sharedInstance] APIClient]
-                                      URLRequestWithMethod:@"GET"
-                                      URL:[NSString stringWithFormat:@"https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=%@&count=10", twitterAccountName]
-                                      parameters:params
-                                      error:&clientError];
+                                     URLRequestWithMethod:@"GET"
+                                     URL:[NSString stringWithFormat:@"https://api.twitter.com/1.1/statuses/user_timeline.json?screen_name=%@&count=10", twitterAccountName]
+                                     parameters:params
+                                     error:&clientError];
             
-            [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+            [[[Twitter sharedInstance] APIClient] sendTwitterRequest:request completion:^(NSURLResponse *urlResponse, NSData *data, NSError *connectionError) {
                 
                 NSArray *jsonArray = [NSJSONSerialization JSONObjectWithData:data
-                                                                options:NSJSONReadingAllowFragments error:nil];
+                                                                     options:NSJSONReadingAllowFragments error:nil];
                 
                 callback(jsonArray);
+                
             }];
-            
-        } else {
-            callback(nil);
-            NSLog(@"Unable to log in as guest: %@", [error localizedDescription]);
         }
     }];
+
+   
 }
 
 + (void)requestFacebookPosts:(void (^)(NSArray *results))callback {
@@ -70,6 +75,9 @@
         }
     }];
 
+     NSString *tester = [NSString stringWithFormat:@"https://graph.facebook.com/v2.3/%@/picture", facebookID];
+    
+    NSLog(@"%@", tester);
 }
 
 + (void)requestInstagramPosts:(void (^)(NSArray *results))callback {

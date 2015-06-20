@@ -1,0 +1,24 @@
+dependencies: \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequest.m \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/Internal/Network/FBSDKGraphRequest+Internal.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequest.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequestConnection.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKMacros.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKAccessToken.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKCopying.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKCoreKit.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppEvents.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKAppLinkUtility.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKApplicationDelegate.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKConstants.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKMutableCopying.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKProfile.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKProfilePictureView.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKSettings.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKUtility.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequestDataAttachment.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKInternalUtility.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKLogger.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKSettings+Internal.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/Internal/TokenCaching/FBSDKAccessTokenCache.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/Internal/TokenCaching/FBSDKAccessTokenCaching.h

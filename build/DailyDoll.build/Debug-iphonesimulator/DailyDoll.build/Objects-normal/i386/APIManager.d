@@ -1,0 +1,19 @@
+dependencies: \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/APIManager.m \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/APIManager.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/UIColor+UIColor_Expanded.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/ProjectSettingsKeys.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/Notification.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/ThemeContainer.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/ThemeItem.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/ProjectVariable.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/SocialContainer.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/MetaData.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/Button.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/AccessoryPage.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/SocialItem.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/MenuContainer.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/MenuGroup.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/MenuItem.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/NSDate+Additions.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/AppDelegate.h

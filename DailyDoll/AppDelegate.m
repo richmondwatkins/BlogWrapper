@@ -96,6 +96,11 @@
         [[Twitter sharedInstance] startWithConsumerKey:@"lvxOObQTS9IZZu3ta9mRFRtsG" consumerSecret:@"JjNYcpN5eTnIiRxxc9IMfrF9X6yEgubCsNotQWfr6fkdoJnSKj"];
         [Fabric with:@[[Twitter sharedInstance]]];
     }
+    
+#if DEBUG
+    [[Twitter sharedInstance] startWithConsumerKey:@"lvxOObQTS9IZZu3ta9mRFRtsG" consumerSecret:@"JjNYcpN5eTnIiRxxc9IMfrF9X6yEgubCsNotQWfr6fkdoJnSKj"];
+    [Fabric with:@[[Twitter sharedInstance]]];
+#endif
 }
 
 

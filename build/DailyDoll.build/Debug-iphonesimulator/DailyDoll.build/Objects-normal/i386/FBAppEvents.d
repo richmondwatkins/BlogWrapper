@@ -1,0 +1,30 @@
+dependencies: \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Insights/FBAppEvents.m \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBAppEvents.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBSDKMacros.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBSession.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Insights/FBAppEvents+Internal.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKMacros.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBError.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Core/FBLogger.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Insights/FBPaymentObserver.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Network/FBRequest+Internal.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBRequest.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBGraphObject.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBOpenGraphAction.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBOpenGraphObject.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBRequestConnection.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Login/FBSession+Internal.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Login/FBSessionAppEventsState.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Login/FBSystemAccountStoreAdapter.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBTask/FBTask.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBTask/FBTaskCompletionSource.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Legacy/FBSessionManualTokenCachingStrategy.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBSessionTokenCachingStrategy.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBAccessTokenData.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Core/FBSettings+Internal.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Core/FBInternalSettings.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBSettings.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Insights/FBTimeSpentData.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Core/FBUtility.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Core/FBFetchedAppSettings.h

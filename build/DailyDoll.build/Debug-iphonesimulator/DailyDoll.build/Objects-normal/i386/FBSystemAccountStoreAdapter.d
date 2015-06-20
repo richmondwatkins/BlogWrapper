@@ -1,0 +1,20 @@
+dependencies: \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Login/FBSystemAccountStoreAdapter.m \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Login/FBSystemAccountStoreAdapter.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Login/FBSession+Internal.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/FBSDKCoreKit/FBSDKCoreKit/FBSDKMacros.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBSession.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBSDKMacros.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Login/FBSessionAppEventsState.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBTask/FBTask.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBTask/FBTaskCompletionSource.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBAccessTokenData.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Core/FBDynamicFrameworkLoader.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBError.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Core/FBErrorUtility+Internal.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBErrorUtility.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Core/FBInternalSettings.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/FBSettings.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Core/FBLogger.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Core/FBUtility.h \
+  /Users/richmondwatkins/Documents/Code/BlogWrapper/DailyDoll/FacebookiOSSDK/src/Core/FBFetchedAppSettings.h

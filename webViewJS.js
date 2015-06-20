@@ -9,7 +9,7 @@
     
     
     if(document.getElementsByClassName('comment-respond')[0]){
-        document.getElementsByClassName('content')[0].style.marginTop = '-80px';
+        document.getElementsByClassName('content')[0].style.marginTop = '-90px';
     }
     
     document.getElementById('wdpu-text').style.display = 'none';

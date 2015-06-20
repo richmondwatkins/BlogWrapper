@@ -22,6 +22,7 @@
 		5D27CB751A91B65B006958F3 /* ShareViewSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27CB741A91B65B006958F3 /* ShareViewSlider.m */; };
 		5D28D8D01ADB287400841F28 /* NSDate+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D28D8CF1ADB287400841F28 /* NSDate+Additions.m */; };
 		5D28D8D31ADB484600841F28 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D28D8D21ADB484600841F28 /* NSDate+Helper.m */; settings = {COMPILER_FLAGS = "-w"; }; };
+		5D3166561B2CA0EC00977BDC /* FacebookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3166551B2CA0EC00977BDC /* FacebookTableViewCell.m */; };
 		5D466B931B1B92300010CE39 /* SocialStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D466B921B1B92300010CE39 /* SocialStreamViewController.m */; };
 		5D466B961B1B97A40010CE39 /* SocialStreamViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D466B951B1B97A40010CE39 /* SocialStreamViewModel.m */; };
 		5D466B991B1B97BE0010CE39 /* SocialStreamWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D466B981B1B97BE0010CE39 /* SocialStreamWebService.m */; };
@@ -372,6 +373,8 @@
 		5D28D8CF1ADB287400841F28 /* NSDate+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDate+Additions.m"; path = "../NSDate+Additions.m"; sourceTree = "<group>"; };
 		5D28D8D11ADB484600841F28 /* NSDate+Helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Helper.h"; sourceTree = "<group>"; };
 		5D28D8D21ADB484600841F28 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
+		5D3166541B2CA0EC00977BDC /* FacebookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookTableViewCell.h; sourceTree = "<group>"; };
+		5D3166551B2CA0EC00977BDC /* FacebookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookTableViewCell.m; sourceTree = "<group>"; };
 		5D466B911B1B92300010CE39 /* SocialStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialStreamViewController.h; sourceTree = "<group>"; };
 		5D466B921B1B92300010CE39 /* SocialStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialStreamViewController.m; sourceTree = "<group>"; };
 		5D466B941B1B97A40010CE39 /* SocialStreamViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialStreamViewModel.h; sourceTree = "<group>"; };
@@ -1147,9 +1150,28 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		5D3166521B2C98C000977BDC /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				5DC277901B2A8E4B0008AA4B /* FacebookiOSSDK */,
+			);
+			name = Submodules;
+			path = DailyDollTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		5D3166531B2CA0CD00977BDC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5D3166541B2CA0EC00977BDC /* FacebookTableViewCell.h */,
+				5D3166551B2CA0EC00977BDC /* FacebookTableViewCell.m */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
 		5D466B901B1B92180010CE39 /* SocialStream */ = {
 			isa = PBXGroup;
 			children = (
+				5D3166531B2CA0CD00977BDC /* Cells */,
 				5D466B911B1B92300010CE39 /* SocialStreamViewController.h */,
 				5D466B921B1B92300010CE39 /* SocialStreamViewController.m */,
 				5D466B941B1B97A40010CE39 /* SocialStreamViewModel.h */,
@@ -1309,7 +1331,8 @@
 				5DC278AA1B2A8E4B0008AA4B /* README.mdown */,
 				5DC278AB1B2A8E4B0008AA4B /* src */,
 			);
-			path = FacebookiOSSDK;
+			name = FacebookiOSSDK;
+			path = ../DailyDoll/FacebookiOSSDK;
 			sourceTree = "<group>";
 		};
 		5DC277911B2A8E4B0008AA4B /* FBSDKCoreKit */ = {
@@ -2153,7 +2176,6 @@
 		5DDA1B1B1A7F383C00914761 /* DailyDoll */ = {
 			isa = PBXGroup;
 			children = (
-				5DC277901B2A8E4B0008AA4B /* FacebookiOSSDK */,
 				5D466B901B1B92180010CE39 /* SocialStream */,
 				5D9C594C1AA8D06F00E73EF3 /* BATableViewCell.h */,
 				5D9C594D1AA8D06F00E73EF3 /* BATableViewCell.m */,
@@ -2180,6 +2202,7 @@
 				5D62FD661A8AF1680022671F /* DataModel.xcdatamodeld */,
 				5DDA1B2B1A7F383C00914761 /* LaunchScreen.xib */,
 				5DA64CD41A847A7A004F08A8 /* HeaderView.xib */,
+				5D3166521B2C98C000977BDC /* Submodules */,
 			);
 			path = DailyDoll;
 			sourceTree = "<group>";
@@ -2694,6 +2717,7 @@
 				5DC27A351B2A8E4C0008AA4B /* FBDataDiskCache.m in Sources */,
 				5DC279CB1B2A8E4C0008AA4B /* FBSDKAppEventsState.m in Sources */,
 				5DC27A101B2A8E4C0008AA4B /* FBSDKLikeObjectType.m in Sources */,
+				5D3166561B2CA0EC00977BDC /* FacebookTableViewCell.m in Sources */,
 				5DC27A881B2A8E4C0008AA4B /* FBFriendPickerViewController.m in Sources */,
 				5DC279D71B2A8E4C0008AA4B /* FBSDKBridgeAPIProtocolWebV2.m in Sources */,
 				5DC27A551B2A8E4C0008AA4B /* FBFriendPickerViewDefaultPNG.m in Sources */,

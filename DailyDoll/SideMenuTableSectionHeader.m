@@ -36,6 +36,7 @@
                 self.backgroundColor = [UIColor colorWithHexString:@"dabb82"];
                 break;
             default:
+                 self.backgroundColor = [UIColor colorWithHexString:@"dabb82"];
                 break;
         }
         //beauty c392b0

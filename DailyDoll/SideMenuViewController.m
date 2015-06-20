@@ -247,13 +247,13 @@ int const kTopButtonPadding = 4;
     }
     // Insert the rows
     [tableView insertRowsAtIndexPaths:indexPaths
-                     withRowAnimation:UITableViewRowAnimationMiddle];
+                     withRowAnimation:UITableViewRowAnimationLeft];
     
     menuItem.isExpanded = [NSNumber numberWithBool:YES];
 
-    NSArray *sectionArray = self.dataSource[indexPath.section];
-    
-    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:sectionArray.count + menuItems.count - 3 inSection:indexPath.section] atScrollPosition:UITableViewScrollPositionTop animated:true];
+//    NSArray *sectionArray = self.dataSource[indexPath.section];
+//    
+//    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:sectionArray.count + menuItems.count - 3 inSection:indexPath.section] atScrollPosition:UITableViewScrollPositionTop animated:true];
 }
 
 - (void)collapseCellsFromIndexOf:(MenuItem *)menuItem indexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView itemArray:(NSMutableArray *)menuItems
@@ -275,7 +275,7 @@ int const kTopButtonPadding = 4;
     }
 
     [tableView deleteRowsAtIndexPaths:indexPaths
-                     withRowAnimation:UITableViewRowAnimationTop];
+                     withRowAnimation:UITableViewRowAnimationFade];
     
       menuItem.isExpanded = [NSNumber numberWithBool:NO];    
 }

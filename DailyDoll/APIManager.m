@@ -99,6 +99,7 @@ static APIManager *sharedThemeManager = nil;
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
+    [request setValue:@"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXUyJ9.eyJzdWIiOjEsImlzcyI6Imh0dHA6XC9cL2FwcGlmeS5kZXZcL3Rlc3RlciIsImlhdCI6IjE0MzQ0MjMxODkiLCJleHAiOiIxNDM0NDI2Nzg5IiwibmJmIjoiMTQzNDQyMzE4OSIsImp0aSI6Ijk5MDAwMzMwNmMzYjJlYjkxMmFmNmM1MjMxM2E0MmJhIn0.OTI0Mjk4NmM1N2E3ZGEwMDBlODUzMDdhYTAyMDA0NjU0NTExZGE0MjQwMjUzZmEzYTJjYWQ3ZjBlZGZmZWNhOA" forHTTPHeaderField:@"Authorization"];
     
     [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         
@@ -568,8 +569,14 @@ static APIManager *sharedThemeManager = nil;
     for (MenuGroup *menuGroup in results) {
         NSMutableArray *groupArray = [NSMutableArray array];
         
-        [groupArray insertObject:menuGroup atIndex:0];
-    
+        if (!menuGroup.isHeader.boolValue) {
+            MenuGroup *dummyHeader = [[MenuGroup alloc] init];
+            
+            [groupArray insertObject:dummyHeader atIndex:0];
+        } else {
+            [groupArray insertObject:menuGroup atIndex:0];
+        }
+        
         NSMutableArray *menuItemsArr = [NSMutableArray arrayWithArray:menuGroup.menuItems.allObjects];
         
         NSSortDescriptor *menuSorter = [NSSortDescriptor sortDescriptorWithKey:@"position" ascending:YES];
