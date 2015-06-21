@@ -11,18 +11,6 @@
 
 @implementation SideMenuTableViewCell
 
-
-- (void)addTextToMenu:(MenuItem *)menuItem {
-
-    self.textLabel.text = [menuItem.title uppercaseString];
-
-    self.textLabel.textAlignment = NSTextAlignmentCenter;
-
-    NSString *fontName = [[APIManager sharedManager] fetchThemeItem:SIDEMENUCELL withProperty:kFontFamily];
-
-    [self.textLabel setFont:[UIFont fontWithName:fontName size:18]];
-}
-
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
 
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
@@ -35,17 +23,46 @@
     return self;
 }
 
-
-
-- (void)awakeFromNib {
+- (void)configureCell:(MenuItem *)menuItem {
+    
+    self.textLabel.text = [menuItem.title uppercaseString];
+    
+    self.textLabel.textAlignment = NSTextAlignmentCenter;
+    
+    NSString *fontName = [[APIManager sharedManager] fetchThemeItem:SIDEMENUCELL withProperty:kFontFamily];
+    
+    [self.textLabel setFont:[UIFont fontWithName:fontName size:18]];
+    
+    if (menuItem.isHeader.boolValue) {
+        [self setUpSectionHeader:menuItem];
+    }
+    
+    if (menuItem.collapsable.boolValue) {
+        self.selectionStyle = UITableViewCellSelectionStyleNone;
+    } else {
+        self.selectionStyle = UITableViewCellSelectionStyleDefault;
+    }
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+- (void)setUpSectionHeader:(MenuItem *)menuItem {
 
-    // Configure the view for the selected state
+    self.textLabel.textColor = [UIColor whiteColor];
+    
+    if ([menuItem.title isEqualToString:@"THE LIFE STUFF"]) {
+        self.backgroundColor = [UIColor colorWithHexString:@"7b7285"];
+     
+    } else if([menuItem.title isEqualToString:@"THE WELLNESS STUFF"]) {
+        self.backgroundColor = [UIColor colorWithHexString:@"22756b"];
+    } else {
+        self.backgroundColor = [UIColor colorWithHexString:@"b7a7cb"];
+    }
+    
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+     //beauty c392b0
+    //wellness 22756b
+    //life stuff b7a7cb
 }
-
 
 
 @end

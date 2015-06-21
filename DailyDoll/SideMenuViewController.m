@@ -13,8 +13,6 @@
 #import "SideMenuTableView.h"
 #import "SideMenuTableHeaderView.h"
 #import "SideMenuHeaderImageView.h"
-#import "SideMenuTableSectionHeader.h"
-#import "SideMenuTableSectionLabel.h"
 #import "APIManager.h"
 #import "AccessoryPagesView.h"
 #import "NotificationViewController.h"
@@ -53,7 +51,6 @@ int const kTopButtonPadding = 4;
     [self setUpHeaderView];
 
     self.tableView.delegate = self;
-    
     self.tableView.dataSource = self;
 
     [self.view addSubview:self.tableView];
@@ -169,24 +166,7 @@ int const kTopButtonPadding = 4;
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return ((NSMutableArray *)self.dataSource[section][1]).count;
-}
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-
     return self.dataSource.count;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-
-    SideMenuTableSectionHeader *view = [[SideMenuTableSectionHeader alloc] initWithParentFrame:self.view.frame andMenuItem:self.dataSource[section][0]];
-
-    return view;
-}
-
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-
-    return [self.dataSource[section][0] valueForKey:@"title"];
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -198,40 +178,50 @@ int const kTopButtonPadding = 4;
                                             reuseIdentifier: @"cell"];
     }
 
-    MenuItem *menuItem = ((NSMutableArray*) self.dataSource[indexPath.section])[1][indexPath.row];
+    MenuItem *menuItem = self.dataSource[indexPath.row];
 
-    [cell addTextToMenu: menuItem];
+    [cell configureCell: menuItem];
 
     return cell;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    MenuItem *menuItem = ((NSMutableArray*) self.dataSource[indexPath.section])[1][indexPath.row];
-    
-    NSMutableArray *menuItemArray = ((NSMutableArray*) self.dataSource[indexPath.section])[1];
+    MenuItem *menuItem = self.dataSource[indexPath.row];
     
     if (menuItem.children.count > 0) {
         if (menuItem.isExpanded.boolValue) {
-            [self collapseCellsFromIndexOf:menuItem indexPath:indexPath tableView:tableView itemArray:menuItemArray];
+            [self collapseCellsFromIndexOf:menuItem indexPath:indexPath tableView:tableView];
         } else {
-            [self expandCellsFromIndexOf:menuItem tableView:tableView indexPath:indexPath itemArray:menuItemArray];
+            [self expandCellsFromIndexOf:menuItem tableView:tableView indexPath:indexPath];
         }
+        
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
+        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
     } else {
         
         [self.delegate selectedSideMenuItem:menuItem.url];
         
         [self closeDrawController];
     }
-
 }
 
-- (void)expandCellsFromIndexOf:(MenuItem *)menuItem tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath itemArray:(NSMutableArray *)menuItems
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+     MenuItem *menuItem = self.dataSource[indexPath.row];
+    
+    if (menuItem.isHeader.boolValue) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (void)expandCellsFromIndexOf:(MenuItem *)menuItem tableView:(UITableView *)tableView indexPath:(NSIndexPath *)indexPath
 {
     int i = 0;
     
     for (MenuItem *childItem in menuItem.children.allObjects) {
-        [menuItems insertObject:childItem atIndex:indexPath.row+i+1];
+        [self.dataSource insertObject:childItem atIndex:indexPath.row+i+1];
         i++;
     }
   
@@ -247,16 +237,12 @@ int const kTopButtonPadding = 4;
     }
     // Insert the rows
     [tableView insertRowsAtIndexPaths:indexPaths
-                     withRowAnimation:UITableViewRowAnimationLeft];
+                     withRowAnimation:UITableViewRowAnimationFade];
     
-    menuItem.isExpanded = [NSNumber numberWithBool:YES];
-
-//    NSArray *sectionArray = self.dataSource[indexPath.section];
-//    
-//    [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:sectionArray.count + menuItems.count - 3 inSection:indexPath.section] atScrollPosition:UITableViewScrollPositionTop animated:true];
+    menuItem.isExpanded = [NSNumber numberWithBool:YES];    
 }
 
-- (void)collapseCellsFromIndexOf:(MenuItem *)menuItem indexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView itemArray:(NSMutableArray *)menuItems
+- (void)collapseCellsFromIndexOf:(MenuItem *)menuItem indexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView
 {
     // Find the number of childrens opened under the parent recursively as there can be expanded children also
     int collapseCol = (int) menuItem.children.count;
@@ -264,7 +250,7 @@ int const kTopButtonPadding = 4;
     // Find the range from the parent index and the length to be removed.
     NSRange collapseRange = NSMakeRange(indexPath.row + 1, collapseCol);
     // Remove all the objects in that range from the main array so that number of rows are maintained properly
-    [menuItems removeObjectsInRange:collapseRange];
+    [self.dataSource removeObjectsInRange:collapseRange];
     
     // Create index paths for the number of rows to be removed
     NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
@@ -282,8 +268,14 @@ int const kTopButtonPadding = 4;
 
 //TODO resize based on view height down to certain point then use min height
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    return (self.tableView.frame.size.height / 4) / self.dataSource.count;
+    
+    MenuItem *menuTime = self.dataSource[indexPath.row];
+    
+    if (menuTime.isHeader.boolValue) {
+        return 30;
+    }
+    
+    return 40;
 }
 
 

@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5D06F8551AEC528B00E80A01 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D06F8541AEC528B00E80A01 /* MenuItem.m */; };
-		5D06F8581AEC528C00E80A01 /* MenuContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D06F8571AEC528C00E80A01 /* MenuContainer.m */; };
-		5D06F85B1AEC528C00E80A01 /* MenuGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D06F85A1AEC528C00E80A01 /* MenuGroup.m */; };
 		5D0B704E1A8D44CF008AF923 /* OAuthSignInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0B704D1A8D44CF008AF923 /* OAuthSignInView.m */; };
 		5D0EDAB41A830196007DE68D /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0EDAB31A830196007DE68D /* SideMenuViewController.m */; };
 		5D0F177E1A86A1FC00AAE285 /* SocialSharingActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0F177D1A86A1FC00AAE285 /* SocialSharingActionController.m */; };
@@ -36,6 +33,8 @@
 		5D6C98661A8D059700EB408E /* ThemeContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6C98651A8D059700EB408E /* ThemeContainer.m */; };
 		5D6C98691A8D059700EB408E /* ThemeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6C98681A8D059700EB408E /* ThemeItem.m */; };
 		5D7506001B110F7C003E7533 /* SocialItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7505FF1B110F7C003E7533 /* SocialItem.m */; };
+		5D7B337D1B36064600D69BD2 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B337C1B36064600D69BD2 /* MenuItem.m */; };
+		5D7B33801B36064700D69BD2 /* MenuContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D7B337F1B36064700D69BD2 /* MenuContainer.m */; };
 		5D7F6B3E1A898EC600A207CD /* Pinterest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7F6B3B1A898EC600A207CD /* Pinterest.framework */; };
 		5D7F6B3F1A898EC600A207CD /* PinterestSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5D7F6B3D1A898EC600A207CD /* PinterestSDKResources.bundle */; };
 		5D7F6B5C1A8A893800A207CD /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7F6B591A8A893800A207CD /* TwitterKit.framework */; };
@@ -310,8 +309,6 @@
 		5DDA1B2A1A7F383C00914761 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA1B291A7F383C00914761 /* Images.xcassets */; };
 		5DDA1B2D1A7F383C00914761 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA1B2B1A7F383C00914761 /* LaunchScreen.xib */; };
 		5DDA1B391A7F383C00914761 /* DailyDollTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA1B381A7F383C00914761 /* DailyDollTests.m */; };
-		5DDA3D981A85CA8A00FD085A /* SideMenuTableSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3D971A85CA8A00FD085A /* SideMenuTableSectionHeader.m */; };
-		5DDA3D9B1A85CC0500FD085A /* SideMenuTableSectionLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3D9A1A85CC0500FD085A /* SideMenuTableSectionLabel.m */; };
 		5DDA3DA51A85D39500FD085A /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DA41A85D39500FD085A /* APIManager.m */; };
 		5DDA3DAC1A85E67700FD085A /* ProjectVariables.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA3DAB1A85E67700FD085A /* ProjectVariables.plist */; };
 		5DDA3DAF1A85EE4900FD085A /* CenterVCActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DAE1A85EE4900FD085A /* CenterVCActivityIndicator.m */; };
@@ -346,12 +343,6 @@
 
 /* Begin PBXFileReference section */
 		579988490B7E0E905A16D25A /* libPods-DailyDoll.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DailyDoll.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5D06F8531AEC528B00E80A01 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
-		5D06F8541AEC528B00E80A01 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
-		5D06F8561AEC528C00E80A01 /* MenuContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuContainer.h; sourceTree = "<group>"; };
-		5D06F8571AEC528C00E80A01 /* MenuContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuContainer.m; sourceTree = "<group>"; };
-		5D06F8591AEC528C00E80A01 /* MenuGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuGroup.h; sourceTree = "<group>"; };
-		5D06F85A1AEC528C00E80A01 /* MenuGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuGroup.m; sourceTree = "<group>"; };
 		5D0B704C1A8D44CF008AF923 /* OAuthSignInView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthSignInView.h; sourceTree = "<group>"; };
 		5D0B704D1A8D44CF008AF923 /* OAuthSignInView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthSignInView.m; sourceTree = "<group>"; };
 		5D0EDAB21A830196007DE68D /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
@@ -397,6 +388,10 @@
 		5D6C98681A8D059700EB408E /* ThemeItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThemeItem.m; sourceTree = "<group>"; };
 		5D7505FE1B110F7C003E7533 /* SocialItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialItem.h; sourceTree = "<group>"; };
 		5D7505FF1B110F7C003E7533 /* SocialItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialItem.m; sourceTree = "<group>"; };
+		5D7B337B1B36064600D69BD2 /* MenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuItem.h; sourceTree = "<group>"; };
+		5D7B337C1B36064600D69BD2 /* MenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuItem.m; sourceTree = "<group>"; };
+		5D7B337E1B36064700D69BD2 /* MenuContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuContainer.h; sourceTree = "<group>"; };
+		5D7B337F1B36064700D69BD2 /* MenuContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuContainer.m; sourceTree = "<group>"; };
 		5D7F6B3B1A898EC600A207CD /* Pinterest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pinterest.framework; sourceTree = "<group>"; };
 		5D7F6B3D1A898EC600A207CD /* PinterestSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PinterestSDKResources.bundle; sourceTree = "<group>"; };
 		5D7F6B591A8A893800A207CD /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterKit.framework; path = ../TwitterKit.framework; sourceTree = "<group>"; };
@@ -993,10 +988,6 @@
 		5DDA1B321A7F383C00914761 /* DailyDollTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyDollTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DDA1B371A7F383C00914761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DDA1B381A7F383C00914761 /* DailyDollTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DailyDollTests.m; sourceTree = "<group>"; };
-		5DDA3D961A85CA8A00FD085A /* SideMenuTableSectionHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuTableSectionHeader.h; sourceTree = "<group>"; };
-		5DDA3D971A85CA8A00FD085A /* SideMenuTableSectionHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuTableSectionHeader.m; sourceTree = "<group>"; };
-		5DDA3D991A85CC0500FD085A /* SideMenuTableSectionLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuTableSectionLabel.h; sourceTree = "<group>"; };
-		5DDA3D9A1A85CC0500FD085A /* SideMenuTableSectionLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuTableSectionLabel.m; sourceTree = "<group>"; };
 		5DDA3DA31A85D39500FD085A /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		5DDA3DA41A85D39500FD085A /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		5DDA3DAB1A85E67700FD085A /* ProjectVariables.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ProjectVariables.plist; sourceTree = "<group>"; };
@@ -1139,12 +1130,10 @@
 		5D27CB581A9192FC006958F3 /* MenuItemsModel */ = {
 			isa = PBXGroup;
 			children = (
-				5D06F8591AEC528C00E80A01 /* MenuGroup.h */,
-				5D06F85A1AEC528C00E80A01 /* MenuGroup.m */,
-				5D06F8561AEC528C00E80A01 /* MenuContainer.h */,
-				5D06F8571AEC528C00E80A01 /* MenuContainer.m */,
-				5D06F8531AEC528B00E80A01 /* MenuItem.h */,
-				5D06F8541AEC528B00E80A01 /* MenuItem.m */,
+				5D7B337E1B36064700D69BD2 /* MenuContainer.h */,
+				5D7B337F1B36064700D69BD2 /* MenuContainer.m */,
+				5D7B337B1B36064600D69BD2 /* MenuItem.h */,
+				5D7B337C1B36064600D69BD2 /* MenuItem.m */,
 			);
 			name = MenuItemsModel;
 			path = ..;
@@ -2134,7 +2123,6 @@
 				5D1754FD1AA8C482003A66D1 /* AccessoryPage */,
 				5DDA3DA21A85CF8000FD085A /* Header */,
 				5DDA3DA11A85CF6D00FD085A /* Table */,
-				5DDA3D9F1A85CF4A00FD085A /* SectionHeader */,
 				5D0EDAB21A830196007DE68D /* SideMenuViewController.h */,
 				5D0EDAB31A830196007DE68D /* SideMenuViewController.m */,
 			);
@@ -2242,17 +2230,6 @@
 				5DDA1B371A7F383C00914761 /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5DDA3D9F1A85CF4A00FD085A /* SectionHeader */ = {
-			isa = PBXGroup;
-			children = (
-				5DDA3D961A85CA8A00FD085A /* SideMenuTableSectionHeader.h */,
-				5DDA3D971A85CA8A00FD085A /* SideMenuTableSectionHeader.m */,
-				5DDA3D991A85CC0500FD085A /* SideMenuTableSectionLabel.h */,
-				5DDA3D9A1A85CC0500FD085A /* SideMenuTableSectionLabel.m */,
-			);
-			name = SectionHeader;
 			sourceTree = "<group>";
 		};
 		5DDA3DA01A85CF5800FD085A /* Cells */ = {
@@ -2631,11 +2608,11 @@
 				5DC279F71B2A8E4C0008AA4B /* FBSDKLogo.m in Sources */,
 				5DC27A581B2A8E4C0008AA4B /* FBLikeButtonIconPNG.m in Sources */,
 				5DC27A751B2A8E4C0008AA4B /* FBTestSession.m in Sources */,
+				5D7B337D1B36064600D69BD2 /* MenuItem.m in Sources */,
 				5DC27A0E1B2A8E4C0008AA4B /* FBSDKLikeButton.m in Sources */,
 				5DC279C51B2A8E4C0008AA4B /* FBSDKGraphRequestDataAttachment.m in Sources */,
 				5DC27A8B1B2A8E4C0008AA4B /* FBLikeBoxBorderView.m in Sources */,
 				5DC279D81B2A8E4C0008AA4B /* FBSDKCrypto.m in Sources */,
-				5DDA3D9B1A85CC0500FD085A /* SideMenuTableSectionLabel.m in Sources */,
 				5DC279C01B2A8E4C0008AA4B /* FBSDKButton.m in Sources */,
 				5DC27A091B2A8E4C0008AA4B /* FBSDKAppGroupJoinDialog.m in Sources */,
 				5DC279E31B2A8E4C0008AA4B /* FBSDKTypeUtility.m in Sources */,
@@ -2649,7 +2626,6 @@
 				5DB59E701AA7B4F900567D59 /* Notification.m in Sources */,
 				5DC27A801B2A8E4C0008AA4B /* FBRequestConnectionRetryManager.m in Sources */,
 				5DFD4BA81A980705002A2D19 /* AccessoryPagesView.m in Sources */,
-				5D06F85B1AEC528C00E80A01 /* MenuGroup.m in Sources */,
 				5DC279C81B2A8E4C0008AA4B /* FBSDKSettings.m in Sources */,
 				5DC27A0A1B2A8E4C0008AA4B /* FBSDKAppInviteContent.m in Sources */,
 				5D86005C1A87C45A00AA8971 /* SocialSharePopoverView.m in Sources */,
@@ -2723,12 +2699,10 @@
 				5DC27A551B2A8E4C0008AA4B /* FBFriendPickerViewDefaultPNG.m in Sources */,
 				5DC27A631B2A8E4C0008AA4B /* Facebook.m in Sources */,
 				5DC27A541B2A8E4C0008AA4B /* FBDialogClosePNG.m in Sources */,
-				5DDA3D981A85CA8A00FD085A /* SideMenuTableSectionHeader.m in Sources */,
 				5DA4B98D1A7F3B2D0016476C /* ExternalWebModalViewController.m in Sources */,
 				5D80527D1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m in Sources */,
 				5DC279BE1B2A8E4C0008AA4B /* FBSDKAppLinkResolver.m in Sources */,
 				5DC279F31B2A8E4C0008AA4B /* FBSDKKeychainStoreViaBundleID.m in Sources */,
-				5D06F8581AEC528C00E80A01 /* MenuContainer.m in Sources */,
 				5DC27A2D1B2A8E4C0008AA4B /* README.mdown in Sources */,
 				5DC27A851B2A8E4C0008AA4B /* FBColor.m in Sources */,
 				5DC27A721B2A8E4C0008AA4B /* FBSessionTokenCachingStrategy.m in Sources */,
@@ -2781,8 +2755,8 @@
 				5DC27A211B2A8E4C0008AA4B /* FBSDKCheckmarkIcon.m in Sources */,
 				5DC27A2E1B2A8E4C0008AA4B /* FBAppLinkResolver.m in Sources */,
 				5DC27A3F1B2A8E4C0008AA4B /* FBSettings.m in Sources */,
-				5D06F8551AEC528B00E80A01 /* MenuItem.m in Sources */,
 				5DC27A661B2A8E4C0008AA4B /* FBLoginDialog.m in Sources */,
+				5D7B33801B36064700D69BD2 /* MenuContainer.m in Sources */,
 				5D6C98561A8C5D8000EB408E /* SocialContainer.m in Sources */,
 				5DC279F81B2A8E4C0008AA4B /* FBSDKMaleSilhouetteIcon.m in Sources */,
 				5DDA3DC61A86777800FD085A /* ShareView.m in Sources */,

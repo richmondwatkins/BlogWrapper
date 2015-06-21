@@ -11,6 +11,6 @@
 #import "BATableViewCell.h"
 @interface SideMenuTableViewCell : BATableViewCell
 
-- (void)addTextToMenu:(MenuItem *)menuItem;
+- (void)configureCell:(MenuItem *)menuItem;
 
 @end

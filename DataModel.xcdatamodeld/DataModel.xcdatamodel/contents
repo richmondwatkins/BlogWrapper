@@ -11,24 +11,17 @@
         <relationship name="socialItem" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SocialItem" inverseName="buttons" inverseEntity="SocialItem" syncable="YES"/>
     </entity>
     <entity name="MenuContainer" representedClassName="MenuContainer" syncable="YES">
-        <relationship name="menuGroup" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MenuGroup" inverseName="menuContainer" inverseEntity="MenuGroup" syncable="YES"/>
-    </entity>
-    <entity name="MenuGroup" representedClassName="MenuGroup" syncable="YES">
-        <attribute name="isHeader" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="position" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="menuContainer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="MenuContainer" inverseName="menuGroup" inverseEntity="MenuContainer" syncable="YES"/>
-        <relationship name="menuItems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MenuItem" inverseName="menuGroup" inverseEntity="MenuItem" syncable="YES"/>
+        <relationship name="menuItems" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MenuItem" inverseName="menuContainer" inverseEntity="MenuItem" syncable="YES"/>
     </entity>
     <entity name="MenuItem" representedClassName="MenuItem" syncable="YES">
+        <attribute name="collapsable" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isExpanded" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isHeader" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="position" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="children" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MenuItem" syncable="YES"/>
-        <relationship name="menuGroup" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="MenuGroup" inverseName="menuItems" inverseEntity="MenuGroup" syncable="YES"/>
+        <relationship name="menuContainer" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="MenuContainer" inverseName="menuItems" inverseEntity="MenuContainer" syncable="YES"/>
     </entity>
     <entity name="MetaData" representedClassName="MetaData" syncable="YES">
         <attribute name="appId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -81,8 +74,7 @@
         <element name="AccessoryPage" positionX="0" positionY="0" width="128" height="90"/>
         <element name="Button" positionX="0" positionY="0" width="128" height="90"/>
         <element name="MenuContainer" positionX="0" positionY="0" width="128" height="60"/>
-        <element name="MenuGroup" positionX="0" positionY="0" width="128" height="135"/>
-        <element name="MenuItem" positionX="0" positionY="0" width="128" height="150"/>
+        <element name="MenuItem" positionX="0" positionY="0" width="128" height="165"/>
         <element name="MetaData" positionX="0" positionY="0" width="128" height="165"/>
         <element name="Notification" positionX="0" positionY="0" width="128" height="90"/>
         <element name="ProjectVariable" positionX="0" positionY="0" width="128" height="75"/>

@@ -21,7 +21,6 @@
 #import "SocialItem.h"
 
 #import "MenuContainer.h"
-#import "MenuGroup.h"
 #import "MenuItem.h"
 #import "NSDate+Additions.h"
 
@@ -111,7 +110,7 @@ static APIManager *sharedThemeManager = nil;
             
             MenuContainer *menuContainer = [NSEntityDescription insertNewObjectForEntityForName:@"MenuContainer" inManagedObjectContext:moc];
             
-            [menuContainer setMenuGroup: [self returnMenuGroup:[json objectForKey:@"menu"] withMoc:moc]];
+            [menuContainer setMenuItems:[self createMenuItems:json[@"menu"] withManagedObject:moc]];
             
             ProjectVariable *projectVariable = [NSEntityDescription insertNewObjectForEntityForName:@"ProjectVariable" inManagedObjectContext:moc];
             
@@ -186,8 +185,8 @@ static APIManager *sharedThemeManager = nil;
 
 
     MenuContainer *menuContainer = [NSEntityDescription insertNewObjectForEntityForName:@"MenuContainer" inManagedObjectContext:moc];
-
-    [menuContainer setMenuGroup: [self returnMenuGroup:self.menuItems withMoc:moc]];
+    
+    [menuContainer setMenuItems:[self createMenuItems:self.menuItems withManagedObject:moc]];
     
     [moc save:nil];
 
@@ -317,7 +316,7 @@ static APIManager *sharedThemeManager = nil;
 
     for (NSDictionary *menuItemsDict in menuItems) {
 
-        MenuGroup *menuGroup = [NSEntityDescription insertNewObjectForEntityForName:@"MenuGroup" inManagedObjectContext:moc];
+        MenuContainer *menuGroup = [NSEntityDescription insertNewObjectForEntityForName:@"MenuContainer" inManagedObjectContext:moc];
 
         for (NSString *key in menuItemsDict.allKeys) {
             
@@ -554,41 +553,36 @@ static APIManager *sharedThemeManager = nil;
 
 - (NSMutableArray *)fetchMenuItemsAndHeaders {
 
-    NSFetchRequest *menuItemFetch = [[NSFetchRequest alloc] initWithEntityName:@"MenuGroup"];
+    NSFetchRequest *menuItemFetch = [[NSFetchRequest alloc] initWithEntityName:@"MenuContainer"];
 
     AppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
 
-    NSMutableArray *results = [[appDelegate.managedObjectContext executeFetchRequest:menuItemFetch error:nil] mutableCopy];
-
+    MenuContainer *menuContainer = [[appDelegate.managedObjectContext executeFetchRequest:menuItemFetch error:nil] firstObject];
+    
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"position" ascending:YES];
 
-    [results sortUsingDescriptors:@[sortDescriptor]];
+    NSMutableArray *menuItems = menuContainer.menuItems.allObjects.mutableCopy;
     
-    NSMutableArray *dataSourceMutable = [NSMutableArray array];
-    
-    for (MenuGroup *menuGroup in results) {
-        NSMutableArray *groupArray = [NSMutableArray array];
-        
-        if (!menuGroup.isHeader.boolValue) {
-            MenuGroup *dummyHeader = [[MenuGroup alloc] init];
-            
-            [groupArray insertObject:dummyHeader atIndex:0];
-        } else {
-            [groupArray insertObject:menuGroup atIndex:0];
-        }
-        
-        NSMutableArray *menuItemsArr = [NSMutableArray arrayWithArray:menuGroup.menuItems.allObjects];
-        
-        NSSortDescriptor *menuSorter = [NSSortDescriptor sortDescriptorWithKey:@"position" ascending:YES];
-        
-        [menuItemsArr sortUsingDescriptors:@[menuSorter]];
-        
-        [groupArray insertObject:menuItemsArr atIndex:1];
-        
-        [dataSourceMutable addObject:groupArray];
-    }
+    [menuItems sortUsingDescriptors:@[sortDescriptor]];
 
-    return dataSourceMutable;
+    for (int i = 0; i < menuItems.count; i++) {
+        
+        if (((MenuItem *) menuItems[i]).isHeader.boolValue) {
+            NSMutableArray *children = ((MenuItem *) menuItems[i]).children.allObjects.mutableCopy;
+            
+            if (children.count > 0) {
+                [children sortUsingDescriptors:@[sortDescriptor]];
+                
+                 int j = 0;
+                for (MenuItem *child in children) {
+                    [menuItems insertObject:child atIndex:i + j + 1];
+                    j++;
+                }
+            }
+        }
+    }
+    
+    return menuItems;
 }
 
 // META DATA
