@@ -24,7 +24,6 @@
 
 @interface CenterViewController () <UIWebViewDelegate, SideMenuProtocol, ShareSliderProtocol, UIScrollViewDelegate>
 
-@property (nonatomic, strong)  UIWebView *webView;
 @property NSURLRequest *externalRequest;
 @property MMDrawerController *drawerController;
 @property ShareViewSlider *shareSlideUp;

@@ -91,12 +91,20 @@
         titleWidth = titleStringSize.width;
     }
     
+    CGFloat height;
+    
+    if (menuItem.isHeader.boolValue) {
+        height = 30;
+    } else {
+        height = 40;
+    }
+    
     self.titleLabel.frame = CGRectMake(
-                                       self.width / 2 - titleWidth / 2,
-                                       0,
-                                       titleWidth,
-                                       self.height
-                                       );
+                                self.width / 2 - titleWidth / 2,
+                                0,
+                                titleWidth,
+                                height
+                            );
     
     self.titleLabel.textAlignment = NSTextAlignmentCenter;
     
@@ -109,7 +117,6 @@
     
     if ([menuItem.title isEqualToString:@"THE LIFE STUFF"]) {
         self.backgroundColor = [UIColor colorWithHexString:@"7b7285"];
-     
     } else if([menuItem.title isEqualToString:@"THE WELLNESS STUFF"]) {
         self.backgroundColor = [UIColor colorWithHexString:@"22756b"];
     } else {

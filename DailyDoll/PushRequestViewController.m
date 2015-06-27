@@ -12,8 +12,6 @@
 
 @interface PushRequestViewController ()
 
-@property UIImageView *logoImageView;
-
 @property UIScrollView *scrollView;
 
 @property UILabel *descriptionLabel;

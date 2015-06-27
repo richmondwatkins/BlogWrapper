@@ -16,7 +16,7 @@
 
 + (void)requestTweets:(void (^)(NSArray *results))callback {
     
-    __weak typeof(self) weakSelf = self;
+//    __weak typeof(self) weakSelf = self;
     
     [[Twitter sharedInstance] logInGuestWithCompletion:^(TWTRGuestSession *guestSession, NSError *error) {
         

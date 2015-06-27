@@ -19,6 +19,7 @@
 
 @property BlurActivityOverlay *blurOverlay;
 @property UIImageView *logoImageView;
+@property (nonatomic, strong)  UIWebView *webView;
 
 - (void)removeViewsFromWindow;
 - (void)webViewDidFinishLoad:(UIWebView *)webView;

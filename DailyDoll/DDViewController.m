@@ -39,6 +39,7 @@
     self.javascript = [NSString stringWithContentsOfFile:jsFile encoding:NSUTF8StringEncoding error:NULL];
     
     self.domainString = [[APIManager sharedManager] fetchmetaDataVariables:kDomainString];
+    
 }
 
 - (void)removeViewsFromWindow {
@@ -64,7 +65,7 @@
         return NO;
     }
     
-    if (self.blurOverlay == nil && self.webRequests <= 1) {
+    if (self.blurOverlay == nil && !self.webRequests) {
         self.blurOverlay = [[BlurActivityOverlay alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleLight]];
         self.blurOverlay.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         self.blurOverlay.frame = webView.frame;
@@ -95,6 +96,7 @@
     }
 }
 
+
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
 
     self.webResponses++;
@@ -120,7 +122,7 @@
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
-   [self removeBlurLoader];
+//   [self removeBlurLoader];
 }
 
 - (void)removeBlurLoader {

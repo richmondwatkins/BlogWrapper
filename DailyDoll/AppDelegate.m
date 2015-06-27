@@ -14,9 +14,9 @@
 #import <TwitterKit/TwitterKit.h>
 #import <Crashlytics/Crashlytics.h>
 #import "APIManager.h"
-#import <SSKeychain.h>
 #import <GooglePlus/GooglePlus.h>
-#import "SNS.h"
+#import <AWSSNS.h>
+
 @interface AppDelegate ()
 @end
 
@@ -48,10 +48,10 @@
         [self setUpGooglePlus];
     }
     
-    AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithAccessKey:@"AKIAIWP6JCHRY25UQ2DA" secretKey:@"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"];
-
-    AWSServiceConfiguration *defaultServiceConfiguration = [AWSServiceConfiguration configurationWithRegion:AWSRegionUSWest2
-                                                                                        credentialsProvider:credentialsProvider];
+    AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:@"AKIAIWP6JCHRY25UQ2DA" secretKey:@"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"];
+    
+    AWSServiceConfiguration *defaultServiceConfiguration = [[AWSServiceConfiguration alloc]
+                                                            initWithRegion:AWSRegionUSWest2 credentialsProvider:credentialsProvider];
 
     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = defaultServiceConfiguration;
 

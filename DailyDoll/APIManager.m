@@ -93,8 +93,8 @@ static APIManager *sharedThemeManager = nil;
 
 - (void)requestAppData:(NSManagedObjectContext *)moc {
     
-//    NSURL *url = [NSURL URLWithString:@"http://apptly.us/apps/1"];
-    NSURL *url = [NSURL URLWithString:@"http://appify.dev/apps/1"];
+    NSURL *url = [NSURL URLWithString:@"http://52.26.104.60/apps/1"];
+//    NSURL *url = [NSURL URLWithString:@"http://appify.dev/apps/1"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     [request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
@@ -301,7 +301,7 @@ static APIManager *sharedThemeManager = nil;
                 break;
             }
         
-        [socialItem setButtons:[self createButtons:socialItem.platformId.integerValue withManagedObject:moc]];
+        [socialItem setButtons:[self createButtons:socialItem.platformId.intValue withManagedObject:moc]];
 
         [socialItemsArray addObject:socialItem];
     }
@@ -471,6 +471,7 @@ static APIManager *sharedThemeManager = nil;
                     }
                     
                 } else {
+                    NSLog(@"%@", key);
                     [menuItem setValue:menuDict[key] forKey:key];
                 }
             }

@@ -5,9 +5,9 @@ target 'DailyDoll' do
 
 pod 'MMDrawerController', '~> 0.5.7'
 
-pod 'SSKeychain'
+pod 'AWSSNS', '~> 2.1.2'
 
-pod 'AWSiOSSDKv2', '~> 2.0.16'
+pod 'Bolts'
 
 end
 

@@ -14,7 +14,6 @@
 
 @property NSURLRequest *request;
 @property ShareViewSlider *shareSlideUp;
-@property UIWebView *webView;
 @property CGPoint lastScrollPosition;
 @property (nonatomic)  BOOL isScrollingDown;
 @property BlurActivityOverlay *detailBlurOverlay;
