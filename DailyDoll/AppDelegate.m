@@ -47,16 +47,6 @@
 
         [self setUpGooglePlus];
     }
-
-
-    UIUserNotificationType userNotificationTypes = (UIUserNotificationTypeAlert |
-                                                    UIUserNotificationTypeBadge |
-                                                    UIUserNotificationTypeSound);
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:userNotificationTypes
-                                                                             categories:nil];
-    [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-
-    [[UIApplication sharedApplication] registerForRemoteNotifications];
     
     AWSStaticCredentialsProvider *credentialsProvider = [AWSStaticCredentialsProvider credentialsWithAccessKey:@"AKIAIWP6JCHRY25UQ2DA" secretKey:@"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"];
 

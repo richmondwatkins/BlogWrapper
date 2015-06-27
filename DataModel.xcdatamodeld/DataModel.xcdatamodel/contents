@@ -15,6 +15,7 @@
     </entity>
     <entity name="MenuItem" representedClassName="MenuItem" syncable="YES">
         <attribute name="collapsable" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isDropdown" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isExpanded" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isHeader" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="position" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
@@ -74,7 +75,7 @@
         <element name="AccessoryPage" positionX="0" positionY="0" width="128" height="90"/>
         <element name="Button" positionX="0" positionY="0" width="128" height="90"/>
         <element name="MenuContainer" positionX="0" positionY="0" width="128" height="60"/>
-        <element name="MenuItem" positionX="0" positionY="0" width="128" height="165"/>
+        <element name="MenuItem" positionX="0" positionY="0" width="128" height="180"/>
         <element name="MetaData" positionX="0" positionY="0" width="128" height="165"/>
         <element name="Notification" positionX="0" positionY="0" width="128" height="90"/>
         <element name="ProjectVariable" positionX="0" positionY="0" width="128" height="75"/>

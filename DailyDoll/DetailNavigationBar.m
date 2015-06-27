@@ -22,7 +22,8 @@
         self.rightBarButton = [[UIBarButtonItem alloc] init];
         self.rightBarButton.image = [UIImage imageNamed:@"exit"];
         self.rightBarButton.style = UIBarButtonItemStylePlain;
-        self.rightBarButton.tintColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"exit"]];
+        self.rightBarButton.image = [UIImage imageNamed:@"exit"];
+        self.rightBarButton.tintColor = [UIColor whiteColor];
 
         UINavigationItem *navItem = [[UINavigationItem alloc] init];
         navItem.rightBarButtonItem = self.rightBarButton;

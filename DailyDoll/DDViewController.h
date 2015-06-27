@@ -13,14 +13,17 @@
 #import "SocialShareMethods.h"
 #import "OAuthSignInView.h"
 #import "BlurActivityOverlay.h"
+#import "UIView+Additions.h"
 
 @interface DDViewController : UIViewController
 
 @property BlurActivityOverlay *blurOverlay;
+@property UIImageView *logoImageView;
 
 - (void)removeViewsFromWindow;
 - (void)webViewDidFinishLoad:(UIWebView *)webView;
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error;
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType;
+- (void)removeBlurLoader;
 
 @end

@@ -21,5 +21,6 @@
 @dynamic children;
 @dynamic menuContainer;
 @dynamic collapsable;
+@dynamic isDropdown;
 
 @end

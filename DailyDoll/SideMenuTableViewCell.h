@@ -12,5 +12,6 @@
 @interface SideMenuTableViewCell : BATableViewCell
 
 - (void)configureCell:(MenuItem *)menuItem;
+- (void)flipArrowOrientation:(MenuItem *)menuItem;
 
 @end

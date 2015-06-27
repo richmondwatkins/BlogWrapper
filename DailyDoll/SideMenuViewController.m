@@ -118,7 +118,7 @@ int const kTopButtonPadding = 4;
     [self.aboutButton addTarget:self action:@selector(displayAboutPagePopOut)
                forControlEvents:UIControlEventTouchUpInside];
 
-    [self.headerView addSubview:self.aboutButton];
+//    [self.headerView addSubview:self.aboutButton];
 
 
     int notifButtonPadding = 4;
@@ -133,7 +133,7 @@ int const kTopButtonPadding = 4;
     [self.notificationButton addTarget:self action:@selector(displayNotifications:)
                       forControlEvents:UIControlEventTouchUpInside];
 
-    [self.headerView addSubview:self.notificationButton];
+//    [self.headerView addSubview:self.notificationButton];
 
 }
 
@@ -185,19 +185,38 @@ int const kTopButtonPadding = 4;
     return cell;
 }
 
+//TODO resize based on view height down to certain point then use min height
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    MenuItem *menuTime = self.dataSource[indexPath.row];
+    
+    if (menuTime.isHeader.boolValue) {
+        return 30;
+    }
+    
+    return 40;
+}
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     MenuItem *menuItem = self.dataSource[indexPath.row];
     
     if (menuItem.children.count > 0) {
         if (menuItem.isExpanded.boolValue) {
+            menuItem.isExpanded = [NSNumber numberWithBool:NO];
             [self collapseCellsFromIndexOf:menuItem indexPath:indexPath tableView:tableView];
         } else {
+            menuItem.isExpanded = [NSNumber numberWithBool:YES];
             [self expandCellsFromIndexOf:menuItem tableView:tableView indexPath:indexPath];
         }
         
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        SideMenuTableViewCell *cell = (SideMenuTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+        
+        [cell flipArrowOrientation:menuItem];
+        
+        //Fixes cell seperator dissapearing on animation (iOS bug)
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
     } else {
         
         [self.delegate selectedSideMenuItem:menuItem.url];
@@ -221,7 +240,9 @@ int const kTopButtonPadding = 4;
     int i = 0;
     
     for (MenuItem *childItem in menuItem.children.allObjects) {
+        
         [self.dataSource insertObject:childItem atIndex:indexPath.row+i+1];
+        
         i++;
     }
   
@@ -235,11 +256,10 @@ int const kTopButtonPadding = 4;
         
         [indexPaths addObject:[NSIndexPath indexPathForRow:expandedRange.location+i+1 inSection:indexPath.section]];
     }
+    
     // Insert the rows
     [tableView insertRowsAtIndexPaths:indexPaths
                      withRowAnimation:UITableViewRowAnimationFade];
-    
-    menuItem.isExpanded = [NSNumber numberWithBool:YES];    
 }
 
 - (void)collapseCellsFromIndexOf:(MenuItem *)menuItem indexPath:(NSIndexPath *)indexPath tableView:(UITableView *)tableView
@@ -262,22 +282,7 @@ int const kTopButtonPadding = 4;
 
     [tableView deleteRowsAtIndexPaths:indexPaths
                      withRowAnimation:UITableViewRowAnimationFade];
-    
-      menuItem.isExpanded = [NSNumber numberWithBool:NO];    
 }
-
-//TODO resize based on view height down to certain point then use min height
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    MenuItem *menuTime = self.dataSource[indexPath.row];
-    
-    if (menuTime.isHeader.boolValue) {
-        return 30;
-    }
-    
-    return 40;
-}
-
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
 

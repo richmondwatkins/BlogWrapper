@@ -16,6 +16,7 @@
 @property (nonatomic, retain) NSNumber * isExpanded;
 @property (nonatomic, retain) NSNumber * isHeader;
 @property (nonatomic, retain) NSNumber * position;
+@property (nonatomic, retain) NSNumber * isDropdown;
 @property (nonatomic, retain) NSNumber * collapsable;
 @property (nonatomic, retain) NSString * title;
 @property (nonatomic, retain) NSString * url;

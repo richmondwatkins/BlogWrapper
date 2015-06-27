@@ -11,13 +11,13 @@
 
 @implementation CenterVCTitleLabel
 
-- (instancetype)initWithStyleAndTitle:(NSString *)title {
+- (instancetype)initWithStyleAndTitle:(NSString *)title andFrame:(CGRect)frame {
 
     if (self = [super init]) {
+        
+        self.frame = frame;
 
         self.text = title;
-
-        [self sizeToFit];
 
         NSString *fontString = [[APIManager sharedManager] fetchMetaThemeItemWithProperty:kFontFamily];
 

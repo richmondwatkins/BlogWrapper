@@ -69,10 +69,12 @@
 
 - (void)facebookViewDelegate:(UIButton *)button {
 
+    NSString *accountId = [[APIManager sharedManager] fetchSocialItem:FACEBOOK withProperty:@"accountId"];
+    
     [self openWithAppOrWebView:[NSString stringWithFormat:@"fb://profile/%@",
-                                [[APIManager sharedManager] fetchSocialItem:FACEBOOK withProperty:@"accountId"]]
+                                accountId]
                      andWebURL:[NSString stringWithFormat:@"https://www.facebook.com/%@",
-                                                           [[APIManager sharedManager] fetchSocialItem:FACEBOOK withProperty:@"accountId"]]];
+                                                           accountId]];
 }
 
 - (void)facebookShareDelegate:(UIButton *)button {

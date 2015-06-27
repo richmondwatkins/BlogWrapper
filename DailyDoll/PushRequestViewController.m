@@ -54,7 +54,7 @@
 
     self.descriptionLabel.textAlignment = NSTextAlignmentCenter;
 
-    self.descriptionLabel.text = [NSString stringWithFormat:@"To notify you when new content is available, %@ would like to send push notifications",[[APIManager sharedManager] fetchmetaDataVariables:kBlogName]];
+    self.descriptionLabel.text = [NSString stringWithFormat:@"The %@ would like to notify you when new content is available",[[APIManager sharedManager] fetchmetaDataVariables:kBlogName]];
 
     NSString *fontName = [[APIManager sharedManager] fetchMetaThemeItemWithProperty:kFontFamily];
 
@@ -88,13 +88,13 @@
 
     self.controlSwitch = [[UISwitch alloc] initWithFrame:CGRectMake(self.contorlSwitchContainer.width-60, 0, viewHeight, viewHeight)];
 
-    [self.controlSwitch setOn:YES];
+    [self.controlSwitch setOn:NO];
 
     [self.contorlSwitchContainer addSubview:self.controlSwitch];
 
     UILabel *permissionLabel = [[UILabel alloc] init];
 
-    permissionLabel.text = @"Receive pushes";
+    permissionLabel.text = @"Receive notifications";
 
     [permissionLabel sizeToFit];
 
@@ -110,8 +110,16 @@
 }
 
 - (void)setUpContinueButton {
-
-    UIButton *continueButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width * 0.8, 40)];
+    
+    CGFloat continueWidth = (CGFloat) self.view.frame.size.width * 0.8;
+    CGFloat continueHeight = 40;
+    CGFloat bottomPadding = 30;
+    
+    UIButton *continueButton = [[UIButton alloc] initWithFrame:
+                                CGRectMake(self.view.width / 2 - continueWidth / 2,
+                                           self.view.height - continueHeight - bottomPadding,
+                                           continueWidth,
+                                           continueHeight)];
 
     continueButton.backgroundColor = [UIColor colorWithHexString:[[APIManager sharedManager] fetchMetaThemeItemWithProperty:kPrimaryColor]];
 
@@ -128,10 +136,7 @@
 
     [self.scrollView addSubview:continueButton];
     
-    [continueButton setCenter:CGPointMake(self.view.frame.size.width / 2, self.contorlSwitchContainer.bottom + 40)];
-
     [continueButton addTarget:self action:@selector(dismissVC:) forControlEvents:UIControlEventTouchUpInside];
-
 }
 
 - (void)askForPushPermission {

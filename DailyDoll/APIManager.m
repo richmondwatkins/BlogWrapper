@@ -253,8 +253,27 @@ static APIManager *sharedThemeManager = nil;
         SocialItem *socialItem =[NSEntityDescription insertNewObjectForEntityForName:@"SocialItem" inManagedObjectContext:moc];
     
         for (NSString *key in [socialItemDict allKeys]) {
-
-            [socialItem setValue:socialItemDict[key] forKey:key];
+            
+            if ([key isEqualToString:@"platformId"]) {
+                
+                if ([socialItemDict[key] isEqualToString:@"facebook"]) {
+                    socialItem.platformId = @(0);
+                } else if([socialItemDict[key] isEqualToString:@"pinterest"]) {
+                    socialItem.platformId = @(1);
+                } else if([socialItemDict[key] isEqualToString:@"twitter"]) {
+                    socialItem.platformId = @(2);
+                } else if([socialItemDict[key] isEqualToString:@"instagram"]) {
+                    socialItem.platformId = @(3);
+                } else if([socialItemDict[key] isEqualToString:@"googlePlus"]) {
+                    socialItem.platformId = @(4);
+                } else if([socialItemDict[key] isEqualToString:@"email"]) {
+                    socialItem.platformId = @(5);
+                } else if([socialItemDict[key] isEqualToString:@"sms"]) {
+                    socialItem.platformId = @(6);
+                }
+            } else {
+                [socialItem setValue:socialItemDict[key] forKey:key];
+            }
         }
         
         switch (socialItem.platformId.integerValue) {
@@ -282,7 +301,7 @@ static APIManager *sharedThemeManager = nil;
                 break;
             }
         
-        [socialItem setButtons:[self createButtons:socialItemDict[kPlatformId] withManagedObject:moc]];
+        [socialItem setButtons:[self createButtons:socialItem.platformId.integerValue withManagedObject:moc]];
 
         [socialItemsArray addObject:socialItem];
     }
@@ -339,9 +358,9 @@ static APIManager *sharedThemeManager = nil;
 
 //TODO add option for email news letter sign up
 
-- (NSSet *)createButtons:(NSNumber *)platformId withManagedObject:(NSManagedObjectContext *)moc {
+- (NSSet *)createButtons:(int)platformId withManagedObject:(NSManagedObjectContext *)moc {
     
-    switch (platformId.integerValue) {
+    switch (platformId) {
         case FACEBOOK:
             return  [self returnFacebookButtonSet:moc];
             break;

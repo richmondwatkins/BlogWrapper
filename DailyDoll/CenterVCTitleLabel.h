@@ -10,6 +10,6 @@
 
 @interface CenterVCTitleLabel : UILabel
 
-- (instancetype) initWithStyleAndTitle:(NSString *)title;
+- (instancetype) initWithStyleAndTitle:(NSString *)title andFrame:(CGRect)frame;
 
 @end

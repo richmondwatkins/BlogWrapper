@@ -48,7 +48,7 @@
     [externalWebView loadRequest:self.request];
 }
 
-- (IBAction)dissmissModal:(id)sender {
+- (void)dissmissModal:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -57,7 +57,6 @@
 }
 
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
-
     NSLog(@"URL %@", webView.request.URL.absoluteString);
 }
 
