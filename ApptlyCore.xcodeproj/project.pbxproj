@@ -326,10 +326,12 @@
 		5DF7A6461A95650E009BA5EE /* LibreBaskerville-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5DF7A6451A95650E009BA5EE /* LibreBaskerville-Bold.otf */; };
 		5DFD4B8B1A96FE5D002A2D19 /* LillyBelle_2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD4B8A1A96FE5D002A2D19 /* LillyBelle_2.ttf */; };
 		5DFD4B8D1A970003002A2D19 /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD4B8C1A970003002A2D19 /* SourceSansPro-Regular.otf */; };
-		BDF89CC8C066F8FFE29F7BC1 /* libPods-DailyDoll.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 579988490B7E0E905A16D25A /* libPods-DailyDoll.a */; };
+		ACE787C249FB37ACADFAC918 /* libPods-ApptlyCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A40AE8A24BB2A7ED0BEE64 /* libPods-ApptlyCore.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1260D3C12DFDFD86043335E1 /* Pods-ApptlyCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApptlyCore.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApptlyCore/Pods-ApptlyCore.release.xcconfig"; sourceTree = "<group>"; };
+		3E7B87A05AF3B206DA45EECC /* Pods-ApptlyCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApptlyCore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApptlyCore/Pods-ApptlyCore.debug.xcconfig"; sourceTree = "<group>"; };
 		579988490B7E0E905A16D25A /* libPods-DailyDoll.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DailyDoll.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D0B704C1A8D44CF008AF923 /* OAuthSignInView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthSignInView.h; sourceTree = "<group>"; };
 		5D0B704D1A8D44CF008AF923 /* OAuthSignInView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthSignInView.m; sourceTree = "<group>"; };
@@ -1006,6 +1008,7 @@
 		5DFD4B8C1A970003002A2D19 /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
 		680B8C91B0508131C24B223C /* Pods-DailyDoll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDoll.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DailyDoll/Pods-DailyDoll.debug.xcconfig"; sourceTree = "<group>"; };
 		AA7FAADA7B793178F851DF47 /* Pods-DailyDoll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDoll.release.xcconfig"; path = "Pods/Target Support Files/Pods-DailyDoll/Pods-DailyDoll.release.xcconfig"; sourceTree = "<group>"; };
+		D7A40AE8A24BB2A7ED0BEE64 /* libPods-ApptlyCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ApptlyCore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1028,11 +1031,11 @@
 				5DC696291A8D8D5D00A5D3AB /* Security.framework in Frameworks */,
 				5D62FD651A8AF1230022671F /* CoreData.framework in Frameworks */,
 				5D9F5A061A8E781D00A53BB7 /* GooglePlus.framework in Frameworks */,
-				BDF89CC8C066F8FFE29F7BC1 /* libPods-DailyDoll.a in Frameworks */,
 				5D7F6B3E1A898EC600A207CD /* Pinterest.framework in Frameworks */,
 				5D7F6B5C1A8A893800A207CD /* TwitterKit.framework in Frameworks */,
 				5D9F5A081A8E781D00A53BB7 /* GoogleOpenSource.framework in Frameworks */,
 				5D7F6B5E1A8A893800A207CD /* Fabric.framework in Frameworks */,
+				ACE787C249FB37ACADFAC918 /* libPods-ApptlyCore.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1063,6 +1066,7 @@
 				5DC696281A8D8D5D00A5D3AB /* Security.framework */,
 				5D62FD641A8AF1230022671F /* CoreData.framework */,
 				579988490B7E0E905A16D25A /* libPods-DailyDoll.a */,
+				D7A40AE8A24BB2A7ED0BEE64 /* libPods-ApptlyCore.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1072,6 +1076,8 @@
 			children = (
 				680B8C91B0508131C24B223C /* Pods-DailyDoll.debug.xcconfig */,
 				AA7FAADA7B793178F851DF47 /* Pods-DailyDoll.release.xcconfig */,
+				3E7B87A05AF3B206DA45EECC /* Pods-ApptlyCore.debug.xcconfig */,
+				1260D3C12DFDFD86043335E1 /* Pods-ApptlyCore.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -2445,7 +2451,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DailyDoll/Pods-DailyDoll-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ApptlyCore/Pods-ApptlyCore-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5D7F6B581A8A88D800A207CD /* Fabric Script */ = {
@@ -2848,7 +2854,7 @@
 		};
 		5DDA1B3D1A7F383C00914761 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 680B8C91B0508131C24B223C /* Pods-DailyDoll.debug.xcconfig */;
+			baseConfigurationReference = 3E7B87A05AF3B206DA45EECC /* Pods-ApptlyCore.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2872,7 +2878,7 @@
 		};
 		5DDA1B3E1A7F383C00914761 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AA7FAADA7B793178F851DF47 /* Pods-DailyDoll.release.xcconfig */;
+			baseConfigurationReference = 1260D3C12DFDFD86043335E1 /* Pods-ApptlyCore.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

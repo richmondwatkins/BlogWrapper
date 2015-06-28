@@ -4,52 +4,52 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Pods-DailyDoll-AWSCore.xcscheme</key>
+		<key>Pods-ApptlyCore-AWSCore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-DailyDoll-AWSSNS.xcscheme</key>
+		<key>Pods-ApptlyCore-AWSSNS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-DailyDoll-Bolts.xcscheme</key>
+		<key>Pods-ApptlyCore-Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-DailyDoll-GZIP.xcscheme</key>
+		<key>Pods-ApptlyCore-GZIP.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-DailyDoll-MMDrawerController.xcscheme</key>
+		<key>Pods-ApptlyCore-MMDrawerController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-DailyDoll-Mantle.xcscheme</key>
+		<key>Pods-ApptlyCore-Mantle.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-DailyDoll-Reachability.xcscheme</key>
+		<key>Pods-ApptlyCore-Reachability.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-DailyDoll-UICKeyChainStore.xcscheme</key>
+		<key>Pods-ApptlyCore-UICKeyChainStore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-DailyDoll-XMLDictionary.xcscheme</key>
+		<key>Pods-ApptlyCore-XMLDictionary.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-DailyDoll.xcscheme</key>
+		<key>Pods-ApptlyCore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -57,52 +57,52 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>13A13107271C2E6DD15BBD8F</key>
+		<key>0EDE96E8EEEE1E50143C8C8B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4845469C25FC62E4F8A47225</key>
+		<key>17A3A04DE662DCF13B09845D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6754B35C1FF3A1DF774E6085</key>
+		<key>44BB3424773B301CD71B90EC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>833234A461374BB015A9A2B4</key>
+		<key>6ABCFC2C6BA05E8B065DCFAE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>87F21C16AC6BD68FEA222189</key>
+		<key>A67786F86E05A6FA3DE0E91F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9B50A6DBFFB6A17F6C876FF6</key>
+		<key>AA199C08E6EF5A8FEB360973</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BF75678A529C58AD32AA1EA3</key>
+		<key>ABF7F1D951AD1A714FF15BDD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C3F987D7CE204A4B1A2E01B4</key>
+		<key>ADAFED5459686012257940A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D9A2859FB8E89284FB3F1DF5</key>
+		<key>C6D342341F2FAAB5F08BB780</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E382326A4836E432C0381AAF</key>
+		<key>CC6CD782771B27D7AB599D89</key>
 		<dict>
 			<key>primary</key>
 			<true/>

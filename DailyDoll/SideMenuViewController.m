@@ -113,8 +113,6 @@ int const kTopButtonPadding = 4;
     [self.aboutButton setImage:[UIImage imageNamed:@"about"]
                       forState:UIControlStateNormal];
 
-    [self.aboutButton addTarget:self action:@selector(displayAboutPagePopOut)
-               forControlEvents:UIControlEventTouchUpInside];
 
 //    [self.headerView addSubview:self.aboutButton];
 
