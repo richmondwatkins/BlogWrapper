@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "ApptlyCoreSpec"
-  s.version      = "0.0.1"
+  s.version      = "master"
   s.summary      = "A short description of ApptlyCoreSpec."
 
   s.description  = <<-DESC
@@ -29,7 +29,9 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "http://EXAMPLE/ApptlyCoreSpec"
+  s.ios.vendored_frameworks = 'Frameworks/**/*'
   s.vendored_frameworks = 'Crashlytics.framework', 'Fabric.framework', 'TwitterCore.framework', 'TwitterKit.framework'
+  s.platform     = :ios, '7.0'
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -90,8 +92,10 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
+  s.source_files  = "DailyDoll", "DailyDoll/**/*.{h,m}"
+  s.dependency 'MMDrawerController'
+  s.dependency 'AWSSNS'
+  s.dependency 'Bolts'
 
   # s.public_header_files = "Classes/**/*.h"
 

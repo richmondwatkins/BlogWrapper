@@ -919,9 +919,9 @@
 		5D6FCED71B3FA1760097C3A3 /* post.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = post.js; path = DailyDoll/post.js; sourceTree = "<group>"; };
 		5D7F6B3B1A898EC600A207CD /* Pinterest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Pinterest.framework; sourceTree = "<group>"; };
 		5D7F6B3D1A898EC600A207CD /* PinterestSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PinterestSDKResources.bundle; sourceTree = "<group>"; };
-		5D7F6B591A8A893800A207CD /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TwitterKit.framework; path = ../TwitterKit.framework; sourceTree = "<group>"; };
-		5D7F6B5A1A8A893800A207CD /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = ../TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
-		5D7F6B5B1A8A893800A207CD /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = ../Fabric.framework; sourceTree = "<group>"; };
+		5D7F6B591A8A893800A207CD /* TwitterKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TwitterKit.framework; sourceTree = "<group>"; };
+		5D7F6B5A1A8A893800A207CD /* TwitterKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = TwitterKitResources.bundle; path = TwitterKit.framework/Versions/A/Resources/TwitterKitResources.bundle; sourceTree = "<group>"; };
+		5D7F6B5B1A8A893800A207CD /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		5D80527B1A83315C0076A6E8 /* UIColor+UIColor_Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+UIColor_Expanded.h"; sourceTree = "<group>"; };
 		5D80527C1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+UIColor_Expanded.m"; sourceTree = "<group>"; };
 		5D80527E1A8331FD0076A6E8 /* SideMenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuTableViewCell.h; sourceTree = "<group>"; };
@@ -1064,6 +1064,14 @@
 		0DA83D6F48BB2DF1721401E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D9F58BE1A8E77DD00A53BB7 /* GooglePlus */,
+				5D9F58BD1A8E77C900A53BB7 /* Twitter */,
+				5D7F6B591A8A893800A207CD /* TwitterKit.framework */,
+				5D7F6B5A1A8A893800A207CD /* TwitterKitResources.bundle */,
+				5D7F6B5B1A8A893800A207CD /* Fabric.framework */,
+				5D9F58BC1A8E77BF00A53BB7 /* PInterest */,
+				5D2438FD1B23ABF400A891C2 /* TwitterCore.framework */,
+				5D2438FB1B23AAB800A891C2 /* Crashlytics.framework */,
 				5D9F5A1E1A8E788C00A53BB7 /* UIKit.framework */,
 				5D9F5A1C1A8E788400A53BB7 /* SystemConfiguration.framework */,
 				5D9F5A1A1A8E787100A53BB7 /* MediaPlayer.framework */,
@@ -2024,16 +2032,15 @@
 				5D7F6B3A1A898EC600A207CD /* Pinterest.embeddedframework */,
 			);
 			name = PInterest;
+			path = DailyDoll;
 			sourceTree = "<group>";
 		};
 		5D9F58BD1A8E77C900A53BB7 /* Twitter */ = {
 			isa = PBXGroup;
 			children = (
-				5D7F6B591A8A893800A207CD /* TwitterKit.framework */,
-				5D7F6B5A1A8A893800A207CD /* TwitterKitResources.bundle */,
-				5D7F6B5B1A8A893800A207CD /* Fabric.framework */,
 			);
 			name = Twitter;
+			path = DailyDoll;
 			sourceTree = "<group>";
 		};
 		5D9F58BE1A8E77DD00A53BB7 /* GooglePlus */ = {
@@ -2045,6 +2052,7 @@
 				5D9F59A01A8E781C00A53BB7 /* GoogleOpenSource.framework */,
 			);
 			name = GooglePlus;
+			path = DailyDoll;
 			sourceTree = "<group>";
 		};
 		5DADA6A61AACDE5D005E4F2C /* SocialSignInVC */ = {
@@ -2186,13 +2194,8 @@
 		5DDA1B1C1A7F383C00914761 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				5D2438FD1B23ABF400A891C2 /* TwitterCore.framework */,
-				5D2438FB1B23AAB800A891C2 /* Crashlytics.framework */,
 				5DADA6AA1AACEB1A005E4F2C /* Main.storyboard */,
 				5DF7A6421A955FE8009BA5EE /* Fonts */,
-				5D9F58BE1A8E77DD00A53BB7 /* GooglePlus */,
-				5D9F58BD1A8E77C900A53BB7 /* Twitter */,
-				5D9F58BC1A8E77BF00A53BB7 /* PInterest */,
 				5DDA1B1D1A7F383C00914761 /* Info.plist */,
 				5DDA1B1E1A7F383C00914761 /* main.m */,
 				5DC2F5551A85B49300ED1969 /* Theme.plist */,
