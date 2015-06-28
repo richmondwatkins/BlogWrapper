@@ -56,6 +56,57 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict/>
+	<dict>
+		<key>13A13107271C2E6DD15BBD8F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4845469C25FC62E4F8A47225</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6754B35C1FF3A1DF774E6085</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>833234A461374BB015A9A2B4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>87F21C16AC6BD68FEA222189</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9B50A6DBFFB6A17F6C876FF6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BF75678A529C58AD32AA1EA3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C3F987D7CE204A4B1A2E01B4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D9A2859FB8E89284FB3F1DF5</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E382326A4836E432C0381AAF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
 </dict>
 </plist>

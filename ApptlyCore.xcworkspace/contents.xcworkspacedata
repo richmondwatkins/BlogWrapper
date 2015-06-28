@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:DailyDoll.xcodeproj">
+      location = "group:/Users/richmondwatkins/Documents/Code/BlogWrapper/ApptlyCore.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
