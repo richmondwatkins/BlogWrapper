@@ -14,12 +14,11 @@
 #import "SideMenuTableHeaderView.h"
 #import "SideMenuHeaderImageView.h"
 #import "APIManager.h"
-#import "AccessoryPagesView.h"
 #import "NotificationViewController.h"
 
 #import "UIView+Additions.h"
 
-@interface SideMenuViewController () <UITableViewDataSource, UITableViewDelegate, AccessoryPageProtocol>
+@interface SideMenuViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property NSMutableArray *dataSource;
 @property SideMenuTableView *tableView;
@@ -28,7 +27,6 @@
 @property SideMenuTableHeaderView *headerView;
 @property CGPoint imageViewCenter;
 @property UIButton *aboutButton;
-@property AccessoryPagesView *accessoryPageView;
 @property UIButton *notificationButton;
 
 @end
@@ -135,17 +133,6 @@ int const kTopButtonPadding = 4;
 
 //    [self.headerView addSubview:self.notificationButton];
 
-}
-
-- (void)displayAboutPagePopOut {
-
-    self.accessoryPageView = [[AccessoryPagesView alloc] initWithFrameAndButtons:self.view.frame];
-
-    self.accessoryPageView.delegate = self;
-
-    [self.view addSubview:self.accessoryPageView];
-
-    [self.accessoryPageView animateOnToScreen:self.view.frame];
 }
 
 - (void)displayNotifications:(UIButton *)sender {

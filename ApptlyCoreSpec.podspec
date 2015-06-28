@@ -93,9 +93,10 @@ Pod::Spec.new do |s|
   #
 
   s.source_files  = "DailyDoll", "DailyDoll/**/*.{h,m}"
-  s.dependency 'MMDrawerController'
-  s.dependency 'AWSSNS'
+  s.dependency 'MMDrawerController', '~> 0.5.7'
+  s.dependency 'AWSSNS',  '~> 2.1.2'
   s.dependency 'Bolts'
+
 
   # s.public_header_files = "Classes/**/*.h"
 
