@@ -790,10 +790,7 @@ static APIManager *sharedThemeManager = nil;
     
     for (Notification *notification in notifications) {
         
-        if ([notification.receivedDate daysBetween:[NSDate date]] > 7) {
-            
-            [moc deleteObject:notification];
-        }
+        [moc deleteObject:notification];
     }
 }
 
