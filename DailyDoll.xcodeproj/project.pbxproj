@@ -19,7 +19,6 @@
 		5D27CB751A91B65B006958F3 /* ShareViewSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27CB741A91B65B006958F3 /* ShareViewSlider.m */; };
 		5D28D8D31ADB484600841F28 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D28D8D21ADB484600841F28 /* NSDate+Helper.m */; settings = {COMPILER_FLAGS = "-w"; }; };
 		5D3166561B2CA0EC00977BDC /* FacebookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3166551B2CA0EC00977BDC /* FacebookTableViewCell.m */; };
-		5D357D551B3F1DE2005D0AB8 /* DropDownImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D357D541B3F1DE2005D0AB8 /* DropDownImageView.m */; };
 		5D466B931B1B92300010CE39 /* SocialStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D466B921B1B92300010CE39 /* SocialStreamViewController.m */; };
 		5D466B961B1B97A40010CE39 /* SocialStreamViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D466B951B1B97A40010CE39 /* SocialStreamViewModel.m */; };
 		5D466B991B1B97BE0010CE39 /* SocialStreamWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D466B981B1B97BE0010CE39 /* SocialStreamWebService.m */; };
@@ -363,8 +362,6 @@
 		5D28D8D21ADB484600841F28 /* NSDate+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Helper.m"; sourceTree = "<group>"; };
 		5D3166541B2CA0EC00977BDC /* FacebookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookTableViewCell.h; sourceTree = "<group>"; };
 		5D3166551B2CA0EC00977BDC /* FacebookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookTableViewCell.m; sourceTree = "<group>"; };
-		5D357D531B3F1DE2005D0AB8 /* DropDownImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DropDownImageView.h; sourceTree = "<group>"; };
-		5D357D541B3F1DE2005D0AB8 /* DropDownImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownImageView.m; sourceTree = "<group>"; };
 		5D466B911B1B92300010CE39 /* SocialStreamViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialStreamViewController.h; sourceTree = "<group>"; };
 		5D466B921B1B92300010CE39 /* SocialStreamViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SocialStreamViewController.m; sourceTree = "<group>"; };
 		5D466B941B1B97A40010CE39 /* SocialStreamViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocialStreamViewModel.h; sourceTree = "<group>"; };
@@ -2191,8 +2188,6 @@
 			children = (
 				5D80527E1A8331FD0076A6E8 /* SideMenuTableViewCell.h */,
 				5D80527F1A8331FD0076A6E8 /* SideMenuTableViewCell.m */,
-				5D357D531B3F1DE2005D0AB8 /* DropDownImageView.h */,
-				5D357D541B3F1DE2005D0AB8 /* DropDownImageView.m */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -2619,7 +2614,6 @@
 				5D6FD23C1B3FB1D00097C3A3 /* FBSDKShareAPI.m in Sources */,
 				5D6FD2851B3FB1D00097C3A3 /* FBPlacePickerViewGenericPlacePNG.m in Sources */,
 				5D6FD2631B3FB1D00097C3A3 /* FBImageResourceLoader.m in Sources */,
-				5D357D551B3F1DE2005D0AB8 /* DropDownImageView.m in Sources */,
 				5D6FD1F01B3FB1D00097C3A3 /* FBSDKProfilePictureView.m in Sources */,
 				5D1754DA1AA8714F003A66D1 /* NotificationTableView.m in Sources */,
 				5D6FD2671B3FB1D00097C3A3 /* FBSafeCollections.m in Sources */,

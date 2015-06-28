@@ -8,12 +8,11 @@
 
 #import "SideMenuTableViewCell.h"
 #import "APIManager.h"
-#import "DropDownImageView.h"
 #import "UIView+Additions.h"
 
 @interface SideMenuTableViewCell()
 
-@property DropDownImageView *dropDownImageView;
+@property UIImageView *dropDownImageView;
 @property UILabel *titleLabel;
 
 @end
@@ -27,7 +26,7 @@
 
         self.backgroundColor = [UIColor colorWithHexString:[[APIManager sharedManager] fetchThemeItem:SIDEMENUCELL withProperty:kBackgroundColor]];
         
-        self.dropDownImageView = [[DropDownImageView alloc] initWithImage:[UIImage imageNamed:@"dropDown"]];
+        self.dropDownImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"dropDown"]];
         self.dropDownImageView.userInteractionEnabled = YES;
         
         self.titleLabel = [[UILabel alloc] init];

@@ -81,11 +81,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { 
-    :git => "https://github.com/richmondwatkins/BlogWrapper", 
-    :tag => "0.0.1",
-    :submodules => true 
-  }
+  s.source       = { :git => "https://github.com/richmondwatkins/BlogWrapper", :tag => "0.0.1" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -96,13 +92,13 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "DailyDoll", "DailyDoll/FacebookiOSSDK"
-  # s.dependency 'MMDrawerController', '~> 0.5.7'
-  # s.dependency 'AWSSNS',  '~> 2.1.2'
-  # s.dependency 'Bolts'
+  s.source_files  = "DailyDoll", "/DailyDoll/**/*.{h,m}"
+  s.dependency 'MMDrawerController', '~> 0.5.7'
+  s.dependency 'AWSSNS',  '~> 2.1.2'
+  s.dependency 'Bolts'
 
 
-  # s.public_header_files = "DailyDoll/**/*.h"
+  # s.public_header_files = "Classes/**/*.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
