@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DDViewController.h"
+#import "SocialSharingActionController.h"
 
 @interface BASocialShareViewController : DDViewController
 

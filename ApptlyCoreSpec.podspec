@@ -29,8 +29,8 @@ Pod::Spec.new do |s|
                    DESC
 
   s.homepage     = "http://EXAMPLE/ApptlyCoreSpec"
-  s.ios.vendored_frameworks = 'Frameworks/**/*'
-  s.vendored_frameworks = 'Crashlytics.framework', 'Fabric.framework', 'TwitterCore.framework', 'TwitterKit.framework'
+  # s.ios.vendored_frameworks = 'Frameworks/**/*'
+  # s.vendored_frameworks = 'Crashlytics.framework', 'Fabric.framework', 'TwitterCore.framework', 'TwitterKit.framework'
   s.platform     = :ios, '7.0'
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
@@ -122,7 +122,7 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
+  s.frameworks = "CoreData", "Security", "AddressBook", "AssetsLibrary", "Foundation", "CoreLocation", "CoreMotion", "CoreGraphics", "CoreText", "CoreText", "MediaPlayer", "SystemConfiguration", "UIKit", "Crashlytics", "Fabric", "TwitterCore", "TwitterKit", "GoogleOpenSource", "GooglePlus", "Pinterest"
 
   # s.library   = "iconv"
   # s.libraries = "iconv", "xml2"

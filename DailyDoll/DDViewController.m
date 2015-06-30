@@ -8,9 +8,6 @@
 
 #import "DDViewController.h"
 #import "APIManager.h"
-#import "ExternalWebModalViewController.h"
-#import "OAuthWebView.h"
-#import "OAuthSignInView.h"
 #import "CenterVCTitleLabel.h"
 #import "CenterVCActivityIndicator.h"
 
@@ -109,10 +106,6 @@
     
     [webView stringByEvaluatingJavaScriptFromString:@"document.getElementById('id_username').select();"];
 
-    if ([webView isKindOfClass:[OAuthWebView class]]) {
-        [((OAuthWebView *) webView).activityIndicator stopAnimating];
-    }
-    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 }
 

@@ -43,6 +43,7 @@ static SocialShareMethods *sharedSocialManager = nil;
 }
 
 //========== FACEBOOK =========
+
 - (BOOL)shareToFaceBookWithURL:(FBLinkShareParams *)params {
 
     if ([FBDialogs canPresentShareDialogWithParams:params]) {
@@ -98,7 +99,6 @@ static SocialShareMethods *sharedSocialManager = nil;
 
 
 //========== PINTEREST =========
-
 
 - (BOOL)pinToPinterest:(NSURL *)imageURL andSource:(NSURL *)sourceURL {
 

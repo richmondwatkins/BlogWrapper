@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "SocialSharePopoverView.h"
-#import "SocialSharingActionController.h"
-#import "SocialSharePopoverView.h"
 #import "SocialShareMethods.h"
 #import "OAuthSignInView.h"
 #import "BlurActivityOverlay.h"
