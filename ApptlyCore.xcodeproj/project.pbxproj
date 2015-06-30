@@ -298,6 +298,134 @@
 		5DADA6AB1AACEB1A005E4F2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DADA6AA1AACEB1A005E4F2C /* Main.storyboard */; };
 		5DADA6AF1AACFE0C005E4F2C /* NotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DADA6AE1AACFE0C005E4F2C /* NotificationView.m */; };
 		5DB59E701AA7B4F900567D59 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59E6F1AA7B4F900567D59 /* Notification.m */; };
+		5DBBA7121B40ED6E00E2B750 /* ApptlyLib.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DBBA7111B40ED6E00E2B750 /* ApptlyLib.h */; };
+		5DBBA7141B40ED6E00E2B750 /* ApptlyLib.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBBA7131B40ED6E00E2B750 /* ApptlyLib.m */; };
+		5DBBA71A1B40ED6E00E2B750 /* libApptlyLib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBA70F1B40ED6E00E2B750 /* libApptlyLib.a */; };
+		5DBBA7261B40EDB500E2B750 /* FacebookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D3166551B2CA0EC00977BDC /* FacebookTableViewCell.m */; };
+		5DBBA7271B40EDB500E2B750 /* SocialStreamViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D466B921B1B92300010CE39 /* SocialStreamViewController.m */; };
+		5DBBA7281B40EDB500E2B750 /* SocialStreamViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D466B951B1B97A40010CE39 /* SocialStreamViewModel.m */; };
+		5DBBA7291B40EDB500E2B750 /* SocialStreamWebService.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D466B981B1B97BE0010CE39 /* SocialStreamWebService.m */; };
+		5DBBA72A1B40EDB500E2B750 /* BATableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C594D1AA8D06F00E73EF3 /* BATableViewCell.m */; };
+		5DBBA72B1B40EDB500E2B750 /* BAView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DADA6A41AAB6607005E4F2C /* BAView.m */; };
+		5DBBA72C1B40EDB500E2B750 /* DetailNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1754DD1AA87C94003A66D1 /* DetailNavigationBar.m */; };
+		5DBBA72D1B40EDB500E2B750 /* NSDate+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D28D8D21ADB484600841F28 /* NSDate+Helper.m */; };
+		5DBBA72E1B40EDB500E2B750 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBD75021AA26F0400713D4D /* UIView+Additions.m */; };
+		5DBBA72F1B40EDB500E2B750 /* PushRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBD74F51AA2646900713D4D /* PushRequestViewController.m */; };
+		5DBBA7301B40EDB500E2B750 /* ThemeContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FCECE1B3FA0A40097C3A3 /* ThemeContainer.m */; };
+		5DBBA7311B40EDB500E2B750 /* ThemeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FCED01B3FA0A40097C3A3 /* ThemeItem.m */; };
+		5DBBA7321B40EDB500E2B750 /* MenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FCEBC1B3F9F800097C3A3 /* MenuItem.m */; };
+		5DBBA7331B40EDB500E2B750 /* MenuContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FCEB91B3F9F3F0097C3A3 /* MenuContainer.m */; };
+		5DBBA7341B40EDB500E2B750 /* ProjectVariable.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FCEC51B3FA0330097C3A3 /* ProjectVariable.m */; };
+		5DBBA7351B40EDB500E2B750 /* MetaData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FCEBF1B3F9F9D0097C3A3 /* MetaData.m */; };
+		5DBBA7361B40EDB500E2B750 /* AccessoryPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FCEB61B3F9F220097C3A3 /* AccessoryPage.m */; };
+		5DBBA7371B40EDB500E2B750 /* Button.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FCEB31B3F9F070097C3A3 /* Button.m */; };
+		5DBBA7381B40EDB500E2B750 /* SocialContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FCEC81B3FA07D0097C3A3 /* SocialContainer.m */; };
+		5DBBA7391B40EDB500E2B750 /* SocialItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D6FCECA1B3FA07D0097C3A3 /* SocialItem.m */; };
+		5DBBA73A1B40EDB500E2B750 /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DB59E6F1AA7B4F900567D59 /* Notification.m */; };
+		5DBBA73B1B40EDB500E2B750 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA1B211A7F383C00914761 /* AppDelegate.m */; };
+		5DBBA73C1B40EDB500E2B750 /* UIColor+UIColor_Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80527C1A83315C0076A6E8 /* UIColor+UIColor_Expanded.m */; };
+		5DBBA73D1B40EDB500E2B750 /* DDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2F5531A85AECD00ED1969 /* DDViewController.m */; };
+		5DBBA73E1B40EDB500E2B750 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DA41A85D39500FD085A /* APIManager.m */; };
+		5DBBA73F1B40EDB500E2B750 /* ProjectSettingsKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DCB1A8681EF00FD085A /* ProjectSettingsKeys.m */; };
+		5DBBA7401B40EDB500E2B750 /* ExternalWebModalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DA4B98C1A7F3B2D0016476C /* ExternalWebModalViewController.m */; };
+		5DBBA7411B40EDB500E2B750 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDE241E1AA40968001CE1AD /* DetailViewController.m */; };
+		5DBBA7421B40EDB500E2B750 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA1B241A7F383C00914761 /* CenterViewController.m */; };
+		5DBBA7431B40EDB500E2B750 /* CenterVCActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DAE1A85EE4900FD085A /* CenterVCActivityIndicator.m */; };
+		5DBBA7441B40EDB500E2B750 /* BlurActivityOverlay.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DB41A85F4F700FD085A /* BlurActivityOverlay.m */; };
+		5DBBA7451B40EDB500E2B750 /* CenterVCTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DB71A85FDFE00FD085A /* CenterVCTitleLabel.m */; };
+		5DBBA7461B40EDB500E2B750 /* ShareViewSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D27CB741A91B65B006958F3 /* ShareViewSlider.m */; };
+		5DBBA7471B40EDB500E2B750 /* SideMenuTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2F55A1A85BBEF00ED1969 /* SideMenuTableHeaderView.m */; };
+		5DBBA7481B40EDB500E2B750 /* SideMenuHeaderImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2F55D1A85BF8000ED1969 /* SideMenuHeaderImageView.m */; };
+		5DBBA7491B40EDB500E2B750 /* SideMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D80527F1A8331FD0076A6E8 /* SideMenuTableViewCell.m */; };
+		5DBBA74A1B40EDB500E2B750 /* DropDownImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D357D541B3F1DE2005D0AB8 /* DropDownImageView.m */; };
+		5DBBA74B1B40EDB500E2B750 /* SideMenuTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2F5501A85A91A00ED1969 /* SideMenuTableView.m */; };
+		5DBBA74C1B40EDB500E2B750 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0EDAB31A830196007DE68D /* SideMenuViewController.m */; };
+		5DBBA74D1B40EDB500E2B750 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1754D31AA86F7E003A66D1 /* NotificationViewController.m */; };
+		5DBBA74E1B40EDB500E2B750 /* NotificationTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D1754D91AA8714F003A66D1 /* NotificationTableView.m */; };
+		5DBBA74F1B40EDB500E2B750 /* NotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C594A1AA8CFF400E73EF3 /* NotificationTableViewCell.m */; };
+		5DBBA7501B40EDB500E2B750 /* NotificationWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9C59561AA8E6E100E73EF3 /* NotificationWebView.m */; };
+		5DBBA7511B40EDB500E2B750 /* NotificationWebViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DADA6A11AAB56D0005E4F2C /* NotificationWebViewHeader.m */; };
+		5DBBA7521B40EDB500E2B750 /* NotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DADA6AE1AACFE0C005E4F2C /* NotificationView.m */; };
+		5DBBA7531B40EDB500E2B750 /* ShareTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DC81A867F7E00FD085A /* ShareTableView.m */; };
+		5DBBA7541B40EDB500E2B750 /* ShareTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DCE1A8685A200FD085A /* ShareTableViewCell.m */; };
+		5DBBA7551B40EDB500E2B750 /* OAuthWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D9F58A41A8DCBA400A53BB7 /* OAuthWebView.m */; };
+		5DBBA7561B40EDB500E2B750 /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DC21A86714400FD085A /* ShareViewController.m */; };
+		5DBBA7571B40EDB500E2B750 /* ShareView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DC51A86777800FD085A /* ShareView.m */; };
+		5DBBA7581B40EDB500E2B750 /* SocialSharingActionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0F177D1A86A1FC00AAE285 /* SocialSharingActionController.m */; };
+		5DBBA7591B40EDB500E2B750 /* SocialSharePopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D86005B1A87C45A00AA8971 /* SocialSharePopoverView.m */; };
+		5DBBA75A1B40EDB500E2B750 /* OAuthSignInView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D0B704D1A8D44CF008AF923 /* OAuthSignInView.m */; };
+		5DBBA75B1B40EDB500E2B750 /* SocialShareMethods.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DAB92241A92C82E006D3D4F /* SocialShareMethods.m */; };
+		5DBBA75C1B40EDB500E2B750 /* BASocialShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DADA6A81AACDE76005E4F2C /* BASocialShareViewController.m */; };
+		5DBBA75D1B40EE0E00E2B750 /* FacebookTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D3166541B2CA0EC00977BDC /* FacebookTableViewCell.h */; };
+		5DBBA75E1B40EE0E00E2B750 /* SocialStreamViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D466B911B1B92300010CE39 /* SocialStreamViewController.h */; };
+		5DBBA75F1B40EE0E00E2B750 /* SocialStreamViewModel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D466B941B1B97A40010CE39 /* SocialStreamViewModel.h */; };
+		5DBBA7601B40EE0E00E2B750 /* SocialStreamWebService.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D466B971B1B97BE0010CE39 /* SocialStreamWebService.h */; };
+		5DBBA7611B40EE0E00E2B750 /* BATableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D9C594C1AA8D06F00E73EF3 /* BATableViewCell.h */; };
+		5DBBA7621B40EE0E00E2B750 /* BAView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DADA6A31AAB6607005E4F2C /* BAView.h */; };
+		5DBBA7631B40EE0E00E2B750 /* DetailNavigationBar.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D1754DC1AA87C94003A66D1 /* DetailNavigationBar.h */; };
+		5DBBA7641B40EE0E00E2B750 /* NSDate+Helper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D28D8D11ADB484600841F28 /* NSDate+Helper.h */; };
+		5DBBA7651B40EE0E00E2B750 /* UIView+Additions.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DBD75011AA26F0400713D4D /* UIView+Additions.h */; };
+		5DBBA7661B40EE0E00E2B750 /* PushRequestViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DBD74F41AA2646900713D4D /* PushRequestViewController.h */; };
+		5DBBA7671B40EE0E00E2B750 /* ThemeContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D6FCECD1B3FA0A40097C3A3 /* ThemeContainer.h */; };
+		5DBBA7681B40EE0E00E2B750 /* ThemeItem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D6FCECF1B3FA0A40097C3A3 /* ThemeItem.h */; };
+		5DBBA7691B40EE0E00E2B750 /* MenuItem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D6FCEBB1B3F9F800097C3A3 /* MenuItem.h */; };
+		5DBBA76A1B40EE0E00E2B750 /* MenuContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D6FCEB81B3F9F3F0097C3A3 /* MenuContainer.h */; };
+		5DBBA76B1B40EE0E00E2B750 /* ProjectVariable.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D6FCEC41B3FA0330097C3A3 /* ProjectVariable.h */; };
+		5DBBA76C1B40EE0E00E2B750 /* MetaData.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D6FCEBE1B3F9F9D0097C3A3 /* MetaData.h */; };
+		5DBBA76D1B40EE0E00E2B750 /* AccessoryPage.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D6FCEB51B3F9F220097C3A3 /* AccessoryPage.h */; };
+		5DBBA76E1B40EE0E00E2B750 /* Button.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D6FCEB21B3F9F070097C3A3 /* Button.h */; };
+		5DBBA76F1B40EE0E00E2B750 /* SocialContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D6FCEC71B3FA07D0097C3A3 /* SocialContainer.h */; };
+		5DBBA7701B40EE0E00E2B750 /* SocialItem.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D6FCEC91B3FA07D0097C3A3 /* SocialItem.h */; };
+		5DBBA7711B40EE0E00E2B750 /* Notification.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DB59E6E1AA7B4F900567D59 /* Notification.h */; };
+		5DBBA7721B40EE0E00E2B750 /* AppDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DDA1B201A7F383C00914761 /* AppDelegate.h */; };
+		5DBBA7731B40EE0E00E2B750 /* UIColor+UIColor_Expanded.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D80527B1A83315C0076A6E8 /* UIColor+UIColor_Expanded.h */; };
+		5DBBA7741B40EE0E00E2B750 /* DDViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DC2F5521A85AECD00ED1969 /* DDViewController.h */; };
+		5DBBA7751B40EE0E00E2B750 /* APIManager.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DDA3DA31A85D39500FD085A /* APIManager.h */; };
+		5DBBA7761B40EE0E00E2B750 /* ExternalWebModalViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DA4B98B1A7F3B2D0016476C /* ExternalWebModalViewController.h */; };
+		5DBBA7771B40EE0E00E2B750 /* DetailViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DDE241D1AA40968001CE1AD /* DetailViewController.h */; };
+		5DBBA7781B40EE0E00E2B750 /* CenterViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DDA1B231A7F383C00914761 /* CenterViewController.h */; };
+		5DBBA7791B40EE0E00E2B750 /* CenterVCActivityIndicator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DDA3DAD1A85EE4900FD085A /* CenterVCActivityIndicator.h */; };
+		5DBBA77A1B40EE0E00E2B750 /* BlurActivityOverlay.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DDA3DB31A85F4F700FD085A /* BlurActivityOverlay.h */; };
+		5DBBA77B1B40EE0E00E2B750 /* CenterVCTitleLabel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DDA3DB61A85FDFE00FD085A /* CenterVCTitleLabel.h */; };
+		5DBBA77C1B40EE0E00E2B750 /* ShareViewSlider.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D27CB731A91B65B006958F3 /* ShareViewSlider.h */; };
+		5DBBA77D1B40EE0E00E2B750 /* SideMenuTableHeaderView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DC2F5591A85BBEF00ED1969 /* SideMenuTableHeaderView.h */; };
+		5DBBA77E1B40EE0E00E2B750 /* SideMenuHeaderImageView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DC2F55C1A85BF8000ED1969 /* SideMenuHeaderImageView.h */; };
+		5DBBA77F1B40EE0E00E2B750 /* SideMenuTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D80527E1A8331FD0076A6E8 /* SideMenuTableViewCell.h */; };
+		5DBBA7801B40EE0E00E2B750 /* DropDownImageView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D357D531B3F1DE2005D0AB8 /* DropDownImageView.h */; };
+		5DBBA7811B40EE0E00E2B750 /* SideMenuTableView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DC2F54F1A85A91A00ED1969 /* SideMenuTableView.h */; };
+		5DBBA7821B40EE0E00E2B750 /* SideMenuViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D0EDAB21A830196007DE68D /* SideMenuViewController.h */; };
+		5DBBA7831B40EE0E00E2B750 /* NotificationViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D1754D21AA86F7E003A66D1 /* NotificationViewController.h */; };
+		5DBBA7841B40EE0E00E2B750 /* NotificationTableView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D1754D81AA8714F003A66D1 /* NotificationTableView.h */; };
+		5DBBA7851B40EE0E00E2B750 /* NotificationTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D9C59491AA8CFF400E73EF3 /* NotificationTableViewCell.h */; };
+		5DBBA7861B40EE0E00E2B750 /* NotificationWebView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D9C59551AA8E6E100E73EF3 /* NotificationWebView.h */; };
+		5DBBA7871B40EE0E00E2B750 /* NotificationWebViewHeader.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DADA6A01AAB56D0005E4F2C /* NotificationWebViewHeader.h */; };
+		5DBBA7881B40EE0E00E2B750 /* NotificationView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DADA6AD1AACFE0C005E4F2C /* NotificationView.h */; };
+		5DBBA7891B40EE0E00E2B750 /* ShareTableView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DDA3DC71A867F7E00FD085A /* ShareTableView.h */; };
+		5DBBA78A1B40EE0E00E2B750 /* ShareTableViewCell.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DDA3DCD1A8685A200FD085A /* ShareTableViewCell.h */; };
+		5DBBA78B1B40EE0E00E2B750 /* OAuthWebView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D9F58A31A8DCBA400A53BB7 /* OAuthWebView.h */; };
+		5DBBA78C1B40EE0E00E2B750 /* ShareViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DDA3DC11A86714400FD085A /* ShareViewController.h */; };
+		5DBBA78D1B40EE0E00E2B750 /* ShareView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DDA3DC41A86777800FD085A /* ShareView.h */; };
+		5DBBA78E1B40EE0E00E2B750 /* SocialSharingActionController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D0F177C1A86A1FC00AAE285 /* SocialSharingActionController.h */; };
+		5DBBA78F1B40EE0E00E2B750 /* SocialSharePopoverView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D86005A1A87C45A00AA8971 /* SocialSharePopoverView.h */; };
+		5DBBA7901B40EE0E00E2B750 /* OAuthSignInView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D0B704C1A8D44CF008AF923 /* OAuthSignInView.h */; };
+		5DBBA7911B40EE0E00E2B750 /* SocialShareMethods.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DAB92231A92C82E006D3D4F /* SocialShareMethods.h */; };
+		5DBBA7921B40EE0E00E2B750 /* BASocialShareViewController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5DADA6A71AACDE76005E4F2C /* BASocialShareViewController.h */; };
+		5DBBA79C1B40EE3200E2B750 /* libPods-ApptlyCore-AWSCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBA7931B40EE3200E2B750 /* libPods-ApptlyCore-AWSCore.a */; };
+		5DBBA79D1B40EE3200E2B750 /* libPods-ApptlyCore-AWSSNS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBA7941B40EE3200E2B750 /* libPods-ApptlyCore-AWSSNS.a */; };
+		5DBBA79E1B40EE3200E2B750 /* libPods-ApptlyCore-Bolts.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBA7951B40EE3200E2B750 /* libPods-ApptlyCore-Bolts.a */; };
+		5DBBA79F1B40EE3200E2B750 /* libPods-ApptlyCore-GZIP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBA7961B40EE3200E2B750 /* libPods-ApptlyCore-GZIP.a */; };
+		5DBBA7A01B40EE3200E2B750 /* libPods-ApptlyCore-Mantle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBA7971B40EE3200E2B750 /* libPods-ApptlyCore-Mantle.a */; };
+		5DBBA7A11B40EE3200E2B750 /* libPods-ApptlyCore-MMDrawerController.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBA7981B40EE3200E2B750 /* libPods-ApptlyCore-MMDrawerController.a */; };
+		5DBBA7A21B40EE3200E2B750 /* libPods-ApptlyCore-Reachability.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBA7991B40EE3200E2B750 /* libPods-ApptlyCore-Reachability.a */; };
+		5DBBA7A31B40EE3200E2B750 /* libPods-ApptlyCore-UICKeyChainStore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBA79A1B40EE3200E2B750 /* libPods-ApptlyCore-UICKeyChainStore.a */; };
+		5DBBA7A41B40EE3200E2B750 /* libPods-ApptlyCore-XMLDictionary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DBBA79B1B40EE3200E2B750 /* libPods-ApptlyCore-XMLDictionary.a */; };
+		5DBBA7A51B40EE4C00E2B750 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2438FB1B23AAB800A891C2 /* Crashlytics.framework */; };
+		5DBBA7A61B40EE4C00E2B750 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7F6B5B1A8A893800A207CD /* Fabric.framework */; };
+		5DBBA7A71B40EE4C00E2B750 /* TwitterCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D2438FD1B23ABF400A891C2 /* TwitterCore.framework */; };
+		5DBBA7A81B40EE4C00E2B750 /* TwitterKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7F6B591A8A893800A207CD /* TwitterKit.framework */; };
+		5DBBA7A91B40EE6600E2B750 /* GoogleOpenSource.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9F59A01A8E781C00A53BB7 /* GoogleOpenSource.framework */; };
+		5DBBA7AA1B40EE6600E2B750 /* GooglePlus.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D9F599E1A8E781C00A53BB7 /* GooglePlus.framework */; };
+		5DBBA7AB1B40EE6D00E2B750 /* Pinterest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D7F6B3B1A898EC600A207CD /* Pinterest.framework */; };
 		5DBD74F61AA2646900713D4D /* PushRequestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBD74F51AA2646900713D4D /* PushRequestViewController.m */; };
 		5DBD75031AA26F0400713D4D /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DBD75021AA26F0400713D4D /* UIView+Additions.m */; };
 		5DC2F5511A85A91A00ED1969 /* SideMenuTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DC2F5501A85A91A00ED1969 /* SideMenuTableView.m */; };
@@ -310,7 +438,6 @@
 		5DDA1B221A7F383C00914761 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA1B211A7F383C00914761 /* AppDelegate.m */; };
 		5DDA1B251A7F383C00914761 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA1B241A7F383C00914761 /* CenterViewController.m */; };
 		5DDA1B2A1A7F383C00914761 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA1B291A7F383C00914761 /* Images.xcassets */; };
-		5DDA1B2D1A7F383C00914761 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA1B2B1A7F383C00914761 /* LaunchScreen.xib */; };
 		5DDA3DA51A85D39500FD085A /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DA41A85D39500FD085A /* APIManager.m */; };
 		5DDA3DAC1A85E67700FD085A /* ProjectVariables.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5DDA3DAB1A85E67700FD085A /* ProjectVariables.plist */; };
 		5DDA3DAF1A85EE4900FD085A /* CenterVCActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DDA3DAE1A85EE4900FD085A /* CenterVCActivityIndicator.m */; };
@@ -326,13 +453,88 @@
 		5DF7A6461A95650E009BA5EE /* LibreBaskerville-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5DF7A6451A95650E009BA5EE /* LibreBaskerville-Bold.otf */; };
 		5DFD4B8B1A96FE5D002A2D19 /* LillyBelle_2.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD4B8A1A96FE5D002A2D19 /* LillyBelle_2.ttf */; };
 		5DFD4B8D1A970003002A2D19 /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5DFD4B8C1A970003002A2D19 /* SourceSansPro-Regular.otf */; };
-		ACE787C249FB37ACADFAC918 /* libPods-ApptlyCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7A40AE8A24BB2A7ED0BEE64 /* libPods-ApptlyCore.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5DBBA71B1B40ED6E00E2B750 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5DDA1B111A7F383C00914761 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5DBBA70E1B40ED6E00E2B750;
+			remoteInfo = ApptlyLib;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5DBBA70D1B40ED6E00E2B750 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				5DBBA75D1B40EE0E00E2B750 /* FacebookTableViewCell.h in CopyFiles */,
+				5DBBA75E1B40EE0E00E2B750 /* SocialStreamViewController.h in CopyFiles */,
+				5DBBA75F1B40EE0E00E2B750 /* SocialStreamViewModel.h in CopyFiles */,
+				5DBBA7601B40EE0E00E2B750 /* SocialStreamWebService.h in CopyFiles */,
+				5DBBA7611B40EE0E00E2B750 /* BATableViewCell.h in CopyFiles */,
+				5DBBA7621B40EE0E00E2B750 /* BAView.h in CopyFiles */,
+				5DBBA7631B40EE0E00E2B750 /* DetailNavigationBar.h in CopyFiles */,
+				5DBBA7641B40EE0E00E2B750 /* NSDate+Helper.h in CopyFiles */,
+				5DBBA7651B40EE0E00E2B750 /* UIView+Additions.h in CopyFiles */,
+				5DBBA7661B40EE0E00E2B750 /* PushRequestViewController.h in CopyFiles */,
+				5DBBA7671B40EE0E00E2B750 /* ThemeContainer.h in CopyFiles */,
+				5DBBA7681B40EE0E00E2B750 /* ThemeItem.h in CopyFiles */,
+				5DBBA7691B40EE0E00E2B750 /* MenuItem.h in CopyFiles */,
+				5DBBA76A1B40EE0E00E2B750 /* MenuContainer.h in CopyFiles */,
+				5DBBA76B1B40EE0E00E2B750 /* ProjectVariable.h in CopyFiles */,
+				5DBBA76C1B40EE0E00E2B750 /* MetaData.h in CopyFiles */,
+				5DBBA76D1B40EE0E00E2B750 /* AccessoryPage.h in CopyFiles */,
+				5DBBA76E1B40EE0E00E2B750 /* Button.h in CopyFiles */,
+				5DBBA76F1B40EE0E00E2B750 /* SocialContainer.h in CopyFiles */,
+				5DBBA7701B40EE0E00E2B750 /* SocialItem.h in CopyFiles */,
+				5DBBA7711B40EE0E00E2B750 /* Notification.h in CopyFiles */,
+				5DBBA7721B40EE0E00E2B750 /* AppDelegate.h in CopyFiles */,
+				5DBBA7731B40EE0E00E2B750 /* UIColor+UIColor_Expanded.h in CopyFiles */,
+				5DBBA7741B40EE0E00E2B750 /* DDViewController.h in CopyFiles */,
+				5DBBA7751B40EE0E00E2B750 /* APIManager.h in CopyFiles */,
+				5DBBA7761B40EE0E00E2B750 /* ExternalWebModalViewController.h in CopyFiles */,
+				5DBBA7771B40EE0E00E2B750 /* DetailViewController.h in CopyFiles */,
+				5DBBA7781B40EE0E00E2B750 /* CenterViewController.h in CopyFiles */,
+				5DBBA7791B40EE0E00E2B750 /* CenterVCActivityIndicator.h in CopyFiles */,
+				5DBBA77A1B40EE0E00E2B750 /* BlurActivityOverlay.h in CopyFiles */,
+				5DBBA77B1B40EE0E00E2B750 /* CenterVCTitleLabel.h in CopyFiles */,
+				5DBBA77C1B40EE0E00E2B750 /* ShareViewSlider.h in CopyFiles */,
+				5DBBA77D1B40EE0E00E2B750 /* SideMenuTableHeaderView.h in CopyFiles */,
+				5DBBA77E1B40EE0E00E2B750 /* SideMenuHeaderImageView.h in CopyFiles */,
+				5DBBA77F1B40EE0E00E2B750 /* SideMenuTableViewCell.h in CopyFiles */,
+				5DBBA7801B40EE0E00E2B750 /* DropDownImageView.h in CopyFiles */,
+				5DBBA7811B40EE0E00E2B750 /* SideMenuTableView.h in CopyFiles */,
+				5DBBA7821B40EE0E00E2B750 /* SideMenuViewController.h in CopyFiles */,
+				5DBBA7831B40EE0E00E2B750 /* NotificationViewController.h in CopyFiles */,
+				5DBBA7841B40EE0E00E2B750 /* NotificationTableView.h in CopyFiles */,
+				5DBBA7851B40EE0E00E2B750 /* NotificationTableViewCell.h in CopyFiles */,
+				5DBBA7861B40EE0E00E2B750 /* NotificationWebView.h in CopyFiles */,
+				5DBBA7871B40EE0E00E2B750 /* NotificationWebViewHeader.h in CopyFiles */,
+				5DBBA7881B40EE0E00E2B750 /* NotificationView.h in CopyFiles */,
+				5DBBA7891B40EE0E00E2B750 /* ShareTableView.h in CopyFiles */,
+				5DBBA78A1B40EE0E00E2B750 /* ShareTableViewCell.h in CopyFiles */,
+				5DBBA78B1B40EE0E00E2B750 /* OAuthWebView.h in CopyFiles */,
+				5DBBA78C1B40EE0E00E2B750 /* ShareViewController.h in CopyFiles */,
+				5DBBA78D1B40EE0E00E2B750 /* ShareView.h in CopyFiles */,
+				5DBBA78E1B40EE0E00E2B750 /* SocialSharingActionController.h in CopyFiles */,
+				5DBBA78F1B40EE0E00E2B750 /* SocialSharePopoverView.h in CopyFiles */,
+				5DBBA7901B40EE0E00E2B750 /* OAuthSignInView.h in CopyFiles */,
+				5DBBA7911B40EE0E00E2B750 /* SocialShareMethods.h in CopyFiles */,
+				5DBBA7921B40EE0E00E2B750 /* BASocialShareViewController.h in CopyFiles */,
+				5DBBA7121B40ED6E00E2B750 /* ApptlyLib.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1260D3C12DFDFD86043335E1 /* Pods-ApptlyCore.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApptlyCore.release.xcconfig"; path = "Pods/Target Support Files/Pods-ApptlyCore/Pods-ApptlyCore.release.xcconfig"; sourceTree = "<group>"; };
 		3E7B87A05AF3B206DA45EECC /* Pods-ApptlyCore.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ApptlyCore.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ApptlyCore/Pods-ApptlyCore.debug.xcconfig"; sourceTree = "<group>"; };
-		579988490B7E0E905A16D25A /* libPods-DailyDoll.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DailyDoll.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D0B704C1A8D44CF008AF923 /* OAuthSignInView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OAuthSignInView.h; sourceTree = "<group>"; };
 		5D0B704D1A8D44CF008AF923 /* OAuthSignInView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OAuthSignInView.m; sourceTree = "<group>"; };
 		5D0EDAB21A830196007DE68D /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
@@ -956,6 +1158,20 @@
 		5DADA6AE1AACFE0C005E4F2C /* NotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationView.m; sourceTree = "<group>"; };
 		5DB59E6E1AA7B4F900567D59 /* Notification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notification.h; sourceTree = "<group>"; };
 		5DB59E6F1AA7B4F900567D59 /* Notification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Notification.m; sourceTree = "<group>"; };
+		5DBBA70F1B40ED6E00E2B750 /* libApptlyLib.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libApptlyLib.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DBBA7111B40ED6E00E2B750 /* ApptlyLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ApptlyLib.h; sourceTree = "<group>"; };
+		5DBBA7131B40ED6E00E2B750 /* ApptlyLib.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ApptlyLib.m; sourceTree = "<group>"; };
+		5DBBA7191B40ED6E00E2B750 /* ApptlyLibTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ApptlyLibTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DBBA71F1B40ED6E00E2B750 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5DBBA7931B40EE3200E2B750 /* libPods-ApptlyCore-AWSCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ApptlyCore-AWSCore.a"; path = "Pods/../build/Debug-iphoneos/libPods-ApptlyCore-AWSCore.a"; sourceTree = "<group>"; };
+		5DBBA7941B40EE3200E2B750 /* libPods-ApptlyCore-AWSSNS.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ApptlyCore-AWSSNS.a"; path = "Pods/../build/Debug-iphoneos/libPods-ApptlyCore-AWSSNS.a"; sourceTree = "<group>"; };
+		5DBBA7951B40EE3200E2B750 /* libPods-ApptlyCore-Bolts.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ApptlyCore-Bolts.a"; path = "Pods/../build/Debug-iphoneos/libPods-ApptlyCore-Bolts.a"; sourceTree = "<group>"; };
+		5DBBA7961B40EE3200E2B750 /* libPods-ApptlyCore-GZIP.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ApptlyCore-GZIP.a"; path = "Pods/../build/Debug-iphoneos/libPods-ApptlyCore-GZIP.a"; sourceTree = "<group>"; };
+		5DBBA7971B40EE3200E2B750 /* libPods-ApptlyCore-Mantle.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ApptlyCore-Mantle.a"; path = "Pods/../build/Debug-iphoneos/libPods-ApptlyCore-Mantle.a"; sourceTree = "<group>"; };
+		5DBBA7981B40EE3200E2B750 /* libPods-ApptlyCore-MMDrawerController.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ApptlyCore-MMDrawerController.a"; path = "Pods/../build/Debug-iphoneos/libPods-ApptlyCore-MMDrawerController.a"; sourceTree = "<group>"; };
+		5DBBA7991B40EE3200E2B750 /* libPods-ApptlyCore-Reachability.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ApptlyCore-Reachability.a"; path = "Pods/../build/Debug-iphoneos/libPods-ApptlyCore-Reachability.a"; sourceTree = "<group>"; };
+		5DBBA79A1B40EE3200E2B750 /* libPods-ApptlyCore-UICKeyChainStore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ApptlyCore-UICKeyChainStore.a"; path = "Pods/../build/Debug-iphoneos/libPods-ApptlyCore-UICKeyChainStore.a"; sourceTree = "<group>"; };
+		5DBBA79B1B40EE3200E2B750 /* libPods-ApptlyCore-XMLDictionary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libPods-ApptlyCore-XMLDictionary.a"; path = "Pods/../build/Debug-iphoneos/libPods-ApptlyCore-XMLDictionary.a"; sourceTree = "<group>"; };
 		5DBD74F41AA2646900713D4D /* PushRequestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushRequestViewController.h; sourceTree = "<group>"; };
 		5DBD74F51AA2646900713D4D /* PushRequestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushRequestViewController.m; sourceTree = "<group>"; };
 		5DBD75011AA26F0400713D4D /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
@@ -978,7 +1194,6 @@
 		5DDA1B231A7F383C00914761 /* CenterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CenterViewController.h; sourceTree = "<group>"; };
 		5DDA1B241A7F383C00914761 /* CenterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CenterViewController.m; sourceTree = "<group>"; };
 		5DDA1B291A7F383C00914761 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		5DDA1B2C1A7F383C00914761 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		5DDA1B371A7F383C00914761 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DDA1B381A7F383C00914761 /* DailyDollTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DailyDollTests.m; sourceTree = "<group>"; };
 		5DDA3DA31A85D39500FD085A /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
@@ -1006,12 +1221,40 @@
 		5DF7A6451A95650E009BA5EE /* LibreBaskerville-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "LibreBaskerville-Bold.otf"; sourceTree = "<group>"; };
 		5DFD4B8A1A96FE5D002A2D19 /* LillyBelle_2.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LillyBelle_2.ttf; sourceTree = "<group>"; };
 		5DFD4B8C1A970003002A2D19 /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
-		680B8C91B0508131C24B223C /* Pods-DailyDoll.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDoll.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DailyDoll/Pods-DailyDoll.debug.xcconfig"; sourceTree = "<group>"; };
-		AA7FAADA7B793178F851DF47 /* Pods-DailyDoll.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DailyDoll.release.xcconfig"; path = "Pods/Target Support Files/Pods-DailyDoll/Pods-DailyDoll.release.xcconfig"; sourceTree = "<group>"; };
-		D7A40AE8A24BB2A7ED0BEE64 /* libPods-ApptlyCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ApptlyCore.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5DBBA70C1B40ED6E00E2B750 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DBBA7AB1B40EE6D00E2B750 /* Pinterest.framework in Frameworks */,
+				5DBBA7A91B40EE6600E2B750 /* GoogleOpenSource.framework in Frameworks */,
+				5DBBA7AA1B40EE6600E2B750 /* GooglePlus.framework in Frameworks */,
+				5DBBA7A51B40EE4C00E2B750 /* Crashlytics.framework in Frameworks */,
+				5DBBA7A61B40EE4C00E2B750 /* Fabric.framework in Frameworks */,
+				5DBBA7A71B40EE4C00E2B750 /* TwitterCore.framework in Frameworks */,
+				5DBBA7A81B40EE4C00E2B750 /* TwitterKit.framework in Frameworks */,
+				5DBBA79C1B40EE3200E2B750 /* libPods-ApptlyCore-AWSCore.a in Frameworks */,
+				5DBBA79D1B40EE3200E2B750 /* libPods-ApptlyCore-AWSSNS.a in Frameworks */,
+				5DBBA79E1B40EE3200E2B750 /* libPods-ApptlyCore-Bolts.a in Frameworks */,
+				5DBBA79F1B40EE3200E2B750 /* libPods-ApptlyCore-GZIP.a in Frameworks */,
+				5DBBA7A01B40EE3200E2B750 /* libPods-ApptlyCore-Mantle.a in Frameworks */,
+				5DBBA7A11B40EE3200E2B750 /* libPods-ApptlyCore-MMDrawerController.a in Frameworks */,
+				5DBBA7A21B40EE3200E2B750 /* libPods-ApptlyCore-Reachability.a in Frameworks */,
+				5DBBA7A31B40EE3200E2B750 /* libPods-ApptlyCore-UICKeyChainStore.a in Frameworks */,
+				5DBBA7A41B40EE3200E2B750 /* libPods-ApptlyCore-XMLDictionary.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DBBA7161B40ED6E00E2B750 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DBBA71A1B40ED6E00E2B750 /* libApptlyLib.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5DDA1B161A7F383C00914761 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1035,7 +1278,6 @@
 				5D7F6B5C1A8A893800A207CD /* TwitterKit.framework in Frameworks */,
 				5D9F5A081A8E781D00A53BB7 /* GoogleOpenSource.framework in Frameworks */,
 				5D7F6B5E1A8A893800A207CD /* Fabric.framework in Frameworks */,
-				ACE787C249FB37ACADFAC918 /* libPods-ApptlyCore.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1045,8 +1287,16 @@
 		0DA83D6F48BB2DF1721401E3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5DBBA7931B40EE3200E2B750 /* libPods-ApptlyCore-AWSCore.a */,
+				5DBBA7941B40EE3200E2B750 /* libPods-ApptlyCore-AWSSNS.a */,
+				5DBBA7951B40EE3200E2B750 /* libPods-ApptlyCore-Bolts.a */,
+				5DBBA7961B40EE3200E2B750 /* libPods-ApptlyCore-GZIP.a */,
+				5DBBA7971B40EE3200E2B750 /* libPods-ApptlyCore-Mantle.a */,
+				5DBBA7981B40EE3200E2B750 /* libPods-ApptlyCore-MMDrawerController.a */,
+				5DBBA7991B40EE3200E2B750 /* libPods-ApptlyCore-Reachability.a */,
+				5DBBA79A1B40EE3200E2B750 /* libPods-ApptlyCore-UICKeyChainStore.a */,
+				5DBBA79B1B40EE3200E2B750 /* libPods-ApptlyCore-XMLDictionary.a */,
 				5D9F58BE1A8E77DD00A53BB7 /* GooglePlus */,
-				5D9F58BD1A8E77C900A53BB7 /* Twitter */,
 				5D7F6B591A8A893800A207CD /* TwitterKit.framework */,
 				5D7F6B5A1A8A893800A207CD /* TwitterKitResources.bundle */,
 				5D7F6B5B1A8A893800A207CD /* Fabric.framework */,
@@ -1065,8 +1315,6 @@
 				5D9F5A0C1A8E783C00A53BB7 /* AddressBook.framework */,
 				5DC696281A8D8D5D00A5D3AB /* Security.framework */,
 				5D62FD641A8AF1230022671F /* CoreData.framework */,
-				579988490B7E0E905A16D25A /* libPods-DailyDoll.a */,
-				D7A40AE8A24BB2A7ED0BEE64 /* libPods-ApptlyCore.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1074,8 +1322,6 @@
 		1CB981F61540B1C0AAAF2459 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				680B8C91B0508131C24B223C /* Pods-DailyDoll.debug.xcconfig */,
-				AA7FAADA7B793178F851DF47 /* Pods-DailyDoll.release.xcconfig */,
 				3E7B87A05AF3B206DA45EECC /* Pods-ApptlyCore.debug.xcconfig */,
 				1260D3C12DFDFD86043335E1 /* Pods-ApptlyCore.release.xcconfig */,
 			);
@@ -1986,14 +2232,6 @@
 			path = DailyDoll;
 			sourceTree = "<group>";
 		};
-		5D9F58BD1A8E77C900A53BB7 /* Twitter */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Twitter;
-			path = DailyDoll;
-			sourceTree = "<group>";
-		};
 		5D9F58BE1A8E77DD00A53BB7 /* GooglePlus */ = {
 			isa = PBXGroup;
 			children = (
@@ -2044,6 +2282,31 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		5DBBA7101B40ED6E00E2B750 /* ApptlyLib */ = {
+			isa = PBXGroup;
+			children = (
+				5DBBA7111B40ED6E00E2B750 /* ApptlyLib.h */,
+				5DBBA7131B40ED6E00E2B750 /* ApptlyLib.m */,
+			);
+			path = ApptlyLib;
+			sourceTree = "<group>";
+		};
+		5DBBA71D1B40ED6E00E2B750 /* ApptlyLibTests */ = {
+			isa = PBXGroup;
+			children = (
+				5DBBA71E1B40ED6E00E2B750 /* Supporting Files */,
+			);
+			path = ApptlyLibTests;
+			sourceTree = "<group>";
+		};
+		5DBBA71E1B40ED6E00E2B750 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5DBBA71F1B40ED6E00E2B750 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		5DBD74F31AA2645000713D4D /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -2088,10 +2351,12 @@
 			isa = PBXGroup;
 			children = (
 				5D6FCED71B3FA1760097C3A3 /* post.js */,
+				5DDA1B1B1A7F383C00914761 /* DailyDoll */,
 				5D6FCED31B3FA0F20097C3A3 /* webView.css */,
 				5D6FCED41B3FA0F20097C3A3 /* webViewJS.js */,
-				5DDA1B1B1A7F383C00914761 /* DailyDoll */,
 				5DDA1B351A7F383C00914761 /* DailyDollTests */,
+				5DBBA7101B40ED6E00E2B750 /* ApptlyLib */,
+				5DBBA71D1B40ED6E00E2B750 /* ApptlyLibTests */,
 				5DDA1B1A1A7F383C00914761 /* Products */,
 				1CB981F61540B1C0AAAF2459 /* Pods */,
 				0DA83D6F48BB2DF1721401E3 /* Frameworks */,
@@ -2102,6 +2367,8 @@
 			isa = PBXGroup;
 			children = (
 				5DDA1B191A7F383C00914761 /* ApptlyCore.app */,
+				5DBBA70F1B40ED6E00E2B750 /* libApptlyLib.a */,
+				5DBBA7191B40ED6E00E2B750 /* ApptlyLibTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2134,7 +2401,6 @@
 				5DDA1B1C1A7F383C00914761 /* Supporting Files */,
 				5DDA1B291A7F383C00914761 /* Images.xcassets */,
 				5D62FD661A8AF1680022671F /* DataModel.xcdatamodeld */,
-				5DDA1B2B1A7F383C00914761 /* LaunchScreen.xib */,
 				5DA64CD41A847A7A004F08A8 /* HeaderView.xib */,
 			);
 			path = DailyDoll;
@@ -2305,6 +2571,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5DBBA70E1B40ED6E00E2B750 /* ApptlyLib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DBBA7201B40ED6E00E2B750 /* Build configuration list for PBXNativeTarget "ApptlyLib" */;
+			buildPhases = (
+				5DBBA70B1B40ED6E00E2B750 /* Sources */,
+				5DBBA70C1B40ED6E00E2B750 /* Frameworks */,
+				5DBBA70D1B40ED6E00E2B750 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ApptlyLib;
+			productName = ApptlyLib;
+			productReference = 5DBBA70F1B40ED6E00E2B750 /* libApptlyLib.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		5DBBA7181B40ED6E00E2B750 /* ApptlyLibTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5DBBA7231B40ED6E00E2B750 /* Build configuration list for PBXNativeTarget "ApptlyLibTests" */;
+			buildPhases = (
+				5DBBA7151B40ED6E00E2B750 /* Sources */,
+				5DBBA7161B40ED6E00E2B750 /* Frameworks */,
+				5DBBA7171B40ED6E00E2B750 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5DBBA71C1B40ED6E00E2B750 /* PBXTargetDependency */,
+			);
+			name = ApptlyLibTests;
+			productName = ApptlyLibTests;
+			productReference = 5DBBA7191B40ED6E00E2B750 /* ApptlyLibTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		5DDA1B181A7F383C00914761 /* ApptlyCore */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5DDA1B3C1A7F383C00914761 /* Build configuration list for PBXNativeTarget "ApptlyCore" */;
@@ -2334,6 +2635,12 @@
 				LastUpgradeCheck = 0610;
 				ORGANIZATIONNAME = Richmond;
 				TargetAttributes = {
+					5DBBA70E1B40ED6E00E2B750 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
+					5DBBA7181B40ED6E00E2B750 = {
+						CreatedOnToolsVersion = 6.3.2;
+					};
 					5DDA1B181A7F383C00914761 = {
 						CreatedOnToolsVersion = 6.1.1;
 						DevelopmentTeam = TB5YKEAJ2S;
@@ -2389,11 +2696,20 @@
 			projectRoot = "";
 			targets = (
 				5DDA1B181A7F383C00914761 /* ApptlyCore */,
+				5DBBA70E1B40ED6E00E2B750 /* ApptlyLib */,
+				5DBBA7181B40ED6E00E2B750 /* ApptlyLibTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5DBBA7171B40ED6E00E2B750 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5DDA1B171A7F383C00914761 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2409,7 +2725,6 @@
 				5DFD4B8D1A970003002A2D19 /* SourceSansPro-Regular.otf in Resources */,
 				5D6C98631A8D01AE00EB408E /* Themer.plist in Resources */,
 				5DA64CD51A847A7A004F08A8 /* HeaderView.xib in Resources */,
-				5DDA1B2D1A7F383C00914761 /* LaunchScreen.xib in Resources */,
 				5DF7A6441A955FFC009BA5EE /* GreatVibes-Regular.otf in Resources */,
 				5D7F6B5D1A8A893800A207CD /* TwitterKitResources.bundle in Resources */,
 				5D6FD2551B3FB1D00097C3A3 /* LICENSE in Resources */,
@@ -2471,6 +2786,76 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5DBBA70B1B40ED6E00E2B750 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5DBBA7261B40EDB500E2B750 /* FacebookTableViewCell.m in Sources */,
+				5DBBA7271B40EDB500E2B750 /* SocialStreamViewController.m in Sources */,
+				5DBBA7281B40EDB500E2B750 /* SocialStreamViewModel.m in Sources */,
+				5DBBA7291B40EDB500E2B750 /* SocialStreamWebService.m in Sources */,
+				5DBBA72A1B40EDB500E2B750 /* BATableViewCell.m in Sources */,
+				5DBBA72B1B40EDB500E2B750 /* BAView.m in Sources */,
+				5DBBA72C1B40EDB500E2B750 /* DetailNavigationBar.m in Sources */,
+				5DBBA72D1B40EDB500E2B750 /* NSDate+Helper.m in Sources */,
+				5DBBA72E1B40EDB500E2B750 /* UIView+Additions.m in Sources */,
+				5DBBA72F1B40EDB500E2B750 /* PushRequestViewController.m in Sources */,
+				5DBBA7301B40EDB500E2B750 /* ThemeContainer.m in Sources */,
+				5DBBA7311B40EDB500E2B750 /* ThemeItem.m in Sources */,
+				5DBBA7321B40EDB500E2B750 /* MenuItem.m in Sources */,
+				5DBBA7331B40EDB500E2B750 /* MenuContainer.m in Sources */,
+				5DBBA7341B40EDB500E2B750 /* ProjectVariable.m in Sources */,
+				5DBBA7351B40EDB500E2B750 /* MetaData.m in Sources */,
+				5DBBA7361B40EDB500E2B750 /* AccessoryPage.m in Sources */,
+				5DBBA7371B40EDB500E2B750 /* Button.m in Sources */,
+				5DBBA7381B40EDB500E2B750 /* SocialContainer.m in Sources */,
+				5DBBA7391B40EDB500E2B750 /* SocialItem.m in Sources */,
+				5DBBA73A1B40EDB500E2B750 /* Notification.m in Sources */,
+				5DBBA73B1B40EDB500E2B750 /* AppDelegate.m in Sources */,
+				5DBBA73C1B40EDB500E2B750 /* UIColor+UIColor_Expanded.m in Sources */,
+				5DBBA73D1B40EDB500E2B750 /* DDViewController.m in Sources */,
+				5DBBA73E1B40EDB500E2B750 /* APIManager.m in Sources */,
+				5DBBA73F1B40EDB500E2B750 /* ProjectSettingsKeys.m in Sources */,
+				5DBBA7401B40EDB500E2B750 /* ExternalWebModalViewController.m in Sources */,
+				5DBBA7411B40EDB500E2B750 /* DetailViewController.m in Sources */,
+				5DBBA7421B40EDB500E2B750 /* CenterViewController.m in Sources */,
+				5DBBA7431B40EDB500E2B750 /* CenterVCActivityIndicator.m in Sources */,
+				5DBBA7441B40EDB500E2B750 /* BlurActivityOverlay.m in Sources */,
+				5DBBA7451B40EDB500E2B750 /* CenterVCTitleLabel.m in Sources */,
+				5DBBA7461B40EDB500E2B750 /* ShareViewSlider.m in Sources */,
+				5DBBA7471B40EDB500E2B750 /* SideMenuTableHeaderView.m in Sources */,
+				5DBBA7481B40EDB500E2B750 /* SideMenuHeaderImageView.m in Sources */,
+				5DBBA7491B40EDB500E2B750 /* SideMenuTableViewCell.m in Sources */,
+				5DBBA74A1B40EDB500E2B750 /* DropDownImageView.m in Sources */,
+				5DBBA74B1B40EDB500E2B750 /* SideMenuTableView.m in Sources */,
+				5DBBA74C1B40EDB500E2B750 /* SideMenuViewController.m in Sources */,
+				5DBBA74D1B40EDB500E2B750 /* NotificationViewController.m in Sources */,
+				5DBBA74E1B40EDB500E2B750 /* NotificationTableView.m in Sources */,
+				5DBBA74F1B40EDB500E2B750 /* NotificationTableViewCell.m in Sources */,
+				5DBBA7501B40EDB500E2B750 /* NotificationWebView.m in Sources */,
+				5DBBA7511B40EDB500E2B750 /* NotificationWebViewHeader.m in Sources */,
+				5DBBA7521B40EDB500E2B750 /* NotificationView.m in Sources */,
+				5DBBA7531B40EDB500E2B750 /* ShareTableView.m in Sources */,
+				5DBBA7541B40EDB500E2B750 /* ShareTableViewCell.m in Sources */,
+				5DBBA7551B40EDB500E2B750 /* OAuthWebView.m in Sources */,
+				5DBBA7561B40EDB500E2B750 /* ShareViewController.m in Sources */,
+				5DBBA7571B40EDB500E2B750 /* ShareView.m in Sources */,
+				5DBBA7581B40EDB500E2B750 /* SocialSharingActionController.m in Sources */,
+				5DBBA7591B40EDB500E2B750 /* SocialSharePopoverView.m in Sources */,
+				5DBBA75A1B40EDB500E2B750 /* OAuthSignInView.m in Sources */,
+				5DBBA75B1B40EDB500E2B750 /* SocialShareMethods.m in Sources */,
+				5DBBA75C1B40EDB500E2B750 /* BASocialShareViewController.m in Sources */,
+				5DBBA7141B40ED6E00E2B750 /* ApptlyLib.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5DBBA7151B40ED6E00E2B750 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5DDA1B151A7F383C00914761 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2760,18 +3145,101 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		5DDA1B2B1A7F383C00914761 /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5DDA1B2C1A7F383C00914761 /* Base */,
-			);
-			name = LaunchScreen.xib;
-			sourceTree = "<group>";
+/* Begin PBXTargetDependency section */
+		5DBBA71C1B40ED6E00E2B750 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5DBBA70E1B40ED6E00E2B750 /* ApptlyLib */;
+			targetProxy = 5DBBA71B1B40ED6E00E2B750 /* PBXContainerItemProxy */;
 		};
-/* End PBXVariantGroup section */
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		5DBBA7211B40ED6E00E2B750 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/DailyDoll",
+					"$(PROJECT_DIR)/Pinterest.embeddedframework",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5DBBA7221B40ED6E00E2B750 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/DailyDoll",
+					"$(PROJECT_DIR)/Pinterest.embeddedframework",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		5DBBA7241B40ED6E00E2B750 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = ApptlyLibTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5DBBA7251B40ED6E00E2B750 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = ApptlyLibTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		5DDA1B3A1A7F383C00914761 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2903,6 +3371,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5DBBA7201B40ED6E00E2B750 /* Build configuration list for PBXNativeTarget "ApptlyLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DBBA7211B40ED6E00E2B750 /* Debug */,
+				5DBBA7221B40ED6E00E2B750 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5DBBA7231B40ED6E00E2B750 /* Build configuration list for PBXNativeTarget "ApptlyLibTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5DBBA7241B40ED6E00E2B750 /* Debug */,
+				5DBBA7251B40ED6E00E2B750 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		5DDA1B141A7F383C00914761 /* Build configuration list for PBXProject "ApptlyCore" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

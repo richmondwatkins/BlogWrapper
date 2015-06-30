@@ -15,7 +15,7 @@
 #import <Crashlytics/Crashlytics.h>
 #import "APIManager.h"
 #import <GooglePlus/GooglePlus.h>
-#import <AWSSNS.h>
+#import "AWSSNS.h"
 
 @interface AppDelegate ()
 @end
