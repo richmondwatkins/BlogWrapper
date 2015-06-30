@@ -8,121 +8,101 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Pods-ApptlyCore-AWSSNS.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>Pods-ApptlyCore-Bolts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>Pods-ApptlyCore-GZIP.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>Pods-ApptlyCore-MMDrawerController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
 		</dict>
 		<key>Pods-ApptlyCore-Mantle.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
 		</dict>
 		<key>Pods-ApptlyCore-Reachability.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>8</integer>
 		</dict>
 		<key>Pods-ApptlyCore-UICKeyChainStore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>9</integer>
 		</dict>
 		<key>Pods-ApptlyCore-XMLDictionary.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>10</integer>
 		</dict>
 		<key>Pods-ApptlyCore.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0EDE96E8EEEE1E50143C8C8B</key>
+		<key>15E1AF01E5A9A35FCDF4E5B3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>17A3A04DE662DCF13B09845D</key>
+		<key>29A95E3C754EA8ED3E336089</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>44BB3424773B301CD71B90EC</key>
+		<key>29D0F707A9170DE7FC5415A9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6ABCFC2C6BA05E8B065DCFAE</key>
+		<key>3112560F9F55E68EFC4607F1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A67786F86E05A6FA3DE0E91F</key>
+		<key>3B0460A27252AEE8441C09EF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AA199C08E6EF5A8FEB360973</key>
+		<key>52B4345032650ADDB4C196ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ABF7F1D951AD1A714FF15BDD</key>
+		<key>5A9C36FFB3B479518A52A798</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>ADAFED5459686012257940A8</key>
+		<key>60138ECBEF238B7B4048A25B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C6D342341F2FAAB5F08BB780</key>
+		<key>82591AEF787D20D8409A2032</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CC6CD782771B27D7AB599D89</key>
+		<key>A62D658304E6E85E563F1F92</key>
 		<dict>
 			<key>primary</key>
 			<true/>
